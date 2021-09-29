@@ -13,6 +13,9 @@ const colors = {
 }
 
 const theme = createTheme({
+	typography: {
+		fontFamily: 'Montserrat, sans-serif',
+	},
 	palette: {
 		common: {
 			green: colors.green,
