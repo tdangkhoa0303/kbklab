@@ -9,5 +9,6 @@ export interface APIClientResponse<TResponseData> {
 }
 
 export default axios.create({
-	withCredentials: false
+	withCredentials: false,
+	baseURL: '/api/v1'
 });

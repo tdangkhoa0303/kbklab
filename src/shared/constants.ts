@@ -1,5 +1,7 @@
-export enum AppUrl {
-	LogIn = '/login'
+export enum AppCommonRoute {
+	Home = '/',
+	LogIn = '/login',
+	Score = '/score'
 }
 
 export enum ValidationError {
@@ -9,5 +11,16 @@ export enum ValidationError {
 
 export enum AppContext {
 	User = 'user',
-	Lab = 'lab'
+	Lab = 'labs'
+}
+
+export enum ResponseStatus {
+	Success = 'SUCCESS',
+	Failed = 'FAILED'
+}
+
+export enum LabStatus {
+	InProgress = 'In progress',
+	Closed = 'Closed',
+	Future = 'Future'
 }

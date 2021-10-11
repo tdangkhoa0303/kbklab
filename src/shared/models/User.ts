@@ -1,6 +1,6 @@
 export enum UserRole {
-	Student = 'Student',
-	Lecturer = 'Lecturer'
+	Student = 'student',
+	Lecturer = 'lecturer'
 }
 
 export interface User {

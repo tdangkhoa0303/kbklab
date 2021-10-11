@@ -17,8 +17,9 @@ const FormikTextField: React.FC<FormikTextFieldProps> = (props) => {
 				marginBottom: theme => theme.spacing(5),
 
 				'& fieldset': {
-					boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.06);',
-					border: 'none'
+					boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.06)',
+					border: 'none',
+					background: '#ffffff40'
 				}
 			}}
 			error={!!error}

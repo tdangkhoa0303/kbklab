@@ -1,16 +1,30 @@
 import React from 'react';
 import {AppProvider} from 'shared/components';
-import {Redirect, Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
+import {AuthenticateRoute, PrivateRoutes, PrivateRoute} from 'components'
+import {AppCommonRoute} from 'shared/constants';
+import Login from 'pages/Login';
 
-const Login = React.lazy(() => import('pages/Login/Login'))
+const StudentDashboard = React.lazy(() => import('pages/StudentDashboard.container'))
 
 function App() {
 	return (
 		<AppProvider>
-			<Route path="/login">
-				<Login />
-			</Route>
-			<Redirect to="/login" />
+			<Switch>
+				<AuthenticateRoute path={[AppCommonRoute.LogIn]}>
+					<Route path={AppCommonRoute.LogIn}>
+						<Login />
+					</Route>
+				</AuthenticateRoute>
+				<PrivateRoutes path={[AppCommonRoute.Home, AppCommonRoute.Score]}>
+					<PrivateRoute exact path={AppCommonRoute.Home}>
+						<StudentDashboard />
+					</PrivateRoute>
+					<PrivateRoute exact path={AppCommonRoute.Score}>
+						Score
+					</PrivateRoute>
+				</PrivateRoutes>
+			</Switch>
 		</AppProvider>
 	);
 }

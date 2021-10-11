@@ -4,8 +4,11 @@ import store from 'shared/redux/store';
 import theme from 'shared/theme';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import {BrowserRouter} from 'react-router-dom';
-import FetchUser from './FetchUser';
-import CircularProgress from '@mui/material/CircularProgress'
+import {UserProvider} from '../UserProvider';
+import CircularProgress from '@mui/material/CircularProgress';
+import {CookiesProvider} from 'react-cookie';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export type AppProviderProps = {};
 
@@ -14,15 +17,18 @@ const AppProvider: React.FC<PropsWithChildren<AppProviderProps>> = (props) => {
 
 	return (
 		<ReduxProvider store={store}>
-			<Suspense fallback={<CircularProgress size={64} />}>
-				<FetchUser>
-					<BrowserRouter>
-						<ThemeProvider theme={theme}>
-							{children}
-						</ThemeProvider>
-					</BrowserRouter>
-				</FetchUser>
-			</Suspense>
+			<CookiesProvider>
+				<Suspense fallback={<CircularProgress size={64} />}>
+					<UserProvider>
+						<BrowserRouter>
+							<ThemeProvider theme={theme}>
+								{children}
+							</ThemeProvider>
+						</BrowserRouter>
+					</UserProvider>
+				</Suspense>
+			</CookiesProvider>
+			<ToastContainer />
 		</ReduxProvider>
 
 	);

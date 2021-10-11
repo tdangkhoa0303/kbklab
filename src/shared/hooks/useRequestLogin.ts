@@ -1,7 +1,7 @@
-import {LoginPayload} from 'shared/components/AppProvider/FetchUser.types';
+import {LoginPayload} from 'shared/components/UserProvider/UserProvider.types';
 import {useCallback} from 'react';
 import {useDispatch} from 'react-redux';
-import {login} from 'shared/components/AppProvider/FetchUser.thunk';
+import {login} from 'shared/components/UserProvider/UserProvider.thunk';
 
 type RequestLoginCallback = (payload: LoginPayload) => void;
 export const useRequestLogin = (): RequestLoginCallback => {

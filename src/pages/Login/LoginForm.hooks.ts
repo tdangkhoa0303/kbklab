@@ -36,7 +36,6 @@ export const useHandleLoginForm = (initialValues: LoginFormValues): HandleLoginF
 	const requestLogin = useRequestLogin();
 
 	const handleFormError = useCallback((errors) => {
-		console.log(errors)
 		setIsError(!isEmpty(errors))
 	}, [setIsError]);
 	const handleSubmitForm = useCallback(() => {

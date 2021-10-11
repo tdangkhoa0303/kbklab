@@ -1,6 +1,6 @@
 import {AsyncThunk} from '@reduxjs/toolkit';
 import {useAppSelector} from './useAppSelector';
-import {getActionName} from '../components/AppProvider/AsyncActions.reducers';
+import {getActionName} from 'shared/components/AppProvider/AsyncActions.reducers';
 import {useMemo} from 'react';
 
 export const useLoading = (actions: AsyncThunk<any, any, any>[]): boolean => {
