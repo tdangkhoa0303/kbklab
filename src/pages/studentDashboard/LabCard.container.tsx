@@ -2,8 +2,9 @@ import React, {useCallback, useMemo} from 'react';
 import {Lab} from 'shared/models';
 import LabCardView from './LabCard.view';
 import {getLabStatus} from './LabCard.utils';
-import {useCreateLabInstance} from '../StudentDashboard.hooks';
+import {useCreateLabInstance, useCreateLabInstanceStatus, useIsCreatingLabInstance} from '../StudentDashboard.hooks';
 import {useLabScore} from './LabCard.hooks';
+import {useLoadingToast} from '../../shared/hooks/useLoadingToast';
 
 export interface LabCardContainerProps {
 	lab: Lab,
@@ -16,6 +17,15 @@ const LabCardContainer: React.FC<LabCardContainerProps> = (props) => {
 	const labStatus = useMemo(() => getLabStatus(!!stepSuccess, instanceUrl), [instanceUrl, stepSuccess]);
 	const labScore = useLabScore(steps, stepSuccess);
 	const createLabInstance = useCreateLabInstance();
+	const isCreatingLabInstance = useIsCreatingLabInstance();
+	const creatingLabInstanceStatus = useCreateLabInstanceStatus();
+	const showToast = useLoadingToast({
+		loading: isCreatingLabInstance,
+		loadingMessage: 'Creating lab instance.',
+		successMessage: 'Creating lab instance successfully',
+		errorMessage: 'Failed to create lab instance',
+		status: creatingLabInstanceStatus
+	})
 
 	const handleAttemptLab: React.MouseEventHandler<HTMLButtonElement> = useCallback((event) => {
 		event.stopPropagation();
@@ -23,6 +33,7 @@ const LabCardContainer: React.FC<LabCardContainerProps> = (props) => {
 			return window.open(instanceUrl, '_blank');
 		}
 
+		showToast()
 		return createLabInstance(labId)
 		// Only wanna update when instanceUrl or labId is changed
 		// eslint-disable-next-line react-hooks/exhaustive-deps

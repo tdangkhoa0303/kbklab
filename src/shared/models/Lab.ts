@@ -1,4 +1,5 @@
 export interface Step {
+	_id: string,
 	description: string,
 	point: number,
 }

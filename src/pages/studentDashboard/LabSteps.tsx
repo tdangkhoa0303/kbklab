@@ -19,10 +19,11 @@ const LabSteps: React.FC<LabStepsProps> = (props) => {
 	return (
 		<Timeline position="alternate">
 			{steps.map((step, index) => {
-				const {description, point} = step;
+				const {description, point, _id} = step;
 
 				return (
 					<LabStepsItem
+						key={_id}
 						point={point}
 						isTail={index === steps.length - 1}
 						isDone={stepSuccess[index]}

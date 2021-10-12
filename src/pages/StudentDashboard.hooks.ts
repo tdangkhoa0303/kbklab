@@ -6,6 +6,7 @@ import {createLabInstanceStatusSelector, selectedLabSelector, studentLabsSelecto
 import {Lab} from 'shared/models';
 import {ResponseStatus} from '../shared/constants';
 import {setSelectedLab} from './StudentDashboard.slice';
+import {useLoading} from '../shared/hooks/useLoading';
 
 export const useFetchStudentLabs = () => {
 	const dispatch = useDispatch();
@@ -29,3 +30,5 @@ export const useSetSelectedLab = (): SetSelectedLabCallback => {
 }
 
 export const useSelectedLab = (): Lab | null => useAppSelector(selectedLabSelector);
+
+export const useIsCreatingLabInstance = (): boolean => useLoading([createLabInstance]);
