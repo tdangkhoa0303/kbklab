@@ -1,7 +1,6 @@
 import {ResponseStatus} from '../constants';
-import {ReactText, useCallback, useEffect, useRef} from 'react';
+import {ReactText, useCallback, useEffect, useState} from 'react';
 import {toast, ToastOptions} from 'react-toastify';
-import {useMounting} from './useMounting';
 
 export interface LoadingToastParams {
 	loading: boolean,
@@ -12,7 +11,8 @@ export interface LoadingToastParams {
 }
 
 export interface LoadingToastReturnValues {
-	showToast: VoidFunction
+	toastId: ReactText | null,
+	showToast: (options?: ToastOptions) => void
 }
 export const useLoadingToast = ({
 	loading,
@@ -20,39 +20,46 @@ export const useLoadingToast = ({
 	successMessage,
 	errorMessage,
 	status
-}: LoadingToastParams): (options?: ToastOptions) => void => {
-	const toastIdRef = useRef<ReactText | null>(null);
+}: LoadingToastParams): LoadingToastReturnValues => {
+	const [toastId, setToastId] = useState<ReactText | null>(null);
 
 	useEffect(() => {
-		const toastId = toastIdRef.current;
 		if(loading || !status || !toastId) {
 			return;
 		}
 
 		switch (status) {
 			case ResponseStatus.Success:
-				return toast.update(toastId, {
+				toast.update(toastId, {
 					render: successMessage,
 					isLoading: false,
 					type: 'success',
 					autoClose: 3000,
 					closeOnClick: true
 				})
+				break;
 			case ResponseStatus.Failed:
-				return toast.update(toastId, {
+				toast.update(toastId, {
 					render: errorMessage,
 					isLoading: false,
 					type: 'error',
 					autoClose: 3000,
 					closeOnClick: true
 				})
+				break;
 			default:
-				return;
+				break;
 		}
+		setToastId(null);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [status])
 
-	return useCallback((options) => {
-		toastIdRef.current = toast.loading(loadingMessage, options);
+	const showToast = useCallback((options) => {
+		setToastId(toast.loading(loadingMessage, options));
 	}, [loadingMessage]);
+
+	return {
+		toastId,
+		showToast,
+	}
 }

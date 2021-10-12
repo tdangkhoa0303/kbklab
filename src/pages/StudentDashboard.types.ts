@@ -16,6 +16,5 @@ export type CreateLabInstanceFulfilledPayload = {
 }
 
 export type LabsUIState = {
-	createInstanceStatus: ResponseStatus | null,
-	selectedLab: string | null
+	createInstanceStatus: ResponseStatus | null
 }

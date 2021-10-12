@@ -32,19 +32,13 @@ export const labsSlice = createSlice<LabsState, SliceCaseReducers<LabsState>>({
 });
 
 const initialLabsUIState: LabsUIState = {
-	createInstanceStatus: null,
-	selectedLab: null
+	createInstanceStatus: null
 }
 
 export const labsUISlice = createSlice<LabsUIState, SliceCaseReducers<LabsUIState>>({
 	name: AppContext.User,
 	initialState: initialLabsUIState,
-	reducers: {
-		setSelectedLab: (state, {payload}) => ({
-			...state,
-			selectedLab: payload
-		})
-	},
+	reducers: {},
 	extraReducers: builder => {
 		builder
 			.addCase(createLabInstance.pending, (state, {payload}) => {
@@ -68,6 +62,5 @@ export const labsUISlice = createSlice<LabsUIState, SliceCaseReducers<LabsUIStat
 	}
 });
 
-export const {setSelectedLab} = labsUISlice.actions;
 export const labsReducer = labsSlice.reducer;
 export const labsUIReducer = labsUISlice.reducer;

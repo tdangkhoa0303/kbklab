@@ -1,7 +1,7 @@
 import React from 'react';
 import {Step} from 'shared/models';
 import Timeline from '@mui/lab/Timeline';
-import LabStepsItem from './labSteps/LabStepsItem';
+import LabStepsItem from './LabStepsItem';
 
 const defaultProps = {
 	stepSuccess: []
