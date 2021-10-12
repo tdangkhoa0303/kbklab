@@ -3,7 +3,14 @@ import LabCard from './studentDashboard/LabCard.container';
 import React, {useCallback, useMemo} from 'react';
 import Grid from '@mui/material/Grid';
 import {useMounting} from '../shared/hooks';
-import {useFetchStudentLabs, useSelectedLab, useSetSelectedLab, useStudentLabs} from './StudentDashboard.hooks';
+import {
+	useCreateLabInstanceStatus,
+	useFetchStudentLabs,
+	useIsCreatingLabInstance,
+	useSelectedLab,
+	useSetSelectedLab,
+	useStudentLabs
+} from './StudentDashboard.hooks';
 import partition from 'lodash/partition';
 import {getLabStatus} from './studentDashboard/LabCard.utils';
 import {LabStatus} from '../shared/constants';
@@ -12,6 +19,7 @@ import Modal from '@mui/material/Modal';
 import {useToggle} from '../shared/hooks/useToggle';
 import LabSteps from './studentDashboard/LabSteps';
 import isEmpty from 'lodash/isEmpty';
+import {useLoadingToast} from '../shared/hooks/useLoadingToast';
 
 const StudentDashboard: React.FC = () => {
 	const fetchStudentLabs = useFetchStudentLabs();
@@ -22,6 +30,15 @@ const StudentDashboard: React.FC = () => {
 	const setSelectedLab = useSetSelectedLab();
 	const selectedLab = useSelectedLab();
 	const [isOpenModal, /* omit toggle */, openModal, closeModal] = useToggle(false);
+	const isCreatingLabInstance = useIsCreatingLabInstance();
+	const creatingLabInstanceStatus = useCreateLabInstanceStatus();
+	const showToast = useLoadingToast({
+		loading: isCreatingLabInstance,
+		loadingMessage: 'Creating lab instance.',
+		successMessage: 'Creating lab instance successfully',
+		errorMessage: 'Failed to create lab instance',
+		status: creatingLabInstanceStatus
+	})
 	
 	const showLabSteps = useCallback((labId: string) => {
 		setSelectedLab(labId);
@@ -42,7 +59,7 @@ const StudentDashboard: React.FC = () => {
 					<Grid container spacing={4} mb={5}>
 						{inProgressLabs.map((lab) => (
 							<Grid item xs={4} md={4} lg={3} key={lab.labId}>
-								<LabCard lab={lab} showLabSteps={showLabSteps} />
+								<LabCard lab={lab} showLabSteps={showLabSteps} onCreatingInstance={showToast} />
 							</Grid>
 						))}
 					</Grid>
@@ -56,7 +73,7 @@ const StudentDashboard: React.FC = () => {
 					<Grid container spacing={4}>
 						{otherLabs.map((lab) => (
 							<Grid item xs={4} md={4} lg={3} key={lab.labId}>
-								<LabCard lab={lab} showLabSteps={showLabSteps} />
+								<LabCard lab={lab} showLabSteps={showLabSteps} onCreatingInstance={showToast} />
 							</Grid>
 						))}
 					</Grid>

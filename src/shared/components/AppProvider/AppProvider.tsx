@@ -28,7 +28,16 @@ const AppProvider: React.FC<PropsWithChildren<AppProviderProps>> = (props) => {
 					</UserProvider>
 				</Suspense>
 			</CookiesProvider>
-			<ToastContainer />
+			<ToastContainer
+				position="top-right"
+				autoClose={3000}
+				hideProgressBar={false}
+				newestOnTop={false}
+				closeOnClick
+				pauseOnFocusLoss
+				draggable
+				pauseOnHover
+			/>
 		</ReduxProvider>
 
 	);
