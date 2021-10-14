@@ -24,7 +24,7 @@ const LabList: React.FC<LabListProps> = (props) => {
 			</Typography>
 			<Grid container spacing={4}>
 				{data.map((lab) => (
-					<Grid item xs={4} md={4} lg={3} key={lab.labId}>
+					<Grid item xs={6} lg={4} xl={3} key={lab.labId}>
 						<LabCard lab={lab} />
 					</Grid>
 				))}

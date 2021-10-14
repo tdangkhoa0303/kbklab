@@ -1,5 +1,10 @@
 import {Lab} from 'shared/models';
 import {useAppSelector} from 'shared/hooks';
-import {studentLabsSelector} from '../StudentDashboard.selectors';
+import {studentLabByIdsSelector} from '../StudentDashboard.selectors';
+import {useMemo} from 'react';
+import {Dictionary} from '@reduxjs/toolkit';
 
-export const useStudentLabs = (): Lab[] => useAppSelector(studentLabsSelector);
+export const useStudentLabs = (): Lab[] => {
+	const studentLabByIds: Dictionary<Lab> = useAppSelector(studentLabByIdsSelector);
+	return useMemo(() => Object.values(studentLabByIds) as Lab[], [studentLabByIds]);
+};

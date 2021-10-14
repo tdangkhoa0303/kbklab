@@ -9,6 +9,7 @@ import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import {useUser} from 'shared/hooks';
 import Avatar from '@mui/material/Avatar';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import Typography from '@mui/material/Typography';
 
 const StyledMuiAppBar = styled(MuiAppBar)(({theme}) => ({
 	background: 'transparent',
@@ -41,6 +42,9 @@ const AppBar: React.FC = () => {
 			}}
 		>
 			<StyledToolbar>
+				<Typography variant="h5">
+					KBK Lab
+				</Typography>
 				<Box sx={{flexGrow: 2}}/>
 				<StyledIconButton>
 					<NotificationsNoneIcon/>

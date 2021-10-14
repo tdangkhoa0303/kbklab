@@ -1,9 +1,8 @@
 import React, {Ref, useImperativeHandle} from 'react';
 import Box from '@mui/material/Box';
-import LabSteps, {LabStepsProps} from './labStepsModal/LabSteps';
+import LabSteps, {LabStepsProps} from './LabSteps';
 import Modal from '@mui/material/Modal';
 import {useToggle} from 'shared/hooks/useToggle';
-import Typography from '@mui/material/Typography';
 
 export interface ModalRef {
 	isOpen: boolean,
@@ -12,12 +11,11 @@ export interface ModalRef {
 }
 
 export interface LabStepsModalProps extends LabStepsProps {
-	title: string,
 	modalRef: Ref<ModalRef>
 }
 
 const LabStepsModal: React.FC<LabStepsModalProps> = (props) => {
-	const {title, modalRef, ...labStepsProps} = props;
+	const {modalRef, ...labStepsProps} = props;
 	const [isOpenModal, /* omit toggle */, openModal, closeModal] = useToggle(false);
 
 	useImperativeHandle(modalRef, () => ({
@@ -44,9 +42,6 @@ const LabStepsModal: React.FC<LabStepsModalProps> = (props) => {
 				borderRadius: theme => theme.spacing(0.5),
 				p: 4,
 			}}>
-				<Typography variant="h5" mb={2}>
-					{title}
-				</Typography>
 				<LabSteps {...labStepsProps} />
 			</Box>
 		</Modal>

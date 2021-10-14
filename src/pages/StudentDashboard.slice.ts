@@ -2,7 +2,7 @@ import {createEntityAdapter, createSlice, SliceCaseReducers} from '@reduxjs/tool
 import {AppContext, ResponseStatus} from 'shared/constants';
 import {Lab} from 'shared/models';
 import {LabsState, LabsUIState} from './StudentDashboard.types';
-import {createLabInstance, fetchStudentLabs} from './StudentDashboard.thunks';
+import {createLabInstance, fetchStudentLabs, finishLabAttempt} from './StudentDashboard.thunks';
 
 export const labsAdapter = createEntityAdapter<Lab>({
 	selectId: lab => lab.labId,
@@ -19,12 +19,14 @@ export const labsSlice = createSlice<LabsState, SliceCaseReducers<LabsState>>({
 			labsAdapter.upsertMany(state, data);
 		});
 		builder.addCase(createLabInstance.fulfilled, (state, {payload}) => {
-			const {url, labId} = payload;
+			const {url, labId, stepSuccess} = payload;
+			console.log(payload)
 			window.open(url, '_blank');
 			labsAdapter.updateOne(state, {
 				id: labId,
 				changes: {
-					url
+					url,
+					stepSuccess
 				}
 			})
 		});
@@ -32,7 +34,8 @@ export const labsSlice = createSlice<LabsState, SliceCaseReducers<LabsState>>({
 });
 
 const initialLabsUIState: LabsUIState = {
-	createInstanceStatus: null
+	createInstanceStatus: null,
+	finishLabAttemptStatus: null
 }
 
 export const labsUISlice = createSlice<LabsUIState, SliceCaseReducers<LabsUIState>>({
@@ -57,6 +60,24 @@ export const labsUISlice = createSlice<LabsUIState, SliceCaseReducers<LabsUIStat
 				return {
 					...state,
 					createInstanceStatus: ResponseStatus.Failed
+				}
+			})
+			.addCase(finishLabAttempt.pending, (state, {payload}) => {
+				return {
+					...state,
+					finishLabAttemptStatus: null
+				}
+			})
+			.addCase(finishLabAttempt.fulfilled, (state, {payload}) => {
+				return {
+					...state,
+					finishLabAttemptStatus: ResponseStatus.Success
+				}
+			})
+			.addCase(finishLabAttempt.rejected, (state, {payload}) => {
+				return {
+					...state,
+					finishLabAttemptStatus: ResponseStatus.Failed
 				}
 			})
 	}

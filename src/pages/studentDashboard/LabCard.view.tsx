@@ -1,4 +1,4 @@
-import React, {RefObject} from 'react';
+import React from 'react';
 import {Lab} from 'shared/models';
 import {LabStatus} from 'shared/constants';
 import Card from '@mui/material/Card';
@@ -6,29 +6,24 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import LabCardStatus from './LabCardStatus';
-import Box from '@mui/material/Box';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import isNull from 'lodash/isNull';
-import LabStepsModal, {ModalRef} from './LabStepsModal';
+import LabCardInfo from './labCard/LabCardInfo';
+import Grid from '@mui/material/Grid';
 
 export interface LabCardViewProps {
 	lab: Lab,
-	score: number | null;
-	modalRef: RefObject<ModalRef>
 	status: LabStatus,
-	onClick: VoidFunction,
+	finishLabAttempt: VoidFunction,
 	onAttempt: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const LabCardView: React.FC<LabCardViewProps> = (props) => {
-	const {lab, status, onAttempt, modalRef, onClick, score} = props;
-	const {title, description, steps, stepSuccess} = lab;
+	const {lab, onAttempt, status, finishLabAttempt} = props;
+	const {title, description, stepSuccess, steps, url: instanceUrl} = lab;
 
 	return (
 		<>
 			<Card
-				onClick={onClick}
 				sx={{
 					boxShadow: theme => theme.boxShadow.main,
 					padding: 1,
@@ -40,31 +35,41 @@ const LabCardView: React.FC<LabCardViewProps> = (props) => {
 					<Typography variant="h5" mb={2}>
 						{title}
 					</Typography>
-					<Box display="flex" alignItems="center" mb={1}>
-						<LabCardStatus status={status} />
-						<Typography variant="body1" ml={1}>
-							{status} {!isNull(score) && `- Score: ${score}`}
-						</Typography>
-					</Box>
-					<Typography variant="body1">
+					<Typography variant="body1" mb={2}>
 						{description}
 					</Typography>
+					<LabCardInfo
+						steps={steps}
+						status={status}
+						stepSuccess={stepSuccess}
+					/>
 				</CardContent>
 				<CardActions>
-					<Button
-						onClick={onAttempt}
-						endIcon={<ArrowForwardIcon />}
-					>
-						Attempt
-					</Button>
+					<Grid container spacing={2}>
+						<Grid item xs={2} md={6}>
+							<Button
+								fullWidth
+								variant="outlined"
+								onClick={onAttempt}
+								endIcon={<ArrowForwardIcon />}
+							>
+								Attempt
+							</Button>
+						</Grid>
+						<Grid item xs={2} md={6}>
+							{instanceUrl && (
+								<Button
+									fullWidth
+									variant="contained"
+									onClick={finishLabAttempt}
+								>
+									Finish Attempt
+								</Button>
+							)}
+						</Grid>
+					</Grid>
 				</CardActions>
 			</Card>
-			<LabStepsModal
-				steps={steps}
-				title={title}
-				ref={modalRef}
-				stepSuccess={stepSuccess}
-			/>
 		</>
 	)
 }

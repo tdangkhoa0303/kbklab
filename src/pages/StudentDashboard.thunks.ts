@@ -5,7 +5,7 @@ import {
 	CreateLabInstanceFulfilledPayload,
 	CreateLabInstancePayload,
 	CreateLabInstanceResponse,
-	FetchStudentLabsResponse
+	FetchStudentLabsResponse, FinishLabAttemptPayload, FinishLabAttemptResponse
 } from './StudentDashboard.types';
 
 export const fetchStudentLabs = createAsyncThunk<FetchStudentLabsResponse>(`${AppContext.Lab}/fetchStudentLabs`, async () => {
@@ -18,7 +18,14 @@ export const createLabInstance = createAsyncThunk<CreateLabInstanceFulfilledPayl
 	async (labId) => {
 		const response = await APIClient.post<CreateLabInstanceResponse>(`labs/${labId}/instances`);
 		return {
-			url: response.data.data,
+			...response.data,
 			labId,
 		};
 })
+
+export const finishLabAttempt = createAsyncThunk<FinishLabAttemptResponse, FinishLabAttemptPayload>(
+	`${AppContext.Lab}/finishLabAttempt`,
+	async (payload) => {
+		const response = await APIClient.post<FinishLabAttemptResponse>(`labs/finishAttempt`, payload);
+		return response.data
+	})

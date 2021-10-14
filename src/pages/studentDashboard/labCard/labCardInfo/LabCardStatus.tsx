@@ -1,7 +1,7 @@
 import React from 'react';
 import {LabStatus} from 'shared/constants';
 import {ColorDot} from 'components';
-import {LAB_STATUS_DOT_SIZE, LabStatusColor} from './LabCard.constants';
+import {LAB_STATUS_DOT_SIZE, LabStatusColor} from '../../LabCard.constants';
 
 export interface LabCardStatusProps {
 	status: LabStatus

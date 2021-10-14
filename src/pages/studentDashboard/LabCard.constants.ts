@@ -7,3 +7,5 @@ export const LabStatusColor: Record<LabStatus, string> = {
 }
 
 export const LAB_STATUS_DOT_SIZE = 16;
+
+export const EMPTY_INFO_TEXT = '-/-';

@@ -27,7 +27,9 @@ declare module '@mui/material/styles/createPalette' {
 		green: string,
 		red: string,
 		greenBlue: string,
-		grey: string
+		grey: string,
+		yellow: string,
+		spaceGrey: string
 	}
 }
 
@@ -38,6 +40,8 @@ const colors = {
 	black: '#1a1919',
 	blue: '#0091ea',
 	grey: '#F3F6F9',
+	yellow: '#FFEA00',
+	spaceGrey: '#424242',
 	greenBlue: 'linear-gradient(to right, rgb(194 229 156 / 10%), rgb(100 179 244 / 30%))'
 }
 
@@ -58,7 +62,9 @@ const theme = createTheme({
 			red: colors.red,
 			black: colors.black,
 			greenBlue: colors.greenBlue,
-			grey: colors.grey
+			grey: colors.grey,
+			yellow: colors.yellow,
+			spaceGrey: colors.spaceGrey
 		}
 	},
 	dimension: {
