@@ -14,22 +14,22 @@ export const labsSlice = createSlice<LabsState, SliceCaseReducers<LabsState>>({
 	initialState: initialState,
 	reducers: {},
 	extraReducers: (builder) => {
-		builder.addCase(fetchStudentLabs.fulfilled, (state, {payload}) => {
-			const {data} = payload;
-			labsAdapter.upsertMany(state, data);
-		});
-		builder.addCase(createLabInstance.fulfilled, (state, {payload}) => {
-			const {url, labId, stepSuccess} = payload;
-			console.log(payload)
-			window.open(url, '_blank');
-			labsAdapter.updateOne(state, {
-				id: labId,
-				changes: {
-					url,
-					stepSuccess
-				}
+		builder
+			.addCase(fetchStudentLabs.fulfilled, (state, {payload}) => {
+				const {data} = payload;
+				labsAdapter.upsertMany(state, data);
 			})
-		});
+			.addCase(createLabInstance.fulfilled, (state, {payload}) => {
+				const {url, labId, stepSuccess} = payload;
+				window.open(url, '_blank');
+				labsAdapter.updateOne(state, {
+					id: labId,
+					changes: {
+						url,
+						stepSuccess
+					}
+				})
+			});
 	}
 });
 

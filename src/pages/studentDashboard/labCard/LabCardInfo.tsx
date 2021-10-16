@@ -23,7 +23,7 @@ const LabCardInfo: React.FC<LabCardInfoItemProps> = (props) => {
 				<StatusItem status={status} />
 			</Grid>
 			<Grid item xs={4}>
-				<StepsItem steps={steps} stepSuccess={stepSuccess} />
+				<StepsItem steps={steps} />
 			</Grid>
 			<Grid item xs={4}>
 				<ScoreItem score={labScore} />

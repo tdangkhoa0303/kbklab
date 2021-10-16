@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {MouseEventHandler, RefObject} from 'react';
 import {Lab} from 'shared/models';
 import {LabStatus} from 'shared/constants';
 import Card from '@mui/material/Card';
@@ -9,21 +9,26 @@ import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import LabCardInfo from './labCard/LabCardInfo';
 import Grid from '@mui/material/Grid';
+import LabStepsModal, {ModalRef} from './labCard/LabStepsModal';
 
 export interface LabCardViewProps {
 	lab: Lab,
 	status: LabStatus,
-	finishLabAttempt: VoidFunction,
+	finishLabAttempt: MouseEventHandler<HTMLButtonElement>,
+	handleShowStep: VoidFunction,
+	modalRef: RefObject<ModalRef>,
+	isCreatingLabInstance: boolean,
 	onAttempt: React.MouseEventHandler<HTMLButtonElement>
 }
 
 const LabCardView: React.FC<LabCardViewProps> = (props) => {
-	const {lab, onAttempt, status, finishLabAttempt} = props;
+	const {lab, onAttempt, status, modalRef, handleShowStep, finishLabAttempt, isCreatingLabInstance} = props;
 	const {title, description, stepSuccess, steps, url: instanceUrl} = lab;
 
 	return (
 		<>
 			<Card
+				onClick={handleShowStep}
 				sx={{
 					boxShadow: theme => theme.boxShadow.main,
 					padding: 1,
@@ -49,6 +54,7 @@ const LabCardView: React.FC<LabCardViewProps> = (props) => {
 						<Grid item xs={2} md={6}>
 							<Button
 								fullWidth
+								disabled={isCreatingLabInstance}
 								variant="outlined"
 								onClick={onAttempt}
 								endIcon={<ArrowForwardIcon />}
@@ -70,6 +76,11 @@ const LabCardView: React.FC<LabCardViewProps> = (props) => {
 					</Grid>
 				</CardActions>
 			</Card>
+			<LabStepsModal
+				steps={steps}
+				ref={modalRef}
+				stepSuccess={stepSuccess}
+			/>
 		</>
 	)
 }

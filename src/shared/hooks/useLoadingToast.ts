@@ -10,9 +10,11 @@ export interface LoadingToastParams {
 	status: ResponseStatus | null
 }
 
+export type ShowToastCallback = (options?: ToastOptions) => void;
+
 export interface LoadingToastReturnValues {
 	toastId: ReactText | null,
-	showToast: (options?: ToastOptions) => void
+	showToast: ShowToastCallback
 }
 export const useLoadingToast = ({
 	loading,

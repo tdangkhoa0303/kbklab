@@ -72,7 +72,7 @@ const theme = createTheme({
 		sidebarWidth: '80px'
 	},
 	boxShadow: {
-		main: '0px 4px 12px rgba(0, 0, 0, 0.06)'
+		main: '0px 4px 12px rgba(0, 0, 0, 0.01)'
 	}
 });
 

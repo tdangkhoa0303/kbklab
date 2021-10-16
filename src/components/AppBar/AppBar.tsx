@@ -10,6 +10,7 @@ import {useUser} from 'shared/hooks';
 import Avatar from '@mui/material/Avatar';
 import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 import Typography from '@mui/material/Typography';
+import LabSearch from './LabSearch';
 
 const StyledMuiAppBar = styled(MuiAppBar)(({theme}) => ({
 	background: 'transparent',
@@ -21,7 +22,7 @@ const StyledToolbar = styled(Toolbar)(({theme}) => ({
 	paddingTop: 1.5,
 	paddingBottom: 1.5,
 	minHeight: theme.dimension.appBarHeight,
-	display: 'flex'
+	display: 'flex',
 }))
 
 const StyledIconButton = styled(CustomIconButton)(({theme}) => ({
@@ -45,7 +46,8 @@ const AppBar: React.FC = () => {
 				<Typography variant="h5">
 					KBK Lab
 				</Typography>
-				<Box sx={{flexGrow: 2}}/>
+				<Box sx={{flexGrow: 2}} />
+				<LabSearch />
 				<StyledIconButton>
 					<NotificationsNoneIcon/>
 				</StyledIconButton>

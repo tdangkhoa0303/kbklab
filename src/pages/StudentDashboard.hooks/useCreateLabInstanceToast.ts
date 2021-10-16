@@ -1,12 +1,11 @@
 import {useIsCreatingLabInstance} from './useIsCreatingLabInstance';
 import {useCreateLabInstanceStatus} from './useCreateLabInstanceStatus';
-import {useLoadingToast} from '../../shared/hooks/useLoadingToast';
-import {useEffect} from 'react';
+import {ShowToastCallback, useLoadingToast} from '../../shared/hooks/useLoadingToast';
 
-export const useCreateLabInstanceToast = (): void => {
+export const useCreateLabInstanceToast = (): ShowToastCallback => {
 	const isCreatingLabInstance = useIsCreatingLabInstance();
 	const creatingLabInstanceStatus = useCreateLabInstanceStatus();
-	const {showToast, toastId} = useLoadingToast({
+	const {showToast} = useLoadingToast({
 		loading: isCreatingLabInstance,
 		loadingMessage: 'Creating lab instance.',
 		successMessage: 'Creating lab instance successfully',
@@ -14,11 +13,5 @@ export const useCreateLabInstanceToast = (): void => {
 		status: creatingLabInstanceStatus
 	})
 
-	useEffect(() => {
-		if(isCreatingLabInstance && !toastId && !creatingLabInstanceStatus) {
-			showToast()
-		}
-		// Just want to listen to creating lab instance status
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [isCreatingLabInstance])
+	return showToast
 }

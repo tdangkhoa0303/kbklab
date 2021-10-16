@@ -16,8 +16,3 @@ export const finishLabAttemptStatusSelector = createSelector(
 	uiStateSelector,
 	(state: UIState) => state.labs.finishLabAttemptStatus
 )
-
-export const searchTextSelector = createSelector(
-	uiStateSelector,
-	(state: UIState) => state.appBar.searchText
-)

@@ -11,7 +11,8 @@ export enum ValidationError {
 
 export enum AppContext {
 	User = 'user',
-	Lab = 'labs'
+	Lab = 'labs',
+	AppBar = 'AppBar'
 }
 
 export enum ResponseStatus {

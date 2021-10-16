@@ -1,20 +1,27 @@
 import React from 'react';
 import Box from '@mui/material/Box';
-import LabList from './studentDashboard/LabList';
 import {Lab} from 'shared/models';
+import {ShowToastCallback} from '../shared/hooks/useLoadingToast';
+import Grid from '@mui/material/Grid';
+import LabCard from './studentDashboard/LabCard.container';
 
 export interface StudentDashboardViewProps {
-	inProgressLabs: Lab[],
-	archivedLabs: Lab[]
+	labs: Lab[],
+	onAttempt: ShowToastCallback,
 }
 
 const StudentDashboardView: React.FC<StudentDashboardViewProps> = (props) => {
-	const {inProgressLabs, archivedLabs} = props;
+	const {labs, onAttempt} = props;
 
 	return (
 		<Box>
-			<LabList title="In Progress Labs" data={inProgressLabs} />
-			<LabList title="Archived Labs" data={archivedLabs} />
+			<Grid container spacing={4}>
+				{labs.map((lab) => (
+					<Grid item xs={6} lg={4} xl={3} key={lab.labId}>
+						<LabCard lab={lab} onAttempt={onAttempt} />
+					</Grid>
+				))}
+			</Grid>
 		</Box>
 	)
 }

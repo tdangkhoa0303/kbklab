@@ -14,7 +14,7 @@ export type CreateLabInstanceResponse = APIClientResponse<CreateLabInstanceRespo
 export type CreateLabInstanceFulfilledPayload = Pick<Lab, 'labId' | 'stepSuccess' | 'url'>
 export type LabsUIState = {
 	createInstanceStatus: ResponseStatus | null,
-	finishLabAttemptStatus: ResponseStatus | null,
+	finishLabAttemptStatus: ResponseStatus | null
 }
 
 export type FinishLabAttemptPayload = Pick<Lab, 'labId'>;

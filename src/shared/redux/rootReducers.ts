@@ -2,10 +2,12 @@ import {combineReducers} from 'redux';
 import {userSlice, uiUserSlice} from '../components/UserProvider/UserProvider.slice';
 import {labsReducer, labsUIReducer} from 'pages/StudentDashboard.slice'
 import asyncActionsReducers from '../components/AppProvider/AsyncActions.reducers'
+import {appBarUIReducer} from 'components/AppBar/AppBar.slice';
 
 const uiReducer = combineReducers({
 	user: uiUserSlice.reducer,
-	labs: labsUIReducer
+	labs: labsUIReducer,
+	appBar: appBarUIReducer
 })
 
 const entitiesReducer = combineReducers({
