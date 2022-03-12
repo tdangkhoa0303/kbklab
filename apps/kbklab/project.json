@@ -40,7 +40,7 @@
     "serve": {
       "executor": "@nrwl/web:dev-server",
       "options": {
-        "buildTarget": "kbklab:build",
+        "buildTarget": "kbklab:build:development",
         "hmr": true,
         "proxyConfig": "apps/kbklab/proxy.conf.json"
       },

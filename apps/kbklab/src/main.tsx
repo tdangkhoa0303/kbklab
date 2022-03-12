@@ -1,11 +1,19 @@
-import { StrictMode } from 'react';
+import {StrictMode} from 'react';
 import * as ReactDOM from 'react-dom';
-
-import App from './app/app';
+import {AppProvider} from 'shared/components';
+import App from './App';
+import rootReducers from './shared/redux/rootReducers';
 
 ReactDOM.render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-  document.getElementById('root')
+	<StrictMode>
+		<AppProvider
+			reduxConfigurations={{
+				reducers: rootReducers,
+				middlewares: [],
+			}}
+		>
+			<App />
+		</AppProvider>
+	</StrictMode>,
+	document.getElementById('root')
 );
