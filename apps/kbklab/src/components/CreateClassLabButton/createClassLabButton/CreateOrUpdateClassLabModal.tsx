@@ -1,5 +1,6 @@
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
+import {Theme} from '@mui/material/styles';
 import {FormikDateTimePicker, FormikModal, FormikTextField, ModalRef} from 'components';
 import moment from 'moment';
 import React, {RefObject, useCallback, useMemo} from 'react';
@@ -19,6 +20,14 @@ export interface CreateOrUpdateClassLabModalProps {
 	isLoading: boolean;
 	editingClassLab?: ClassLab;
 	disabledFields?: DisabledFields;
+}
+
+const selectProps = {
+  MenuProps: {
+    sx: {
+      maxHeight: (theme: Theme) => theme.spacing(35)
+    }
+  }
 }
 
 const CreateOrUpdateClassLabModal: React.FC<CreateOrUpdateClassLabModalProps> = (props) => {
@@ -59,6 +68,7 @@ const CreateOrUpdateClassLabModal: React.FC<CreateOrUpdateClassLabModalProps> = 
 					label="Class"
 					name="classId"
 					placeholder="Select class"
+          SelectProps={selectProps}
 					disabled={disabledFields.classId}
 				>
 					{classOptions.map(({value, label}) => (
@@ -73,6 +83,7 @@ const CreateOrUpdateClassLabModal: React.FC<CreateOrUpdateClassLabModalProps> = 
 					label="Lab"
 					name="labId"
 					placeholder="Select lab"
+          SelectProps={selectProps}
 					disabled={disabledFields.labId}
 				>
 					{labOptions.map(({value, label}) => (
