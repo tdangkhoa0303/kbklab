@@ -21,13 +21,15 @@ const formatLabTime = (time: string): string => moment(time).local().format('DD/
 const LabSteps: React.FC<LabStepsProps> = (props) => {
 	const {steps, stepSuccess, startDate, endDate} = props as LabStepsPropsWithDefault;
 	const latestStepSuccess = useMemo(() => stepSuccess ? stepSuccess[stepSuccess.length - 1] || [] : [], [stepSuccess]);
-	console.log(startDate, endDate)
+  const isEnded = moment().isAfter(endDate);
+
 	return (
 		<Timeline sx={{margin: 0, overflow: 'auto', padding: 0}}>
 			<LabStepsItem
 				isTail={false}
 				isDone={true}
 				subTitle="SYSTEM"
+        isClosed={false}
 				description={`Lab Created - ${formatLabTime(startDate)}`}
 			/>
 			{steps.map((step, index) => {
@@ -41,12 +43,14 @@ const LabSteps: React.FC<LabStepsProps> = (props) => {
 						isTail={false}
 						isDone={latestStepSuccess[index]}
 						description={description}
+            isClosed={isEnded}
 					/>
 				);
 			})}
 			<LabStepsItem
 				isTail={true}
 				subTitle="SYSTEM"
+        isClosed={isEnded}
 				isDone={latestStepSuccess[steps.length - 1]}
 				description={`Lab Closed - ${formatLabTime(endDate)}`}
 			/>

@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import {styled} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
@@ -59,16 +60,16 @@ const LabStepsModal: React.FC<LabStepsModalProps> = (props) => {
 					container
 					spacing={2}
 					pb={1}
-					sx={{
-						background: theme => theme.palette.common.white,
-						zIndex: 2
-					}}
+					sx={{zIndex: 2}}
 				>
 					<Grid item sm={6}>
 						<Typography
 							color="primary"
 							variant="h6"
-							sx={{fontSize: theme => `${theme.spacing(2)} !important`}}
+							sx={{
+                fontSize: theme => `${theme.spacing(2)} !important`,
+                background: theme => theme.palette.common.white,
+            }}
 						>
 							GUIDE
 						</Typography>
@@ -77,7 +78,10 @@ const LabStepsModal: React.FC<LabStepsModalProps> = (props) => {
 						<Typography
 							color="primary"
 							variant="h6"
-							sx={{fontSize: theme => `${theme.spacing(2)} !important`}}
+							sx={{
+                fontSize: theme => `${theme.spacing(2)} !important`,
+                background: theme => theme.palette.common.white,
+            }}
 						>
 							STEPS
 						</Typography>
