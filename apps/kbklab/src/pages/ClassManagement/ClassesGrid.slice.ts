@@ -23,7 +23,7 @@ export const classesSlice = createSlice<ClassesGridState, SliceCaseReducers<Clas
 			})
 			.addCase(importClasses.fulfilled, (state, {payload}) => {
 				const {data} = payload;
-				classesAdapter.upsertOne(state, data);
+				classesAdapter.upsertOne(state, data.class);
 			})
 			.addCase(createClassLab.fulfilled, (state, {payload}) => {
 				const {data} = payload;

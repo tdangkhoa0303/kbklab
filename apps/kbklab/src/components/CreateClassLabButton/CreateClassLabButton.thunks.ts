@@ -11,7 +11,7 @@ export const getAllLabs = createAsyncThunk<GetAllLabsResponse>(`${AppContext.Lab
 export const createClassLab = createAsyncThunk<CreateClassLabResponse, CreateClassLabPayload>(
 	`${AppContext.Lab}/createClassLab`,
 	async (data) => {
-		const response = await APIClient.post<CreateClassLabResponse>('labs/addLabToCLass', data);
+		const response = await APIClient.post<CreateClassLabResponse>('classLab/createClassLab', data);
 		return response.data;
 	}
 );

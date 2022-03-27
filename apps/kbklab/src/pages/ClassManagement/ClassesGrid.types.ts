@@ -9,7 +9,10 @@ export type GetAllClassesResponse = APIClientResponse<GetAllClassesResponseData>
 
 export type ClassesGridState = EntityState<Class>;
 
-export type ImportClassesResponseData = Class;
+export type ImportClassesResponseData = {
+  class: Class,
+  errorRows: number[],
+};
 export type ImportClassesResponse = APIClientResponse<ImportClassesResponseData>;
 
 export type ImportClassesPayload = FormData;

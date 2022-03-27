@@ -5,7 +5,7 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot, {TimelineDotProps} from '@mui/lab/TimelineDot';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import {deepOrange, red} from '@mui/material/colors';
+import {red} from '@mui/material/colors';
 import {useTheme} from '@mui/material/styles';
 import React, {useMemo} from 'react';
 import LabStepsItemContent from './LabStepsItemContent';
@@ -19,7 +19,7 @@ export interface LabStepsItemProps {
 }
 
 const LabStepsItem: React.FC<LabStepsItemProps> = (props) => {
-	const { subTitle, description, isTail, isDone, isClosed} = props;
+	const {subTitle, description, isTail, isDone, isClosed} = props;
   const theme = useTheme();
 
 	const dotProps = useMemo(
@@ -35,7 +35,15 @@ const LabStepsItem: React.FC<LabStepsItemProps> = (props) => {
     }
 
     return isDone ? theme.palette.common.green : 'transparent'
-  }, [isClosed, isDone, theme.palette.common.green])
+  }, [isClosed, isDone, theme.palette.common.green, theme.palette.grey]);
+
+  const connectorColor = useMemo(() => {
+    if(isClosed && !isDone) {
+      return red[500];
+    }
+
+    return isDone ? theme.palette.common.green : theme.palette.grey[400]
+  }, [isClosed, isDone, theme.palette.common.green, theme.palette.grey])
 
 	return (
 		<TimelineItem
@@ -77,7 +85,7 @@ const LabStepsItem: React.FC<LabStepsItemProps> = (props) => {
 						sx={{
 							width: '2px',
 							height: (theme) => theme.spacing(6),
-							backgroundColor: dotColor,
+							backgroundColor: connectorColor,
 						}}
 					/>
 				)}

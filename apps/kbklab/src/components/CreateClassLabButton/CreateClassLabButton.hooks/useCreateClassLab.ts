@@ -11,8 +11,8 @@ export const useCreateClassLab = () => {
 	const isCreatingClassLab = useIsCreatingClassLab();
 	const createClassLabStatus = useCreateClassLabStatus();
 	const {showToast} = useLoadingToast({
-		successMessage: 'class lab created successfully',
-		errorMessage: 'class lab creation failed',
+		successMessage: 'Class lab created successfully',
+		errorMessage: 'Class lab creation failed',
 		loadingMessage: 'Creating class lab',
 		loading: isCreatingClassLab,
 		status: createClassLabStatus,

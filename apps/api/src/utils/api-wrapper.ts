@@ -1,13 +1,17 @@
 import {RequestHandler} from 'express';
+import {APIAction} from 'models';
+import {logger} from './logger';
 
-
-export default <TResponseData>(handler: RequestHandler): RequestHandler => {
+export const apiWrapper = <TResponseData>(handler: APIAction<TResponseData>): RequestHandler => {
   return (req, res, next) => {
-    try {
-      const data = handler(req, res, next);
-      res
-    } catch(error) {
-      next(error)
-    }
-  };
+    handler(req, res, next)
+      .then(data => {
+        logger.info(`${req.user ? req.user.id : 'Anonymous'}  ${req.path}  ${req.method}`);
+        const responseBody = data ? {data} : undefined;
+        return res
+          .status(200)
+          .json(responseBody);
+      })
+      .catch(next)
+  }
 };

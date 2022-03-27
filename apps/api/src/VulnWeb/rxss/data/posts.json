@@ -1,0 +1,38 @@
+[{
+    "id": 1,
+    "author": "Buu",
+    "content": "Một bầu trời toàn là sao",
+    "comments": [{
+        "author": "Buu",
+        "content": "Quá trời sao luôn"
+    }, {
+        "author": "test1",
+        "content": "Đúng vại"
+    }, {
+        "author": "test1",
+        "content": "Một nùi sao"
+    }, {
+        "author": "test1",
+        "content": "Rồi trăng đâu"
+    }]
+}, {
+    "id": 2,
+    "author": "Buu2s",
+    "content": "Một status không biết ghi gì",
+    "comments": [{
+        "author": "Buu",
+        "content": "Nhạt quá đi"
+    }, {
+        "author": "test1",
+        "content": "Đúng vại"
+    }, {
+        "author": "test1",
+        "content": "Quá nhat"
+    }, {
+        "author": "test1",
+        "content": "1, 2, 3 zo zo"
+    }, {
+        "author": "test1",
+        "content": "zo zo zo"
+    }]
+}]

@@ -9,7 +9,10 @@ export type GetAllLecturersResponse = APIClientResponse<GetAllLecturersResponseD
 
 export type LecturersGridState = EntityState<Lecturer>;
 
-export type ImportLecturersResponseData = Lecturer[];
+export type ImportLecturersResponseData = {
+  data: Lecturer[];
+  errorRows: number[];
+};
 export type ImportLecturersResponse = APIClientResponse<ImportLecturersResponseData>;
 
 export type ImportLecturersPayload = FormData

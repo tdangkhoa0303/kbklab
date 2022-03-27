@@ -4,7 +4,7 @@
     "outDir": "../../dist/out-tsc",
     "types": ["node"],
     "baseUrl": "src",
-    "paths": {}
+    "paths": {},
   },
   "files": [
     "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",

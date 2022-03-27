@@ -1,12 +1,9 @@
-import {RequestHandler} from 'express';
-import {APIAction} from '../models';
-import {logger} from './logger';
+import {NextFunction, Request, RequestHandler, Response} from 'express';
 
-export const catchAsync = (fn) => (req, res, next) => fn(req, res, next).catch(next);
-
-export const catchAsync = (handler: Midd): RequestHandler => {
+export type Middleware = (req: Request, res: Response, next: NextFunction) => Promise<void>
+export const catchMiddleware = (middleware: Middleware): RequestHandler => {
   return (req, res, next) => {
-    handler(req, res, next)
+    middleware(req, res, next)
       .catch(next)
   }
 };

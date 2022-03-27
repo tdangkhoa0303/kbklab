@@ -13,7 +13,7 @@ import {
 export const attemptLabThunk = createAsyncThunk<AttemptLabFulfilledPayload, AttemptLabPayload>(
 	`${AppContext.Lab}/attemptLab`,
 	async ({classLabId, isStudent}) => {
-		const {data: response} = await APIClient.post<AttemptLabResponse>(`labs/${classLabId}/instances`);
+		const {data: response} = await APIClient.post<AttemptLabResponse>(`instances/${classLabId}/attempt`);
 		return {
 			data: response.data,
 			classLabId,
@@ -25,7 +25,7 @@ export const attemptLabThunk = createAsyncThunk<AttemptLabFulfilledPayload, Atte
 export const finishLabThunk = createAsyncThunk<FinishLabFulfilledPayload, FinishLabPayload>(
 	`${AppContext.Lab}/finishLab`,
 	async (payload) => {
-		const {data: response} = await APIClient.post<FinishLabResponse>(`labs/finishAttempt`, payload);
+		const {data: response} = await APIClient.post<FinishLabResponse>(`instances/finishAttempt`, payload);
 		return {
 			...payload,
 			...response.data

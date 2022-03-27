@@ -32,7 +32,7 @@ export const useClassScoreGridColDefs = (currentClass: Class): ColDef[] => {
 			const {id, lab} = classLab;
 
 			return {
-				headerName: `Lab ${index + 1}`,
+				headerName: (lab.title.split(':')[0] || '').toUpperCase(),
 				headerTooltip: lab.title,
 				field: `scores.${id}`,
 				valueGetter: createScoreValueGetter(lab),

@@ -1,14 +1,14 @@
 import React from 'react';
 import {useMounting} from 'shared/hooks';
-import {useFetchStudentLabs, useSortedStudentLabs} from './LabsGrid.hooks';
+import {useFetchUserClassLabs, useSortedStudentLabs} from './LabsGrid.hooks';
 import LabsGridView from './LabsGrid.view';
 
 const LabsGrid: React.FC = () => {
-	const fetchStudentLabs = useFetchStudentLabs();
+	const fetchUserClassLabs = useFetchUserClassLabs();
 	const classLabs = useSortedStudentLabs();
 
 	useMounting(() => {
-		fetchStudentLabs();
+		fetchUserClassLabs();
 	});
 
 	return <LabsGridView classLabs={classLabs} />;

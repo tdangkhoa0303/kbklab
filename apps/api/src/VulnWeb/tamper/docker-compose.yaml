@@ -1,0 +1,19 @@
+version: '3.3'
+
+services: 
+  app_tamper:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file: ./.env
+    ports:
+      - 3000
+    image: app_tamper_1
+    stdin_open: true
+    tty: true
+    volumes: 
+      - .:/app/
+      - /app/node_modules
+volumes: 
+  db-config:
+  db-data:

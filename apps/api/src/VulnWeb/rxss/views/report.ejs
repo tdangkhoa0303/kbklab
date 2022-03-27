@@ -1,0 +1,16 @@
+<%- include("partials/header") -%>
+<div class="report-div">
+	<form method="post" action="/report">
+		<input
+			class="mr-sm-4"
+			name="content"
+			type="text"
+			placeholder="Error url"
+			id="report-content"
+		/>
+		<button class="btn btn-outline-success my-2 my-sm-0" id="btn-report">
+			Report
+		</button>
+	</form>
+</div>
+<%- include("partials/footer") -%>

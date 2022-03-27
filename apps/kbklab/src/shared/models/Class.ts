@@ -1,10 +1,9 @@
-import {Dictionary} from '@reduxjs/toolkit';
 import {ClassLab} from './ClassLab';
-import {Lecturer, User} from './User';
+import {User} from './User';
 
 export interface Class {
 	id: string;
-	lecturer: Lecturer;
+	lecturer: User;
 	students: User[];
 	code: string;
 	classLabs: Record<string, ClassLab>;

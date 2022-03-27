@@ -1,31 +1,29 @@
-import {Class} from 'entities';
+import {Score} from 'entities';
 import {Model, model, Schema, Types} from 'mongoose';
 
-const classSchema: Schema<Class> = new Schema<Class>(
+const scoreSchema: Schema<Score> = new Schema<Score>(
   {
-    students: [
-      {
-        type: Types.ObjectId,
-        ref: 'User',
-        required: true,
-      },
-    ],
-    code: {
-      type: String,
-      required: true,
-      unique: true,
-    },
-    lecturer: {
+    user: {
       type: Types.ObjectId,
       ref: 'User',
+      required: true,
+    },
+    classLab: {
+      type: Types.ObjectId,
+      ref: 'ClassLab',
+      required: true,
+    },
+    stepSuccess: [[Boolean]],
+    attempt: {
+      type: Number,
       required: true,
     },
   }
 );
 
-classSchema.index({
+scoreSchema.index({
   code: 1,
   lecturer: 1,
 })
 
-export const ClassModel: Model<Class> = model<Class>('Class', classSchema);
+export const ScoreModel: Model<Score> = model<Score>('Score', scoreSchema);

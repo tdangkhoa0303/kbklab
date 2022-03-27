@@ -33,9 +33,10 @@ export enum AppContext {
 	User = 'user',
 	Lab = 'lab',
 	Class = 'class',
-	Lecturer = 'Lecturer',
+	Lecturer = 'lecturer',
 	Management = 'management',
 	StudentLab = 'studentLab',
+  ClassLab = 'classLab'
 }
 
 export enum ResponseStatus {

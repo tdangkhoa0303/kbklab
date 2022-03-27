@@ -21,7 +21,7 @@ export const useHandleDeleteClassLab = (currentClass: Class | undefined): Handle
 	const {showToast} = useLoadingToast({
 		loading: isDeletingClassLab,
 		status: deleteClassLabStatus,
-		successMessage: 'Successfully deleted class lab',
+		successMessage: 'Success deleted class lab',
 		errorMessage: 'Failed deleting class lab',
 		loadingMessage: 'Deleting class lab'
 	});

@@ -36,7 +36,7 @@ export const useUpdateClassLabHandler = (params: UseUpdateClassLabHandlerParams)
 	const {showToast} = useLoadingToast({
 		loading: isUpdatingClassLab,
 		status: updateClassLabStatus,
-		successMessage: 'Successfully updated class lab',
+		successMessage: 'Success updated class lab',
 		errorMessage: 'Failed updating class lab',
 		loadingMessage: 'Updating class lab'
 	})

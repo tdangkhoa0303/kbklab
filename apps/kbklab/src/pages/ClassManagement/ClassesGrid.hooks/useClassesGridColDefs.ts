@@ -5,7 +5,7 @@ import {lecturerColumnValueGetter, studentsColumnValueFormatter} from '../Classe
 export const useClassesGridColDefs = (): ColDef[] => ([
 	{
 		field: 'code',
-		headerName: 'class Code',
+		headerName: 'Class Code',
 		checkboxSelection: true,
 		minWidth: 40
 	},

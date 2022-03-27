@@ -1,10 +1,10 @@
 export interface Step {
-	_id: string;
+	id: string;
 	description: string;
 	point: number;
 }
 
-export interface Lab {
+export interface LabDTO {
 	id: string;
 	title: string;
 	description: string;
@@ -12,3 +12,13 @@ export interface Lab {
 	guide: string;
 	disabled: boolean;
 }
+
+export type GetAllLecturerLabsResponseData = {
+  id: string,
+  lab: LabDTO,
+  startDate: Date,
+  endDate: Date,
+  stepSuccess: boolean[][],
+  name: string,
+  url?: string,
+}[]

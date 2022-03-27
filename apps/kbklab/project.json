@@ -42,7 +42,8 @@
       "options": {
         "buildTarget": "kbklab:build:development",
         "hmr": true,
-        "proxyConfig": "apps/kbklab/proxy.conf.json"
+        "proxyConfig": "apps/kbklab/proxy.conf.json",
+        "port": 3000
       },
       "configurations": {
         "production": {

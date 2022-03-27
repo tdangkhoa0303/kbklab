@@ -9,7 +9,7 @@ export interface GetLabStatusParams {
 }
 
 export const getLabStatus = (params: GetLabStatusParams): LabStatus => {
-	const {startDate, endDate, instanceUrl, isStudent} = params;
+	const {startDate, endDate, instanceUrl} = params;
 	const currentTime = moment();
 
 	if (currentTime.isBefore(new Date(startDate))) {
@@ -20,5 +20,5 @@ export const getLabStatus = (params: GetLabStatusParams): LabStatus => {
 		return LabStatus.Closed;
 	}
 
-	return (instanceUrl && isStudent) ? LabStatus.InProgress : LabStatus.Open;
+	return instanceUrl ? LabStatus.InProgress : LabStatus.Open;
 };

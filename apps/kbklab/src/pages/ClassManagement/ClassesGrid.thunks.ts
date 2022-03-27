@@ -38,7 +38,7 @@ export const importClasses = createAsyncThunk<ImportClassesResponse, ImportClass
 export const openDemoLab = createAsyncThunk<CreateLabInstanceFulfilledPayload, CreateLabInstancePayload>(
 	`${AppContext.Lab}/createLabInstance`,
 	async (id) => {
-		const {data: response} = await APIClient.post<CreateLabInstanceResponse>(`labs/${id}/instances`);
+		const {data: response} = await APIClient.post<CreateLabInstanceResponse>(`instances/${id}/attempt`);
 		return {
 			...response.data,
 			id,
@@ -51,7 +51,7 @@ export const updateClassLab = createAsyncThunk<UpdateClassLabFulfilledPayload, U
 	async (classLab) => {
 		const {id} = classLab;
 		const {data} = await APIClient
-			.patch<{data: ClassLab}>(`classes/${id}`, classLab)
+			.patch<{data: ClassLab}>(`classLab/${id}`, classLab)
 			.then(response => response.data);
 		return data;
 	}
@@ -62,7 +62,7 @@ export const deleteClassLab = createAsyncThunk<DeleteClassLabFulfilledPayload, D
 	async (payload) => {
 		const {classLabId} = payload;
 		await APIClient
-			.delete<{data: ClassLab}>(`classes/${classLabId}`);
+			.delete<{data: ClassLab}>(`classLab/${classLabId}`);
 
 		return payload;
 	}

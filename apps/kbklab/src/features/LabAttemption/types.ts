@@ -8,12 +8,11 @@ export type AttemptLabPayload = {
 	isStudent: boolean;
 	classLabId: ClassLabId;
 };
-export type AttemptLabResponseData = Pick<ClassLab, 'stepSuccess'> & {url: string};
-export type AttemptLabResponse = APIClientResponse<AttemptLabResponseData>;
+
+export type AttemptLabResponse = APIClientResponse<ClassLab>;
 export type AttemptLabFulfilledPayload = {
 	isStudent: boolean;
-	classLabId: ClassLabId;
-	data: AttemptLabResponseData;
+	data: ClassLab;
 };
 
 export type LabAttemptionUIState = {

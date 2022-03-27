@@ -3,10 +3,10 @@ import {AppContext} from 'shared/constants';
 import {APIClient} from 'shared/utilities';
 import {FetchStudentLabsResponse,} from './LabsGrid.types';
 
-export const fetchStudentLabs = createAsyncThunk<FetchStudentLabsResponse>(
-	`${AppContext.Lab}/fetchStudentLabs`,
+export const fetchUserClassLabs = createAsyncThunk<FetchStudentLabsResponse>(
+	`${AppContext.Lab}/fetchUserClassLabs`,
 	async () => {
-		const response = await APIClient.get<FetchStudentLabsResponse>('labs/getAllStudentLabs');
+		const response = await APIClient.get<FetchStudentLabsResponse>('classLab/getUserClassLabs');
 		return response.data;
 	}
 );

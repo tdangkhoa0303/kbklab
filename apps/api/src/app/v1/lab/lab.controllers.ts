@@ -1,14 +1,6 @@
-import {AuthenticatedRequest} from 'models';
 import {apiWrapper} from 'utils';
-import * as ClassLabActions from './classLab.actions';
+import * as LabActions from './lab.actions';
 
-export const updateClassLabTime = apiWrapper((req: AuthenticatedRequest) => {
-  const {classLabId} = req.params;
-  const {startDate, endDate} = req.body;
-
-  return ClassLabActions.updateClassLabTime({
-    classLabId,
-    startDate,
-    endDate
-  })
-})
+export const getAllLabs = apiWrapper(async () => (
+  LabActions.getAllLabs()
+));

@@ -2,7 +2,7 @@ import {LocalizationProvider} from '@mui/lab';
 import DateAdapter from '@mui/lab/AdapterMoment';
 import {AuthOutlet, FetchAppData, PrivateOutlet, ThemeConfig} from 'components';
 import {ConfirmationModal} from 'components/ConfirmationModal';
-import {useFetchStudentLabs} from 'pages/LabDashboard/LabsGrid.hooks';
+import {useFetchUserClassLabs} from 'pages/LabDashboard/LabsGrid.hooks';
 import Login from 'pages/Login';
 import React, {Suspense} from 'react';
 import {Route, Routes} from 'react-router-dom';
@@ -18,7 +18,7 @@ const ScoreDashboard = React.lazy(() => import('./pages/ScoreDashboard'));
 const ClassScoreDashboard = React.lazy(() => import('./pages/ScoreDashboard/routes/ClassScoreDashboard'))
 
 function App() {
-	const fetchUserClassLabs = useFetchStudentLabs();
+	const fetchUserClassLabs = useFetchUserClassLabs();
 
 	return (
 		<Suspense fallback={<OverlayLoader loading />}>

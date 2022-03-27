@@ -1,13 +1,17 @@
 import {Router} from 'express';
 import {protect} from 'middlewares';
-import {updateClassLabTime} from './classLab.controllers';
+import {getAllLabs} from './lab.controllers';
 
 const router: Router = Router();
 
 router.use(protect);
 
-router
-  .route('/:classLabId')
-  .patch(updateClassLabTime);
+router.get('/', getAllLabs);
+
+// router.post('/:labId/instances', setLabStudentIds, createInstance);
+//
+// router.post('/finishAttempt', finishLab);
+
+
 
 export default router;
