@@ -7,10 +7,9 @@ export const apiWrapper = <TResponseData>(handler: APIAction<TResponseData>): Re
     handler(req, res, next)
       .then(data => {
         logger.info(`${req.user ? req.user.id : 'Anonymous'}  ${req.path}  ${req.method}`);
-        const responseBody = data ? {data} : undefined;
         return res
           .status(200)
-          .json(responseBody);
+          .json({data});
       })
       .catch(next)
   }

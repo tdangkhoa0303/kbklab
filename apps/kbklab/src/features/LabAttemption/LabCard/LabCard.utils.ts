@@ -12,7 +12,7 @@ export const getLabStatus = (params: GetLabStatusParams): LabStatus => {
 	const {startDate, endDate, instanceUrl} = params;
 	const currentTime = moment();
 
-	if (currentTime.isBefore(new Date(startDate))) {
+	if (currentTime.isBefore(moment(startDate).startOf('minute'))) {
 		return LabStatus.Future;
 	}
 
