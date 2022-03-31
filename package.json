@@ -5,7 +5,9 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "start:prod": "nx run-many --target=serve --prod --all",
+    "build:prod": "nx run-many --target=build --prod --all"
   },
   "private": true,
   "dependencies": {

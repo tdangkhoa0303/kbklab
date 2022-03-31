@@ -1,10 +1,8 @@
 import {UserDTO} from '@kbklab/api-interfaces';
 import {ClassLab, Lab} from 'entities';
-import {Request} from 'express';
 import {InstanceModel, ScoreModel} from 'infra/database/models';
+import {AppError} from 'models';
 import {ObjectId} from 'mongoose';
-import {AppError} from '../../../models';
-import {logger} from '../../../utils';
 import {deleteDocker} from '../instance/instance.utils';
 import * as ScoreQueries from './score.queries';
 import {UpdateScorePayload, UserScore} from './score.types';
