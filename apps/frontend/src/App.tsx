@@ -26,7 +26,7 @@ const ClassScoreDashboard = React.lazy(
 function App() {
   const fetchUserClassLabs = useFetchUserClassLabs();
   const location = useLocation();
-  const locationState = location.state as LocationStateWithBackground;
+  const locationState = (location.state || {}) as LocationStateWithBackground;
 
   return (
     <Suspense fallback={<OverlayLoader loading />}>

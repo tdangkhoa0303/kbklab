@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  port: 1402,
+  port: 3333,
   dbURI: 'mongodb://kbklab:140203@localhost:27017',
   dbName: 'kbklab',
   instanceTimeout: 5,

@@ -5,7 +5,8 @@ import ModalOutlet from './ModalOutlet';
 
 const ModalRoutes: React.FC<PropsWithChildren<{}>> = ({children}) => {
   const location = useLocation();
-  const locationState = location.state as LocationStateWithBackground;
+  const locationState = (location.state || {}) as LocationStateWithBackground;
+
   if(!locationState.background) {
     return null;
   }
