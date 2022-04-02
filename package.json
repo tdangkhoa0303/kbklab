@@ -6,8 +6,9 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "start:prod": "nx run-many --target=serve --prod --all",
-    "build:prod": "nx run-many --target=build --prod --all"
+    "restart": "yarn build:prod && pm2 restart api frontend",
+    "start:prod": "pm2 serve --name frontend dist/apps/frontend 3000 --spa && pm2 start --name api dist/apps/api/main.js",
+    "build:prod": "nx run-many --target=build --configuration=production --all"
   },
   "private": true,
   "dependencies": {
