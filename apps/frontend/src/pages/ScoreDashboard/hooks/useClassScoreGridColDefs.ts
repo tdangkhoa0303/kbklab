@@ -1,9 +1,9 @@
-import { ColDef, ValueGetterFunc } from 'ag-grid-community';
-import { getLabScore } from 'features/LabAttemption/LabCard/LabCard.hooks';
+import {ColDef, ValueGetterFunc} from 'ag-grid-community';
+import {getLabScore} from 'components/LabAttemption/LabCard/LabCard.hooks';
 import get from 'lodash/get';
 import isNil from 'lodash/isNil';
-import { useMemo } from 'react';
-import { Class, Lab, ScoreRecord } from 'shared/models';
+import {useMemo} from 'react';
+import {Class, Lab, ScoreRecord} from 'shared/models';
 
 export const createScoreValueGetter =
   (lab: Lab): ValueGetterFunc =>

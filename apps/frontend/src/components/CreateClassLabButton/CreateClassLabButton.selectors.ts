@@ -1,10 +1,7 @@
-import { createSelector } from '@reduxjs/toolkit';
-import { EntitiesState, UIState } from 'shared/redux/rootReducers';
-import {
-  entitiesStateSelector,
-  uiStateSelector,
-} from 'shared/redux/rootSelector';
-import { labsAdapter } from './CreateClassLabButton.slice';
+import {createSelector} from '@reduxjs/toolkit';
+import {EntitiesState, UIState} from 'shared/redux/rootReducers';
+import {entitiesStateSelector, uiStateSelector,} from 'shared/redux/rootSelector';
+import {labsAdapter} from './CreateClassLabButton.slice';
 
 export const labsEntitiesSelector = createSelector(
   entitiesStateSelector,

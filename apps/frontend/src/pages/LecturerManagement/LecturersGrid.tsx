@@ -1,10 +1,7 @@
-import { DataManagementGrid } from 'components';
+import {DataManagementGrid} from 'components';
 import React from 'react';
-import { Lecturer, UserRole } from 'shared/models';
-import {
-  frameworkComponents,
-  LECTURERS_IMPORT_SAMPLE_URL,
-} from './LecturersGrid.constants';
+import {Lecturer, UserRole} from 'shared/models';
+import {frameworkComponents, LECTURERS_IMPORT_SAMPLE_URL,} from './LecturersGrid.constants';
 import {
   useAllLecturers,
   useImportLecturers,
@@ -12,7 +9,7 @@ import {
   useIsImportingLecturers,
   useLecturersGridColDefs,
 } from './LecturersGrid.hooks';
-import { ImportLecturerFormValues } from './LecturersGrid.types';
+import {ImportLecturerFormValues} from './LecturersGrid.types';
 
 const LecturersGrid: React.FC = () => {
   const importLecturers = useImportLecturers();

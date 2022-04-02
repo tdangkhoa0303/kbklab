@@ -1,4 +1,4 @@
-import { GridReadyEvent } from 'ag-grid-community';
+import {GridReadyEvent} from 'ag-grid-community';
 
 export interface ScoreDashboardRouteParams extends Record<string, string> {
   classCode: string;

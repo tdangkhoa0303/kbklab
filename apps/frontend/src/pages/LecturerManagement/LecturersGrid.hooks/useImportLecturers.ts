@@ -1,6 +1,6 @@
-import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { importLecturers } from '../LecturersGrid.thunks';
+import {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import {importLecturers} from '../LecturersGrid.thunks';
 
 export type ImportLecturersCallback = (data: FormData) => void;
 export const useImportLecturers = (): ImportLecturersCallback => {

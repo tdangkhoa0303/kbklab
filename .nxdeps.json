@@ -1087,11 +1087,11 @@
               "hash": "603be73da08aabc5bae9f30b0fa468db4b859ca2"
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/hooks/index.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/index.ts",
               "hash": "86b6d3a4fe8bc94263c60ec68de1e9f936139b52"
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/hooks/useAttemptLab.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useAttemptLab.ts",
               "hash": "675fb5c9c8f70475a307fbe6ef6c66e7836928ea",
               "deps": [
                 "npm:react",
@@ -1099,14 +1099,14 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/hooks/useAttemptLabStatus.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useAttemptLabStatus.ts",
               "hash": "bf3fb0ea137655c893bb0c05cbf0445619991928",
               "deps": [
                 "npm:react-redux"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/hooks/useFinishLab.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useFinishLab.ts",
               "hash": "ca1d0f8b3ccca2489241ac0e3426868ce81a7e2e",
               "deps": [
                 "npm:react",
@@ -1114,44 +1114,44 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/hooks/useFinishLabStatus.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useFinishLabStatus.ts",
               "hash": "96d123e4c278b72ea43acb74df47a297c356d6ae",
               "deps": [
                 "npm:react-redux"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/hooks/useIsAttemptingLab.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useIsAttemptingLab.ts",
               "hash": "b462567bd0821e01d0cd8cdbd4530d04c5bd0349"
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/hooks/useIsFinishingLab.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useIsFinishingLab.ts",
               "hash": "c1327ee8db620e162e224763c876b14fee17a6d5"
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/index.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/index.ts",
               "hash": "9b4251c474f5f270d7758db9072c007436501b25"
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/index.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/index.ts",
               "hash": "413623b851592072c060e750272020af12f0e0fd"
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.constants.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.constants.ts",
               "hash": "0aef2d738943ac1bf2e6a358e09e561a6d8ae3a5",
               "deps": [
                 "npm:moment"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.container.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.container.tsx",
               "hash": "bada8effc8a35ad0b472b1ca7b4e3b2668261f01",
               "deps": [
                 "npm:react"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.context.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.context.tsx",
               "hash": "3c5fd5d94ef42a5b9691fbcbb24bb9a94580613f",
               "deps": [
                 "npm:lodash",
@@ -1159,46 +1159,46 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.hooks/index.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.hooks/index.ts",
               "hash": "6b3888b1bc5c615ecb3aceeadadc986127c13b1d"
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.hooks/useLabScore.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.hooks/useLabScore.ts",
               "hash": "612f43a9101c352be9521b9f5cb25cad78592754",
               "deps": [
                 "npm:react"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.hooks/useOnAttemptLab.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.hooks/useOnAttemptLab.ts",
               "hash": "5931c48da4ba94f8a80e69d1b9fe01155cbeacad",
               "deps": [
                 "npm:react"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.hooks/useOnFinishLab.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.hooks/useOnFinishLab.ts",
               "hash": "a4b88f3a1a0ceb4b9941b2894cabbfdc586bf0a9",
               "deps": [
                 "npm:react"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.types.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.types.ts",
               "hash": "fc5a2d04ca8533439def93c25194c3287ec97fa0",
               "deps": [
                 "npm:react"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.utils.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.utils.ts",
               "hash": "a8f180aed7a96f47682717929e4322e6fb5af1e4",
               "deps": [
                 "npm:moment"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCard.view.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.view.tsx",
               "hash": "0a38b432103892f58c9900e653ea4608008075a0",
               "deps": [
                 "npm:@mui/icons-material",
@@ -1208,7 +1208,7 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/LabCardInfo.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCardInfo.tsx",
               "hash": "45ad393fe4d1d9541b501b7dc785bada0ad86e2f",
               "deps": [
                 "npm:@mui/material",
@@ -1216,7 +1216,7 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labCardInfo/LabCardInfoItem.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/LabCardInfoItem.tsx",
               "hash": "8df380d3565c1fb2cd929200df6ee15aed3930ba",
               "deps": [
                 "npm:react",
@@ -1224,14 +1224,14 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labCardInfo/LabCardStatus.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/LabCardStatus.tsx",
               "hash": "ffcbcccb7b44b5af90ceb850552a972b18ac9ce9",
               "deps": [
                 "npm:react"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labCardInfo/ScoreItem.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/ScoreItem.tsx",
               "hash": "fa29a75d8282333e9338a5be90ecb8eddae3120b",
               "deps": [
                 "npm:react",
@@ -1240,7 +1240,7 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labCardInfo/StatusItem.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/StatusItem.tsx",
               "hash": "ec757ebb132e6ebb7eda250c0e984c808e1eb6a4",
               "deps": [
                 "npm:@mui/material",
@@ -1248,7 +1248,7 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labCardInfo/StepsItem.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/StepsItem.tsx",
               "hash": "25aaad513697526deba673ecddf2621eb34b40b2",
               "deps": [
                 "npm:@mui/icons-material",
@@ -1257,7 +1257,7 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labStepsModal/LabDetailItem.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabDetailItem.tsx",
               "hash": "282479ee9ab53c228857ce55c452461301221fd0",
               "deps": [
                 "npm:@mui/material",
@@ -1265,7 +1265,7 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labStepsModal/LabSteps.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabSteps.tsx",
               "hash": "37f23c6b774723ae421d6043674ae53c9b0a3790",
               "deps": [
                 "npm:@mui/lab",
@@ -1274,7 +1274,7 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labStepsModal/LabStepsItem.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabStepsItem.tsx",
               "hash": "5b0a1106bf260b2f2da25315feb26d363c9f39a2",
               "deps": [
                 "npm:@mui/icons-material",
@@ -1284,7 +1284,7 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labStepsModal/LabStepsItemContent.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabStepsItemContent.tsx",
               "hash": "27051b16ecece3f15f340a81acea3db969dbf516",
               "deps": [
                 "npm:@mui/material",
@@ -1292,7 +1292,7 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/LabCard/labStepsModal/LabStepsModal.tsx",
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabStepsModal.tsx",
               "hash": "c5e302ad53adc63916eeb95b893678f931d01bc3",
               "deps": [
                 "npm:@mui/material",
@@ -1301,28 +1301,28 @@
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/selectors.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/selectors.ts",
               "hash": "49e869f72262400486b2a1505d13b037b578eb4b",
               "deps": [
                 "npm:@reduxjs/toolkit"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/slices.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/slices.ts",
               "hash": "04ba2db83b5e9362a0a29b4f84f2967f68ca8f75",
               "deps": [
                 "npm:@reduxjs/toolkit"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/thunks.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/thunks.ts",
               "hash": "b684f468a5b27fafcf4ee9907c42e0d3a1eb6daa",
               "deps": [
                 "npm:@reduxjs/toolkit"
               ]
             },
             {
-              "file": "apps/kbklab/src/features/LabAttemption/types.ts",
+              "file": "apps/kbklab/src/components/LabAttemption/types.ts",
               "hash": "2538061127cd07051edee0b83b6eeeb67cc4abe9"
             },
             {

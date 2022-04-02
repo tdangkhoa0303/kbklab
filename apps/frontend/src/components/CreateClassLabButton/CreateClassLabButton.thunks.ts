@@ -1,11 +1,7 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AppContext } from 'shared/constants';
-import { APIClient } from 'shared/utilities';
-import {
-  CreateClassLabPayload,
-  CreateClassLabResponse,
-  GetAllLabsResponse,
-} from './CreateClassLabButton.types';
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import {AppContext} from 'shared/constants';
+import {APIClient} from 'shared/utilities';
+import {CreateClassLabPayload, CreateClassLabResponse, GetAllLabsResponse,} from './CreateClassLabButton.types';
 
 export const getAllLabs = createAsyncThunk<GetAllLabsResponse>(
   `${AppContext.Lab}/getAllLabs`,

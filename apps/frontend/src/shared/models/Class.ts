@@ -1,5 +1,5 @@
-import { ClassLab } from './ClassLab';
-import { User } from './User';
+import {ClassLab} from './ClassLab';
+import {User} from './User';
 
 export interface Class {
   id: string;

@@ -1,9 +1,9 @@
-import { cssLayout } from 'components';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Box from '@mui/material/Box';
-import { ICellRendererParams } from 'ag-grid-community';
-import React, { useCallback } from 'react';
-import { useSetCurrentDetailClassId } from '../ClassesGrid.hooks';
+import {ICellRendererParams} from 'ag-grid-community';
+import {cssLayout} from 'components';
+import React, {useCallback} from 'react';
+import {useSetCurrentDetailClassId} from '../ClassesGrid.hooks';
 
 const ClassDetailCellRenderer: React.FC<ICellRendererParams> = (props) => {
   const { data } = props;

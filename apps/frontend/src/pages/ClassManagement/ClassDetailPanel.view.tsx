@@ -4,22 +4,18 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import { alpha, useTheme } from '@mui/material/styles';
+import {alpha, useTheme} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { Grid as DataGrid, sizeColumnsToFit } from 'components';
-import { LabCard } from 'features/LabAttemption/LabCard';
+import {Grid as DataGrid, sizeColumnsToFit} from 'components';
+import {LabCard} from 'components/LabAttemption/LabCard';
 import isEmpty from 'lodash/isEmpty';
-import React, { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, {useMemo} from 'react';
+import {Link} from 'react-router-dom';
 import Immutable from 'seamless-immutable';
-import { AppCommonRoute } from 'shared/constants';
-import { Class, ClassLab } from 'shared/models';
-import { useStudentLabEntities } from '../LabDashboard/LabsGrid.hooks';
-import {
-  maxRowsToShow,
-  studentGridHeaderHeight,
-  studentGridRowHeight,
-} from './ClassDetailPanel.constants';
+import {AppCommonRoute} from 'shared/constants';
+import {Class, ClassLab} from 'shared/models';
+import {useStudentLabEntities} from '../LabDashboard/LabsGrid.hooks';
+import {maxRowsToShow, studentGridHeaderHeight, studentGridRowHeight,} from './ClassDetailPanel.constants';
 
 export interface ClassDetailPanelViewProps {
   onClose: VoidFunction;

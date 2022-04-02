@@ -1,12 +1,9 @@
-import { DataManagementGrid } from 'components';
+import {DataManagementGrid} from 'components';
 import React from 'react';
-import { useMounting } from 'shared/hooks';
-import { Class } from 'shared/models';
+import {useMounting} from 'shared/hooks';
+import {Class} from 'shared/models';
 import ClassDetailPanel from './ClassDetailPanel.container';
-import {
-  CLASSES_IMPORT_SAMPLE_URL,
-  frameworkComponents,
-} from './ClassesGrid.constants';
+import {CLASSES_IMPORT_SAMPLE_URL, frameworkComponents,} from './ClassesGrid.constants';
 import {
   useAllClasses,
   useClassesGridColDefs,
@@ -16,8 +13,8 @@ import {
   useIsImportingClasses,
   useSetCurrentDetailClassId,
 } from './ClassesGrid.hooks';
-import { ImportClassesFormValues } from './ClassesGrid.types';
-import { validateImportClassesValues } from './ClassesGrid.utils';
+import {ImportClassesFormValues} from './ClassesGrid.types';
+import {validateImportClassesValues} from './ClassesGrid.utils';
 import ExtendedImportFields from './classesGrid/ExtendedImportFields.container';
 
 const ClassesGrid: React.FC = () => {

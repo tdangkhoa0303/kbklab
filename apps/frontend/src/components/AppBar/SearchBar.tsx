@@ -1,9 +1,9 @@
 import SearchIcon from '@mui/icons-material/Search';
 import InputAdornment from '@mui/material/InputAdornment';
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import TextField from '@mui/material/TextField';
-import React, { ChangeEvent, useCallback, useEffect, useState } from 'react';
-import { useDebounce } from 'shared/hooks';
+import React, {ChangeEvent, useCallback, useEffect, useState} from 'react';
+import {useDebounce} from 'shared/hooks';
 
 export interface SearchBarProps {
   value?: string;

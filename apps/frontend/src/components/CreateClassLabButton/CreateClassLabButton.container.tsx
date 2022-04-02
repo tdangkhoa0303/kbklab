@@ -1,11 +1,11 @@
-import { ModalRef } from 'components';
+import {ModalRef} from 'components';
 import isNull from 'lodash/isNull';
-import { useGetAllClasses } from 'pages/ClassManagement/ClassesGrid.hooks';
-import { useGetAllLecturers } from 'pages/LecturerManagement/LecturersGrid.hooks';
-import React, { useCallback, useEffect, useRef } from 'react';
-import { useMounting, useUser } from 'shared/hooks';
-import { UserRole } from 'shared/models';
-import { useCreateOrUpdateClassLabOptions } from './createClassLabButton';
+import {useGetAllClasses} from 'pages/ClassManagement/ClassesGrid.hooks';
+import {useGetAllLecturers} from 'pages/LecturerManagement/LecturersGrid.hooks';
+import React, {useCallback, useEffect, useRef} from 'react';
+import {useMounting, useUser} from 'shared/hooks';
+import {UserRole} from 'shared/models';
+import {useCreateOrUpdateClassLabOptions} from './createClassLabButton';
 import {
   useCreateClassLab,
   useCreateClassLabStatus,

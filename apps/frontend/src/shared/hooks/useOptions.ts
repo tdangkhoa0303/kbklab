@@ -1,5 +1,5 @@
-import { useMemo } from 'react';
-import { Option } from '../constants';
+import {useMemo} from 'react';
+import {Option} from '../constants';
 
 export interface UseOptionsParams<
   TObject extends object,

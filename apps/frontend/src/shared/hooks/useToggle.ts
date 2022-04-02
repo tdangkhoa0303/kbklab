@@ -1,5 +1,5 @@
 import isNil from 'lodash/isNil';
-import { useCallback, useState } from 'react';
+import {useCallback, useState} from 'react';
 
 export type ToggleCallback = [
   isOn: boolean,

@@ -1,9 +1,9 @@
-import { getLabStatus } from 'features/LabAttemption/LabCard/LabCard.utils';
-import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
-import { ClassLab } from 'shared/models';
-import { LabStatusPriority } from '../LabsGrid.constants';
-import { allStudentLabsSelector } from '../LabsGrid.selectors';
+import {getLabStatus} from 'components/LabAttemption/LabCard/LabCard.utils';
+import {useMemo} from 'react';
+import {useSelector} from 'react-redux';
+import {ClassLab} from 'shared/models';
+import {LabStatusPriority} from '../LabsGrid.constants';
+import {allStudentLabsSelector} from '../LabsGrid.selectors';
 
 export const useSortedStudentLabs = (): ClassLab[] => {
   const studentLabByIds = useSelector(allStudentLabsSelector);

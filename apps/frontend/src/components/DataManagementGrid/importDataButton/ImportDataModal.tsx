@@ -1,15 +1,11 @@
-import { FormikListener, Modal, ModalRef } from 'components';
-import Box from '@mui/material/Box';
-import { ButtonProps } from '@mui/material/Button';
+import {ButtonProps} from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
-import { Formik, FormikConfig, FormikProps, FormikValues } from 'formik';
+import {FormikListener, Modal, ModalRef} from 'components';
+import {Formik, FormikConfig, FormikProps, FormikValues} from 'formik';
 import noop from 'lodash/noop';
-import React, { PropsWithChildren, RefObject, useMemo } from 'react';
-import { ImportDataFormValuesWithFile } from '../ImportDataButton.types';
-import {
-  useImportDataFormErrors,
-  useImportDataFormHandlers,
-} from './ImportDataModal.hooks';
+import React, {PropsWithChildren, RefObject, useMemo} from 'react';
+import {ImportDataFormValuesWithFile} from '../ImportDataButton.types';
+import {useImportDataFormErrors, useImportDataFormHandlers,} from './ImportDataModal.hooks';
 import ImportDataUploader from './ImportDataUploader';
 
 export interface ImportDataModalProps<TImportFormValues extends FormikValues>

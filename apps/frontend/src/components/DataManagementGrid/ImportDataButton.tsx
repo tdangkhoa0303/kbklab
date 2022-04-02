@@ -1,18 +1,13 @@
 import AddIcon from '@mui/icons-material/Add';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import { ModalRef } from 'components';
-import { FormikConfig, FormikValues } from 'formik';
+import {ModalRef} from 'components';
+import {FormikConfig, FormikValues} from 'formik';
 import isNil from 'lodash/isNil';
-import React, {
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useRef,
-} from 'react';
-import { ResponseStatus } from 'shared/constants';
-import { useLoadingToast } from 'shared/hooks';
-import { ImportDataFormValuesWithFile } from './ImportDataButton.types';
+import React, {PropsWithChildren, useCallback, useEffect, useRef,} from 'react';
+import {ResponseStatus} from 'shared/constants';
+import {useLoadingToast} from 'shared/hooks';
+import {ImportDataFormValuesWithFile} from './ImportDataButton.types';
 import ImportDataModal from './importDataButton/ImportDataModal';
 
 export interface ImportDataButtonProps<TImportFormValues extends FormikValues> {

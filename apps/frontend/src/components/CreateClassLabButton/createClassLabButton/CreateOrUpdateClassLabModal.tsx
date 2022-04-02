@@ -1,19 +1,14 @@
 import MenuItem from '@mui/material/MenuItem';
 import Stack from '@mui/material/Stack';
-import { Theme } from '@mui/material/styles';
-import {
-  FormikDateTimePicker,
-  FormikModal,
-  FormikTextField,
-  ModalRef,
-} from 'components';
+import {Theme} from '@mui/material/styles';
+import {FormikDateTimePicker, FormikModal, FormikTextField, ModalRef,} from 'components';
 import moment from 'moment';
-import React, { RefObject, useCallback, useMemo } from 'react';
-import { Option } from 'shared/constants';
-import { ClassLab } from 'shared/models';
-import { CreateClassLabValues } from '../CreateClassLabButton.types';
-import { createClassLabSchema } from './CreateOrUpdateClassLabModal.constants';
-import { useCreateClassLabInitialValues } from './CreateOrUpdateClassLabModal.hooks';
+import React, {RefObject, useCallback, useMemo} from 'react';
+import {Option} from 'shared/constants';
+import {ClassLab} from 'shared/models';
+import {CreateClassLabValues} from '../CreateClassLabButton.types';
+import {createClassLabSchema} from './CreateOrUpdateClassLabModal.constants';
+import {useCreateClassLabInitialValues} from './CreateOrUpdateClassLabModal.hooks';
 
 export type DisabledFields = Partial<
   Record<keyof CreateClassLabValues, boolean>

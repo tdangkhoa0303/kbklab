@@ -1,4 +1,4 @@
-import { ValidationError } from '../../constants';
+import {ValidationError} from '../../constants';
 
 export interface APIClientResponse<TResponseData> {
   errorCode: number;

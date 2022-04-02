@@ -1,8 +1,8 @@
-import React, { PropsWithChildren, useEffect, useRef, useState } from 'react';
-import { useCookies } from 'react-cookie';
-import { useMounting } from '../../hooks';
-import { OverlayLoader } from '../OverlayLoader';
-import { useFetchUser, useFetchUserInfoStatus } from './UserProvider.hooks';
+import React, {PropsWithChildren, useEffect, useRef, useState} from 'react';
+import {useCookies} from 'react-cookie';
+import {useMounting} from '../../hooks';
+import {OverlayLoader} from '../OverlayLoader';
+import {useFetchUser, useFetchUserInfoStatus} from './UserProvider.hooks';
 
 export type UserProviderProps = {};
 

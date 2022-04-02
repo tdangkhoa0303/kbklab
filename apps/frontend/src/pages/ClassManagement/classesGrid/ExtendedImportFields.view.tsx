@@ -1,8 +1,8 @@
-import { FormikTextField } from 'components';
 import Grid from '@mui/material/Grid';
 import MenuItem from '@mui/material/MenuItem';
+import {FormikTextField} from 'components';
 import React from 'react';
-import { Option } from 'shared/constants';
+import {Option} from 'shared/constants';
 
 export interface ExtendedImportFieldsViewProps {
   lecturerOptions: Option[];

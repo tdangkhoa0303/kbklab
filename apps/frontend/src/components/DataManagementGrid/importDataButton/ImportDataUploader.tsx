@@ -1,7 +1,7 @@
-import { FileInputChangeHandler, FileUploader } from 'components';
 import Typography from '@mui/material/Typography';
+import {FileInputChangeHandler, FileUploader} from 'components';
 import React from 'react';
-import { ALLOW_FILE_TYPES } from './ImportDataUploader.constants';
+import {ALLOW_FILE_TYPES} from './ImportDataUploader.constants';
 
 export interface ImportDataUploaderProps {
   onImportingFileChange: FileInputChangeHandler;

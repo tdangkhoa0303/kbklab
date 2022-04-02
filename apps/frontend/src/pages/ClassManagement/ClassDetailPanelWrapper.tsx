@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
-import Collapse, { CollapseProps } from '@mui/material/Collapse';
-import React, { PropsWithChildren } from 'react';
+import Collapse, {CollapseProps} from '@mui/material/Collapse';
+import React, {PropsWithChildren} from 'react';
 
 export interface ClassDetailPanelWrapperProps extends CollapseProps {
   open: boolean;

@@ -1,7 +1,7 @@
-import { EntityState } from '@reduxjs/toolkit';
-import { ResponseStatus } from 'shared/constants';
-import { ClassLab } from 'shared/models';
-import { APIClientResponse } from 'shared/utilities';
+import {EntityState} from '@reduxjs/toolkit';
+import {ResponseStatus} from 'shared/constants';
+import {ClassLab} from 'shared/models';
+import {APIClientResponse} from 'shared/utilities';
 
 export type StudentLabsState = EntityState<ClassLab>;
 

@@ -11,10 +11,10 @@ export * from './Formik';
 export * from './AppBar';
 export * from './ColorDot';
 export * from './cssLayout';
-export * from './LinkButton';
 export * from './GoogleLogin';
 export * from './FormikModal';
 export * from './MasterLayout';
 export * from './FileUploader';
+export * from './CustomLink';
 
 export { default as ThemeConfig } from './theme/ThemeConfig';

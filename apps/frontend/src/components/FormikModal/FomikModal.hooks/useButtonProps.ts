@@ -1,5 +1,5 @@
-import { ButtonProps } from '@mui/material/Button';
-import { useMemo } from 'react';
+import {ButtonProps} from '@mui/material/Button';
+import {useMemo} from 'react';
 
 export interface UseButtonPropsReturnedValues {
   primaryButtonProps: Partial<ButtonProps>;

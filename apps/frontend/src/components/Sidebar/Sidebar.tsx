@@ -1,9 +1,9 @@
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Logo } from '../Logo';
-import { SidebarNavSection } from './SidebarNavSection';
+import {Link} from 'react-router-dom';
+import {Logo} from '../Logo';
+import {SidebarNavSection} from './SidebarNavSection';
 import SidebarUserButton from './SidebarUserButton';
 
 const Sidebar: React.FC = () => {

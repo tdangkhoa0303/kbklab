@@ -1,4 +1,4 @@
-import { UserRole } from 'shared/models';
+import {UserRole} from 'shared/models';
 
 export interface NavItemConfig {
   label: string;

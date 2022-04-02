@@ -1,12 +1,12 @@
-import { ResponseStatus } from 'shared/constants';
-import { useLoadingToast } from 'shared/hooks';
-import { Dictionary } from '@reduxjs/toolkit';
-import { CreateClassLabValues, DisabledFields } from 'components';
+import {Dictionary} from '@reduxjs/toolkit';
+import {CreateClassLabValues, DisabledFields} from 'components';
 import reduce from 'lodash/reduce';
-import { useCallback } from 'react';
-import { useSelector } from 'react-redux';
-import { updateClassLabStatusSelector } from '../ClassesGrid.selectors';
-import { useUpdateClassLab } from './useUpdateClassLab';
+import {useCallback} from 'react';
+import {useSelector} from 'react-redux';
+import {ResponseStatus} from 'shared/constants';
+import {useLoadingToast} from 'shared/hooks';
+import {updateClassLabStatusSelector} from '../ClassesGrid.selectors';
+import {useUpdateClassLab} from './useUpdateClassLab';
 
 const omitDisabledFieldsFromPayload = (
   values: CreateClassLabValues,

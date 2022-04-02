@@ -1,7 +1,7 @@
 import noop from 'lodash/noop';
-import { createContext, useContext } from 'react';
-import { confirmationModalInitialState } from './ConfirmationModal.constants';
-import { ConfirmationModalState } from './ConfirmationModal.types';
+import {createContext, useContext} from 'react';
+import {confirmationModalInitialState} from './ConfirmationModal.constants';
+import {ConfirmationModalState} from './ConfirmationModal.types';
 
 export interface ConfirmationModalContextValues {
   state: ConfirmationModalState;

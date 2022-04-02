@@ -1,4 +1,4 @@
-import { EntitiesState, RootState, UIState } from './rootReducers';
+import {EntitiesState, RootState, UIState} from './rootReducers';
 
 export const uiStateSelector = (state: RootState): UIState => state.ui;
 

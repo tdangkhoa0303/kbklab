@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
-import React, { PropsWithChildren } from 'react';
-import { AppBar } from '../AppBar';
+import {styled} from '@mui/material/styles';
+import React, {PropsWithChildren} from 'react';
+import {AppBar} from '../AppBar';
 import Sidebar from '../Sidebar/Sidebar';
 
 export interface MasterLayoutProps {

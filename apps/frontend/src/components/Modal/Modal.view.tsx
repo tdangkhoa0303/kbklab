@@ -1,12 +1,12 @@
 import CloseIcon from '@mui/icons-material/Close';
-import Box, { BoxProps } from '@mui/material/Box';
-import Button, { ButtonProps } from '@mui/material/Button';
+import Box, {BoxProps} from '@mui/material/Box';
+import Button, {ButtonProps} from '@mui/material/Button';
 import CircularProgress from '@mui/material/CircularProgress';
 import IconButton from '@mui/material/IconButton';
 import Modal from '@mui/material/Modal';
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import React, { PropsWithChildren, ReactNode } from 'react';
+import React, {PropsWithChildren, ReactNode} from 'react';
 
 const defaultProps = {
   primaryButtonText: 'Confirm',

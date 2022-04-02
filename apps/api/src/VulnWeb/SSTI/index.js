@@ -1,10 +1,10 @@
-import './configs/env.config.js';
-import './configs/db.config.js';
+import cookieParser from 'cookie-parser';
 import express from 'express';
 import session from 'express-session';
-import cookieParser from 'cookie-parser';
-import { signIn, postSignIn, getProducts, addToCart, getCart, logOut } from './controllers';
-import { userMiddleware } from './middlewares';
+import './configs/db.config.js';
+import './configs/env.config.js';
+import {addToCart, getCart, getProducts, logOut, postSignIn, signIn} from './controllers';
+import {userMiddleware} from './middlewares';
 
 const app = express();
 

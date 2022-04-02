@@ -1,5 +1,5 @@
-import { ColDef } from 'ag-grid-community';
-import { defaultActionColDef } from 'shared/constants';
+import {ColDef} from 'ag-grid-community';
+import {defaultActionColDef} from 'shared/constants';
 import ClassDetailCellRenderer from './classesGrid/ClassDetailCellRenderer';
 
 export const CLASSES_IMPORT_SAMPLE_URL =

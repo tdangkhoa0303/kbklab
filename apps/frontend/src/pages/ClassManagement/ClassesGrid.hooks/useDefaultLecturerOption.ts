@@ -1,6 +1,6 @@
-import { useMemo } from 'react';
-import { Option } from 'shared/constants';
-import { useUser } from 'shared/hooks';
+import {useMemo} from 'react';
+import {Option} from 'shared/constants';
+import {useUser} from 'shared/hooks';
 
 /**
  * Only use this hook in authenticated route because it will return the option based on the signed-in user information

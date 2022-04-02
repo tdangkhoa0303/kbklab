@@ -1,4 +1,4 @@
-import { Theme } from '@mui/material/styles';
+import {Theme} from '@mui/material/styles';
 import merge from 'lodash/merge';
 import Autocomplete from './Autocomplete';
 import Backdrop from './Backdrop';

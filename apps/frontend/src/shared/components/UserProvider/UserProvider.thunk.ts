@@ -1,12 +1,7 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AppContext } from '../../constants';
-import { APIClient } from '../../utilities/APIClient';
-import {
-  FetchUserResponse,
-  LoginPayload,
-  LoginResponse,
-  LoginWithGooglePayload,
-} from './UserProvider.types';
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import {AppContext} from '../../constants';
+import {APIClient} from '../../utilities/APIClient';
+import {FetchUserResponse, LoginPayload, LoginResponse, LoginWithGooglePayload,} from './UserProvider.types';
 
 export const fetchUser = createAsyncThunk<FetchUserResponse>(
   `${AppContext.User}/fetchUser`,

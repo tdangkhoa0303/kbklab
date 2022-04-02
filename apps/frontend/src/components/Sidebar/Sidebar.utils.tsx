@@ -1,4 +1,4 @@
-import { Icon } from '@iconify/react';
+import {Icon} from '@iconify/react';
 import React from 'react';
 
 export const getSidebarItemIcon = (iconName: string): React.ReactElement => (

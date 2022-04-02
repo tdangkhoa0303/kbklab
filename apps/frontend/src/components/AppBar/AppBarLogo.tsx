@@ -1,9 +1,9 @@
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { AppCommonRoute } from 'shared/constants';
-import { Logo } from '../Logo';
-import { LOGO_SIZE } from './AppBar.constants';
+import {Link} from 'react-router-dom';
+import {AppCommonRoute} from 'shared/constants';
+import {Logo} from '../Logo';
+import {LOGO_SIZE} from './AppBar.constants';
 
 const StyledLink = styled(Link)(({ theme }) => ({
   all: 'unset',

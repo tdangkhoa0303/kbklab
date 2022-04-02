@@ -1,8 +1,8 @@
-import Box, { BoxProps } from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
+import Box, {BoxProps} from '@mui/material/Box';
+import {useTheme} from '@mui/material/styles';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
-import { AgGridReact, AgGridReactProps } from 'ag-grid-react';
+import {AgGridReact, AgGridReactProps} from 'ag-grid-react';
 import React from 'react';
 
 export type GridProps = BoxProps & AgGridReactProps;

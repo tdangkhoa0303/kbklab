@@ -1,9 +1,7 @@
 import {environment} from 'environments/environment';
 import {Response} from 'express';
 import {sign} from 'jsonwebtoken';
-import {User} from '../../../entities';
 import {ImportDataResult} from '../../../models';
-import {CreateClassStudentResult} from '../class/class.types';
 
 export const signToken = (id: string) => {
   const {jwtSecret, jwtExpiredIn} = environment

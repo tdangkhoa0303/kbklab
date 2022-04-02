@@ -1,5 +1,5 @@
-import { ChangeEvent, ChangeEventHandler, useCallback, useMemo } from 'react';
-import { FileInputChangeHandler } from './FileUploader.types';
+import {ChangeEvent, ChangeEventHandler, useCallback, useMemo} from 'react';
+import {FileInputChangeHandler} from './FileUploader.types';
 
 export const useOnFileChange = (
   setFiles: (files: FileList | null) => void,

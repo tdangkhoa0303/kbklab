@@ -1,9 +1,9 @@
-import { createTheme, ThemeOptions } from '@mui/material/styles';
+import {createTheme, ThemeOptions} from '@mui/material/styles';
+import componentsOverride from './overrides';
 import palette from './palette';
-import shadows, { customShadows, CustomShadows } from './shadows';
+import shadows, {customShadows, CustomShadows} from './shadows';
 import shape from './shape';
 import typography from './typography';
-import componentsOverride from './overrides';
 
 declare module '@mui/material' {
   interface Color {

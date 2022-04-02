@@ -1,6 +1,6 @@
 import Box from '@mui/material/Box';
+import {PageTitle} from 'components';
 import React from 'react';
-import { PageTitle } from 'components';
 import LabsGrid from './LabsGrid.container';
 
 const LabDashboard: React.FC = () => {

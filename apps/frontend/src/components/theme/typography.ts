@@ -1,5 +1,5 @@
-import { TypographyOptions } from '@mui/material/styles/createTypography';
-import { Breakpoint } from '@mui/system';
+import {TypographyOptions} from '@mui/material/styles/createTypography';
+import {Breakpoint} from '@mui/system';
 
 type ResponsiveValues = Partial<Record<Breakpoint, number>>;
 

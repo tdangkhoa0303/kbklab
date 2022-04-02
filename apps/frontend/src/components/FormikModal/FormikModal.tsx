@@ -1,21 +1,10 @@
-import {
-  Formik,
-  FormikConfig,
-  FormikErrors,
-  FormikProps,
-  FormikValues,
-} from 'formik';
+import {Formik, FormikConfig, FormikErrors, FormikProps, FormikValues,} from 'formik';
 import noop from 'lodash/noop';
-import React, {
-  PropsWithChildren,
-  RefObject,
-  useCallback,
-  useRef,
-} from 'react';
-import { FormikListener } from '../Formik';
-import { Modal, ModalProps, ModalRef } from '../Modal';
-import { useButtonProps } from './FomikModal.hooks';
-import { useFormErrors } from './FomikModal.hooks/useFormErrors';
+import React, {PropsWithChildren, RefObject, useCallback, useRef,} from 'react';
+import {FormikListener} from '../Formik';
+import {Modal, ModalProps, ModalRef} from '../Modal';
+import {useButtonProps} from './FomikModal.hooks';
+import {useFormErrors} from './FomikModal.hooks/useFormErrors';
 
 export interface FormikModalProps<TValues extends FormikValues = FormikValues>
   extends FormikConfig<TValues> {

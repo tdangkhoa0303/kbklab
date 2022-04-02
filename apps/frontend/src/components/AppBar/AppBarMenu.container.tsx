@@ -1,7 +1,7 @@
-import React, { useCallback } from 'react';
-import { useToggle, useUser } from 'shared/hooks';
-import { User } from 'shared/models';
-import { useAppBarMenuOptions } from './AppBarMenu.hooks';
+import React, {useCallback} from 'react';
+import {useToggle, useUser} from 'shared/hooks';
+import {User} from 'shared/models';
+import {useAppBarMenuOptions} from './AppBarMenu.hooks';
 import AppBarMenuView from './AppBarMenu.view';
 
 const AppBarMenuContainer: React.FC = () => {

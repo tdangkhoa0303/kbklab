@@ -1,5 +1,6 @@
-import { ColDef } from 'ag-grid-community';
-import { User, UserRole } from './models';
+import {ColDef} from 'ag-grid-community';
+import {Location} from 'react-router-dom';
+import {User, UserRole} from './models';
 
 export const defaultActionColDef: Partial<ColDef> = {
   pinned: 'right',
@@ -12,12 +13,20 @@ export interface Option<TValue = string> {
   label: string;
 }
 
+export interface RootState {
+  user: UserState;
+  asyncActions: AsyncActionsState;
+  [key: string]: any;
+}
+
 export const EMPTY_STRING = '';
 
 export enum AppCommonRoute {
   Root = '/',
   LogIn = '/login',
   Score = '/score',
+  ClassLab = '/classLab',
+  ClassLabDetail = '/classLab/:classLabId/detail',
   LecturerManagement = '/lecturer-management',
   ClassManagement = '/class-management',
   ScoreDashboard = '/score-dashboard',
@@ -62,15 +71,13 @@ export interface AsyncActionsState {
   numberOfRequests: number;
 }
 
-export interface RootState {
-  user: UserState;
-  asyncActions: AsyncActionsState;
-  [key: string]: any;
-}
-
 export type FallbackPageByUserRole = {
   [key in UserRole]: string;
 };
+
+export interface LocationStateWithBackground {
+  background: Location;
+}
 
 export const fallbackPageByUserRole: FallbackPageByUserRole = {
   [UserRole.Student]: '/',

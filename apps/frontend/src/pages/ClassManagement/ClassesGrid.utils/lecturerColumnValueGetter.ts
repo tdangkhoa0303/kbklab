@@ -1,5 +1,5 @@
-import { ValueGetterParams } from 'ag-grid-community';
-import { Lecturer } from 'shared/models';
+import {ValueGetterParams} from 'ag-grid-community';
+import {Lecturer} from 'shared/models';
 
 export const lecturerColumnValueGetter = (
   params: ValueGetterParams

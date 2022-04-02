@@ -1,6 +1,6 @@
-import { ValueFormatterParams } from 'ag-grid-community';
-import { User } from 'shared/models';
-import { DISPLAYED_STUDENT_NAMES } from '../ClassesGrid.constants';
+import {ValueFormatterParams} from 'ag-grid-community';
+import {User} from 'shared/models';
+import {DISPLAYED_STUDENT_NAMES} from '../ClassesGrid.constants';
 
 const buildStudentsString = (studentNames: string[]): string => {
   const displayedStudentNames = studentNames

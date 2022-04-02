@@ -1,7 +1,7 @@
-import { AsyncThunk } from '@reduxjs/toolkit';
-import { useMemo } from 'react';
-import { useSelector } from 'react-redux';
-import { RootState } from '../constants';
+import {AsyncThunk} from '@reduxjs/toolkit';
+import {useMemo} from 'react';
+import {useSelector} from 'react-redux';
+import {RootState} from '../constants';
 
 export const useLoading = (actions: AsyncThunk<any, any, any>[]): boolean => {
   const { currentActions } = useSelector(

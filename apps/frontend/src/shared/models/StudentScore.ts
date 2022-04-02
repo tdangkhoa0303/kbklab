@@ -1,4 +1,4 @@
-import { StepSuccess } from './ClassLab';
+import {StepSuccess} from './ClassLab';
 
 export interface ScoreRecord {
   classLabId: string;

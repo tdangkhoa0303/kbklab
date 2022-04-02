@@ -1,6 +1,6 @@
-import React, { useMemo } from 'react';
-import { keyframes } from '@emotion/react';
+import {keyframes} from '@emotion/react';
 import Box from '@mui/material/Box';
+import React, {useMemo} from 'react';
 
 const defaultProps = {
   size: 16,

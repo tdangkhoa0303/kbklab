@@ -1,20 +1,10 @@
-import {
-  createEntityAdapter,
-  createSlice,
-  PayloadAction,
-  SliceCaseReducers,
-} from '@reduxjs/toolkit';
+import {createEntityAdapter, createSlice, PayloadAction, SliceCaseReducers,} from '@reduxjs/toolkit';
 import Immutable from 'seamless-immutable';
-import { AppContext, ResponseStatus } from 'shared/constants';
-import { Class } from 'shared/models';
-import { createClassLab } from '../../components/CreateClassLabButton/CreateClassLabButton.thunks';
-import {
-  deleteClassLab,
-  getAllClasses,
-  importClasses,
-  updateClassLab,
-} from './ClassesGrid.thunks';
-import { ClassesGridState, ClassesUIState } from './ClassesGrid.types';
+import {AppContext, ResponseStatus} from 'shared/constants';
+import {Class} from 'shared/models';
+import {createClassLab} from '../../components/CreateClassLabButton/CreateClassLabButton.thunks';
+import {deleteClassLab, getAllClasses, importClasses, updateClassLab,} from './ClassesGrid.thunks';
+import {ClassesGridState, ClassesUIState} from './ClassesGrid.types';
 
 export const classesAdapter = createEntityAdapter<Class>({
   selectId: (currentLClass) => currentLClass.id,

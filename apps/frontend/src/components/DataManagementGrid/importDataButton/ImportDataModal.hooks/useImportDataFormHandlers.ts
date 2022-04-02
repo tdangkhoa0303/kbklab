@@ -1,7 +1,7 @@
-import { FileInputChangeHandler } from 'components';
-import { FormikValues } from 'formik';
-import { useCallback, useMemo, useState } from 'react';
-import { ImportDataFormValuesWithFile } from '../../ImportDataButton.types';
+import {FileInputChangeHandler} from 'components';
+import {FormikValues} from 'formik';
+import {useCallback, useMemo, useState} from 'react';
+import {ImportDataFormValuesWithFile} from '../../ImportDataButton.types';
 
 export interface ImportDataFormHandlers<
   TImportDataFormValues extends FormikValues = FormikValues

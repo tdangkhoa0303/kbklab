@@ -5,10 +5,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { styled } from '@mui/material/styles';
-import React, { useRef } from 'react';
-import { User } from 'shared/models';
-import { MenuItemOption } from './AppBarMenu.types';
+import {styled} from '@mui/material/styles';
+import React, {useRef} from 'react';
+import {User} from 'shared/models';
+import {MenuItemOption} from './AppBarMenu.types';
 
 export interface AppBarMenuViewProps {
   open: boolean;

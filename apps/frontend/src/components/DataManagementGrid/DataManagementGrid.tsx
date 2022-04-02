@@ -1,15 +1,10 @@
 import Box from '@mui/material/Box';
-import { AgGridReactProps } from 'ag-grid-react';
-import {
-  Grid,
-  GridContextProvider,
-  sizeColumnsToFit,
-  useObtainGridValues,
-} from 'components';
-import { FormikConfig, FormikValues } from 'formik';
-import React, { PropsWithChildren, ReactNode } from 'react';
-import { PageTitle } from '../PageTitle';
-import ImportDataButton, { ImportDataButtonProps } from './ImportDataButton';
+import {AgGridReactProps} from 'ag-grid-react';
+import {Grid, GridContextProvider, sizeColumnsToFit, useObtainGridValues,} from 'components';
+import {FormikConfig, FormikValues} from 'formik';
+import React, {PropsWithChildren, ReactNode} from 'react';
+import {PageTitle} from '../PageTitle';
+import ImportDataButton, {ImportDataButtonProps} from './ImportDataButton';
 
 export interface DataManagementGridProps<
   TData,

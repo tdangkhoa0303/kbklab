@@ -1,5 +1,5 @@
-import { UserRole } from 'shared/models';
-import { NavItemConfig } from './Sidebar.types';
+import {UserRole} from 'shared/models';
+import {NavItemConfig} from './Sidebar.types';
 
 export const sidebarItems: NavItemConfig[] = [
   {

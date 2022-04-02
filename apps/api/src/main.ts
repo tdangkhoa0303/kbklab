@@ -32,7 +32,7 @@ app.use(
 
 app.use('/api/v1', v1Router)
 
-const port = process.env.port || 3333;
+const port = environment.port || 3333;
 const server = app.listen(port, () => {
   console.log('Listening at http://localhost:' + port + '/api');
 });

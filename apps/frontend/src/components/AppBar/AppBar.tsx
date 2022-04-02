@@ -1,9 +1,9 @@
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
+import MuiAppBar, {AppBarProps as MuiAppBarProps} from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { alpha, styled } from '@mui/material/styles';
+import {alpha, styled} from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
-import React, { PropsWithChildren } from 'react';
+import React, {PropsWithChildren} from 'react';
 import AppBarMenu from './AppBarMenu.container';
 
 const DRAWER_WIDTH = 280;

@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
-import { SchemaOf } from 'yup';
-import { CreateClassLabValues } from '../CreateClassLabButton.types';
+import {SchemaOf} from 'yup';
+import {CreateClassLabValues} from '../CreateClassLabButton.types';
 
 export const minimumStartDateFromNowInMinutes = 5;
 

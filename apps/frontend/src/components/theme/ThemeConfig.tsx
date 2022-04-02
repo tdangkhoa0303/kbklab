@@ -1,11 +1,7 @@
 import CssBaseline from '@mui/material/CssBaseline';
-import {
-  StyledEngineProvider,
-  ThemeOptions,
-  ThemeProvider,
-} from '@mui/material/styles';
+import {StyledEngineProvider, ThemeOptions, ThemeProvider,} from '@mui/material/styles';
 import merge from 'lodash/merge';
-import React, { PropsWithChildren, useMemo } from 'react';
+import React, {PropsWithChildren, useMemo} from 'react';
 import GlobalStyles from './GlobalStyles';
 import theme from './theme';
 

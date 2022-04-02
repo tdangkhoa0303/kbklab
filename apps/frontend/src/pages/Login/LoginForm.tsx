@@ -4,15 +4,15 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import Box from '@mui/material/Box';
 import InputAdornment from '@mui/material/InputAdornment';
 import Stack from '@mui/material/Stack';
-import { FormikListener, FormikTextField } from 'components';
-import { Formik } from 'formik';
+import {FormikListener, FormikTextField} from 'components';
+import {Formik} from 'formik';
 import noop from 'lodash/noop';
 import React from 'react';
-import { login } from 'shared/components';
-import { useLoading } from 'shared/hooks';
-import { INITIAL_LOGIN_VALUES } from './LoginForm.constants';
-import { useHandleLoginForm, useLoginFormValidator } from './LoginForm.hooks';
-import { LoginFormValues } from './LoginForm.types';
+import {login} from 'shared/components';
+import {useLoading} from 'shared/hooks';
+import {INITIAL_LOGIN_VALUES} from './LoginForm.constants';
+import {useHandleLoginForm, useLoginFormValidator} from './LoginForm.hooks';
+import {LoginFormValues} from './LoginForm.types';
 
 const LoginForm: React.FC = () => {
   const isLoading = useLoading([login]);

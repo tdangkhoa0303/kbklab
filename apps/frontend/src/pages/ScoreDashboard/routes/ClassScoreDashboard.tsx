@@ -1,9 +1,9 @@
 import isNil from 'lodash/isNil';
 import React from 'react';
-import { useOutletContext } from 'react-router-dom';
-import { useClassByCode } from '../../ClassManagement/ClassesGrid.hooks';
+import {useOutletContext} from 'react-router-dom';
+import {useClassByCode} from '../../ClassManagement/ClassesGrid.hooks';
+import {ScoreDashboardOutletContextValues} from '../types';
 import ClassScoreGrid from './classScoreDashboard/ClassScoreGrid';
-import { ScoreDashboardOutletContextValues } from '../types';
 
 const ClassScoreDashboard: React.FC = () => {
   const { classCode, obtainGridValues } =

@@ -1,6 +1,6 @@
-import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { setCurrentDetailClassId } from '../ClassesGrid.slice';
+import {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import {setCurrentDetailClassId} from '../ClassesGrid.slice';
 
 export type SetCurrentDetailClassId = (classId: string | null) => void;
 

@@ -1,5 +1,5 @@
 import GlobalThemeStyles from '@mui/material/GlobalStyles';
-import { useTheme } from '@mui/material/styles';
+import {useTheme} from '@mui/material/styles';
 
 const GlobalStyles = () => {
   const theme = useTheme();

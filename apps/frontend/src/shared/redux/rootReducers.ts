@@ -1,18 +1,9 @@
-import {
-  labsReducer,
-  labsUIReducer,
-} from 'components/CreateClassLabButton/CreateClassLabButton.slice';
-import { labAttemptionUIReducer } from 'features/LabAttemption';
-import {
-  classesReducer,
-  classesUIReducer,
-} from 'pages/ClassManagement/ClassesGrid.slice';
-import {
-  lecturersReducer,
-  lecturersUIReducer,
-} from 'pages/LecturerManagement/LecturesGrid.slice';
-import { userLabsReducer } from 'pages/LabDashboard/LabsGrid.slice';
-import { CombinedState, combineReducers, Reducer } from 'redux';
+import {labsReducer, labsUIReducer,} from 'components/CreateClassLabButton/CreateClassLabButton.slice';
+import {labAttemptionUIReducer} from 'components/LabAttemption';
+import {classesReducer, classesUIReducer,} from 'pages/ClassManagement/ClassesGrid.slice';
+import {userLabsReducer} from 'pages/LabDashboard/LabsGrid.slice';
+import {lecturersReducer, lecturersUIReducer,} from 'pages/LecturerManagement/LecturesGrid.slice';
+import {CombinedState, combineReducers, Reducer} from 'redux';
 
 const uiReducer = combineReducers({
   lecturers: lecturersUIReducer,

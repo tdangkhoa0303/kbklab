@@ -1,9 +1,6 @@
-import { ColDef } from 'ag-grid-community';
-import { DETAIL_COLUMN_DEF } from '../ClassesGrid.constants';
-import {
-  lecturerColumnValueGetter,
-  studentsColumnValueFormatter,
-} from '../ClassesGrid.utils';
+import {ColDef} from 'ag-grid-community';
+import {DETAIL_COLUMN_DEF} from '../ClassesGrid.constants';
+import {lecturerColumnValueGetter, studentsColumnValueFormatter,} from '../ClassesGrid.utils';
 
 export const useClassesGridColDefs = (): ColDef[] => [
   {

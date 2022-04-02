@@ -1,12 +1,8 @@
 import isEmpty from 'lodash/isEmpty';
-import { useCallback, useMemo, useState } from 'react';
-import { useRequestLogin } from 'shared/components';
+import {useCallback, useMemo, useState} from 'react';
+import {useRequestLogin} from 'shared/components';
 import validator from 'validator';
-import {
-  HandleLoginForm,
-  LoginFormErrors,
-  LoginFormValues,
-} from './LoginForm.types';
+import {HandleLoginForm, LoginFormErrors, LoginFormValues,} from './LoginForm.types';
 
 type LoginFormValidator = (values: LoginFormValues) => LoginFormErrors;
 export const useLoginFormValidator = (): LoginFormValidator =>

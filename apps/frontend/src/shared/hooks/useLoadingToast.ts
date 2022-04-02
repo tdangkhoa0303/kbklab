@@ -1,6 +1,6 @@
-import { ResponseStatus } from '../constants';
-import { ReactText, useCallback, useEffect, useState } from 'react';
-import { toast, ToastOptions } from 'react-toastify';
+import {ReactText, useCallback, useEffect, useState} from 'react';
+import {toast, ToastOptions} from 'react-toastify';
+import {ResponseStatus} from '../constants';
 
 export interface LoadingToastParams {
   loading: boolean;

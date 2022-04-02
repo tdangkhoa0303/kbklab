@@ -1,7 +1,7 @@
-import {ClassLabDTO, InstanceDTO, ScoreDTO, UserRole} from '@kbklab/api-interfaces';
-import {User} from 'entities';
+import {ClassLabDTO, InstanceDTO, LabDTO, ScoreDTO, UserRole} from '@kbklab/api-interfaces';
+import {Class, User} from 'entities';
 import {environment} from 'environments/environment';
-import {ClassLabModel, ClassModel, InstanceModel} from 'infra/database/models';
+import {ClassLabModel, ClassModel, InstanceModel, ScoreModel} from 'infra/database/models';
 import {AppError} from 'models';
 import {rescheduleInstance} from '../instance/instance.actions';
 import * as ScoreQueries from '../score/score.queries';
@@ -120,7 +120,6 @@ export const getStudentClassLabs = async (userId: string): Promise<ClassLabDTO[]
     );
     const classLabScore = studentScores.find(score => score.classLab.toString() === classLabId)
 
-
     return {
      ...classLab,
       stepSuccess: classLabScore ? classLabScore.stepSuccess : [],
@@ -136,4 +135,31 @@ export const getUserClassLabsWitchScore = async (user: User): Promise<ClassLabDT
   }
 
   return await getStudentClassLabs(id);
+}
+
+export const getUserClassLabDetail = async (classLabId: string, user: User): Promise<ClassLabDTO> => {
+  const {id: userId} = user;
+  const userClassLab = await ClassLabModel
+    .findById(classLabId)
+    .populate<{lab: LabDTO}>('lab')
+    .populate<{class: Class}>('class');
+  if (!userClassLab) {
+    throw new AppError('Cannot find class lab with provided id', 404);
+  }
+
+  const classLabScore = await ScoreModel.findOne({
+    classLabId,
+    user: userId,
+  });
+  const classLabInstance = await InstanceModel.findOne({
+    classLabId,
+    user: userId,
+  });
+
+  return {
+    ...userClassLab.toObject<ClassLabDTO>(),
+    class: userClassLab.class.code,
+    stepSuccess: classLabScore ? classLabScore.stepSuccess : [],
+    url: classLabInstance ? classLabInstance.instanceUrl : '',
+  };
 }

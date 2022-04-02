@@ -23,3 +23,8 @@ export const createClassLab = apiWrapper((req) => ClassLabActions.createClassLab
 export const getUserClassLabsWithScore = apiWrapper((req: AuthenticatedRequest) => {
   return ClassLabActions.getUserClassLabsWitchScore(req.user);
 });
+
+export const getUserClassLabDetail = apiWrapper((req: AuthenticatedRequest) => {
+  const {classLabId} = req.params;
+  return ClassLabActions.getUserClassLabDetail(classLabId, req.user);
+})

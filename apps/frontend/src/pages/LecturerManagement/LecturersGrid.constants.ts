@@ -1,6 +1,6 @@
-import { ColDef } from 'ag-grid-community';
-import { LecturerDetailCellRenderer } from 'components/GridCellRenderer';
-import { defaultActionColDef } from 'shared/constants';
+import {ColDef} from 'ag-grid-community';
+import {LecturerDetailCellRenderer} from 'components/GridCellRenderer';
+import {defaultActionColDef} from 'shared/constants';
 
 export enum FrameworkComponents {
   LecturerDetailCellRenderer = 'LecturerDetailCellRenderer',

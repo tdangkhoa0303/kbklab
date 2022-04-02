@@ -1,8 +1,8 @@
-import { Grid, GridProps } from 'components';
-import React, { useEffect, useState } from 'react';
-import { Class, StudentScore } from 'shared/models';
-import { APIClient } from 'shared/utilities';
-import { useClassScoreGridColDefs } from '../../hooks';
+import {Grid, GridProps} from 'components';
+import React, {useEffect, useState} from 'react';
+import {Class, StudentScore} from 'shared/models';
+import {APIClient} from 'shared/utilities';
+import {useClassScoreGridColDefs} from '../../hooks';
 
 export interface ClassScoreGridProps extends GridProps {
   currentClass: Class;

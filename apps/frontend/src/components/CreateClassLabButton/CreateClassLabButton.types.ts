@@ -1,7 +1,7 @@
-import { EntityState } from '@reduxjs/toolkit';
-import { ResponseStatus } from 'shared/constants';
-import { ClassLab, Lab } from 'shared/models';
-import { APIClientResponse } from 'shared/utilities';
+import {EntityState} from '@reduxjs/toolkit';
+import {ResponseStatus} from 'shared/constants';
+import {ClassLab, Lab} from 'shared/models';
+import {APIClientResponse} from 'shared/utilities';
 
 export interface CreateClassLabValues {
   id?: string;

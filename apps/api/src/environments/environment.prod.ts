@@ -2,7 +2,7 @@ export const environment = {
   production: true,
   port: 7000,
   dbURI: 'mongodb://127.0.0.1:27017/',
-  dbName: 'KBK',
+  dbName: 'kbklab',
   instanceTimeout: 5,
   jwtSecret: 'do_anh_tim_duoc_em',
   jwtExpiredIn: '3h',

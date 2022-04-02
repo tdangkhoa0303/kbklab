@@ -1,6 +1,6 @@
-import { AnyAction } from 'redux';
-import { AsyncActionsState } from '../../constants';
+import {AnyAction} from 'redux';
 import Immutable from 'seamless-immutable';
+import {AsyncActionsState} from '../../constants';
 
 const initialAsyncActionsState: AsyncActionsState = {
   currentActions: {},

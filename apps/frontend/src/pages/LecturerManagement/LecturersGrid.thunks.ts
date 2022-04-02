@@ -1,6 +1,6 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AppContext } from 'shared/constants';
-import { APIClient } from 'shared/utilities';
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import {AppContext} from 'shared/constants';
+import {APIClient} from 'shared/utilities';
 import {
   GetAllLecturersResponse,
   ImportLecturersPayload,

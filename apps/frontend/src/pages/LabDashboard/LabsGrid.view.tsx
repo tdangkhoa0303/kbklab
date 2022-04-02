@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import LabCard from 'features/LabAttemption/LabCard/LabCard.container';
+import LabCard from 'components/LabAttemption/LabCard/LabCard.container';
 import React from 'react';
-import { ClassLab } from 'shared/models';
+import {ClassLab} from 'shared/models';
 
 export interface LabsGridViewProps {
   classLabs: ClassLab[];

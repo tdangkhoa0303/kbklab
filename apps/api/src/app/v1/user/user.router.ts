@@ -1,7 +1,7 @@
 import {UserRole} from '@kbklab/api-interfaces';
 import {Router} from 'express';
 import {fileUploader, protect, restrictTo} from 'middlewares';
-import {authenticateByGoogle, getUserInfo, login, getAllLecturers, importLecturers} from './user.controllers';
+import {authenticateByGoogle, getAllLecturers, getUserInfo, importLecturers, login} from './user.controllers';
 
 const router: Router = Router();
 

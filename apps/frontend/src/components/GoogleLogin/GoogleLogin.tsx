@@ -1,11 +1,8 @@
-import { styled } from '@mui/material/styles';
-import React, { useCallback } from 'react';
-import {
-  GoogleLogin as GoogleLoginComponent,
-  GoogleLoginProps,
-} from 'react-google-login';
-import { useDispatch } from 'react-redux';
-import { loginWithGoogle } from 'shared/components';
+import {styled} from '@mui/material/styles';
+import React, {useCallback} from 'react';
+import {GoogleLogin as GoogleLoginComponent, GoogleLoginProps,} from 'react-google-login';
+import {useDispatch} from 'react-redux';
+import {loginWithGoogle} from 'shared/components';
 
 const StyledGoogleLoginComponent = styled(GoogleLoginComponent)(() => ({
   width: '100%',

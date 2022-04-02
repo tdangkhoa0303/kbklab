@@ -1,5 +1,5 @@
-import { User } from '../../models';
-import { APIClientResponse } from '../../utilities';
+import {User} from '../../models';
+import {APIClientResponse} from '../../utilities';
 
 export type FetchUserResponse = APIClientResponse<User>;
 

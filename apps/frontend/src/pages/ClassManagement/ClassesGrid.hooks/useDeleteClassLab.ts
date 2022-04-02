@@ -1,7 +1,7 @@
-import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { deleteClassLab } from '../ClassesGrid.thunks';
-import { DeleteClassLabPayload } from '../ClassesGrid.types';
+import {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import {deleteClassLab} from '../ClassesGrid.thunks';
+import {DeleteClassLabPayload} from '../ClassesGrid.types';
 
 export type DeleteClassLabHandler = (payload: DeleteClassLabPayload) => void;
 

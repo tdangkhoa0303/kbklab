@@ -1,5 +1,5 @@
 import noop from 'lodash/noop';
-import { ConfirmationModalState } from './ConfirmationModal.types';
+import {ConfirmationModalState} from './ConfirmationModal.types';
 
 export const confirmationModalInitialState: ConfirmationModalState = {
   title: '',

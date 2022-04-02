@@ -1,12 +1,8 @@
-import {
-  createEntityAdapter,
-  createSlice,
-  SliceCaseReducers,
-} from '@reduxjs/toolkit';
-import { AppContext, ResponseStatus } from 'shared/constants';
-import { Lecturer } from 'shared/models';
-import { getAllLecturers, importLecturers } from './LecturersGrid.thunks';
-import { LecturersGridState, LecturersUIState } from './LecturersGrid.types';
+import {createEntityAdapter, createSlice, SliceCaseReducers,} from '@reduxjs/toolkit';
+import {AppContext, ResponseStatus} from 'shared/constants';
+import {Lecturer} from 'shared/models';
+import {getAllLecturers, importLecturers} from './LecturersGrid.thunks';
+import {LecturersGridState, LecturersUIState} from './LecturersGrid.types';
 
 export const lecturersAdapter = createEntityAdapter<Lecturer>({
   selectId: (lecturer) => lecturer.id,

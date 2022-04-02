@@ -1,14 +1,8 @@
-import { Modal, ModalRef } from 'components';
-import React, {
-  PropsWithChildren,
-  useCallback,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
-import { confirmationModalInitialState } from './ConfirmationModal.constants';
-import { ConfirmationModalContextProvider } from './ConfirmationModal.context';
-import { ConfirmationModalState } from './ConfirmationModal.types';
+import {Modal, ModalRef} from 'components';
+import React, {PropsWithChildren, useCallback, useMemo, useRef, useState,} from 'react';
+import {confirmationModalInitialState} from './ConfirmationModal.constants';
+import {ConfirmationModalContextProvider} from './ConfirmationModal.context';
+import {ConfirmationModalState} from './ConfirmationModal.types';
 
 export type ConfirmationModalProps = {};
 

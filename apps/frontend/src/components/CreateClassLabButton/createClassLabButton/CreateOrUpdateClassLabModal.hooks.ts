@@ -1,11 +1,11 @@
 import moment from 'moment';
-import { useAllClasses } from 'pages/ClassManagement/ClassesGrid.hooks';
-import { useMemo } from 'react';
-import { EMPTY_STRING, Option } from 'shared/constants';
-import { useOptions } from 'shared/hooks';
-import { Class, ClassLab, Lab } from 'shared/models';
-import { useAllLabs } from '../CreateClassLabButton.hooks';
-import { CreateClassLabValues } from '../CreateClassLabButton.types';
+import {useAllClasses} from 'pages/ClassManagement/ClassesGrid.hooks';
+import {useMemo} from 'react';
+import {EMPTY_STRING, Option} from 'shared/constants';
+import {useOptions} from 'shared/hooks';
+import {Class, ClassLab, Lab} from 'shared/models';
+import {useAllLabs} from '../CreateClassLabButton.hooks';
+import {CreateClassLabValues} from '../CreateClassLabButton.types';
 
 export const useCreateClassLabInitialValues = (
   editingClassLab: ClassLab | undefined

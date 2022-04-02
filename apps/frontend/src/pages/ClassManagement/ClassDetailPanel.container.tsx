@@ -1,11 +1,8 @@
-import { ModalRef } from 'components';
-import {
-  CreateOrUpdateClassLabModal,
-  useCreateOrUpdateClassLabOptions,
-} from 'components/CreateClassLabButton';
+import {ModalRef} from 'components';
+import {CreateOrUpdateClassLabModal, useCreateOrUpdateClassLabOptions,} from 'components/CreateClassLabButton';
 import isNil from 'lodash/isNil';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { ClassLab } from 'shared/models';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {ClassLab} from 'shared/models';
 import ClassDetailPanelView from './ClassDetailPanel.view';
 import ClassDetailPanelWrapper from './ClassDetailPanelWrapper';
 import {
@@ -16,7 +13,7 @@ import {
   useUpdateClassLabState,
   useUpdateClassLabStatus,
 } from './ClassesGrid.hooks';
-import { useHandleDeleteClassLab } from './ClassesGrid.hooks/useHandleDeleteClassLab';
+import {useHandleDeleteClassLab} from './ClassesGrid.hooks/useHandleDeleteClassLab';
 
 const ClassDetailPanelContainer: React.FC = () => {
   const currentClass = useCurrentClassDetail();

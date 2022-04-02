@@ -1,8 +1,8 @@
-import { EntityState } from '@reduxjs/toolkit';
-import { CreateClassLabValues } from 'components';
-import { ResponseStatus } from 'shared/constants';
-import { Class, ClassLab } from 'shared/models';
-import { APIClientResponse } from 'shared/utilities';
+import {EntityState} from '@reduxjs/toolkit';
+import {CreateClassLabValues} from 'components';
+import {ResponseStatus} from 'shared/constants';
+import {Class, ClassLab} from 'shared/models';
+import {APIClientResponse} from 'shared/utilities';
 
 export type GetAllClassesResponseData = Class[];
 export type GetAllClassesResponse =

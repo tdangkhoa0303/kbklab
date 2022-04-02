@@ -1,4 +1,4 @@
-import { Reducer, Middleware } from 'redux';
+import {Middleware, Reducer} from 'redux';
 
 export interface ReduxConfigurations {
   reducers: Record<string, Reducer>;

@@ -1,7 +1,7 @@
-import { useMemo } from 'react';
-import { matchPath, useLocation } from 'react-router-dom';
-import { AppCommonRoute } from 'shared/constants';
-import { ScoreDashboardRouteParams } from '../types';
+import {useMemo} from 'react';
+import {matchPath, useLocation} from 'react-router-dom';
+import {AppCommonRoute} from 'shared/constants';
+import {ScoreDashboardRouteParams} from '../types';
 
 export const useScoreDashboardRouteParams = (): ScoreDashboardRouteParams => {
   const { pathname } = useLocation();

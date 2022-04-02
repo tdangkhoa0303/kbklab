@@ -1,11 +1,11 @@
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import { userRoleTextMap } from 'shared/constants';
-import { useUser } from 'shared/hooks';
-import { User } from 'shared/models';
+import {userRoleTextMap} from 'shared/constants';
+import {useUser} from 'shared/hooks';
+import {User} from 'shared/models';
 
 const mockAvatarUrl =
   'https://play-lh.googleusercontent.com/kgSwHEst2ENqeYoasBoxvUcPD97c0RdIUxRYy6KlMUjiWlwzvPqg4ZSNGrweAps_g7c';

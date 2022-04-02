@@ -1,11 +1,10 @@
-import Box from '@mui/material/Box';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import { alpha, styled, useTheme } from '@mui/material/styles';
-import React, { useMemo } from 'react';
-import { NavLink, useLocation, useMatch } from 'react-router-dom';
-import { getSidebarItemIcon } from '../Sidebar.utils';
+import {alpha, styled, useTheme} from '@mui/material/styles';
+import React, {useMemo} from 'react';
+import {NavLink, useLocation} from 'react-router-dom';
+import {getSidebarItemIcon} from '../Sidebar.utils';
 
 export interface SidebarNavItemProps {
   label: string;

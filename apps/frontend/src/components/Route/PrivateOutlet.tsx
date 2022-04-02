@@ -1,10 +1,10 @@
-import { MasterLayout } from 'components';
-import React, { PropsWithChildren, useMemo } from 'react';
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { AppCommonRoute, fallbackPageByUserRole } from 'shared/constants';
-import { useUser } from 'shared/hooks';
-import { UserRole } from 'shared/models';
-import { CreateClassLabButton } from '../CreateClassLabButton';
+import {MasterLayout} from 'components';
+import React, {PropsWithChildren, useMemo} from 'react';
+import {Navigate, Outlet, useLocation} from 'react-router-dom';
+import {AppCommonRoute, fallbackPageByUserRole} from 'shared/constants';
+import {useUser} from 'shared/hooks';
+import {UserRole} from 'shared/models';
+import {CreateClassLabButton} from '../CreateClassLabButton';
 
 export interface PrivateOutletProps {
   restrictedRole?: UserRole[];

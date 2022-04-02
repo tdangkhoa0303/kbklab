@@ -1,13 +1,10 @@
-import { createSelector, EntityState } from '@reduxjs/toolkit';
-import { ResponseStatus } from 'shared/constants';
-import { Class } from 'shared/models';
-import { EntitiesState, RootState, UIState } from 'shared/redux/rootReducers';
-import {
-  entitiesStateSelector,
-  uiStateSelector,
-} from 'shared/redux/rootSelector';
-import { classesAdapter } from './ClassesGrid.slice';
-import { ClassesUIState } from './ClassesGrid.types';
+import {createSelector, EntityState} from '@reduxjs/toolkit';
+import {ResponseStatus} from 'shared/constants';
+import {Class} from 'shared/models';
+import {EntitiesState, RootState, UIState} from 'shared/redux/rootReducers';
+import {entitiesStateSelector, uiStateSelector,} from 'shared/redux/rootSelector';
+import {classesAdapter} from './ClassesGrid.slice';
+import {ClassesUIState} from './ClassesGrid.types';
 
 export const classesEntitiesSelector = createSelector(
   entitiesStateSelector,

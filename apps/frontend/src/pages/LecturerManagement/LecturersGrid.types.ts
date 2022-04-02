@@ -1,8 +1,8 @@
-import { EntityState } from '@reduxjs/toolkit';
-import { FormikValues } from 'formik';
-import { ResponseStatus } from 'shared/constants';
-import { Lecturer } from 'shared/models';
-import { APIClientResponse } from 'shared/utilities';
+import {EntityState} from '@reduxjs/toolkit';
+import {FormikValues} from 'formik';
+import {ResponseStatus} from 'shared/constants';
+import {Lecturer} from 'shared/models';
+import {APIClientResponse} from 'shared/utilities';
 
 export type GetAllLecturersResponseData = Lecturer[];
 export type GetAllLecturersResponse =

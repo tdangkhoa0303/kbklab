@@ -1,4 +1,4 @@
-import {Score, User} from 'entities';
+import {Score} from 'entities';
 import {Query} from 'express-serve-static-core';
 
 export interface UserScore {

@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
-import { useTheme } from '@mui/material/styles';
-import React, { PropsWithChildren } from 'react';
-import { HashLoader } from 'react-spinners';
+import {useTheme} from '@mui/material/styles';
+import React, {PropsWithChildren} from 'react';
+import {HashLoader} from 'react-spinners';
 
 export interface OverlayLoaderProps {
   loading: boolean;

@@ -1,17 +1,11 @@
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
-import Box, { BoxProps } from '@mui/material/Box';
-import { alpha } from '@mui/material/styles';
+import Box, {BoxProps} from '@mui/material/Box';
+import {alpha} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import React, {
-  AllHTMLAttributes,
-  PropsWithChildren,
-  Ref,
-  useMemo,
-  useState,
-} from 'react';
-import { v4 as uuid } from 'uuid';
-import { useOnFileChange, useUploadingFileNames } from './FileUploader.hooks';
-import { FileInputChangeHandler } from './FileUploader.types';
+import React, {AllHTMLAttributes, PropsWithChildren, Ref, useMemo, useState,} from 'react';
+import {v4 as uuid} from 'uuid';
+import {useOnFileChange, useUploadingFileNames} from './FileUploader.hooks';
+import {FileInputChangeHandler} from './FileUploader.types';
 
 export interface FileUploaderProps
   extends Omit<AllHTMLAttributes<HTMLInputElement>, 'onChange'> {

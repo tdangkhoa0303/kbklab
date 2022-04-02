@@ -1,13 +1,10 @@
-import { useCallback } from 'react';
-import { useCookies } from 'react-cookie';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  fetchUserInfoStatusSelector,
-  isLoginSuccessSelector,
-} from './UserProvider.selectors';
-import { logout } from './UserProvider.slice';
-import { fetchUser, login } from './UserProvider.thunk';
-import { LoginPayload } from './UserProvider.types';
+import {useCallback} from 'react';
+import {useCookies} from 'react-cookie';
+import {useDispatch, useSelector} from 'react-redux';
+import {fetchUserInfoStatusSelector, isLoginSuccessSelector,} from './UserProvider.selectors';
+import {logout} from './UserProvider.slice';
+import {fetchUser, login} from './UserProvider.thunk';
+import {LoginPayload} from './UserProvider.types';
 
 export const useFetchUser = () => {
   const dispatch = useDispatch();

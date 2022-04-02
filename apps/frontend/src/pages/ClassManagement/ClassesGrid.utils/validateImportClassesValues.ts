@@ -1,5 +1,5 @@
-import { FormikErrors } from 'formik';
-import { ImportClassesFormValues } from '../ClassesGrid.types';
+import {FormikErrors} from 'formik';
+import {ImportClassesFormValues} from '../ClassesGrid.types';
 
 const validateClassCode = (classCode: string | undefined): string => {
   if (!classCode) {

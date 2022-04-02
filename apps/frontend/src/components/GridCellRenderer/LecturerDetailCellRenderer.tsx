@@ -1,8 +1,8 @@
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Box from '@mui/material/Box';
-import { ICellRendererParams } from 'ag-grid-community';
+import {ICellRendererParams} from 'ag-grid-community';
+import {cssLayout} from 'components';
 import React from 'react';
-import { cssLayout } from 'components';
 
 const LecturerDetailCellRenderer: React.FC<ICellRendererParams> = (props) => {
   return (

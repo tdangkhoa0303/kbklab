@@ -1,6 +1,6 @@
-import { GridReadyEvent } from 'ag-grid-community';
-import { useCallback, useState } from 'react';
-import { GridContextValues, initialGridContextValues } from '../GridContext';
+import {GridReadyEvent} from 'ag-grid-community';
+import {useCallback, useState} from 'react';
+import {GridContextValues, initialGridContextValues} from '../GridContext';
 
 export type UseObtainGridValuesReturnValues = [
   GridContextValues,

@@ -1,6 +1,6 @@
-import { createSlice, isAnyOf, SliceCaseReducers } from '@reduxjs/toolkit';
-import { AppContext, ResponseStatus, UserState } from '../../constants';
-import { fetchUser, login, loginWithGoogle } from './UserProvider.thunk';
+import {createSlice, isAnyOf, SliceCaseReducers} from '@reduxjs/toolkit';
+import {AppContext, ResponseStatus, UserState} from '../../constants';
+import {fetchUser, login, loginWithGoogle} from './UserProvider.thunk';
 
 const initialUserState: UserState = {
   currentUser: null,

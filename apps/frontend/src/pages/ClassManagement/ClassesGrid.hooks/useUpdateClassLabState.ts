@@ -1,7 +1,7 @@
-import { DisabledFields } from 'components';
+import {DisabledFields} from 'components';
 import moment from 'moment';
-import { useMemo } from 'react';
-import { Class, ClassLab } from 'shared/models';
+import {useMemo} from 'react';
+import {Class, ClassLab} from 'shared/models';
 
 export interface UseUpdateClassLabStateParams {
   editingClassLab: ClassLab | undefined;

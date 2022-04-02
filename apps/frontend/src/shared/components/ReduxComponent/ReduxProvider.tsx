@@ -1,10 +1,10 @@
-import React, { PropsWithChildren, useMemo } from 'react';
-import { Provider } from 'react-redux';
-import { applyMiddleware, combineReducers, createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import React, {PropsWithChildren, useMemo} from 'react';
+import {Provider} from 'react-redux';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
+import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
 import thunkMiddleware from 'redux-thunk';
-import { ReduxConfigurations } from '../AppProvider/AppProvider.types';
-import { userSlice } from '../UserProvider/UserProvider.slice';
+import {ReduxConfigurations} from '../AppProvider/AppProvider.types';
+import {userSlice} from '../UserProvider/UserProvider.slice';
 import asyncActionsTrackingReducer from './asyncActionsTrackingReducer';
 
 export interface ReduxProviderProps {

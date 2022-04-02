@@ -1,10 +1,10 @@
-import { useLoadingToast } from 'shared/hooks';
-import { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
-import { createClassLab } from '../CreateClassLabButton.thunks';
-import { CreateClassLabPayload } from '../CreateClassLabButton.types';
-import { useCreateClassLabStatus } from './useCreateClassLabStatus';
-import { useIsCreatingClassLab } from './useIsCreatingClassLab';
+import {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import {useLoadingToast} from 'shared/hooks';
+import {createClassLab} from '../CreateClassLabButton.thunks';
+import {CreateClassLabPayload} from '../CreateClassLabButton.types';
+import {useCreateClassLabStatus} from './useCreateClassLabStatus';
+import {useIsCreatingClassLab} from './useIsCreatingClassLab';
 
 export const useCreateClassLab = () => {
   const dispatch = useDispatch();

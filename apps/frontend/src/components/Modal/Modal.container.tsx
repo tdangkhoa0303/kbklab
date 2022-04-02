@@ -1,12 +1,7 @@
-import React, {
-  PropsWithChildren,
-  RefObject,
-  useCallback,
-  useImperativeHandle,
-} from 'react';
-import { useToggle } from 'shared/hooks';
-import { ModalRef } from './Modal.types';
-import ModalView, { ModalViewProps } from './Modal.view';
+import React, {PropsWithChildren, RefObject, useCallback, useImperativeHandle,} from 'react';
+import {useToggle} from 'shared/hooks';
+import {ModalRef} from './Modal.types';
+import ModalView, {ModalViewProps} from './Modal.view';
 
 type PickedProps =
   | 'primaryButtonText'

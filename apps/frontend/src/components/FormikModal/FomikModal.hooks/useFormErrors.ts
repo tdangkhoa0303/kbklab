@@ -1,7 +1,7 @@
-import { FormikErrors } from 'formik';
+import {FormikErrors} from 'formik';
 import isEmpty from 'lodash/isEmpty';
-import { useCallback, useMemo } from 'react';
-import { useToggle } from 'shared/hooks';
+import {useCallback, useMemo} from 'react';
+import {useToggle} from 'shared/hooks';
 
 export type UseFormErrorsReturnedValues<TFormValues> = [
   isError: boolean,

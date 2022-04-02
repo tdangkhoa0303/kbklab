@@ -1,14 +1,14 @@
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
-import { styled } from '@mui/material/styles';
+import {styled} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import { GoogleLogin, Logo } from 'components';
-import { environment } from 'environments/environment';
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useIsLoginSuccess } from 'shared/components';
-import { AppCommonRoute } from 'shared/constants';
+import {GoogleLogin, Logo} from 'components';
+import {environment} from 'environments/environment';
+import React, {useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {useIsLoginSuccess} from 'shared/components';
+import {AppCommonRoute} from 'shared/constants';
 import LoginFooter from './LoginFooter';
 import LoginForm from './LoginForm';
 

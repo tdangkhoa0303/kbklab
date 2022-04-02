@@ -1,5 +1,5 @@
-import { useMounting } from 'shared/hooks';
 import React from 'react';
+import {useMounting} from 'shared/hooks';
 
 export interface FetchAppDataProps {
   requests: VoidFunction[];

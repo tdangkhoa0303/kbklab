@@ -1,11 +1,11 @@
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Option } from 'shared/constants';
-import { useOptions } from 'shared/hooks';
-import { Class } from 'shared/models';
-import { useAllClasses } from '../../ClassManagement/ClassesGrid.hooks';
+import React, {useCallback, useEffect, useMemo, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {Option} from 'shared/constants';
+import {useOptions} from 'shared/hooks';
+import {Class} from 'shared/models';
+import {useAllClasses} from '../../ClassManagement/ClassesGrid.hooks';
 
 export interface ClassSelectProps {
   classCode: string;

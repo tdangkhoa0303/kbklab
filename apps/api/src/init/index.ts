@@ -1,5 +1,5 @@
-import initMongoose from './mongoose';
 import 'winston-mongodb';
+import initMongoose from './mongoose';
 
 export default () => {
   initMongoose();

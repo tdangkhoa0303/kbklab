@@ -1,8 +1,8 @@
-import Box, { BoxProps } from '@mui/material/Box';
+import Box, {BoxProps} from '@mui/material/Box';
 import List from '@mui/material/List';
-import React, { useMemo } from 'react';
-import { useUser } from 'shared/hooks';
-import { sidebarItems } from './Sidebar.constants';
+import React, {useMemo} from 'react';
+import {useUser} from 'shared/hooks';
+import {sidebarItems} from './Sidebar.constants';
 import SidebarNavItem from './sidebarNavSection/SidebarNavItem';
 
 export type SidebarNavSectionProps = BoxProps;

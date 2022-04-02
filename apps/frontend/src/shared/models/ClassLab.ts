@@ -1,4 +1,4 @@
-import { Lab } from './Lab';
+import {Lab} from './Lab';
 
 export type StepSuccess = boolean[][];
 

@@ -1,12 +1,8 @@
-import {
-  createEntityAdapter,
-  createSlice,
-  SliceCaseReducers,
-} from '@reduxjs/toolkit';
-import { AppContext, ResponseStatus } from 'shared/constants';
-import { Lab } from 'shared/models';
-import { createClassLab, getAllLabs } from './CreateClassLabButton.thunks';
-import { LabsState, LabsUIState } from './CreateClassLabButton.types';
+import {createEntityAdapter, createSlice, SliceCaseReducers,} from '@reduxjs/toolkit';
+import {AppContext, ResponseStatus} from 'shared/constants';
+import {Lab} from 'shared/models';
+import {createClassLab, getAllLabs} from './CreateClassLabButton.thunks';
+import {LabsState, LabsUIState} from './CreateClassLabButton.types';
 
 export const labsAdapter = createEntityAdapter<Lab>({
   selectId: (lab) => lab.id,

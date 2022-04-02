@@ -1,11 +1,10 @@
-import { GridContextProvider, useObtainGridValues } from 'components';
 import Stack from '@mui/material/Stack';
-import { PageTitle } from 'components';
-import React, { useMemo } from 'react';
-import { Outlet } from 'react-router-dom';
+import {GridContextProvider, PageTitle, useObtainGridValues} from 'components';
+import React, {useMemo} from 'react';
+import {Outlet} from 'react-router-dom';
 import ClassSelect from './components/ClassSelect';
 import ExportToCSVButton from './components/ExportToCSVButton';
-import { useScoreDashboardRouteParams } from './hooks';
+import {useScoreDashboardRouteParams} from './hooks';
 
 const ScoreDashboard: React.FC = () => {
   const [gridValues, obtainGridValues] = useObtainGridValues();

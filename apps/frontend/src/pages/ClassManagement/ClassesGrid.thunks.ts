@@ -1,7 +1,7 @@
-import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AppContext } from 'shared/constants';
-import { ClassLab } from 'shared/models';
-import { APIClient } from 'shared/utilities';
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import {AppContext} from 'shared/constants';
+import {ClassLab} from 'shared/models';
+import {APIClient} from 'shared/utilities';
 import {
   CreateLabInstanceFulfilledPayload,
   CreateLabInstancePayload,
