@@ -1,0 +1,18 @@
+version: '3.3'
+
+services: 
+  app_xpath:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file: ./.env
+    ports:
+      - 80
+    image: xpath_app_1
+    stdin_open: true
+    tty: true
+    volumes: 
+      - .:/var/www/html
+volumes: 
+  db-config:
+  db-data:  

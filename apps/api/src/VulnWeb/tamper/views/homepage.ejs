@@ -1,0 +1,36 @@
+<%- include("partials/header") -%>
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+	<% posts.forEach(function(post) { %>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="posts-content">
+              <div class="post-container">
+                <div class="post-detail">
+                  <div class="user-info">
+                    <h5><a class="profile-author" href="/posts/<%= post.id %>"><%- post.author %></a></h5>
+                  </div>
+                  <div class="line-divider"></div>
+                  <div class="post-content">
+					<%- post.content %><i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
+                  </div>
+                  <div class="line-divider"></div>
+				  <% post.comments.forEach(function(comment) { %>
+                  <div class="post-comment">
+                    <p><%= comment.author%>
+					<span><%= comment.content %></span></p>
+                  </div>
+				  <% }); %>
+                  <form class="post-comment" method="post" action="/posts/<%= post.id %>/comments">
+                    <input type="text" class="form-control" name="content" placeholder="Post a comment">
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+	<% }); %>
+</div>
+
+<%- include("partials/footer") -%>

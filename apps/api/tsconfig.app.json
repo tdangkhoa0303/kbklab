@@ -3,7 +3,12 @@
   "compilerOptions": {
     "outDir": "../../dist/out-tsc",
     "module": "commonjs",
-    "types": ["node", "express"]
+    "types": ["node", "express"],
+    "esModuleInterop": true,
+    "baseUrl": "src",
+    "paths": {
+      "@kbklab/api-interfaces": ["../../../libs/api-interfaces/src/index.ts"]
+    }
   },
   "exclude": ["**/*.spec.ts", "**/*.test.ts"],
   "include": ["**/*.ts"]

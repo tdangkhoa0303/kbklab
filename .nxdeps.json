@@ -1,0 +1,3337 @@
+{
+  "graph": {
+    "nodes": {
+      "api-interfaces": {
+        "name": "api-interfaces",
+        "type": "lib",
+        "data": {
+          "root": "libs/api-interfaces",
+          "sourceRoot": "libs/api-interfaces/src",
+          "projectType": "library",
+          "targets": {
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "libs/api-interfaces/**/*.ts"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "libs/api-interfaces/.babelrc",
+              "hash": "cf7ddd99c615a064ac18eb3109eee4f394ab1faf"
+            },
+            {
+              "file": "libs/api-interfaces/.eslintrc.json",
+              "hash": "9d9c0db55bb1e91c5f2e7b64a02bc6bf69fc7cb5"
+            },
+            {
+              "file": "libs/api-interfaces/project.json",
+              "hash": "49f636fe2090b098761243443427c38c8e32649f"
+            },
+            {
+              "file": "libs/api-interfaces/README.md",
+              "hash": "12380476f1eddd9754621ea9218ec4ec3b483af4"
+            },
+            {
+              "file": "libs/api-interfaces/src/index.ts",
+              "hash": "c337800dad625c994bb7d990f2ed2bb45cc7f0bb"
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/class.ts",
+              "hash": "e83ed5fca3e1fcdf3417ee358ceaf5700062633a"
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/classLab.ts",
+              "hash": "ef61d4a46c94b5455ff495545b84c853b3d7bae7"
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/instance.ts",
+              "hash": "352b1164e4848e9ea2a290fdae3ab3192ae98d93"
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/lab.ts",
+              "hash": "bf27be002d1cdfc9d7dac3324039c6e94eef6258"
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/score.ts",
+              "hash": "3ddf066180e81f2cc58f527cf4d8c0b68409ba03"
+            },
+            {
+              "file": "libs/api-interfaces/src/lib/user.ts",
+              "hash": "60946b8bf7583a3099780e1e51f5f7bfdb0436d0"
+            },
+            {
+              "file": "libs/api-interfaces/tsconfig.json",
+              "hash": "c23e61c80035a2b0526de861e767ed5ad82db04e"
+            },
+            {
+              "file": "libs/api-interfaces/tsconfig.lib.json",
+              "hash": "a8b9431f9172ad42dcb1eaf292f7ae9601ac760b"
+            }
+          ]
+        }
+      },
+      "kbklab-e2e": {
+        "name": "kbklab-e2e",
+        "type": "e2e",
+        "data": {
+          "root": "apps/kbklab-e2e",
+          "sourceRoot": "apps/kbklab-e2e/src",
+          "projectType": "application",
+          "targets": {
+            "e2e": {
+              "executor": "@nrwl/cypress:cypress",
+              "options": {
+                "cypressConfig": "apps/kbklab-e2e/cypress.json",
+                "devServerTarget": "kbklab:serve"
+              },
+              "configurations": {
+                "production": {
+                  "devServerTarget": "kbklab:serve:production"
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/kbklab-e2e/**/*.{js,ts}"
+                ]
+              }
+            }
+          },
+          "tags": [],
+          "implicitDependencies": [
+            "kbklab"
+          ],
+          "files": [
+            {
+              "file": "apps/kbklab-e2e/.eslintrc.json",
+              "hash": "4c5989b23b5aa8cc7aba2a07d1ae7daee19c1555"
+            },
+            {
+              "file": "apps/kbklab-e2e/cypress.json",
+              "hash": "a54f9c91f18247f3e4de9c30ea0386a027c6151d"
+            },
+            {
+              "file": "apps/kbklab-e2e/project.json",
+              "hash": "69b60ee738094adc5b05435489499e35b6658257"
+            },
+            {
+              "file": "apps/kbklab-e2e/src/fixtures/example.json",
+              "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
+            },
+            {
+              "file": "apps/kbklab-e2e/src/integration/app.spec.ts",
+              "hash": "bf4ee5245c78be753c42555345db350c344395d5"
+            },
+            {
+              "file": "apps/kbklab-e2e/src/support/app.po.ts",
+              "hash": "32934246969c2ecb827ac05677785933a707a54d"
+            },
+            {
+              "file": "apps/kbklab-e2e/src/support/commands.ts",
+              "hash": "310f1fa0e043ffebbbcf575c5a4d17f13a6b14d6"
+            },
+            {
+              "file": "apps/kbklab-e2e/src/support/index.ts",
+              "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
+            },
+            {
+              "file": "apps/kbklab-e2e/tsconfig.json",
+              "hash": "c4f818ecd40fbce82c3e08bf25cde3043970f8f3"
+            }
+          ]
+        }
+      },
+      "kbklab": {
+        "name": "kbklab",
+        "type": "app",
+        "data": {
+          "root": "apps/kbklab",
+          "sourceRoot": "apps/kbklab/src",
+          "projectType": "application",
+          "targets": {
+            "build": {
+              "executor": "@nrwl/web:webpack",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "defaultConfiguration": "production",
+              "options": {
+                "compiler": "babel",
+                "outputPath": "dist/apps/kbklab",
+                "index": "apps/kbklab/src/index.html",
+                "baseHref": "/",
+                "main": "apps/kbklab/src/main.tsx",
+                "polyfills": "apps/kbklab/src/polyfills.ts",
+                "tsConfig": "apps/kbklab/tsconfig.app.json",
+                "assets": [
+                  "apps/kbklab/src/favicon.ico",
+                  "apps/kbklab/src/assets"
+                ],
+                "styles": [],
+                "scripts": [],
+                "webpackConfig": "@nrwl/react/plugins/webpack"
+              },
+              "configurations": {
+                "production": {
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/kbklab/src/environments/environment.ts",
+                      "with": "apps/kbklab/src/environments/environment.prod.ts"
+                    }
+                  ],
+                  "optimization": true,
+                  "outputHashing": "all",
+                  "sourceMap": false,
+                  "namedChunks": false,
+                  "extractLicenses": true,
+                  "vendorChunk": false
+                }
+              }
+            },
+            "serve": {
+              "executor": "@nrwl/web:dev-server",
+              "options": {
+                "buildTarget": "kbklab:build:development",
+                "hmr": true,
+                "proxyConfig": "apps/kbklab/proxy.conf.json",
+                "port": 3000
+              },
+              "configurations": {
+                "production": {
+                  "buildTarget": "kbklab:build:production",
+                  "hmr": false
+                }
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/kbklab/**/*.{ts,tsx,js,jsx}"
+                ]
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/apps/kbklab"
+              ],
+              "options": {
+                "jestConfig": "apps/kbklab/jest.config.js",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/kbklab/.babelrc",
+              "hash": "8b8fbf654addee590336385d30975656a1742a89"
+            },
+            {
+              "file": "apps/kbklab/.browserslistrc",
+              "hash": "f1d12df4faa25ab7f0f03196105e957395f609af"
+            },
+            {
+              "file": "apps/kbklab/.eslintrc.json",
+              "hash": "734ddaceea447738208c9519158ad6b3062f3929"
+            },
+            {
+              "file": "apps/kbklab/jest.config.js",
+              "hash": "c9aeb2000e4383f9b4b9422495cf94fd411478bb"
+            },
+            {
+              "file": "apps/kbklab/project.json",
+              "hash": "37ff5afc94b199de83d8ac0347bab11018317160"
+            },
+            {
+              "file": "apps/kbklab/proxy.conf.json",
+              "hash": "62a1e7b762cec5ece007e8e21daaf5eb141e0e7b"
+            },
+            {
+              "file": "apps/kbklab/src/App.tsx",
+              "hash": "3914bdc9b31e24c136cb9035465ca4fdfa42f8da",
+              "deps": [
+                "npm:@mui/lab",
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/assets/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/kbklab/src/assets/layout-bg.svg",
+              "hash": "529513dc8048021b67251bb7acbefed73dbe986e"
+            },
+            {
+              "file": "apps/kbklab/src/assets/login.svg",
+              "hash": "ed22c09bcc761b7e23ba89bee5f4fe07dfec74f0"
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/AppBar.constants.ts",
+              "hash": "93c05a52247fd452b50e2312e3289ee210bb2635"
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/AppBar.tsx",
+              "hash": "9ace39faa60dc076e871d3efe6416dceba41b98a",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/AppBar.types.ts",
+              "hash": "1c75e7d2591c4f1ddea3e8d9c30df92f70d7ccc2"
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/AppBarLogo.tsx",
+              "hash": "5396d65f5eccc73fcdd44af0d008ba8c2274f823",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/AppBarMenu.container.tsx",
+              "hash": "d60835b782477761085c3cf5baf04e99ad647038",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/AppBarMenu.hooks.ts",
+              "hash": "c68cfae0fd296b59fb2636f2defd87ecfde43841",
+              "deps": [
+                "npm:@mui/icons-material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/AppBarMenu.types.ts",
+              "hash": "db892dd7142bce8487da4eb8f1346609df9af808",
+              "deps": [
+                "npm:react",
+                "npm:react-iconly"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/AppBarMenu.view.tsx",
+              "hash": "a46176c9308ce83f55f40f2bb0847f9be917ab4d",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/index.ts",
+              "hash": "a55670c6d2541ce1c02849e893194f54807c36e3"
+            },
+            {
+              "file": "apps/kbklab/src/components/AppBar/SearchBar.tsx",
+              "hash": "d18b05268dc7d80e63973a1e38da1627520777f0",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/ColorDot/ColorDot.tsx",
+              "hash": "0a7b3430d106753b0184e5a0ebadc6a02e34ad0f",
+              "deps": [
+                "npm:react",
+                "npm:@emotion/react",
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/ColorDot/index.ts",
+              "hash": "69f28fc53fdce439c3ac933588fa09697947a901"
+            },
+            {
+              "file": "apps/kbklab/src/components/ConfirmationModal/ConfirmationModal.constants.ts",
+              "hash": "d7547fcc379a0f26b0ca9a9e23d281214ecf2a2d",
+              "deps": [
+                "npm:lodash"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/ConfirmationModal/ConfirmationModal.context.ts",
+              "hash": "4d89318e086690f22d55b8d7e4a52f26e8d914b3",
+              "deps": [
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/ConfirmationModal/ConfirmationModal.tsx",
+              "hash": "01dd3b3a1e195a14d3787074add28753736430e6",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/ConfirmationModal/ConfirmationModal.types.ts",
+              "hash": "793919bfdb1f3dd5ccfc6317a52cae0605ab8640",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/ConfirmationModal/index.ts",
+              "hash": "9c7e371e83ae55d191d4e52adad1b882f5cc5a3c"
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.container.tsx",
+              "hash": "ae86b16c08f6d01453381371d3ff751b27246c53",
+              "deps": [
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.hooks/index.ts",
+              "hash": "ae7c9bca68d73729e424c466a8980d962a208a70"
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.hooks/useAllLabs.ts",
+              "hash": "f765418af8b193bd1d56e6d170d910b54440f5de",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.hooks/useCreateClassLab.ts",
+              "hash": "4a5a8fb9e403be662bc72d2de1b6ba740d66a393",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.hooks/useCreateClassLabStatus.ts",
+              "hash": "c49404dc9c9435572e9e5155123ee341e4311f28",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.hooks/useGetAllLabs.ts",
+              "hash": "b4430ea82b69a4a4690bc0741791bafc70930614",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.hooks/useIsCreatingClassLab.ts",
+              "hash": "a3769c181f33e7fab9d9b621f309d3cbf0710195"
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.selectors.ts",
+              "hash": "af66fb2e57c1ff1f05c2ef8e60b042c5b7fc22e4",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.slice.ts",
+              "hash": "00ec7b3e20dff998cda5fe40c85383e037484938",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.thunks.ts",
+              "hash": "4cd52ee59812065dceb0a768abc82c74dc025b7d",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.types.ts",
+              "hash": "c8cf1ef4785630c4e2cce4c7baaa535a87d75a83",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/CreateClassLabButton.view.tsx",
+              "hash": "6c565cfa2ff5856620644c2d012ff2c7d1ff1328",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/createClassLabButton/CreateOrUpdateClassLabModal.constants.ts",
+              "hash": "d0e5e7141deec084f13c403ace06fbdbe789a79b",
+              "deps": [
+                "npm:yup"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/createClassLabButton/CreateOrUpdateClassLabModal.hooks.ts",
+              "hash": "9f4ca13721d28135c7819ba8043fc8b438047765",
+              "deps": [
+                "npm:moment",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/createClassLabButton/CreateOrUpdateClassLabModal.tsx",
+              "hash": "c8cc479fd452819ea9779189f356997c6438219e",
+              "deps": [
+                "npm:@mui/material",
+                "npm:moment",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/createClassLabButton/index.ts",
+              "hash": "3cc687ae0fc0d903ab0c8669cd499dc8a53f96fa"
+            },
+            {
+              "file": "apps/kbklab/src/components/CreateClassLabButton/index.ts",
+              "hash": "26fd5fb9f2ee07d1dd076c8242faf629ad0edece"
+            },
+            {
+              "file": "apps/kbklab/src/components/cssLayout.ts",
+              "hash": "1c2b49c9f948e07ce448916d2e9b575075a4e5f0",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/DataManagementGrid.tsx",
+              "hash": "ef42a792bd60cd95187e0ecc56a33737a6b01948",
+              "deps": [
+                "npm:@mui/material",
+                "npm:ag-grid-react",
+                "npm:formik",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/ImportDataButton.tsx",
+              "hash": "4e794c49333d336e81a88998a574ec1d2c82ba64",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:formik",
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/ImportDataButton.types.ts",
+              "hash": "aa00666b90877b8797300143bbf9790bac2f6a84",
+              "deps": [
+                "npm:formik"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/importDataButton/ImportDataModal.hooks/index.ts",
+              "hash": "dd3319bd0edf3881cb295fd5b95926cbbaa82493"
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/importDataButton/ImportDataModal.hooks/useImportDataFormErrors.ts",
+              "hash": "6a4cefa229eef56a7f853abbbc2259c216e8eace",
+              "deps": [
+                "npm:formik",
+                "npm:react",
+                "npm:lodash"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/importDataButton/ImportDataModal.hooks/useImportDataFormHandlers.ts",
+              "hash": "2e30299737a366d6b6ba83076ad1cdd9ec35082c",
+              "deps": [
+                "npm:formik",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/importDataButton/ImportDataModal.tsx",
+              "hash": "89fa0ffd817faa0fa4f3dd13cdc875c03111d156",
+              "deps": [
+                "npm:@mui/material",
+                "npm:formik",
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/importDataButton/ImportDataUploader.constants.ts",
+              "hash": "4f2f8236a386f0b6bf624a3ae2cd8abad4cd75e5"
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/importDataButton/ImportDataUploader.tsx",
+              "hash": "01cf1382d60cb13ba21bdfa1555506a22ea88580",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/DataManagementGrid/index.ts",
+              "hash": "5cc54405f1e62c3f5a1ee15523210197006813f4"
+            },
+            {
+              "file": "apps/kbklab/src/components/FetchAppData/FetchAppData.tsx",
+              "hash": "5f20bab9aea7b29f769c7460375e66672156bce7",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/FetchAppData/index.ts",
+              "hash": "638ad714ecdab29e37e45084ffa5301d94bc5aea"
+            },
+            {
+              "file": "apps/kbklab/src/components/FileUploader/FileUploader.hooks.ts",
+              "hash": "8238371b3ead507b52b899aba0ebdc3047899c4d",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/FileUploader/FileUploader.tsx",
+              "hash": "aaed72ff6730ccbd4dec7030d2ee517964f1e6ce",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:react",
+                "npm:uuid"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/FileUploader/FileUploader.types.ts",
+              "hash": "821c7fdb36dcad3d3a0d52caf05d1523a124534e",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/FileUploader/index.ts",
+              "hash": "2399f7d138564b876e391010139bc60e02e9bf8f"
+            },
+            {
+              "file": "apps/kbklab/src/components/Formik/FormikDataTimePicker.tsx",
+              "hash": "ce58cb02c8cee95474cca4e44976165fa815590c",
+              "deps": [
+                "npm:@mui/lab",
+                "npm:@mui/material",
+                "npm:formik",
+                "npm:moment",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Formik/FormikListener.tsx",
+              "hash": "09e31233d70bedf3a7ce3e154d5df37a50ef2634",
+              "deps": [
+                "npm:react",
+                "npm:formik"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Formik/FormikTextField.tsx",
+              "hash": "979125dac28e3a6274f1b4e20dab256eb2cfa87f",
+              "deps": [
+                "npm:react",
+                "npm:@mui/material",
+                "npm:formik"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Formik/index.ts",
+              "hash": "c39d4fd2a31a691083ad4dfac5ce7ae9657b8333"
+            },
+            {
+              "file": "apps/kbklab/src/components/FormikModal/FomikModal.hooks/index.ts",
+              "hash": "271499e4cdd414a52d4e251d88334bf77b35becd"
+            },
+            {
+              "file": "apps/kbklab/src/components/FormikModal/FomikModal.hooks/useButtonProps.ts",
+              "hash": "525dc8e4e08f058599aef4eaee93548109c7ca00",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/FormikModal/FomikModal.hooks/useFormErrors.ts",
+              "hash": "1aebac9f4e7f278233d645b40df81b79c40c4bb6",
+              "deps": [
+                "npm:formik",
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/FormikModal/FormikModal.tsx",
+              "hash": "be239b1cf7a88c7ce04d3432372673e465dd4ed1",
+              "deps": [
+                "npm:formik",
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/FormikModal/index.ts",
+              "hash": "f1044785ded9f5b8665aa07a1374a71becb45ec9"
+            },
+            {
+              "file": "apps/kbklab/src/components/GoogleLogin/GoogleLogin.tsx",
+              "hash": "893764a9172812bea6cce64c2dfc8cb42c301659",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-google-login",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/GoogleLogin/index.ts",
+              "hash": "2d9722fb8b0174ea0e489e07515c8f1378313e9c"
+            },
+            {
+              "file": "apps/kbklab/src/components/Grid/Grid.tsx",
+              "hash": "23dd4cd02cc02c7314f0c9a841e40a0637cc0e3a",
+              "deps": [
+                "npm:@mui/material",
+                "npm:ag-grid-community",
+                "npm:ag-grid-react",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Grid/GridContext.tsx",
+              "hash": "8bcd248dc44907d8285f92e7023440365c953f7f",
+              "deps": [
+                "npm:ag-grid-community",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Grid/hooks/index.ts",
+              "hash": "8664ca777338c45f8f2486b39898df3b8ee7880f"
+            },
+            {
+              "file": "apps/kbklab/src/components/Grid/hooks/useObtainGridValues.ts",
+              "hash": "9e3ec2580232fe2c8b9bdd6baf141928bcaac00c",
+              "deps": [
+                "npm:ag-grid-community",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Grid/hooks/useSizeColumnsToFit.ts",
+              "hash": "a513057755a476bee8d4e3842fbe00a5f646d48d",
+              "deps": [
+                "npm:ag-grid-community",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Grid/index.ts",
+              "hash": "7ab9c800db5a67b363fa2665f07e4f6496f84ce3"
+            },
+            {
+              "file": "apps/kbklab/src/components/Grid/utils/index.ts",
+              "hash": "3b03e500b74a7fae61f60b8f32084e5467c14169"
+            },
+            {
+              "file": "apps/kbklab/src/components/Grid/utils/sizeColumnsToFit.ts",
+              "hash": "5ca07a3aeeb24e6fa7da5cff560db1080e6837f3",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/GridCellRenderer/index.ts",
+              "hash": "60b1364347fa3b5328ecece6a9223573e38735c4"
+            },
+            {
+              "file": "apps/kbklab/src/components/GridCellRenderer/LecturerClassesCellRenderer.tsx",
+              "hash": "ae9df019cf66cbece49374f795df974d54480e9f",
+              "deps": [
+                "npm:@mui/material",
+                "npm:ag-grid-community",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/GridCellRenderer/LecturerDetailCellRenderer.tsx",
+              "hash": "d5a3d556213af75fdb7508476822558b83b548b2",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:ag-grid-community",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/index.ts",
+              "hash": "54679dc61dd3459ffdabe7540a73dad3607a7a2c"
+            },
+            {
+              "file": "apps/kbklab/src/components/LinkButton/index.ts",
+              "hash": "61ea73df349480185c5c76603ce646acd6be58a8"
+            },
+            {
+              "file": "apps/kbklab/src/components/LinkButton/LinkButton.tsx",
+              "hash": "0f3a0b0911a4c7ff5fe035a65a3ea80ba7048ddc",
+              "deps": [
+                "npm:react",
+                "npm:react-router-dom",
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Logo/index.ts",
+              "hash": "0318286192892f277c766a67d2fe4268fc9464f3"
+            },
+            {
+              "file": "apps/kbklab/src/components/Logo/Logo.tsx",
+              "hash": "4c5abbabc92142bf8f063378523281ec62ddf1cc",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/MasterLayout/index.ts",
+              "hash": "be2cbfd2e2ebf9b4e19d20ec33c26f64d3c882a8"
+            },
+            {
+              "file": "apps/kbklab/src/components/MasterLayout/MasterLayout.tsx",
+              "hash": "61d567364f5d903c5458cf9cc8239c9448bbbe9a",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Modal/index.ts",
+              "hash": "3da8b68b149843ed12014d706ba56dbd919e6abc"
+            },
+            {
+              "file": "apps/kbklab/src/components/Modal/Modal.container.tsx",
+              "hash": "45028add4667f31df1943b77ea135e89bdfa340e",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Modal/Modal.types.ts",
+              "hash": "dbb7f49da8725660ed9f17b49fdd71b8c9848417"
+            },
+            {
+              "file": "apps/kbklab/src/components/Modal/Modal.view.tsx",
+              "hash": "e99a2a345139fd69295fa3139e93835d3883c6a5",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/PageTitle/index.ts",
+              "hash": "dcef7e2d88cd2e0e1f73691ae3cce71a24637398"
+            },
+            {
+              "file": "apps/kbklab/src/components/PageTitle/PageTitle.tsx",
+              "hash": "7b9c3f76665bb4723da5b7f2e72386787361ace3",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Route/AuthOutlet.tsx",
+              "hash": "6f38e36a892ae31d802b59ad6166acce03e24307",
+              "deps": [
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Route/index.ts",
+              "hash": "933f533e0ddef61a3587c3c926e0eb4c7f8f0c0b"
+            },
+            {
+              "file": "apps/kbklab/src/components/Route/ModalOutlet.tsx",
+              "hash": "5dea6d53c1801c4d2d259fca86fd3567ec9954b1",
+              "deps": [
+                "npm:@iconify/react",
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Route/PrivateOutlet.tsx",
+              "hash": "de7deaf0afefe25f12bad4340aeb234190b667c9",
+              "deps": [
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Sidebar/Sidebar.constants.ts",
+              "hash": "ef360846171a427b7666332aa4eab6a88ec17083"
+            },
+            {
+              "file": "apps/kbklab/src/components/Sidebar/Sidebar.tsx",
+              "hash": "7308995b04e8417d110ee60b946f0918c495e510",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Sidebar/Sidebar.types.ts",
+              "hash": "1a70ca2759394702bfa669c57e446ff8f310c66e"
+            },
+            {
+              "file": "apps/kbklab/src/components/Sidebar/Sidebar.utils.tsx",
+              "hash": "7fc4812977a417d256ce74426fea6866b5b0b8a5",
+              "deps": [
+                "npm:@iconify/react",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Sidebar/SidebarNavSection.tsx",
+              "hash": "9e47455517b0a4cd7c4dc0c1d586c218c7b1a006",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Sidebar/sidebarNavSection/SidebarNavItem.tsx",
+              "hash": "ba1ee269ace7625a5c380609417cc8a5edf7b34f",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/Sidebar/SidebarUserButton.tsx",
+              "hash": "71d9873b44b6b77e08b9a71e059326d0c993ad93",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/breakpoints.ts",
+              "hash": "924fe9a427915b3a52d7168976235d38217a9d9a"
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/GlobalStyles.tsx",
+              "hash": "84af091b1465f5a8ef9926b8add3316ad4c2313b",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/Autocomplete.ts",
+              "hash": "f15c4f83f0da86a6c66adb62679456afc52c09fb",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/Backdrop.ts",
+              "hash": "999896483470c623f3c87ddcfc242c43d2f25405",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/Button.ts",
+              "hash": "f4514e61778fd8b56e50701799b11367b8a20bcc",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/Card.ts",
+              "hash": "3e5db69d9e948445fe6ac1ffd68f8a611b9a2141",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/IconButton.ts",
+              "hash": "afeef9abc6e268701b8deced6d2a3b0b57bb9052",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/index.ts",
+              "hash": "ac10a67a22f1e3ecbb8d02cbda861edf97cfaa1c",
+              "deps": [
+                "npm:@mui/material",
+                "npm:lodash"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/Input.ts",
+              "hash": "5edd662df1b47e1ff63f4e6b990c5522dcca90aa",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/Lists.ts",
+              "hash": "ad19307213166ebf351fdbf1bd0b0375d1014431",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/Paper.ts",
+              "hash": "60f667f83a8aba41552337c80214d694d2f1bc77"
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/Tooltip.ts",
+              "hash": "c891f43ffe64c2d018a1083e12cd7bd1d4c93cbb",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/overrides/Typography.ts",
+              "hash": "8dd5f41aa428ce6ce077ae47233100aeb677cfa5",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/palette.ts",
+              "hash": "7a0087322dba85ac53eca01dc5ed2509cb896d15",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/shadows.ts",
+              "hash": "3bcdff81c1e013266004c0773117b1a2c6b594d8",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/shape.ts",
+              "hash": "ebb8c999421251977662178e2a0d60264e7c19e1"
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/theme.ts",
+              "hash": "1f95e25c2cfd46ce58f30f545d0e1deb1e550c9e",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/ThemeConfig.tsx",
+              "hash": "b84c3ad10b695cc37f7501da1bb61d10e874b012",
+              "deps": [
+                "npm:@mui/material",
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/theme/typography.ts",
+              "hash": "b2a524b6cc7105d9bd54b044d21cbb46b1e19d9f",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/environments/environment.prod.ts",
+              "hash": "cad9e3e3c8699ca09e40f88cd77cc847cab7c041"
+            },
+            {
+              "file": "apps/kbklab/src/environments/environment.ts",
+              "hash": "6787a268c3f991b687f15ea74015c8bd94623c91"
+            },
+            {
+              "file": "apps/kbklab/src/favicon.ico",
+              "hash": "603be73da08aabc5bae9f30b0fa468db4b859ca2"
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/index.ts",
+              "hash": "86b6d3a4fe8bc94263c60ec68de1e9f936139b52"
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useAttemptLab.ts",
+              "hash": "675fb5c9c8f70475a307fbe6ef6c66e7836928ea",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useAttemptLabStatus.ts",
+              "hash": "bf3fb0ea137655c893bb0c05cbf0445619991928",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useFinishLab.ts",
+              "hash": "ca1d0f8b3ccca2489241ac0e3426868ce81a7e2e",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useFinishLabStatus.ts",
+              "hash": "96d123e4c278b72ea43acb74df47a297c356d6ae",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useIsAttemptingLab.ts",
+              "hash": "b462567bd0821e01d0cd8cdbd4530d04c5bd0349"
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/hooks/useIsFinishingLab.ts",
+              "hash": "c1327ee8db620e162e224763c876b14fee17a6d5"
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/index.ts",
+              "hash": "9b4251c474f5f270d7758db9072c007436501b25"
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/index.ts",
+              "hash": "413623b851592072c060e750272020af12f0e0fd"
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.constants.ts",
+              "hash": "0aef2d738943ac1bf2e6a358e09e561a6d8ae3a5",
+              "deps": [
+                "npm:moment"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.container.tsx",
+              "hash": "bada8effc8a35ad0b472b1ca7b4e3b2668261f01",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.context.tsx",
+              "hash": "3c5fd5d94ef42a5b9691fbcbb24bb9a94580613f",
+              "deps": [
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.hooks/index.ts",
+              "hash": "6b3888b1bc5c615ecb3aceeadadc986127c13b1d"
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.hooks/useLabScore.ts",
+              "hash": "612f43a9101c352be9521b9f5cb25cad78592754",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.hooks/useOnAttemptLab.ts",
+              "hash": "5931c48da4ba94f8a80e69d1b9fe01155cbeacad",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.hooks/useOnFinishLab.ts",
+              "hash": "a4b88f3a1a0ceb4b9941b2894cabbfdc586bf0a9",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.types.ts",
+              "hash": "fc5a2d04ca8533439def93c25194c3287ec97fa0",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.utils.ts",
+              "hash": "a8f180aed7a96f47682717929e4322e6fb5af1e4",
+              "deps": [
+                "npm:moment"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCard.view.tsx",
+              "hash": "0a38b432103892f58c9900e653ea4608008075a0",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:moment",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/LabCardInfo.tsx",
+              "hash": "45ad393fe4d1d9541b501b7dc785bada0ad86e2f",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/LabCardInfoItem.tsx",
+              "hash": "8df380d3565c1fb2cd929200df6ee15aed3930ba",
+              "deps": [
+                "npm:react",
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/LabCardStatus.tsx",
+              "hash": "ffcbcccb7b44b5af90ceb850552a972b18ac9ce9",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/ScoreItem.tsx",
+              "hash": "fa29a75d8282333e9338a5be90ecb8eddae3120b",
+              "deps": [
+                "npm:react",
+                "npm:@mui/material",
+                "npm:@mui/icons-material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/StatusItem.tsx",
+              "hash": "ec757ebb132e6ebb7eda250c0e984c808e1eb6a4",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labCardInfo/StepsItem.tsx",
+              "hash": "25aaad513697526deba673ecddf2621eb34b40b2",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabDetailItem.tsx",
+              "hash": "282479ee9ab53c228857ce55c452461301221fd0",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabSteps.tsx",
+              "hash": "37f23c6b774723ae421d6043674ae53c9b0a3790",
+              "deps": [
+                "npm:@mui/lab",
+                "npm:moment",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabStepsItem.tsx",
+              "hash": "5b0a1106bf260b2f2da25315feb26d363c9f39a2",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/lab",
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabStepsItemContent.tsx",
+              "hash": "27051b16ecece3f15f340a81acea3db969dbf516",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/LabCard/labStepsModal/LabStepsModal.tsx",
+              "hash": "c5e302ad53adc63916eeb95b893678f931d01bc3",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-markdown"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/selectors.ts",
+              "hash": "49e869f72262400486b2a1505d13b037b578eb4b",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/slices.ts",
+              "hash": "04ba2db83b5e9362a0a29b4f84f2967f68ca8f75",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/thunks.ts",
+              "hash": "b684f468a5b27fafcf4ee9907c42e0d3a1eb6daa",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/components/LabAttemption/types.ts",
+              "hash": "2538061127cd07051edee0b83b6eeeb67cc4abe9"
+            },
+            {
+              "file": "apps/kbklab/src/index.html",
+              "hash": "71f6d08559946fe0bacb8737fc5b2c6152fb088a"
+            },
+            {
+              "file": "apps/kbklab/src/main.tsx",
+              "hash": "61d937538f324dab0444f78d3bb81fc984a8226f",
+              "deps": [
+                "npm:react",
+                "npm:react-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassDetailPanel.constants.ts",
+              "hash": "938d6d4f716c90139bf679098569f20214e32c11"
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassDetailPanel.container.tsx",
+              "hash": "5e58b712894fa9b711fbd1bf7d632217c3de70c7",
+              "deps": [
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassDetailPanel.view.tsx",
+              "hash": "639f854dd3e3a70577721c33abea55ad7cbe9705",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:lodash",
+                "npm:react",
+                "npm:react-router-dom",
+                "npm:seamless-immutable"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassDetailPanelWrapper.tsx",
+              "hash": "0169295849ee001ac083a849729bc027eef3a8c2",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.constants.ts",
+              "hash": "7b76243d4589cd855add91c90e20116619a7636a",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/index.ts",
+              "hash": "51aaf4c0e2f52803d70e48cd8473f896d165ad98"
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useAllClasses.ts",
+              "hash": "4d0e080e769778598c8a31fc51caaf24acf1040e",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useClassByCode.ts",
+              "hash": "8e4078b9ffcbdedc3d7cb8dcb177f4d9d0ff64a7",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useClassById.ts",
+              "hash": "62ec5e1e4d90549ca6675b840d8282fb1e8dbf08",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useClassesEntitiesState.ts",
+              "hash": "258177dfb8021d416b46f2281d7cbb34226c8f5e",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useClassesGridColDefs.ts",
+              "hash": "df4f744fa45db7dbc5f520f8a8421a0dfc624ce1",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useCurrentClassDetail.ts",
+              "hash": "2056177c58687e71abc22dd907e4dac3241ec1c6",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useDefaultLecturerOption.ts",
+              "hash": "9ec74aad491cbd3823d425a85828d39ba10a10fd",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useDeleteClassLab.ts",
+              "hash": "fa7d7cf44119a5f8f710ab36e21bbcd00d0f86e2",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useGetAllClasses.ts",
+              "hash": "4732ef820802c7847b7ee731527f515fe33515f6",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useHandleDeleteClassLab.ts",
+              "hash": "8a73fd20c007939d5cd166bd074250642a59e75d",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useImportClasses.ts",
+              "hash": "1eead75b7799796b332b3b5fc624ae9551615346",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useImportClassesStatus.ts",
+              "hash": "974a5ce1e2132f4ba6e578c94bdb470791f9b414",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useImportClassInitialValues.ts",
+              "hash": "2166484d7337c984dae8064a8e701cdfa497a5e2",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useIsDeletingClassLab.ts",
+              "hash": "ef1af4dcc4e5a402bba0d261e9c089898cf1fca8"
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useIsImportingClasses.ts",
+              "hash": "e9cb54c3a1b1d9bf78ca08597255dd1656ff88d1"
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useIsUpdatingClassLab.ts",
+              "hash": "b69189b5553636e80244b47b8b055eb1202a871a"
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useLecturerOptions.ts",
+              "hash": "2b31f076ef5b341c82f701cdf626131030c52668",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useSetCurrentDetailClassId.ts",
+              "hash": "de396aaf50e72c167aaee6fcb04ceeea48f9a265",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useUpdateClassLab.ts",
+              "hash": "b6b85f11ce08e808b2b96967a61861be06f69a10",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useUpdateClassLabHandler.ts",
+              "hash": "08b472e9bda0309806cf460f62ea305918017add",
+              "deps": [
+                "npm:@reduxjs/toolkit",
+                "npm:lodash",
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.hooks/useUpdateClassLabState.ts",
+              "hash": "a8a8dcfe7468d7ff47de3d65dbaa7c07a7f52106",
+              "deps": [
+                "npm:moment",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.selectors.ts",
+              "hash": "16d6ac395736a565dfbff73150ed20a847b6765b",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.slice.ts",
+              "hash": "e232f576a2212a5ad1a98cbe10aad20462c6bd8d",
+              "deps": [
+                "npm:@reduxjs/toolkit",
+                "npm:seamless-immutable"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.thunks.ts",
+              "hash": "6e4e5ed17c24ddc7ac82b29c9467b4c60d5d1c62",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.tsx",
+              "hash": "9204b1830b91df414fc3b0f7e09973ed9bbf62e3",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.types.ts",
+              "hash": "f70b6230b05dfc90763b2a902b72e097e9bb6ce8",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.utils/index.ts",
+              "hash": "13a08d276221472cf92292c7e675009ac1f2c4a2"
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.utils/lecturerColumnValueGetter.ts",
+              "hash": "caf62b470cdc2a7039659d4e83ca6e92df2d3443",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.utils/studentsColumnValueFormatter.ts",
+              "hash": "30717f8a51d6768a0fa66a3267342cefe23a642b",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGrid.utils/validateImportClassesValues.ts",
+              "hash": "646bf7d3dfa008c7210714d4d92c7ce634c0237a",
+              "deps": [
+                "npm:formik"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/classesGrid/ClassDetailCellRenderer.tsx",
+              "hash": "7e364500937cb7f953838b583e2d969e23af0e19",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:ag-grid-community",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/classesGrid/ExtendedImportFields.container.tsx",
+              "hash": "5f38e8b354a59d937c02d28c6dbb91ad1e181bae",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/classesGrid/ExtendedImportFields.view.tsx",
+              "hash": "cf714cb4fd4d411fd9f9039b6eabaacc9f812c30",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/ClassesGridActions.tsx",
+              "hash": "bdddca87fb7234ae8d328c3e405b745314a5759a",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ClassManagement/index.tsx",
+              "hash": "d16957595310f4d41451951e5d59ff823d734b4d",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/index.tsx",
+              "hash": "a0b77dff2df444f6528e28d063c1f1439d6c037e",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.constants.ts",
+              "hash": "19e6732fe5376540ad4ff6701f74221aa3429e57"
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.container.tsx",
+              "hash": "2d4668b5df0fc41f2bc67c4fb870b95f09b22b75",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.hooks/index.ts",
+              "hash": "aa41c56cac72779604a46c2f00e5573ce6849c99"
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.hooks/useFetchUserClassLabs.ts",
+              "hash": "6bd91449de89ae5d48fed9843d9d1f8186f2c4e4",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.hooks/useSortedStudentLabs.ts",
+              "hash": "6ae8912f01bbe54bca12d792de2f6517d2c57b88",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.hooks/useStudentLabEntities.ts",
+              "hash": "1a94569673f0d7bb3d954af1c22168aedb8ee818",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.selectors.ts",
+              "hash": "e08252c2fc88506e1279c4298dd161efe40803b5",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.slice.ts",
+              "hash": "0dfe73258dfb53e2fb9f14c38e74aac1db211ac2",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.thunks.ts",
+              "hash": "f2abee86ed22574c450648d0c1d1e8dea9629402",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.types.ts",
+              "hash": "32bdf49e0fe9ff72fd87e0f764c343de80782198",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LabDashboard/LabsGrid.view.tsx",
+              "hash": "4ba7800ad963c1faf0cd0b9213cb6560abb1ba9a",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/index.tsx",
+              "hash": "dd652636eb2ac063dfe9ce385861c57a3af8f35e",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.constants.ts",
+              "hash": "a1a40c5bdbba21b3f3cf7ad6f92874c90d817a56",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.hooks/index.ts",
+              "hash": "4c67465d1f8ec6964c076b9a9ef36ba30a1c6616"
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.hooks/useAllLecturers.ts",
+              "hash": "875dbc3e08e9b9ef752b08248eb2e507e1d58df3",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.hooks/useGetAllLecturers.ts",
+              "hash": "8157e0bf45a6bac8f996da1daf1af3cd8b8692ef",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.hooks/useImportLecturers.ts",
+              "hash": "643d5612e1df25d3f73eb1605f8d53ffb42e623e",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.hooks/useImportLecturersStatus.ts",
+              "hash": "f65ea0b3f729218920632c6b98958750c3fc17c8",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.hooks/useIsImportingLecturers.ts",
+              "hash": "5431b3f3d6478addd59045467908a99b726733f1"
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.hooks/useLecturerEntitiesState.ts",
+              "hash": "7bbe707be63c9e1edb069629e184713b82b4d33e",
+              "deps": [
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.hooks/useLecturersGridColDefs.ts",
+              "hash": "e2e8242cdb1f7f0a34ac135ac5dd6bf5b13a6385",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.selectors.ts",
+              "hash": "fbd6d1242b37c9942bc5f88e8670a0c6ea438989",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.thunks.ts",
+              "hash": "a8b6a6203daa7e9f4fee52c57b856f46bdffe8a8",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.tsx",
+              "hash": "3fe459219fa8c8594c193e8a3f3db3ba5d2747c0",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.types.ts",
+              "hash": "234d5219e0f23aba552e7ac30405bc7698285bd7",
+              "deps": [
+                "npm:@reduxjs/toolkit",
+                "npm:formik"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.utils/classesColumnValueGetter.ts",
+              "hash": "70aa0098629bd140cbe9e4d320db650c540a604d",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturersGrid.utils/index.ts",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/kbklab/src/pages/LecturerManagement/LecturesGrid.slice.ts",
+              "hash": "f9cc26437887d383a13afc5d2aac7dfe3cdc233f",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/Login/index.tsx",
+              "hash": "084008f4424304ebc1fc21f62651890391241848",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/Login/LoginFooter.tsx",
+              "hash": "c9e4e4e80616e50880245210c42f0c15bafcb2a8",
+              "deps": [
+                "npm:react",
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/Login/LoginForm.constants.ts",
+              "hash": "90f8768bce53fc55f147accda391d92aec6e0de2"
+            },
+            {
+              "file": "apps/kbklab/src/pages/Login/LoginForm.hooks.ts",
+              "hash": "19cc856f0885b25cb4b6fd1848b3eec98ade5a31",
+              "deps": [
+                "npm:lodash",
+                "npm:react",
+                "npm:validator"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/Login/LoginForm.tsx",
+              "hash": "d2890c825ae42b4711c6cb6bd4f8f70cbf75ad97",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/lab",
+                "npm:@mui/material",
+                "npm:formik",
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/Login/LoginForm.types.ts",
+              "hash": "4a7ad6c5e9913e3bec5b90394e7f4d5e6440f9f9",
+              "deps": [
+                "npm:formik"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ScoreDashboard/components/ClassSelect.tsx",
+              "hash": "c76e71efddc263bb9860291716c814516d1f93a2",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ScoreDashboard/components/ExportToCSVButton.tsx",
+              "hash": "56401c5a4df3ebcf5ce106bf25d745679259ee6d",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ScoreDashboard/hooks/index.ts",
+              "hash": "82fa5efb82b6f80b7b5e8f6c47bab7215530a739"
+            },
+            {
+              "file": "apps/kbklab/src/pages/ScoreDashboard/hooks/useClassScoreGridColDefs.ts",
+              "hash": "b90156102c473e8bafb43456af9aabf94ee2f36c",
+              "deps": [
+                "npm:ag-grid-community",
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ScoreDashboard/hooks/useScoreDashboardRouteParams.ts",
+              "hash": "acd10a76b8faf2d7a24a2b020c3005c230e2505d",
+              "deps": [
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ScoreDashboard/index.tsx",
+              "hash": "fe34e5f0bc0978f9cc6bd92a87f6419b7f785956",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ScoreDashboard/routes/ClassScoreDashboard.tsx",
+              "hash": "a6f51ebd4a624043592b64c24a974360397151d7",
+              "deps": [
+                "npm:lodash",
+                "npm:react",
+                "npm:react-router-dom"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ScoreDashboard/routes/classScoreDashboard/ClassScoreGrid.tsx",
+              "hash": "2118253d6d08c8304e9c016e08362d3eb953d544",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/pages/ScoreDashboard/types.ts",
+              "hash": "089715a1b5c38e4e35b21b89fe0ee61fd689bde3",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/polyfills.ts",
+              "hash": "2adf3d05b6fcf479dd61c74f6bda95d9edb6ac6b",
+              "deps": [
+                "npm:core-js",
+                "npm:regenerator-runtime"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/AppProvider/AppProvider.tsx",
+              "hash": "af9d8e15e0fb96b19e6a08225d1c0df0440cffe3",
+              "deps": [
+                "npm:react",
+                "npm:react-cookie",
+                "npm:react-router-dom",
+                "npm:react-toastify"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/AppProvider/AppProvider.types.ts",
+              "hash": "f9de383f5a3d599785a5c44898266288124445e8",
+              "deps": [
+                "npm:redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/AppProvider/index.ts",
+              "hash": "e78f4a190983faa28497cf2d74210fae0fcedc4b"
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/index.ts",
+              "hash": "d0ec85b9df761801e10e2cb8fd3ec9baa750048c"
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/OverlayLoader/index.ts",
+              "hash": "f861f2855e34b95653cdef6185e762b7bbbee559"
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/OverlayLoader/OverlayLoader.tsx",
+              "hash": "3e820c2e130105e4cf636db4c04904b15f01af61",
+              "deps": [
+                "npm:@mui/material",
+                "npm:react",
+                "npm:react-spinners"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/ReduxComponent/asyncActionsTrackingReducer.ts",
+              "hash": "c6ad43419f8957d77b2fbea9cfd4d345b8093041",
+              "deps": [
+                "npm:redux",
+                "npm:seamless-immutable"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/ReduxComponent/index.ts",
+              "hash": "4f6dd50fd6e61414696fc286f34e6a794db7101a"
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/ReduxComponent/ReduxProvider.tsx",
+              "hash": "10e3adb0a32c77a36944ad5b5dbfa25508894973",
+              "deps": [
+                "npm:react",
+                "npm:react-redux",
+                "npm:redux",
+                "npm:redux-devtools-extension",
+                "npm:redux-thunk"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/UserProvider/index.ts",
+              "hash": "fa4a45e89e04b72415cbffe739b978479dcb7c3c"
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/UserProvider/UserProvider.hooks.ts",
+              "hash": "7cfda9ce703a3548650a017ff0f612a2bfd6038a",
+              "deps": [
+                "npm:react",
+                "npm:react-cookie",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/UserProvider/UserProvider.selectors.ts",
+              "hash": "d9a2cbd1c5745ec19c1958faa250e2523ab7c5a1",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/UserProvider/UserProvider.slice.ts",
+              "hash": "d3e9d99fc5385498aee766a94a181c5a7be501c3",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/UserProvider/UserProvider.thunk.ts",
+              "hash": "b9d00e3241870abcd67bd3c03c22e81710c7ba77",
+              "deps": [
+                "npm:@reduxjs/toolkit"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/UserProvider/UserProvider.tsx",
+              "hash": "b6f6407171de31e0eb0979f288f880db0ff3a45c",
+              "deps": [
+                "npm:react",
+                "npm:react-cookie"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/components/UserProvider/UserProvider.types.ts",
+              "hash": "bd497fff428980d816af19d8769f68c7de51d5ae"
+            },
+            {
+              "file": "apps/kbklab/src/shared/constants.ts",
+              "hash": "fd7106dda2e3ff1886cb6569cbbba67ed368d70d",
+              "deps": [
+                "npm:ag-grid-community"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/hooks/index.ts",
+              "hash": "d242df6f62ecbb003812fac3302d2264451a8ee7"
+            },
+            {
+              "file": "apps/kbklab/src/shared/hooks/useDebounce.ts",
+              "hash": "a0328cabee5bf11988375642f89a9423dc5b12c0",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/hooks/useLoading.ts",
+              "hash": "0414e486823cfe0b6fc223ba2996a0df8cf50cec",
+              "deps": [
+                "npm:@reduxjs/toolkit",
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/hooks/useLoadingToast.ts",
+              "hash": "6ac22f9e306119358b58826bfe6b8b287de82ef7",
+              "deps": [
+                "npm:react",
+                "npm:react-toastify"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/hooks/useMounting.ts",
+              "hash": "0a5f19d40bf8b67873e45f586687be7099e9a663",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/hooks/useOptions.ts",
+              "hash": "ae6cd76b4b9e610fb9c6410ba181a8f560574e4e",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/hooks/useToggle.ts",
+              "hash": "27dedf78300a85fafb9b623b2ab405d16d462cf8",
+              "deps": [
+                "npm:lodash",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/hooks/useUser.ts",
+              "hash": "2391aa1d271f58c65eb1b57189c0d34a6ae022d3",
+              "deps": [
+                "npm:react",
+                "npm:react-redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/hooks/useVoidCallback.ts",
+              "hash": "34f5ac5ddaefcb2e99c50891fea0a154595398af",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/models/Class.ts",
+              "hash": "dc43c272e42d65f499e7c46b63448b89999ff2bd"
+            },
+            {
+              "file": "apps/kbklab/src/shared/models/ClassLab.ts",
+              "hash": "016c389cb82a379ba8591ef46963c8bddad51263"
+            },
+            {
+              "file": "apps/kbklab/src/shared/models/index.ts",
+              "hash": "71bcecfb3585bb49526b39c019191975d9f32a72"
+            },
+            {
+              "file": "apps/kbklab/src/shared/models/Lab.ts",
+              "hash": "9e8c759d3d6acf64cf023f5cd239ae1fd919f6e9"
+            },
+            {
+              "file": "apps/kbklab/src/shared/models/StudentScore.ts",
+              "hash": "2aaf1ad2fe33e305d99a5ace6e9b326e546aa068"
+            },
+            {
+              "file": "apps/kbklab/src/shared/models/User.ts",
+              "hash": "fab0941d2feb959f73966b75fef65f7c6eb41f6a"
+            },
+            {
+              "file": "apps/kbklab/src/shared/redux/rootReducers.ts",
+              "hash": "384c356987b97926ef2b4fee0dc844c50c878d2e",
+              "deps": [
+                "npm:redux"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/redux/rootSelector.ts",
+              "hash": "52a955515c2c236af976b148812faa8044950857"
+            },
+            {
+              "file": "apps/kbklab/src/shared/theme.ts",
+              "hash": "3f7721924ca305882611879c7c1868daa4368963",
+              "deps": [
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/utilities/APIClient/APIClient.ts",
+              "hash": "a217a041e58120f90c1fe64820498e5558b748cd",
+              "deps": [
+                "npm:axios"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/utilities/APIClient/APIClient.types.ts",
+              "hash": "682c5737df22b26bc9c0c95fa94b39a833a2785e"
+            },
+            {
+              "file": "apps/kbklab/src/shared/utilities/APIClient/index.ts",
+              "hash": "4f78721a1de698eb7fe390ae026ab3a145b45e2c"
+            },
+            {
+              "file": "apps/kbklab/src/shared/utilities/cssLayout.ts",
+              "hash": "2fa8239cec56108fad7074ca7a60ca53a2ad3ca5",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "apps/kbklab/src/shared/utilities/index.ts",
+              "hash": "3eef6893c6c88f6400db4ce8e8a1ae13cc3e3f08"
+            },
+            {
+              "file": "apps/kbklab/src/shared/utilities/openInNewTab.ts",
+              "hash": "fc5e3fea86a6c6f680b2181891e15cba86f09889"
+            },
+            {
+              "file": "apps/kbklab/tsconfig.app.json",
+              "hash": "8cbd0c38be9a168aa540eca52db4d3954bf3fcfd"
+            },
+            {
+              "file": "apps/kbklab/tsconfig.json",
+              "hash": "a11087ffb342c8100c9e7971d4f6b74d8651bf4a"
+            },
+            {
+              "file": "apps/kbklab/tsconfig.spec.json",
+              "hash": "95ef66a08a930c883fae51ec55020ad0ceab2ce9"
+            }
+          ]
+        }
+      },
+      "api": {
+        "name": "api",
+        "type": "app",
+        "data": {
+          "root": "apps/api",
+          "sourceRoot": "apps/api/src",
+          "projectType": "application",
+          "targets": {
+            "build": {
+              "executor": "@nrwl/node:webpack",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/apps/api",
+                "main": "apps/api/src/main.ts",
+                "tsConfig": "apps/api/tsconfig.app.json",
+                "assets": [
+                  "apps/api/src/assets"
+                ]
+              },
+              "configurations": {
+                "production": {
+                  "optimization": true,
+                  "extractLicenses": true,
+                  "inspect": false,
+                  "fileReplacements": [
+                    {
+                      "replace": "apps/api/src/environments/environment.ts",
+                      "with": "apps/api/src/environments/environment.prod.ts"
+                    }
+                  ]
+                }
+              }
+            },
+            "serve": {
+              "executor": "@nrwl/node:node",
+              "options": {
+                "buildTarget": "api:build"
+              }
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "apps/api/**/*.ts"
+                ]
+              }
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "coverage/apps/api"
+              ],
+              "options": {
+                "jestConfig": "apps/api/jest.config.js",
+                "passWithNoTests": true
+              }
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "apps/api/.eslintrc.json",
+              "hash": "9d9c0db55bb1e91c5f2e7b64a02bc6bf69fc7cb5"
+            },
+            {
+              "file": "apps/api/jest.config.js",
+              "hash": "7be5ff46c03ee8f2480ecf503cc61b1dfa08c505"
+            },
+            {
+              "file": "apps/api/project.json",
+              "hash": "79ef76fcf5da05f90ca10ced27cd0f7c1471ace4"
+            },
+            {
+              "file": "apps/api/README.md",
+              "hash": "ff88bfe837d15a73b1af7996d68f6fdbe14a5ab7"
+            },
+            {
+              "file": "apps/api/src/app-constants.ts",
+              "hash": "fac61c56c5880407adb305bdd4d512f5749ce573"
+            },
+            {
+              "file": "apps/api/src/app/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/api/src/app/v1/class/class.actions.ts",
+              "hash": "e069eed692704f0ab0c2c285c7d6675ed051ed67",
+              "deps": [
+                "api-interfaces",
+                "npm:lodash",
+                "npm:xlsx"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/class/class.controllers.ts",
+              "hash": "1616b3a4303bbe4c07c4c6a7788063efe5a67d57",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/class/class.queries.ts",
+              "hash": "b0c6b020a6a0000ccfcbb8cdf27e999b52cf9d08",
+              "deps": [
+                "api-interfaces",
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/class/class.router.ts",
+              "hash": "5f47c6a94bd231fbef6913e551423186a1d337fb",
+              "deps": [
+                "api-interfaces",
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/class/class.types.ts",
+              "hash": "8301d7e164e770e3d496c34dde7de2abdcae9c6d",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/class/class.validators.ts",
+              "hash": "4c002bc2f13c87465db18bea1b07d297a87923b7"
+            },
+            {
+              "file": "apps/api/src/app/v1/classLab/classLab.actions.ts",
+              "hash": "d1c210277dbcfcb840fbf0127f01d9a0c5668956",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/classLab/classLab.controllers.ts",
+              "hash": "e0fcd7db38c0264fbf6195258a897871f6ac6bd5"
+            },
+            {
+              "file": "apps/api/src/app/v1/classLab/classLab.queries.ts",
+              "hash": "fd0f821ccb4e7a50ffff11c93c2ef65ab9dd3a49",
+              "deps": [
+                "api-interfaces",
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/classLab/classLab.router.ts",
+              "hash": "e91cc48f273830a5601d2d1d12b83f9b0bad33b7",
+              "deps": [
+                "api-interfaces",
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/classLab/classLab.types.ts",
+              "hash": "4f0bdd0c26009f06050cb68b9dc9a358cacd7395"
+            },
+            {
+              "file": "apps/api/src/app/v1/classLab/classLab.validators.ts",
+              "hash": "a9c30764767a77fe119a041280969bba44bd2c30"
+            },
+            {
+              "file": "apps/api/src/app/v1/index.ts",
+              "hash": "964af7a53ed6d53c9ef254ae3694caf685004fe2",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/instance/instance.actions.ts",
+              "hash": "4e56f5a95b40817d4e26f7708cc91cd2355c56cf",
+              "deps": [
+                "api-interfaces",
+                "npm:node-schedule"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/instance/instance.controllers.ts",
+              "hash": "ec0237e547965f62e02f110b335c8ecd6c4e78e8",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/instance/instance.router.ts",
+              "hash": "a2dafa8d94c556a616f92f8b1d411ae0e3fe07b7",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/instance/instance.utils.ts",
+              "hash": "752c170f3e8517765b01d28569b8f79bb869faec",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/instance/instance.validators.ts",
+              "hash": "051204c3242e7ddb790d3ec97b16f6ec949433f5",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/lab/lab.actions.ts",
+              "hash": "b067a44ad7ab3f5a7b27f30d8b85e3685b422df0",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/lab/lab.controllers.ts",
+              "hash": "f4ab204dbfd59ce628b56c02a8eb417c4ad714f9"
+            },
+            {
+              "file": "apps/api/src/app/v1/lab/lab.router.ts",
+              "hash": "867b4b91c47e0f8b04561a18275b803151f016bb",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/lab/lab.types.ts",
+              "hash": "132da6ab91fd18bca98aba768946072374331cf8"
+            },
+            {
+              "file": "apps/api/src/app/v1/lab/lab.validators.ts",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/api/src/app/v1/score/score.actions.ts",
+              "hash": "d041d83626c14595a16eb2b42aca08dda3fe638b",
+              "deps": [
+                "api-interfaces",
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/score/score.controllers.ts",
+              "hash": "a149cbe2e456811aca57f3d7d2c4dea69228f120",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/score/score.queries.ts",
+              "hash": "c4fb8edcafde51d5c8bc9d01cd218399139be43f",
+              "deps": [
+                "api-interfaces",
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/score/score.router.ts",
+              "hash": "8be88e26e84dadf084367c7626a481005435dd01",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/score/score.types.ts",
+              "hash": "b5920914097d40cf1dbe8b67eff235105cdafb0c"
+            },
+            {
+              "file": "apps/api/src/app/v1/user/user.actions.ts",
+              "hash": "9e86710ccd234e2ed8ac0785325234d2e3bdccfb",
+              "deps": [
+                "api-interfaces",
+                "npm:google-auth-library",
+                "npm:xlsx"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/user/user.controllers.ts",
+              "hash": "a55f4214f50aaa586dbaa1ebad3a94d60597b977",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/user/user.queries.ts",
+              "hash": "ee5e3e8c5220cccac5c145fdbefd3c18baa37156",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/user/user.router.ts",
+              "hash": "8bd88c8de3416ecb9ab0a7efe0f429f40f4b64e2",
+              "deps": [
+                "api-interfaces",
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/user/user.types.ts",
+              "hash": "e40507c12a07462931e460b1773ac62616ea03e2",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/user/user.utils.ts",
+              "hash": "6232d9970175dd1b42cd4bfc4d9fde1a658c38fa",
+              "deps": [
+                "npm:express",
+                "npm:jsonwebtoken"
+              ]
+            },
+            {
+              "file": "apps/api/src/app/v1/user/user.validators.ts",
+              "hash": "cb213b96df4860dc7e43b2cc94209c11e73859a5",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/assets/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/api/src/entities/base-entity.ts",
+              "hash": "a6bc9169e95197b8fc21f89f352300106a4c9d49",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/entities/class.ts",
+              "hash": "5bbf8f65550e0274755f7506665ae872649dc7d3",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/entities/classLab.ts",
+              "hash": "624f27166f11e00e5976d7f43e054ae7d909993f",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/entities/index.ts",
+              "hash": "8f4dc1a70db7716556329b00966536cf42e2fbe4"
+            },
+            {
+              "file": "apps/api/src/entities/instance.ts",
+              "hash": "acd3c6f949f816896dfcaa57b8392cec7568b0d4",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/entities/lab.ts",
+              "hash": "956efe891d662420f3cb56266a3a80f5fd6c5aa4",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/entities/score.ts",
+              "hash": "d5afa1f46d5ec0a790092c92bfd3db342f03d1b2",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/entities/user.ts",
+              "hash": "bc6ecd9245b13e4ff3e8f0be5fd3747ab76b268e",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/environments/environment.prod.ts",
+              "hash": "1bc78607eeef5241c8e5e14c513a70d4598a7023"
+            },
+            {
+              "file": "apps/api/src/environments/environment.ts",
+              "hash": "de7b4dca8f38ad5cf2f10b0c67a74d2a00779611"
+            },
+            {
+              "file": "apps/api/src/index.d.ts",
+              "hash": "5c22e4d2d4104789204b6c820da5f47ac6f75341"
+            },
+            {
+              "file": "apps/api/src/infra/database/models/class.ts",
+              "hash": "999d5be24de9123326c118a378665acbef9bca01",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/infra/database/models/classLab.ts",
+              "hash": "23467947ce11e609ad836864bb64537b0ba02bf3",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/infra/database/models/index.ts",
+              "hash": "8f4dc1a70db7716556329b00966536cf42e2fbe4"
+            },
+            {
+              "file": "apps/api/src/infra/database/models/instance.ts",
+              "hash": "df09c02375316feede5c942b6ae231e2d443417c",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/infra/database/models/lab.ts",
+              "hash": "f5d505c7e54b8998f9b32cbe11ac42237e160682",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/infra/database/models/score.ts",
+              "hash": "4bbdd0b9c9ae298b011ee70ea53b051e38d40ef7",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/infra/database/models/user.ts",
+              "hash": "d27677224d954fd5476a635278635b7396f6bd6d",
+              "deps": [
+                "api-interfaces",
+                "npm:mongoose",
+                "npm:validator"
+              ]
+            },
+            {
+              "file": "apps/api/src/init/index.ts",
+              "hash": "ec3469813fd10694ebe8c73e94db0f325ead1a93",
+              "deps": [
+                "npm:winston-mongodb"
+              ]
+            },
+            {
+              "file": "apps/api/src/init/mongoose.ts",
+              "hash": "7ac000d3f085609f1a41ddfd87d82ac02d1c0e14",
+              "deps": [
+                "npm:mongoose"
+              ]
+            },
+            {
+              "file": "apps/api/src/main.ts",
+              "hash": "0c8b4b4dba1d16364d30dcb2eb0b14127574ce97",
+              "deps": [
+                "npm:cookie-parser",
+                "npm:cors",
+                "npm:express",
+                "npm:express-session",
+                "npm:helmet"
+              ]
+            },
+            {
+              "file": "apps/api/src/middlewares/error-handler.ts",
+              "hash": "f5f456077a2a8f207bd668ad193466d4519beb94",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/middlewares/file-uploader.ts",
+              "hash": "1274a86fda13918e27cf5e9229db8ad6533aa188",
+              "deps": [
+                "npm:multer"
+              ]
+            },
+            {
+              "file": "apps/api/src/middlewares/index.ts",
+              "hash": "bac7895ece36e76a6a770d21e5ab6585977c34f2"
+            },
+            {
+              "file": "apps/api/src/middlewares/protect.ts",
+              "hash": "94e72fc5d30292118dee3b37d07d75ca4e541f0e",
+              "deps": [
+                "npm:express",
+                "npm:jsonwebtoken"
+              ]
+            },
+            {
+              "file": "apps/api/src/middlewares/restrict-to.ts",
+              "hash": "c5a5d50ce1e16452460fc16761e4f59841b49825",
+              "deps": [
+                "api-interfaces",
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/models/api-action.ts",
+              "hash": "51cd2d872d4135b6a95ba268495bb87adaff557e",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/models/api-response.ts",
+              "hash": "7a05c80ac74763648b7f8e3aa7d73d9228481523"
+            },
+            {
+              "file": "apps/api/src/models/app-error.ts",
+              "hash": "7837826cc11c2250bab357f93985e485b6a0e517"
+            },
+            {
+              "file": "apps/api/src/models/authenticated-request.ts",
+              "hash": "3ca2c373f4c0d501bb445849a4c3c029fd7c92b5",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/models/import-data.ts",
+              "hash": "80a5d31afd2149a5fb446d549db06d71927e06a4"
+            },
+            {
+              "file": "apps/api/src/models/index.ts",
+              "hash": "e271de33570ffd378807863785f36739a25880a4"
+            },
+            {
+              "file": "apps/api/src/models/validation-error.ts",
+              "hash": "2230594e1b7a9e1db5563a76f52973d49133c672"
+            },
+            {
+              "file": "apps/api/src/tools/instance.py",
+              "hash": "99b2f730fea06526be97381725de352d26735967"
+            },
+            {
+              "file": "apps/api/src/tools/README.md",
+              "hash": "877d3132a1343e7489d71b3a7f611b51b715555d"
+            },
+            {
+              "file": "apps/api/src/utils/api-wrapper.ts",
+              "hash": "fbdc3fed9bf0ffae2880e9e167a9abef9f053811",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/utils/catch-middleware.ts",
+              "hash": "17562c18ac585efef9a5d56b41f8c54b86f2cd75",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/utils/create-validator.ts",
+              "hash": "8716a0e915cd00be82060fe9f2106677bd26bc54",
+              "deps": [
+                "npm:lodash"
+              ]
+            },
+            {
+              "file": "apps/api/src/utils/get-user-code.ts",
+              "hash": "fc6587af6bd970586304d0b04e45bd2da49274fe",
+              "deps": [
+                "api-interfaces"
+              ]
+            },
+            {
+              "file": "apps/api/src/utils/index.ts",
+              "hash": "5157c2a1edc1d37f88d3c14b3c9b46193e5a6f85"
+            },
+            {
+              "file": "apps/api/src/utils/is-app-error.ts",
+              "hash": "698d37183a8f9a9ff4cf17279bbb4044f55aad1a"
+            },
+            {
+              "file": "apps/api/src/utils/logger.ts",
+              "hash": "6eaa4fb9e265881510e79c6f3ec348d749d23da3",
+              "deps": [
+                "npm:winston",
+                "npm:winston-mongodb"
+              ]
+            },
+            {
+              "file": "apps/api/src/utils/regex/fu-email-regex.ts",
+              "hash": "2e53cf59d9379fbfe2c9ca732dfb117969fd6a27"
+            },
+            {
+              "file": "apps/api/src/utils/regex/index.ts",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/api/src/utils/validators/fu-email-validator.ts",
+              "hash": "6b11616429dfb9b408a0c8ef79cb5f476211b44a"
+            },
+            {
+              "file": "apps/api/src/utils/validators/index.ts",
+              "hash": "0d565a89fc7bd25223bdf6ba6df7919a4fbed2bd"
+            },
+            {
+              "file": "apps/api/src/utils/validators/required-validator.ts",
+              "hash": "f811852a4684b02182b6d81cce8891fc07407028",
+              "deps": [
+                "npm:lodash"
+              ]
+            },
+            {
+              "file": "apps/api/src/utils/validators/student-email-validator.ts",
+              "hash": "e05d0dea3cff91b828cb15c5e8b36bdac490d70d"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/cmdi/CommandExec-1.php",
+              "hash": "0c0162a6827478d16a83d4d6e64c1a3659b0679b"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/cmdi/CommandExec-2.php",
+              "hash": "e45089e976c358985f1b25367562c93b524b96c6"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/cmdi/CommandExec-3.php",
+              "hash": "1d2ea94ab99eac1f552ed239f9fa7c3870dd3012"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/cmdi/CommandExec-4.php",
+              "hash": "79e65d21fedf738d32c931b38fea577841226590"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/cmdi/docker-compose.yaml",
+              "hash": "2fff1b20ab9d2053581215d1bc29925dad1eb80f"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/cmdi/Dockerfile",
+              "hash": "4862c744d590e5fe7a6b74ee3b52790f6f1f8340"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/cmdi/dotenv",
+              "hash": "0bdc67c7d8cdfa8f6354c0bc95dee2a904d1025d"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/cmdi/index.php",
+              "hash": "6c883b5f9da4d3165ba57d5b928908afd404787b"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/cmdi/start.sh",
+              "hash": "7538f457352f314ffc6b6a1d918b3036e6536ba3"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/app.js",
+              "hash": "16267e47569367fab26cc3fab3fffe8c0edf080f",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/data/posts.json",
+              "hash": "e84570ca49b017ef34b9a618922eb6f958b5d096"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/data/users.json",
+              "hash": "17a43091dbc549151bf812debe36029379e76e21"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/docker-compose.yaml",
+              "hash": "b0310844f82cf316fbebc12a9c3a41b85da4b3f9"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/Dockerfile",
+              "hash": "635b3e813bf97288975fae5aa706ff404cc0f48d"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/package-lock.json",
+              "hash": "91ea8b5b9ade6566ae68e34e458a7b10fc530417"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/package.json",
+              "hash": "060ad82e650fd9bec857116dd853bdd8553767b6"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/public/css/style.css",
+              "hash": "44deaa5a8da48411ad22559a9e3038debd05c94a"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/public/js/report.js",
+              "hash": "8ae2999436f8857ce46fb0d174a2d6091920388d"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/public/js/search.js",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/start.sh",
+              "hash": "13fbc2dfda6542805adf339d4155843a787352f9"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/test.js",
+              "hash": "9c13fd55a29715564a094e271bd613aa60dadbbe"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/views/homepage.ejs",
+              "hash": "ab2ce0ffcfa2047f9fdfc1b6a10fa0e518598031"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/views/login.ejs",
+              "hash": "d44b0d5e9e4ab37ba5b26ba7160047272ecab4a1"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/views/partials/footer.ejs",
+              "hash": "409e824b0bf3eddb006664da9e8b5740625a0ce6"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/views/partials/header.ejs",
+              "hash": "158366bb6a81d5a94a82fa25b5226b4c24e0b5a7"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/rxss/views/report.ejs",
+              "hash": "adb54f229ddd0cb1a971a3c94294e70530d95d4e"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/docker-compose.yaml",
+              "hash": "9bc39ff7c8829d144a3d00729eb7717c8597ed9f"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/Dockerfile",
+              "hash": "e52c22893ca99910a895a52ad82ba84be1a5af0b"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/dotenv",
+              "hash": "9ddb43e95d2cc0ee6232581c67d9b781c61fb186"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/effect.js",
+              "hash": "240b16f5032034551156107bd02d17cb98f87be0"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/images/10.jpg",
+              "hash": "a239468a9cb9bb750972675399646fbf916d1a03"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/images/4.jpg",
+              "hash": "48f1eb10211e9db297dfcad1bc8c40f2b2e07e65"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/images/5.jpg",
+              "hash": "004fb385983a716625d1f4b365062fd86b5aeb59"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/images/6.jpg",
+              "hash": "d3fb2c0c0977970394aa3eef3602914d40e9c9dc"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/images/7.jpg",
+              "hash": "c7d908c2b4fe37f27bf22ee612b2ac4c98477d3b"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/images/8.jpg",
+              "hash": "211f5b0ca4507b9969dae789c6242a1b40ae1e40"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/images/9.jpg",
+              "hash": "624a8ef1c417f7fff759898f062603300806e1ad"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/images/cmd.png",
+              "hash": "aa42331dd0d9d1c763f0f12444872f7bceae1ac1"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/includes/dbh.php",
+              "hash": "72b2ea88863a643574c0f9710fe44b6fc8a0e64e"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/includes/recipeLookUp.php",
+              "hash": "bec823f9a5e0b59c21a312e5bdfaba3e0eaaeb9c"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/includes/test.php",
+              "hash": "7fec9e49a320b4d0192dbf6fb40f2acfd1689b71"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/includes/upRecipe.php",
+              "hash": "aaf91420295983e4769a678a7eadac21e39025a8"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/index.js",
+              "hash": "ba343ff674d18789c8d8037e89119e2d7be968cc"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/index.php",
+              "hash": "bc9a06fe51a8dc941b665b1f8c78f9d9d008e33b"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/jquery-3.3.1.min.js",
+              "hash": "4d9b3a258759c53e7bc66b6fc554c51e2434437c"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/main.js",
+              "hash": "01c81e6b8246a1d78dda8722121f7a0a5a452dcb"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/main2.js",
+              "hash": "83f910b85b5ad41c19d8c069a733ad57be33138c"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/sample.js",
+              "hash": "916751e78f17530d4af30d26ca075c57f42bec3b"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/search.php",
+              "hash": "13e8c372034665839734e500c09f1642a2bbf386"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/sql.sql",
+              "hash": "170b18518087a3995580f1e97d0e068940c7264b"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/start.sh",
+              "hash": "076c5013dd713613a1ca7ed9d2871514ed613056"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/testfiles/www.html",
+              "hash": "a40b67f5606cf6d83dad91a8ed16748b07896e98"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/whygod.css",
+              "hash": "bdb68693f37bdc07b88854c1abcfa572e6c94f27"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/whygod2.css",
+              "hash": "63324bc17a9daf8ca44b6c17a31fbbbf78e34f04"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/sqli/whygod3.css",
+              "hash": "179f869d7bed049870f7d99450db1cacbc12c8a7"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/.env",
+              "hash": "6a501d0194d02a542167a95fa766fd0f561d464f"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/configs/db.config.js",
+              "hash": "3c43f9e04959ec3720bb3285f2a7ce0ab0655cd5"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/configs/env.config.js",
+              "hash": "9adbfac25a3547ab96c4c71a3faa8d182f315d0a"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/controllers/auth.controller.js",
+              "hash": "f27552084a849a7f73f01e1b718c31d9761a22fd"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/controllers/cart.controller.js",
+              "hash": "a6067147f223e48f00ad6b89cbb623ecb11af17e"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/controllers/index.js",
+              "hash": "2bfcada86edda09cce19c8f314da3320913e5fd6"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/controllers/products.controller.js",
+              "hash": "a60f49eb6271b3102accdd9b7ab189240f453656"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/db.sql",
+              "hash": "f5ac6a7f9940cde69e31b67730773f80c3acb733"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/docker-compose.yaml",
+              "hash": "b0726cdc9dbc85e70d66546e3a1d1e9b3e200603"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/Dockerfile",
+              "hash": "d42aebdce26a915238b944d6f8981929ae3de159"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/dotenv",
+              "hash": "c9f77d975a1f5c3099fa4897e0b34e7c8db9e6c1"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/index.js",
+              "hash": "e30931a546e3342a455ee4cd7ab6797c078f348b",
+              "deps": [
+                "npm:express",
+                "npm:express-session",
+                "npm:cookie-parser"
+              ]
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/middlewares/index.js",
+              "hash": "f6a8593dfb8e8ac8a04ef3a774abfe018c7c60a5"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/middlewares/user.middleware.js",
+              "hash": "92e825c403763951c8d2f9eaafc27bdd15a38972"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/models/product.model.js",
+              "hash": "cd20d78bc895b4d3cfaa6400cc465d45a137bdf3"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/models/user.model.js",
+              "hash": "6ed68ad779843ff00e62d361fd837913d950d7d1"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/package-lock.json",
+              "hash": "bfb1a78e597465e3744305d2174bb62158597986"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/package.json",
+              "hash": "ff7d660ca816994f58534bf8266e3f2481ec4b5c"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/public/images/auth.jpg",
+              "hash": "e1485d7573506995b6eb1fb13823c9f32bee47a4"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/public/images/cart.jpg",
+              "hash": "caeff11df3bc42c3ad6b8e6c81597bc299304655"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/public/images/header.jpg",
+              "hash": "04226b1c7ca1b8c2cc343beb25ec283bc2f80f36"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/README.md",
+              "hash": "03735e6f38981b460a370afec1560715dabd070e"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/start.sh",
+              "hash": "13fbc2dfda6542805adf339d4155843a787352f9"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/utils/getCartFromCookies.utils.js",
+              "hash": "5f08277c6db00bf803333f0e8dc4bfad83e0a10b"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/views/auth.pug",
+              "hash": "7a6bc332c704824db509b596ff9884d9765bfb20"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/views/cart.pug",
+              "hash": "85b92afd416cf4e2d4c1bc882f709b3cbb85ea5e"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/views/layout/common.pug",
+              "hash": "9cc42871155488eed658c1457888141ffe8731d4"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/views/products.pug",
+              "hash": "fa02cc109c7ab638bbfacc940408a176e43b2a00"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/views/scripts/header.js",
+              "hash": "d06de6e980c4fcb940042ffeefc9486947a82310"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/views/styles/auth.css",
+              "hash": "2620e58ba125312effb1d9234573bdd62a7a6cb2"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/views/styles/cart.css",
+              "hash": "83ea0c7765f8e06c4e6cc779d686954cd9cdfd70"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/views/styles/global.css",
+              "hash": "a8bb8f211e863d06c82df8773c1d948f1ae4076a"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/SSTI/views/styles/products.css",
+              "hash": "3eeead1e560b7e58cca035447c626ec97fed4c95"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/app.js",
+              "hash": "28a274a1765c3bbc600328daf950701b3b5b2088",
+              "deps": [
+                "npm:express"
+              ]
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/data/posts.json",
+              "hash": "d76b68de56f75bb88e508c23e570273d71125485"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/data/users.json",
+              "hash": "0e55f5665e2626f39f5bf96feb9e53ae8c4e69d5"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/docker-compose.yaml",
+              "hash": "94ce6dcc6baa86847cf5a59ac4b50de512f87d15"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/Dockerfile",
+              "hash": "d42aebdce26a915238b944d6f8981929ae3de159"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/package-lock.json",
+              "hash": "594c19ff5a7cd5b672e0a9bd2fc233ac1f78500d"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/package.json",
+              "hash": "4b38ecaf872658532426ed4c0787ea4c4ac2deed"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/public/css/style.css",
+              "hash": "88f9c0165c1da901c374f60bf992a2dd1d0aaf20"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/start.sh",
+              "hash": "13fbc2dfda6542805adf339d4155843a787352f9"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/views/homepage.ejs",
+              "hash": "6aaea7a5a7a674529ccf6cca95c9603c6496c6a7"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/views/login.ejs",
+              "hash": "d44b0d5e9e4ab37ba5b26ba7160047272ecab4a1"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/views/partials/footer.ejs",
+              "hash": "409e824b0bf3eddb006664da9e8b5740625a0ce6"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/views/partials/header.ejs",
+              "hash": "01f668393206e17d737d1afcbfbd5a442e528b66"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/tamper/views/post.ejs",
+              "hash": "f0ec64aa4776c1c13c477a70a5425997a979fe15"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/xpath/accountinfo.xml",
+              "hash": "942548ebe51dd01f9ef204cea66b331c556c9bc6"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/xpath/bootstrap.php",
+              "hash": "f79610945c06dd5f19c07c47b81cdcbf01901c05"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/xpath/css/bootstrap.css",
+              "hash": "420276fe8bbafaefae72220acd5e47b2189f88f8"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/xpath/css/bootstrap.min.css",
+              "hash": "d808857f40717656af3ce65601fded6cb3130932"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/xpath/css/simple-sidebar.css",
+              "hash": "6dfbcee30803cd7ef8faa41eda3f4baa3f497f11"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/xpath/docker-compose.yaml",
+              "hash": "4df1e50d9311c8103a99c2add04ae9665ad2d91d"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/xpath/Dockerfile",
+              "hash": "bdd77cf0cc255e61ab0e933079c3468e820de172"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/xpath/dotenv",
+              "hash": "144d009d6016d6bfdb03cf3df3a697da747fb755"
+            },
+            {
+              "file": "apps/api/src/VulnWeb/xpath/index.php",
+              "hash": "cc81e5edcd7c096bfb07a230691b357899b4aabe"
+            },
+            {
+              "file": "apps/api/tsconfig.app.json",
+              "hash": "9694be386303d80802b569b85a820071ce0c2b28"
+            },
+            {
+              "file": "apps/api/tsconfig.json",
+              "hash": "63dbe35fb282d5f9ac4a724607173e6316269e29"
+            },
+            {
+              "file": "apps/api/tsconfig.spec.json",
+              "hash": "a18afb604688956c6a84dd7780d99923f0c04662"
+            }
+          ]
+        }
+      }
+    },
+    "dependencies": {
+      "api-interfaces": [],
+      "kbklab-e2e": [
+        {
+          "source": "kbklab-e2e",
+          "target": "kbklab",
+          "type": "implicit"
+        }
+      ],
+      "kbklab": [],
+      "api": [
+        {
+          "source": "api",
+          "target": "api-interfaces",
+          "type": "static"
+        }
+      ]
+    }
+  },
+  "affectedProjects": [
+    "api",
+    "kbklab",
+    "kbklab-e2e",
+    "api-interfaces"
+  ],
+  "criticalPath": [
+    "api",
+    "kbklab",
+    "kbklab-e2e",
+    "api-interfaces"
+  ]
+}

@@ -1,3 +1,14 @@
 export const environment = {
   production: true,
+  port: 7000,
+  dbURI: 'mongodb://127.0.0.1:27017/',
+  dbName: 'KBK',
+  instanceTimeout: 5,
+  jwtSecret: 'do_anh_tim_duoc_em',
+  jwtExpiredIn: '3h',
+  jwtCookieExpiredIn: 3,
+  jwtCookieSecret: 'team_kbk_project',
+  dbLogName: 'KBK',
+  googleSSOClientId: '970427964766-j2n3mmqmkaqjts5bjb1u08mudk7f1b8u.apps.googleusercontent.com',
+  toolPath: '/app/kbklab/apps/api/src/tools',
 };
