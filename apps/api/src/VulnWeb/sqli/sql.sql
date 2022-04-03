@@ -81,7 +81,7 @@ INSERT INTO `test_table` (`id`, `test_name`, `test_amount`) VALUES
 CREATE TABLE `users` (
   `user_id` int(10) NOT NULL,
   `user_name` varchar(16) NOT NULL,
-  `user_password` varchar(8) NOT NULL,
+  `user_password` varchar(25) NOT NULL,
   `user_type` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
