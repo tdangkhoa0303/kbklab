@@ -88,7 +88,7 @@ def stop_lab(student_id):
             except Exception as e:
                 pass
     client.volumes.prune()
-
+    client.networks.prune()
 # testing script, uncomment it and comment main funtion to test
 # start_lab(student_id='se140781',lab_location='/home/mk7120/ctf/DBS401')
 # print(get_instance_url('se140781'))

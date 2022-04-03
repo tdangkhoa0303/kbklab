@@ -22,7 +22,7 @@ services:
       DB_HOST: db_sqli
     ports:
       - 80
-    image: sqli_1_app
+    image: sqli_app_1
     depends_on:
       - db_sqli
     stdin_open: true
