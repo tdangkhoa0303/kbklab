@@ -11,8 +11,6 @@ services:
     image: cmdi
     stdin_open: true
     tty: true
-    volumes: 
-      - .:/app/
 volumes: 
   db-config:
   db-data:  
