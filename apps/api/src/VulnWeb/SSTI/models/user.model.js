@@ -1,5 +1,4 @@
 import DB from '../configs/db.config.js';
-
 class User {
     tableName = 'user';
 

@@ -13,6 +13,7 @@ const { request } = require('http');
 dotenv.config();
 
 const app = express();
+let step = 1;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -44,13 +45,14 @@ app.get('/logout', (req, res) => {
 });
 
 app.get(['/homepage', '/'], (req, res) => {
-	if (req.cookies && req.cookies.admin && req.cookies.admin === process.env.COOKIE_ADMIN) {
-		console.log(1); // tăng điểm
+	if (req.cookies && req.cookies.admin && 
+		req.cookies.admin === process.env.COOKIE_ADMIN && 
+		step === 1) {
 		const gateway_ip = v4.sync().gateway;
 		const name = hostname();
 		const parameters = {
 			containerId: name,
-			numberSuccess: 1,
+			numberSuccess: step,
 		};
 		const get_para = stringify(parameters);
 		const options = {
@@ -66,11 +68,11 @@ app.get(['/homepage', '/'], (req, res) => {
 		fs.readFile('./data/posts.json', 'utf-8', (err, data) => {
 			if (!err) {
 				const posts = JSON.parse(data);
-				res.render('homepage', {posts: posts});
+				return res.render('homepage', {posts: posts});
 			}
 		});
 	} else {
-		res.redirect('/login');
+		return res.redirect('/login');
 	}
 });
 
@@ -81,11 +83,11 @@ app.post('/login', (req, res, next) => {
 			users.forEach((user) => {
 				if (user.username === req.body.username && user.password === req.body.password) {
 					req.session.user = req.body.username;
-					res.redirect('/homepage');
+					return res.redirect('/homepage');
 				}
 			});
 		} else {
-			res.redirect('/login');
+			return res.redirect('/login');
 		}
 	});
 });
@@ -108,14 +110,11 @@ app.post('/posts/:postId/comments', (req, res) => {
 				fs.writeFileSync('./data/posts.json', JSON.stringify(posts), 'utf-8');
 			}
 		});
-		res.redirect('/');
+		return res.redirect('/');
 	}
 });
 
 app.get('/posts/search', (req, res) => {
-	if (req.cookies) {
-		console.log(req.cookies);
-	}
 	if ((req.session.user && req.session.user !== '') || (req.cookies && req.cookies.admin)) {
 		fs.readFile('./data/posts.json', 'utf-8', (err, data) => {
 			if (!err) {
@@ -127,22 +126,22 @@ app.get('/posts/search', (req, res) => {
 						searchPosts.push(post);
 					}
 				});
-				res.render('homepage', {
+				return res.render('homepage', {
 					posts: searchPosts,
 					notify: req.query.content,
 				});
 			}
 		});
 	} else {
-		res.redirect('/login');
+		return res.redirect('/login');
 	}
 });
 
 app.get('/report', (req, res) => {
 	if (req.session.user && req.session.user !== '') {
-		res.render('report');
+		return res.render('report');
 	} else {
-		res.redirect('/login');
+		return res.redirect('/login');
 	}
 });
 
@@ -171,18 +170,15 @@ app.post('/report', async (req, res) => {
 				)
 				.build();
 			const current_url = 'https://' + hostname() + '.kbklab.tech/login';
-			console.log(current_url);
-			console.log('session:'+session);
-			console.log('sig:'+sessionSig);
 			await driver.get(current_url);
 			await driver.manage().addCookie({name: 'admin', value: process.env.COOKIE_ADMIN});
 			await driver.manage().addCookie({name: 'session', value: session});
 			await driver.manage().addCookie({name: 'session.sig', value: sessionSig});
 			await driver.get(url);
-			res.render('report');
+			return res.render('report');
 		}
 	} else {
-		res.redirect('/login');
+		return res.redirect('/login');
 	}
 });
 

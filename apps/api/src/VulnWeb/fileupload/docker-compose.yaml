@@ -1,16 +1,16 @@
 version: '3.3'
 
 services: 
-  app_rxss:
+  app_fileupload:
     build:
       context: .
       dockerfile: ./Dockerfile
     env_file: ./.env
     ports:
-      - 3000
-    image: app_rxss_1
+      - 80
+    image: fileupload_app_1
     stdin_open: true
     tty: true
 volumes: 
   db-config:
-  db-data:
+  db-data:  

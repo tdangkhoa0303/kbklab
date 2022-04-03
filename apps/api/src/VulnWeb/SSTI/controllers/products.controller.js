@@ -1,5 +1,5 @@
-import b64 from 'base-64';
 import Product from '../models/product.model.js';
+import b64 from 'base-64';
 import getCartFromCookies from '../utils/getCartFromCookies.utils.js';
 
 export const getProducts = async (req, res) => {
@@ -19,7 +19,7 @@ export const addToCart = async (req, res) => {
     }
 
     const cart = getCartFromCookies(req.cookies);
-
+    
     const newId = Object.values(cart).length + 1;
 
     cart[newId] = {

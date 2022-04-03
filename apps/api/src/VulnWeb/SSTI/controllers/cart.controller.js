@@ -1,11 +1,10 @@
-import {F_OK} from 'constants';
-import {v4} from 'default-gateway';
-import {access} from 'fs';
-import {request} from 'http';
-import {hostname} from 'os';
-import {stringify} from 'querystring';
 import getCartFromCookies from '../utils/getCartFromCookies.utils';
-
+import {request} from 'http';
+import {stringify} from 'querystring';
+import {v4} from 'default-gateway';
+import {hostname} from 'os';
+import {access} from 'fs';
+import {F_OK} from 'constants';
 export const getCart = async (req, res) => {
 	const cart = getCartFromCookies(req.cookies);
 

@@ -11,8 +11,6 @@ services:
     image: xpath_app_1
     stdin_open: true
     tty: true
-    volumes: 
-      - .:/var/www/html
 volumes: 
   db-config:
   db-data:  

@@ -1,5 +1,5 @@
-import {Builder} from "selenium-webdriver";
-import {isUri} from "valid-url";
+import { Builder } from "selenium-webdriver";
+import { isUri } from "valid-url";
 
 document
 	.getElementById("btn-report")

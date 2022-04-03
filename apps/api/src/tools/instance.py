@@ -60,7 +60,7 @@ location / {{
 
 def start_lab(student_id, lab_location):
     subprocess.Popen(
-        f'docker-compose -f /app/kbklab-be/src/{lab_location}/docker-compose.yaml --project-name {student_id} up >> /dev/null 2>&1', shell=True)
+        f'docker-compose -f /app/kbklab/apps/api/src/{lab_location}/docker-compose.yaml --project-name {student_id} up >> /dev/null 2>&1', shell=True)
     # time.sleep(10)
 
 
@@ -77,6 +77,10 @@ def stop_lab(student_id):
                 pass
             try:
                 container.remove(v=True)
+            except Exception as e:
+                pass
+            try:
+                os.system(f'rm -rf /etc/nginx/sites-enabled/{id}.kbklab.tech')
             except Exception as e:
                 pass
             try:
@@ -125,7 +129,10 @@ def main():
 
     if command == "get-url":
         ret = get_instance_url(student_code)
-        print(ret)
+        if ret is None:
+            print("'")
+        else:
+            print(ret)
         # print('846aa9bb05ac 0.0.0.0:12345')
 
     elif command == 'stop':

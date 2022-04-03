@@ -1,5 +1,4 @@
 import DB from '../configs/db.config.js';
-
 class Product {
     tableName = 'product';
 
@@ -7,7 +6,7 @@ class Product {
         const sql = `SELECT * FROM ${this.tableName}`;
 
         const result = await DB.query(sql);
-
+        
         return result;
     }
 

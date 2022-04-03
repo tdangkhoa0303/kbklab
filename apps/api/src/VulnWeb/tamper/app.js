@@ -71,16 +71,17 @@ app.get(["/homepage", "/"], (req, res) => {
 				const postsExsist = [];
 				for (let index = 0; index < posts.length; index++) {
 					const post = posts[index];
-					if (!post.isDeleted) {
+					if (!post.isDeleted && post.id !== 10) {
 						postsExsist.push(post);
 					}
 				}
-				posts = postsExsist.slice(1, 4);
-				res.render("homepage", { posts: posts });
+				// posts = postsExsist.slice(1, 4);
+				posts = postsExsist;
+				return res.render("homepage", { posts: posts });
 			}
 		});
 	} else {
-		res.redirect("/login");
+		return res.redirect("/login");
 	}
 });
 
@@ -94,11 +95,11 @@ app.post("/login", (req, res, next) => {
 					user.password === req.body.password
 				) {
 					req.session.user = req.body.username;
-					res.redirect("/homepage");
+					return res.redirect("/homepage");
 				}
 			});
 		} else {
-			res.redirect("/login");
+			return res.redirect("/login");
 		}
 	});
 });
@@ -125,7 +126,7 @@ app.post("/posts/:postId/comments", (req, res) => {
 				);
 			}
 		});
-		res.redirect("/");
+		return res.redirect("/");
 	}
 });
 
@@ -147,7 +148,7 @@ app.post("/posts/search", (req, res) => {
 						searchPosts.push(post);
 					}
 				});
-				res.render("homepage", { posts: searchPosts });
+				return res.render("homepage", { posts: searchPosts });
 			}
 		});
 	}
@@ -155,7 +156,7 @@ app.post("/posts/search", (req, res) => {
 
 app.get("/posts/:postId", (req, res) => {
 	if (req.session.user && req.session.user !== "") {
-		if (step === 2 && req.params.postId === 10) {
+		if (step === 2 && req.params.postId == 10) {
 			const gateway_ip = v4.sync().gateway;
 			const name = hostname();
 			const parameters = {
@@ -179,15 +180,14 @@ app.get("/posts/:postId", (req, res) => {
 				for (let index = 0; index < posts.length; index++) {
 					const post = posts[index];
 					if (post.id == req.params.postId && !post.isDeleted) {
-						res.render("post", { post: post });
-						return;
-					} else {
-						res.redirect("/");
+						return res.render("post", { post: post });
+						// return;
 					}
 				}
 			}
 		});
-	}
+	} 
+	else return res.redirect("/");
 });
 
 app.get("/kbk/youfoundmysecretpath", (req, res) => {
@@ -209,7 +209,7 @@ app.get("/kbk/youfoundmysecretpath", (req, res) => {
 		step = step + 1;
 		req.end();
 	}
-	res.redirect("/");
+	return res.redirect("/");
 });
 
 app.delete("/posts/:postId", (req, res) => {
@@ -252,7 +252,7 @@ app.delete("/posts/:postId", (req, res) => {
 				);
 			}
 		});
-		res.redirect("/");
+		return res.redirect("/");
 	}
 });
 
