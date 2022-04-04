@@ -1,0 +1,96 @@
+<%- include("partials/header") -%>
+
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+	rel="stylesheet"
+/>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8">
+			<div class="posts-content">
+				<h1>Create new post</h1>
+				<div class="post-container">
+					<form class="post-detail" method="post" action="/posts">
+						<div class="user-info">
+							<input
+								type="text"
+								class="form-control"
+								name="newTitle"
+								placeholder="Title of new post"
+							/>
+						</div>
+						<div class="line-divider"></div>
+						<div class="post-content">
+							<input
+								type="text"
+								class="form-control"
+								name="newContent"
+								placeholder="Content of new post"
+							/>
+						</div>
+
+						<button class="btn btn-primary" type="submit">
+							Create new post
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% posts.forEach(function(post) { %>
+	<div class="row">
+		<div class="col-md-8">
+			<div class="posts-content">
+				<div class="post-container">
+					<div class="post-detail">
+						<div class="user-info">
+							<h5>
+								<p class="profile-author"><%- post.author %></p>
+							</h5>
+							<% if(post.showDelete){ %>
+							<form
+								style="margin-left: 75%"
+								action="/posts/deletePost/<%= post.id %>"
+							>
+								<button class="btn btn-primary" type="submit">
+									Delete post
+								</button>
+							</form>
+							<% } %>
+						</div>
+						<div class="line-divider"></div>
+						<div class="post-content">
+							<%- post.content %><i class="em em-anguished"></i>
+							<i class="em em-anguished"></i>
+							<i class="em em-anguished"></i>
+						</div>
+						<div class="line-divider"></div>
+						<% post.comments.forEach(function(comment) { %>
+						<div class="post-comment">
+							<p>
+								<%= comment.author%>
+								<span><%= comment.content %></span>
+							</p>
+						</div>
+						<% }); %>
+						<form
+							class="post-comment"
+							method="post"
+							action="/posts/<%= post.id %>/comments"
+						>
+							<input
+								type="text"
+								class="form-control"
+								name="content"
+								placeholder="Post a comment"
+							/>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<% }); %>
+</div>
+
+<%- include("partials/footer") -%>
