@@ -54,7 +54,7 @@ export const updateClassLab = createAsyncThunk<
 >(`${AppContext.Lab}/updateClassLab`, async (classLab) => {
   const { id } = classLab;
   const { data } = await APIClient.post<{ data: ClassLab }>(
-    `classLab/${id}`,
+    `classLab/${id}/update`,
     classLab
   ).then((response) => response.data);
   return data;
@@ -65,7 +65,7 @@ export const deleteClassLab = createAsyncThunk<
   DeleteClassLabPayload
 >(`${AppContext.Lab}/deleteClassLab`, async (payload) => {
   const { classLabId } = payload;
-  await APIClient.delete<{ data: ClassLab }>(`classLab/${classLabId}`);
+  await APIClient.delete<{ data: ClassLab }>(`classLab/${classLabId}/delete`);
 
   return payload;
 });

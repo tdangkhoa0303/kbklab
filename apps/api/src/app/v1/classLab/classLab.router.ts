@@ -13,14 +13,13 @@ const router: Router = Router();
 
 router.use(protect);
 
-router
-  .route('/:classLabId')
-  .post(updateClassLabTime)
-  .delete(deleteClassLab);
+router.post('/:classLabId/update', updateClassLabTime);
 
-router.route('/getUserClassLabs').get(getUserClassLabsWithScore);
+router.delete('/:classLabId/delete', deleteClassLab);
 
-router.route('/:classLabId/detail').get(getUserClassLabDetail);
+router.get('/getUserClassLabs', getUserClassLabsWithScore);
+
+router.get('/:classLabId/detail', getUserClassLabDetail);
 
 router.use(restrictTo(UserRole.Lecturer, UserRole.HeadDepartment, UserRole.Admin));
 
