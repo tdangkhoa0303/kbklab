@@ -36,15 +36,17 @@ const ModalOutlet: React.FC = () => {
           outline: 'none',
       }}
       >
-        <IconButton sx={{
-          position: 'absolute',
-          top: theme => theme.spacing(1),
-          right: theme => theme.spacing(1),
-        }}>
+        <IconButton
+          onClick={onClose}
+          sx={{
+            position: 'absolute',
+            top: theme => theme.spacing(1),
+            right: theme => theme.spacing(1),
+          }}
+        >
           <Icon
             width={24}
             height={24}
-            onClick={onClose}
             icon="eva:close-fill"
           />
         </IconButton>

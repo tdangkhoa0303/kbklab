@@ -53,7 +53,7 @@ export const updateClassLab = createAsyncThunk<
   UpdateClassLabPayload
 >(`${AppContext.Lab}/updateClassLab`, async (classLab) => {
   const { id } = classLab;
-  const { data } = await APIClient.patch<{ data: ClassLab }>(
+  const { data } = await APIClient.post<{ data: ClassLab }>(
     `classLab/${id}`,
     classLab
   ).then((response) => response.data);

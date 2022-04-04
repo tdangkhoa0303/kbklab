@@ -14,7 +14,7 @@ export const attemptLabThunk = createAsyncThunk<
   AttemptLabFulfilledPayload,
   AttemptLabPayload
 >(`${AppContext.Lab}/attemptLab`, async ({ classLabId, isStudent }) => {
-  const { data: response } = await APIClient.post<AttemptLabResponse>(
+  const {data: response} = await APIClient.post<AttemptLabResponse>(
     `instances/${classLabId}/attempt`
   );
   return {

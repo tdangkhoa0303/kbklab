@@ -15,7 +15,7 @@ router.use(protect);
 
 router
   .route('/:classLabId')
-  .patch(updateClassLabTime)
+  .post(updateClassLabTime)
   .delete(deleteClassLab);
 
 router.route('/getUserClassLabs').get(getUserClassLabsWithScore);

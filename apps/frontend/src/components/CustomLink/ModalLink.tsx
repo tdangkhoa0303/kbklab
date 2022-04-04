@@ -1,19 +1,23 @@
 import Box from '@mui/material/Box';
-import React from 'react';
-import {Link, LinkProps, useLocation} from 'react-router-dom';
+import React, {PropsWithChildren, useCallback} from 'react';
+import {To, useLocation, useNavigate} from 'react-router-dom';
 
-export type ModalLinkProps = LinkProps;
+export type ModalLinkProps = {to: To};
 
-const ModalLink: React.FC<ModalLinkProps> = (props) => {
+const ModalLink: React.FC<PropsWithChildren<ModalLinkProps>> = ({to, children}) => {
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigate = useCallback(() => {
+    navigate(to, {
+      state: {background: location}
+    })
+  }, [location, navigate, to])
 
   return (
-    <Box
-      {...props}
-      component={Link}
-      state={{background: location}}
-      sx={{textDecoration: 'none'}}
-    />
+    <Box onClick={handleNavigate}>
+      {children}
+    </Box>
   )
 };
 
