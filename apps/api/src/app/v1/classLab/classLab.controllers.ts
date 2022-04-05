@@ -6,7 +6,7 @@ export const updateClassLabTime = apiWrapper((req: AuthenticatedRequest) => {
   const {classLabId} = req.params;
   const {startDate, endDate} = req.body;
 
-  return ClassLabActions.updateClassLabTime({
+  return ClassLabActions.updateClassLabTime(req.user.id, req.user.role, {
     classLabId,
     startDate,
     endDate

@@ -9,12 +9,17 @@ import * as ClassLabQueries from './classLab.queries';
 import {CreateClassLabPayload, UpdateClassLabPayload} from './classLab.types';
 import {createClassLabPayloadValidator, updateClassLabPayloadValidator} from './classLab.validators';
 
-export const updateClassLabTime = async (payload: UpdateClassLabPayload): Promise<ClassLabDTO> => {
+export const updateClassLabTime = async (userId: string, userRole: UserRole, payload: UpdateClassLabPayload): Promise<ClassLabDTO> => {
   const {classLabId, startDate, endDate} = payload;
 
-  await updateClassLabPayloadValidator(payload)
+  await updateClassLabPayloadValidator(payload);
 
-  const updatingClassLab = await ClassLabModel.findById(classLabId).populate('lab');
+  const updatingClassLab = await ClassLabModel.findById(classLabId).populate<{class: Class}>('class');
+
+  if (userRole === UserRole.Lecturer && updatingClassLab.class.lecturer.toString() !== userId) {
+    throw new AppError('This class lab does not belong to this lecturer', 404);
+  }
+
   if (!updatingClassLab) {
     throw new AppError('Cannot find lab with that id', 404);
   }
