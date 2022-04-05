@@ -36,15 +36,22 @@ const ClassLabDetailContentContainer: React.FC<ClassLabDetailContentProps> = (pr
   return (
     <>
       <Box
-        mb={1.5}
+        py={1.5}
         display="flex"
         alignItems="center"
+        justifyContent="space-between"
+        sx={{
+          background: theme => theme.palette.common.white,
+          position: 'sticky',
+          top: 0,
+          zIndex: 2,
+        }}
       >
-        <Typography mr={2} sx={{fontSize: (theme) => theme.spacing(3.5)}}>
+        <Typography variant="h4" fontWeight={500}>
           {title}
         </Typography>
         <Button
-          variant="outlined"
+          variant="contained"
           onClick={onRefresh}
           startIcon={<Icon icon="eva:refresh-fill" />}
         >

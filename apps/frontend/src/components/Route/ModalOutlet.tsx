@@ -1,12 +1,15 @@
 import {Icon} from '@iconify/react';
+import {Container} from '@mui/material';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Modal from '@mui/material/Modal';
+import {useTheme} from '@mui/material/styles';
 import React, {useCallback} from 'react';
 import {Outlet, useNavigate} from 'react-router-dom';
 
 const ModalOutlet: React.FC = () => {
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const onClose = useCallback(() => {
     navigate(-1);
@@ -18,30 +21,18 @@ const ModalOutlet: React.FC = () => {
       hideBackdrop={true}
       sx={{
         outline: 'none',
-        backgroundColor: 'rgba(51, 51, 51, 0.4)',
-        padding: theme => theme.spacing(6)
+        overflow: 'auto',
+        backgroundColor: 'rgba(51, 51, 51, 0.8)',
       }}
     >
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="flex-end"
-        sx={{
-          position: 'relative',
-          minHeight: '100%',
-          height: 'fit-content',
-          padding: theme => theme.spacing(2.5),
-          borderRadius: theme => theme.spacing(1),
-          background: theme => theme.palette.common.white,
-          outline: 'none',
-      }}
-      >
+      <>
         <IconButton
           onClick={onClose}
           sx={{
-            position: 'absolute',
-            top: theme => theme.spacing(1),
-            right: theme => theme.spacing(1),
+            position: 'fixed',
+            top: theme.spacing(1),
+            right: theme.spacing(1),
+            color: theme.palette.common.white
           }}
         >
           <Icon
@@ -50,15 +41,31 @@ const ModalOutlet: React.FC = () => {
             icon="eva:close-fill"
           />
         </IconButton>
-        <Box
+        <Container
+          maxWidth="xl"
           sx={{
-            width: '100%',
-            background: (theme) => theme.palette.common.white,
+            minHeight: '100vh',
+            boxSizing: 'border-box',
+            height: 'fit-content',
+            outline: 'none',
+            padding: theme.spacing(6, 0),
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
-          <Outlet />
-        </Box>
-      </Box>
+          <Box sx={{
+            flexGrow: 2,
+            minHeight: '100%',
+            height: 'fit-content',
+            position: 'relative',
+            padding: `${theme.spacing(0, 1.5)} !important`,
+            borderRadius: theme.spacing(1),
+            background: theme.palette.common.white,
+          }}>
+            <Outlet />
+          </Box>
+        </Container>
+      </>
     </Modal>
   );
 };

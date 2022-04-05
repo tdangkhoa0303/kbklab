@@ -148,11 +148,12 @@ export const getUserClassLabDetail = async (classLabId: string, user: User): Pro
   }
 
   const classLabScore = await ScoreModel.findOne({
-    classLabId,
+    classLab: classLabId,
     user: userId,
   });
+
   const classLabInstance = await InstanceModel.findOne({
-    classLabId,
+    classLab: classLabId,
     user: userId,
   });
 

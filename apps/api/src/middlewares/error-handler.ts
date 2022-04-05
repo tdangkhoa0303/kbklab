@@ -1,11 +1,11 @@
 import {ErrorRequestHandler} from 'express';
 import {environment} from '../environments/environment';
 import {AppError} from '../models';
-import {isAppError} from '../utils';
+import {isAppError, logger} from '../utils';
 
 export const errorHandler: ErrorRequestHandler = (error: Error, req, res, next) => {
   let operationalError: AppError;
-  console.log('a', error)
+
   if(!isAppError(error)) {
     operationalError = {
       ...error,
@@ -16,7 +16,8 @@ export const errorHandler: ErrorRequestHandler = (error: Error, req, res, next) 
   } else {
     operationalError = error;
   }
-
+  console.log(error);
+  logger.error(`${req.user ? req.user.id : 'Anonymous'} ${req.path} ${req.body} ${req.method}`);
   const {status, message, stack, data, operational} = operationalError;
   if (environment.production) {
     res.status(status).json({

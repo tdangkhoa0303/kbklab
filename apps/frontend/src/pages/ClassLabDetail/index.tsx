@@ -19,7 +19,7 @@ const ClassLabDetail: React.FC = () => {
   })
 
   return (
-    <OverlayLoader loading={isLoading}>
+    <OverlayLoader loading={isLoading || !classLab}>
       {classLab && <ClassLabDetailContent classLab={classLab}/>}
     </OverlayLoader>
   )
