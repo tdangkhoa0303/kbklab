@@ -76,7 +76,7 @@ export const login = async (email: string, password: string): Promise<Authentica
 
 export const getAllLecturers = async (): Promise<LecturerDTO[]> => {
   const allLecturers = await UserModel.find({
-    role: UserRole.Lecturer,
+    role: {$in: [UserRole.Lecturer, UserRole.HeadDepartment]},
   });
 
   const allClasses = await ClassModel

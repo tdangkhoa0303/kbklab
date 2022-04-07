@@ -110,7 +110,7 @@ export const getStudentClassLabs = async (userId: string): Promise<ClassLabDTO[]
     user: userId,
   });
   const studentClassLabs = await ClassLabModel
-    .find<ClassLabDTO>({class: {$in: studentClassIds}})
+    .find({class: {$in: studentClassIds}})
     .populate({path: 'lab'});
 
   return studentClassLabs.map((classLab) => {
@@ -121,7 +121,7 @@ export const getStudentClassLabs = async (userId: string): Promise<ClassLabDTO[]
     const classLabScore = studentScores.find(score => score.classLab.toString() === classLabId)
 
     return {
-     ...classLab,
+     ...classLab.toObject<ClassLabDTO>(),
       stepSuccess: classLabScore ? classLabScore.stepSuccess : [],
       url: classLabInstance ? classLabInstance.instanceUrl : '',
     };

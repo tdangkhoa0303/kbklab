@@ -5,6 +5,7 @@ import {ClassLab} from 'shared/models';
 import {openInNewTab} from 'shared/utilities';
 import {fetchClassLab, fetchUserClassLabs} from './LabsGrid.thunks';
 import {StudentLabsState} from './LabsGrid.types';
+import {v4} from 'uuid'
 
 export const userLabsAdapter = createEntityAdapter<ClassLab>({
   selectId: (classLab) => classLab.id,
@@ -22,7 +23,14 @@ export const userLabsSlice = createSlice<
     builder
       .addCase(fetchUserClassLabs.fulfilled, (state, { payload }) => {
         const {data} = payload;
-        userLabsAdapter.upsertMany(state, data);
+        const normalizedData = data.map((userClassLab: ClassLab) => ({
+          ...userClassLab,
+          lab: {
+            ...userClassLab.lab,
+            steps: (userClassLab.lab.steps || []).map(step => ({id: v4(), ...step}))
+          }
+        }))
+        userLabsAdapter.upsertMany(state, normalizedData);
       })
       .addCase(attemptLabThunk.fulfilled, (state, { payload }) => {
         const {data} = payload;

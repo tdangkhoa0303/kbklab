@@ -38,7 +38,7 @@ export const createInstance = async (user: User, classLabId: string): Promise<Cl
     user,
     currentLab: classLab.lab
   })
-
+  console.log(classLab.lab.location);
   // init docker
   await promisified_exec(
     `python3 ${environment.toolPath}/instance.py --start --student-code=${userCode} --lab-location=${classLab.lab.location}`,
@@ -108,5 +108,7 @@ export const finishAttempt = async (user: User, classLabId: string): Promise<str
     child_process.exec(`python3 /app/kbklab-be/src/tools/instance.py --stop --student-code=${user.code}`);
   }
 
-  return classLabId;
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(classLabId), 1000)
+  })
 }
