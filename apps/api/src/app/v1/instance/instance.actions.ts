@@ -1,18 +1,25 @@
-import {ClassLabDTO} from '@kbklab/api-interfaces';
+import { ClassLabDTO } from '@kbklab/api-interfaces';
 import * as child_process from 'child_process';
-import {Class, Lab, User} from 'entities';
-import {environment} from 'environments/environment';
-import {ClassLabModel, InstanceModel} from 'infra/database/models';
+import { Class, Lab, User } from 'entities';
+import { environment } from 'environments/environment';
+import { ClassLabModel, InstanceModel } from 'infra/database/models';
 import schedule from 'node-schedule';
-import {promisify} from 'util';
-import {AppError} from '../../../models';
-import {initializeScore} from '../score/score.actions';
-import {deleteDocker, removeLecturerInstancesIfNeeded} from './instance.utils';
-import {createStudentInstanceValidator} from './instance.validators';
+import { promisify } from 'util';
+import { AppError } from '../../../models';
+import { initializeScore } from '../score/score.actions';
+import {
+  deleteDocker,
+  removeLecturerInstancesIfNeeded,
+} from './instance.utils';
+import { createStudentInstanceValidator } from './instance.validators';
 
 const promisified_exec = promisify(child_process.exec);
 
-export const rescheduleInstance = async (studentCode: string, instanceId: string, endTime: number) => {
+export const rescheduleInstance = async (
+  studentCode: string,
+  instanceId: string,
+  endTime: number
+) => {
   schedule.cancelJob(instanceId);
 
   schedule.scheduleJob(instanceId, endTime, () => {
@@ -20,37 +27,42 @@ export const rescheduleInstance = async (studentCode: string, instanceId: string
   });
 };
 
-export const createInstance = async (user: User, classLabId: string): Promise<ClassLabDTO> => {
-  const {code: userCode} = user;
+export const createInstance = async (
+  user: User,
+  classLabId: string
+): Promise<ClassLabDTO> => {
+  const { code: userCode } = user;
   const classLab = await ClassLabModel.findById(classLabId)
-    .populate<{lab: Lab}>({
+    .populate<{ lab: Lab }>({
       path: 'lab',
-      select: '+location'
+      select: '+location',
     })
-    .populate<{class: Class}>('class');
+    .populate<{ class: Class }>('class');
 
   await createStudentInstanceValidator({
     user,
-    attemptingClassLabDTO: classLab
-  })
+    attemptingClassLabDTO: classLab,
+  });
 
   await removeLecturerInstancesIfNeeded({
     user,
-    currentLab: classLab.lab
-  })
+    currentLab: classLab.lab,
+  });
   console.log(classLab.lab.location);
   // init docker
   await promisified_exec(
-    `python3 ${environment.toolPath}/instance.py --start --student-code=${userCode} --lab-location=${classLab.lab.location}`,
+    `python3 ${environment.toolPath}/instance.py --start --student-code=${userCode} --lab-location=${classLab.lab.location}`
   );
 
-  const {stdout, stderr} = await promisified_exec(`python3 ${environment.toolPath}/instance.py --get-url --student-code=${userCode}`)
-    .then(({stdout, stderr}) => ({
+  const { stdout, stderr } = await promisified_exec(
+    `python3 ${environment.toolPath}/instance.py --get-url --student-code=${userCode}`
+  )
+    .then(({ stdout, stderr }) => ({
       stderr: stderr.trim(),
-      stdout: stdout.trim()
+      stdout: stdout.trim(),
     }))
-    .catch(err => {
-      throw new Error(err)
+    .catch((err) => {
+      throw new Error(err);
     });
 
   if (!stdout) {
@@ -87,17 +99,23 @@ export const createInstance = async (user: User, classLabId: string): Promise<Cl
     deleteDocker(userCode, instanceId);
   });
 
-  const classLabDTO = (await classLab.populate({path: 'lab', select: '-location'}));
+  const classLabDTO = await classLab.populate({
+    path: 'lab',
+    select: '-location',
+  });
 
   return {
     ...classLabDTO.toObject<ClassLabDTO>(),
     class: classLab.class.id,
     url: instanceUrl,
     stepSuccess: initialScore.stepSuccess,
-  }
+  };
 };
 
-export const finishAttempt = async (user: User, classLabId: string): Promise<string> => {
+export const finishAttempt = async (
+  user: User,
+  classLabId: string
+): Promise<string> => {
   const instanceToDelete = await InstanceModel.findOne({
     user: user.id,
     classLab: classLabId,
@@ -105,10 +123,23 @@ export const finishAttempt = async (user: User, classLabId: string): Promise<str
 
   if (instanceToDelete) {
     instanceToDelete.delete();
-    child_process.exec(`python3 /app/kbklab-be/src/tools/instance.py --stop --student-code=${user.code}`);
+    child_process.exec(
+      `python3 /app/kbklab-be/src/tools/instance.py --stop --student-code=${user.code}`
+    );
   }
 
   return new Promise((resolve) => {
-    setTimeout(() => resolve(classLabId), 1000)
-  })
-}
+    setTimeout(() => resolve(classLabId), 1000);
+  });
+};
+
+export const rescheduleAllJobs = async () => {
+  const listInstance = await InstanceModel.find().populate<{ user: User }>(
+    'user'
+  );
+  for (const instance of listInstance) {
+    schedule.scheduleJob(instance.id, instance.endTime, () => {
+      deleteDocker(instance.user.code, instance.id);
+    });
+  }
+};
