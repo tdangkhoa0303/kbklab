@@ -64,11 +64,12 @@ def start_lab(student_id, lab_location):
     # time.sleep(10)
 
 
-def stop_lab(student_id):
+def stop_lab(student_id,image):
     global client
+    lst = tuple([student_id + '_' + i for i in image])
     containers = client.containers.list(all=True)
     for container in containers:
-        if str(container.name).startswith(student_id):
+        if str(container.name).startswith(lst):
             id = container.id[:12]
             # fucking treat of me
             try:
@@ -89,10 +90,6 @@ def stop_lab(student_id):
                 pass
     client.volumes.prune()
     client.networks.prune()
-# testing script, uncomment it and comment main funtion to test
-# start_lab(student_id='se140781',lab_location='/home/mk7120/ctf/DBS401')
-# print(get_instance_url('se140781'))
-# stop_lab('se140781')
 
 
 def main():
@@ -102,12 +99,13 @@ def main():
     try:
         lst = sys.argv[1:]
         opts, args = getopt.getopt(
-            lst, '', ['start', 'stop', 'student-code=', 'lab-location=', 'get-url'])
+            lst, '', ['start', 'stop', 'student-code=', 'lab-location=', 'get-url','image'])
     except getopt.GetoptError as e:
         print(e)
     student_code = ''
     lab_location = ''
     command = ''
+    image = []
     try:
         for o, a in opts:
             if o in ('--start'):
@@ -120,6 +118,8 @@ def main():
                 student_code = a
             elif o in ('--lab-location'):
                 lab_location = a
+            elif o in ('--image'):
+                image = a.split(',')
     except Exception as e:
         print(e)
     # print(f'{command} {student_code} {lab_location}')
@@ -136,7 +136,7 @@ def main():
         # print('846aa9bb05ac 0.0.0.0:12345')
 
     elif command == 'stop':
-        stop_lab(student_id=student_code)
+        stop_lab(student_id=student_code,image=image)
 
 
 if __name__ == '__main__':
