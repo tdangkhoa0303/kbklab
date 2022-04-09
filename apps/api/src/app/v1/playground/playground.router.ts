@@ -6,7 +6,7 @@ const router: Router = Router();
 
 router.use(protect);
 
-router.get('/playgrounds', getAllPlaygrounds);
+router.get('/', getAllPlaygrounds);
 
 router.post('/:playgroundId/attempt', attemptPlayground);
 

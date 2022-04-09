@@ -17,38 +17,38 @@ export const labAttemptionUISlice = createSlice<
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(attemptLabThunk.pending, (state, { payload }) => {
+      .addCase(attemptLabThunk.pending, (state) => {
         return {
           ...state,
           attemptLabStatus: null,
         };
       })
 
-      .addCase(attemptLabThunk.fulfilled, (state, { payload }) => {
+      .addCase(attemptLabThunk.fulfilled, (state) => {
         return {
           ...state,
           attemptLabStatus: ResponseStatus.Success,
         };
       })
-      .addCase(attemptLabThunk.rejected, (state, { payload }) => {
+      .addCase(attemptLabThunk.rejected, (state) => {
         return {
           ...state,
           attemptLabStatus: ResponseStatus.Failed,
         };
       })
-      .addCase(finishLabThunk.pending, (state, { payload }) => {
+      .addCase(finishLabThunk.pending, (state) => {
         return {
           ...state,
           finishLabStatus: null,
         };
       })
-      .addCase(finishLabThunk.fulfilled, (state, { payload }) => {
+      .addCase(finishLabThunk.fulfilled, (state) => {
         return {
           ...state,
           finishLabStatus: ResponseStatus.Success,
         };
       })
-      .addCase(finishLabThunk.rejected, (state, { payload }) => {
+      .addCase(finishLabThunk.rejected, (state) => {
         return {
           ...state,
           finishLabStatus: ResponseStatus.Failed,

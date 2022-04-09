@@ -49,10 +49,12 @@ export const finishPlayground = async (payload: AttemptPlaygroundPayload): Promi
     .findById(playgroundId)
     .populate<{playground: LabDTO}>('playground');
 
-  await playgroundInstance.delete();
-  await promisified_exec(
-    `python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${playgroundInstance.playground.instanceNames}`
-  );
+  if(playgroundInstance) {
+    await playgroundInstance.delete();
+    await promisified_exec(
+      `python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${playgroundInstance.playground.instanceNames}`
+    );
+  }
 
   return true;
 }

@@ -34,4 +34,10 @@ export const sidebarItems: NavItemConfig[] = [
       UserRole.Admin,
     ],
   },
+  {
+    label: 'Practice Playground',
+    path: '/practice',
+    icon: 'eva:layers-fill',
+    restrictedRole: [UserRole.Student]
+  }
 ];

@@ -1,9 +1,9 @@
-import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AppContext} from '../../constants';
+import {createAsyncThunkWithErrorHandler} from '../../redux/utils';
 import {APIClient} from '../../utilities/APIClient';
 import {FetchUserResponse, LoginPayload, LoginResponse, LoginWithGooglePayload,} from './UserProvider.types';
 
-export const fetchUser = createAsyncThunk<FetchUserResponse>(
+export const fetchUser = createAsyncThunkWithErrorHandler<FetchUserResponse>(
   `${AppContext.User}/fetchUser`,
   async () => {
     const response = await APIClient.get<FetchUserResponse>(
@@ -13,7 +13,7 @@ export const fetchUser = createAsyncThunk<FetchUserResponse>(
   }
 );
 
-export const login = createAsyncThunk<LoginResponse, LoginPayload>(
+export const login = createAsyncThunkWithErrorHandler<LoginResponse, LoginPayload>(
   `${AppContext.User}/login`,
   async (params) => {
     const response = await APIClient.post<LoginResponse>('users/login', params);
@@ -21,7 +21,7 @@ export const login = createAsyncThunk<LoginResponse, LoginPayload>(
   }
 );
 
-export const loginWithGoogle = createAsyncThunk<
+export const loginWithGoogle = createAsyncThunkWithErrorHandler<
   LoginResponse,
   LoginWithGooglePayload
 >(`${AppContext.User}/loginWithGoogle`, async (params) => {

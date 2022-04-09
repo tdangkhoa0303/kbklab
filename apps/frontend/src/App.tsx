@@ -19,6 +19,7 @@ const LecturerManagement = React.lazy(
 const ClassManagement = React.lazy(() => import('./pages/ClassManagement'));
 const ScoreDashboard = React.lazy(() => import('./pages/ScoreDashboard'));
 const ClassLabDetail = React.lazy(() => import('./pages/ClassLabDetail'));
+const PracticePlayground = React.lazy(() => import('./pages/PracticePlayground'));
 const ClassScoreDashboard = React.lazy(
   () => import('./pages/ScoreDashboard/routes/ClassScoreDashboard')
 );
@@ -38,9 +39,7 @@ function App() {
               <Route element={<AuthOutlet />}>
                 <Route path={AppCommonRoute.LogIn} element={<Login />} />
               </Route>
-              <Route
-                element={<PrivateOutlet restrictedRole={[UserRole.Student]} />}
-              >
+              <Route element={<PrivateOutlet restrictedRole={[UserRole.Student]} />}>
                 <Route
                   path={AppCommonRoute.Root}
                   element={<StudentDashboard />}
@@ -73,6 +72,14 @@ function App() {
                   <Route path=":classCode" element={<ClassScoreDashboard />} />
                 </Route>
               </Route>
+              <Route element={<PrivateOutlet minimumRole={UserRole.Student} />}>
+                <Route path={AppCommonRoute.PracticePlayground} element={<PracticePlayground />} />
+              </Route>
+              {!locationState.background && (
+                <Route element={<PrivateOutlet minimumRole={UserRole.Student} />}>
+                  <Route path={AppCommonRoute.ClassLabDetail} element={<ClassLabDetail />} />
+                </Route>
+              )}
             </Routes>
             <ModalRoutes>
               <Route

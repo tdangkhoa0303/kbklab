@@ -11,11 +11,9 @@ const ExportToCSVButton: React.FC<ExportToCSVButtonProps> = ({ classCode }) => {
 
   const exportToCSV = useCallback(() => {
     if (gridApi) {
-      gridApi.exportDataAsCsv({
-        prependContent: classCode,
-      });
+      gridApi.exportDataAsExcel();
     }
-  }, [classCode, gridApi]);
+  }, [gridApi]);
 
   return (
     <Button variant="contained" onClick={exportToCSV}>

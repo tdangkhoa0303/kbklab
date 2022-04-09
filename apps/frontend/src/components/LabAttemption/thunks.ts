@@ -1,5 +1,5 @@
-import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AppContext} from 'shared/constants';
+import {createAsyncThunkWithErrorHandler} from 'shared/redux/utils';
 import {APIClient} from 'shared/utilities';
 import {
   AttemptLabFulfilledPayload,
@@ -10,7 +10,7 @@ import {
   FinishLabResponse,
 } from './types';
 
-export const attemptLabThunk = createAsyncThunk<
+export const attemptLabThunk = createAsyncThunkWithErrorHandler<
   AttemptLabFulfilledPayload,
   AttemptLabPayload
 >(`${AppContext.Lab}/attemptLab`, async ({ classLabId, isStudent }) => {
@@ -24,7 +24,7 @@ export const attemptLabThunk = createAsyncThunk<
   };
 });
 
-export const finishLabThunk = createAsyncThunk<
+export const finishLabThunk = createAsyncThunkWithErrorHandler<
   FinishLabFulfilledPayload,
   FinishLabPayload
 >(`${AppContext.Lab}/finishLab`, async (payload) => {

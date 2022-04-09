@@ -33,7 +33,7 @@ export const createStudentInstanceValidator = async (params: CreateStudentInstan
       throw new AppError('This lab does not belong to your class', 400)
     }
 
-    const existedInstance = await InstanceModel.findOne({user});
+    const existedInstance = await InstanceModel.findOne({user: _id});
     if (existedInstance) {
       throw new AppError('You can only do 1 lab at a time', 400)
     }

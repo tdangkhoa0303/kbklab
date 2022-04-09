@@ -16,5 +16,6 @@ export * from './FormikModal';
 export * from './MasterLayout';
 export * from './FileUploader';
 export * from './CustomLink';
+export * from './PlaygroundCard';
 
 export { default as ThemeConfig } from './theme/ThemeConfig';

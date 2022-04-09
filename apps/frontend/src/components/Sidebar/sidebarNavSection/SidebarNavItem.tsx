@@ -21,10 +21,10 @@ const ListItemIconStyle = styled(ListItemIcon)({
 });
 
 const SidebarNavItem: React.FC<SidebarNavItemProps> = (props) => {
-  const { icon, label, path } = props;
-  const { pathname } = useLocation();
+  const {icon, label, path} = props;
+  const {pathname} = useLocation();
   const isActiveRoute = useMemo(
-    () => pathname.startsWith(path),
+    () => pathname === path,
     [pathname, path]
   );
 

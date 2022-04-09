@@ -32,4 +32,4 @@ const playgroundInstanceSchema: Schema = new Schema<PlaygroundInstance>(
   }
 );
 
-export const PlaygroundInstanceModel: Model<PlaygroundInstance> = model<PlaygroundInstance>('PlaygroundInstance', playgroundInstanceSchema);
+export const PlaygroundInstanceModel: Model<PlaygroundInstance> = model<PlaygroundInstance>('PlaygroundInstance', playgroundInstanceSchema, 'playground_instances');

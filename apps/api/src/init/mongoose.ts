@@ -9,7 +9,6 @@ export default () => {
   mongoose.connect(dbURI, {
     dbName,
     ignoreUndefined: true,
-    useUnifiedTopology: true
   } as ConnectOptions);
 
   // Custom mongoose configurations

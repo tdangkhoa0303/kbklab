@@ -37,7 +37,8 @@ export const useClassScoreGridColDefs = (currentClass: Class): ColDef[] => {
           headerTooltip: lab.title,
           field: `scores.${id}`,
           valueGetter: createScoreValueGetter(lab),
-          width: 124,
+          minWidth: 124,
+          maxWidth: 124,
         };
       }),
     [classLabs]
@@ -46,19 +47,26 @@ export const useClassScoreGridColDefs = (currentClass: Class): ColDef[] => {
   return useMemo(
     () => [
       {
+        field: 'class',
+        headerName: 'Class',
+        minWidth: 104,
+        maxWidth: 104,
+      },
+      {
         field: 'code',
-        headerName: 'Code',
-        width: 118,
+        headerName: 'RollNumber',
+        minWidth: 120,
+        maxWidth: 120,
       },
       {
         field: 'name',
-        headerName: 'Name',
-        width: 256,
+        headerName: 'FullName',
+        minWidth: 256,
       },
       {
         field: 'email',
         headerName: 'Email',
-        width: 256,
+        minWidth: 256,
       },
       ...scoreColDefs,
     ],

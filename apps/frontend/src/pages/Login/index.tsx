@@ -6,9 +6,10 @@ import Typography from '@mui/material/Typography';
 import {GoogleLogin, Logo} from 'components';
 import {environment} from 'environments/environment';
 import React, {useEffect} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useSearchParams} from 'react-router-dom';
 import {useIsLoginSuccess} from 'shared/components';
 import {AppCommonRoute} from 'shared/constants';
+import {boolean} from 'yup';
 import LoginFooter from './LoginFooter';
 import LoginForm from './LoginForm';
 
@@ -20,6 +21,9 @@ const StyledImage = styled('img')(({ theme }) => ({
 const Login: React.FC = () => {
   const navigate = useNavigate();
   const isLoginSuccess = useIsLoginSuccess();
+
+  const [searchParams] = useSearchParams();
+  const expired = searchParams.get('expired')
 
   useEffect(() => {
     if (isLoginSuccess) {
@@ -37,6 +41,16 @@ const Login: React.FC = () => {
         height: '100vh',
       }}
     >
+      {!!expired && (
+        <Typography variant="h6" sx={{
+          background: theme => theme.palette.common.red,
+          color: theme => theme.palette.common.white,
+          padding: 1.5,
+          textAlign: 'center'
+        }}>
+          Your session has been expired. Please log in again.
+        </Typography>
+      )}
       <Grid container spacing={2} alignItems="center" sx={{ flexGrow: 1 }}>
         <Grid item xs={6}>
           <StyledImage src="/assets/login.svg" alt="login-illustration" />

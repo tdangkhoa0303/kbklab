@@ -9,8 +9,8 @@ export type UserProviderProps = {};
 const UserProvider: React.FC<PropsWithChildren<UserProviderProps>> = (
   props
 ) => {
-  const { children } = props;
-  const [{ signed }] = useCookies(['signed']);
+  const {children} = props;
+  const [{signed}] = useCookies(['signed']);
   const fetchUser = useFetchUser();
   const [isUserReady, setIsUserReady] = useState<boolean>(!signed);
   const isSetUserReady = useRef<boolean | null>(true);
