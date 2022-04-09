@@ -28,8 +28,8 @@ export const useOnFinishLab = ({
     (event) => {
       event.stopPropagation();
       showToast();
-      finishLab({ classLabId, isStudent });
+      finishLab({classLabId, isStudent});
     },
-    [showToast, finishLab, classLabId]
+    [showToast, finishLab, classLabId, isStudent]
   );
 };

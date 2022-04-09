@@ -6,6 +6,7 @@ import {ClassLabModel, InstanceModel} from 'infra/database/models';
 import {AppError} from 'models';
 import {promisify} from 'util';
 import {buildLabLocationPath} from 'utils';
+import {InitDockerInstanceParams} from './instance.types';
 
 const promisified_exec = promisify(child_process.exec);
 
@@ -19,8 +20,8 @@ export const deleteDocker = async (studentCode: string, instanceId: string) => {
   }
 
   const {classLab: {lab}} = instanceToDelete;
-  instanceToDelete.delete();
-  child_process.exec(`python3 ${environment.toolPath}/instance.py --stop --student-code=${studentCode} --image=${lab.instanceNames}`);
+  await instanceToDelete.delete();
+  await promisified_exec(`python3 ${environment.toolPath}/instance.py --stop --student-code=${studentCode} --image=${lab.instanceNames}`);
 };
 
 export interface CreateLecturerInstanceValidatorParams {
@@ -54,7 +55,7 @@ export const removeLecturerInstancesIfNeeded = async (params: CreateLecturerInst
   if (existedInstance) {
     const {classLab: {lab}} = existedInstance;
     await existedInstance.delete();
-    child_process.exec(`python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${lab.instanceNames}`);
+    await promisified_exec(`python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${lab.instanceNames}`);
   }
 };
 
@@ -63,13 +64,15 @@ export interface InitDockerInstanceReturnedValue {
   containerId: string;
 }
 
-export const initDockerInstance = async (userCode: string, labLocation: string): Promise<InitDockerInstanceReturnedValue> => {
+export const initDockerInstance = async (params: InitDockerInstanceParams): Promise<InitDockerInstanceReturnedValue> => {
+  const {userCode, location, imageNames} = params;
+
   // init docker
   await promisified_exec(
-    `python3 ${environment.toolPath}/instance.py --start --student-code=${userCode} --lab-location=${buildLabLocationPath(labLocation)}`,
+    `python3 ${environment.toolPath}/instance.py --start --student-code=${userCode} --lab-location=${buildLabLocationPath(location)}`,
   );
 
-  const {stdout, stderr} = await promisified_exec(`python3 ${environment.toolPath}/instance.py --get-url --student-code=${userCode}`)
+  const {stdout, stderr} = await promisified_exec(`python3 ${environment.toolPath}/instance.py --get-url --image=${imageNames} --student-code=${userCode}`)
     .then(({stdout, stderr}) => ({
       stderr: stderr.trim(),
       stdout: stdout.trim()

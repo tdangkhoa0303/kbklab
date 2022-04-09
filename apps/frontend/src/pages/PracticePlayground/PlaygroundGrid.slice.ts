@@ -45,6 +45,10 @@ export const playgroundUISlice = createSlice<PlaygroundUIState, SliceCaseReducer
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(startPlaygroundThunk.pending, (state) => ({
+        ...state,
+        startPlaygroundStatus: null
+      }))
       .addCase(startPlaygroundThunk.fulfilled, (state) => ({
         ...state,
         startPlaygroundStatus: ResponseStatus.Success
@@ -53,13 +57,17 @@ export const playgroundUISlice = createSlice<PlaygroundUIState, SliceCaseReducer
         ...state,
         startPlaygroundStatus: ResponseStatus.Failed
       }))
+      .addCase(finishPlaygroundThunk.pending, (state) => ({
+        ...state,
+        finishPlaygroundStatus: null
+      }))
       .addCase(finishPlaygroundThunk.fulfilled, (state) => ({
         ...state,
-        startPlaygroundStatus: ResponseStatus.Success
+        finishPlaygroundStatus: ResponseStatus.Success
       }))
       .addCase(finishPlaygroundThunk.rejected, (state) => ({
         ...state,
-        startPlaygroundStatus: ResponseStatus.Failed
+        finishPlaygroundStatus: ResponseStatus.Failed
       }))
   },
 });

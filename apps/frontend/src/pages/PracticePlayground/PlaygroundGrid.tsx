@@ -18,7 +18,7 @@ const PlaygroundGrid: React.FC = () => {
   return (
     <Grid container overflow="auto">
       {allPlaygrounds.map(({id, title, url}) => (
-        <Grid item xs={6} lg={4} xl={3} key={id}>
+        <Grid item xs={6} lg={4} key={id}>
           <PlaygroundCard
             id={id}
             title={title}

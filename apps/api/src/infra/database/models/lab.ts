@@ -23,7 +23,7 @@ const labSchema: Schema = new Schema<Lab>(
       type: Boolean,
       default: false,
     },
-    instanceNames: {
+    imageNames: {
       type: String,
       required: true,
     },

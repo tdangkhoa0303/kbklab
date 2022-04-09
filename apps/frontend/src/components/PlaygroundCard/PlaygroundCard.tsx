@@ -1,3 +1,4 @@
+import {Tooltip} from '@mui/material';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
@@ -29,15 +30,17 @@ const PlaygroundCard: React.FC<PlaygroundCardProps> = (props) => {
 
   return (
     <Card sx={{
-      boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.08)',
+      boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.06)',
       padding: 2,
       borderRadius: 2,
       cursor: 'pointer',
-      margin: theme => theme.spacing(1.5, 0)
+      margin: theme => theme.spacing(1)
     }}>
-      <Typography mb={1} variant="h6">
-        {title}
-      </Typography>
+      <Tooltip title={title}>
+        <Typography noWrap variant="h5" fontWeight={500} mb={2}>
+          {title}
+        </Typography>
+      </Tooltip>
       <Box display="flex" alignItems="center" mb={2}>
         <ColorDot
           color={color}

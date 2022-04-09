@@ -1,9 +1,9 @@
 import {ClassLabDTO} from '@kbklab/api-interfaces';
-import * as child_process from 'child_process';
 import {Class, Lab, User} from 'entities';
 import {environment} from 'environments/environment';
 import {ClassLabModel, InstanceModel} from 'infra/database/models';
 import schedule from 'node-schedule';
+import {promisified_exec} from 'utils';
 import {initializeScore} from '../score/score.actions';
 import {deleteDocker, initDockerInstance, removeLecturerInstancesIfNeeded} from './instance.utils';
 import {createStudentInstanceValidator} from './instance.validators';
@@ -36,7 +36,8 @@ export const createInstance = async (user: User, classLabId: string): Promise<Cl
   })
 
   // Init Docker instance
-  const {url: instanceUrl, containerId} = await initDockerInstance(user.code, classLab.lab.location)
+  const {lab: {location, imageNames}} = classLab;
+  const {url: instanceUrl, containerId} = await initDockerInstance({location, imageNames, userCode})
 
   // Create instance
   const expiredTime: number = environment.instanceTimeout;
@@ -88,7 +89,7 @@ export const finishAttempt = async (user: User, classLabId: string): Promise<str
 
   if (instanceToDelete) {
     const {classLab: {lab}} = instanceToDelete;
-    child_process.exec(
+    await promisified_exec(
       `python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${lab.instanceNames}`
     );
     await instanceToDelete.delete();

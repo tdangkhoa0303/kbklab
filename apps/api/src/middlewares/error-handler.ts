@@ -16,7 +16,7 @@ export const errorHandler: ErrorRequestHandler = (error: Error, req, res, next) 
   } else {
     operationalError = error;
   }
-  console.log(error);
+
   logger.error(`${req.user ? req.user.id : 'Anonymous'} ${req.path} ${req.body} ${req.method}`);
   const {status, message, stack, data, operational} = operationalError;
   if (environment.production) {

@@ -6,3 +6,4 @@ export * from './useVoidCallback';
 export * from './useToggle';
 export * from './useLoadingToast';
 export * from './useLoading';
+export * from './useDispatchWithToast';

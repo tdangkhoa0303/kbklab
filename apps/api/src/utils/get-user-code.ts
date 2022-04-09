@@ -6,5 +6,5 @@ export const getUserCode = (email: string, role: UserRole): string => {
     return username
   }
 
-  return username.match(/IA|SE\d{6}/gi)[0].toUpperCase();
+  return username.match(/IA|SE\d{6}/gi)[0];
 }

@@ -62,16 +62,18 @@ const LabCardView: React.FC<LabCardViewProps> = (props) => {
     <ModalLink to={`${AppCommonRoute.ClassLab}/${classLab.id}/detail`}>
       <Card
         sx={{
-          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.08)',
+          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.06)',
           padding: 1,
           borderRadius: 2,
           cursor: 'pointer',
         }}
       >
         <CardContent sx={{ padding: (theme) => theme.spacing(1) }}>
-          <Typography variant="h5" fontWeight={500} mb={2}>
-            {name || title}
-          </Typography>
+          <Tooltip title={title}>
+            <Typography noWrap variant="h5" fontWeight={500} mb={2}>
+              {name || title}
+            </Typography>
+          </Tooltip>
           <LabCardInfo steps={steps} status={status} stepSuccess={stepSuccess} />
           <Stack
             spacing={1}

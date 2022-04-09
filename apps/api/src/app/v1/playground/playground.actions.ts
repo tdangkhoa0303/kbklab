@@ -26,8 +26,12 @@ export const attemptPlayground = async (payload: AttemptPlaygroundPayload): Prom
     return existingPlaygroundInstance.instanceUrl
   }
 
-  const playground = await LabModel.findById(playgroundId);
-  const {url, containerId} = await initDockerInstance(user.code, playground.location);
+  const {imageNames, location} = await LabModel.findById(playgroundId);
+  const {url, containerId} = await initDockerInstance({
+    location,
+    imageNames,
+    userCode: user.code,
+  });
 
   await PlaygroundInstanceModel.create({
     containerId,

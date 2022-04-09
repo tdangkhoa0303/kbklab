@@ -19,7 +19,7 @@ export const useOnAttemptLab = ({
   const isAttemptingLab = useIsAttemptingLab();
   const attemptLabStatus = useAttemptLabStatus();
 
-  const { showToast } = useLoadingToast({
+  const {showToast} = useLoadingToast({
     loading: isAttemptingLab,
     loadingMessage: 'Attempting lab.',
     successMessage: 'Attempt lab successfully',
