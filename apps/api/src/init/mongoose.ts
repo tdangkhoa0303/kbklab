@@ -1,5 +1,5 @@
 import {environment} from 'environments/environment'
-import mongoose from 'mongoose';
+import mongoose, {ConnectOptions} from 'mongoose';
 
 const {dbName, dbURI} = environment;
 
@@ -8,8 +8,9 @@ export const removeObjectIdFromDoc = (doc, ret) => delete ret._id;
 export default () => {
   mongoose.connect(dbURI, {
     dbName,
-    ignoreUndefined: true
-  });
+    ignoreUndefined: true,
+    useUnifiedTopology: true
+  } as ConnectOptions);
 
   // Custom mongoose configurations
   mongoose.set('toJSON', {

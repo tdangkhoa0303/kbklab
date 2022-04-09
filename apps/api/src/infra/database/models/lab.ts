@@ -19,8 +19,20 @@ const labSchema: Schema = new Schema<Lab>(
       type: String,
       select: false,
     },
+    isPlayground: {
+      type: Boolean,
+      default: false,
+    },
+    instanceNames: {
+      type: String,
+      required: true,
+    },
     steps: [
       {
+        id: {
+          type: String,
+          required: true,
+        },
         description: {
           type: String,
           required: true,

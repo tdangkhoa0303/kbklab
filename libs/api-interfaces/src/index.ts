@@ -4,4 +4,5 @@ export * from './lib/class';
 export * from './lib/classLab';
 export * from './lib/instance';
 export * from './lib/score';
+export * from './lib/playground';
 

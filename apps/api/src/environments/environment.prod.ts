@@ -11,4 +11,6 @@ export const environment = {
   dbLogName: 'KBK',
   googleSSOClientId: '970427964766-j2n3mmqmkaqjts5bjb1u08mudk7f1b8u.apps.googleusercontent.com',
   toolPath: '/app/kbklab/apps/api/src/tools',
+  rootPath: '/app/kbklab/apps/api/src/',
+  playgroundTimeout: 48,
 };

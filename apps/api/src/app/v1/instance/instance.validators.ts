@@ -1,7 +1,7 @@
 import {ClassLabDTO, UserRole} from '@kbklab/api-interfaces';
 import {Class, Lab, User} from 'entities';
+import {InstanceModel} from 'infra/database/models';
 import {AppError} from 'models';
-import {InstanceModel} from '../../../infra/database/models';
 
 export interface AttemptingClassLabDTO extends Omit<Omit<ClassLabDTO, 'class'>, 'lab'> {
   class: Class,
