@@ -41,8 +41,8 @@ export const createInstance = async (user: User, classLabId: string): Promise<Cl
   // Create instance
   const expiredTime: number = environment.instanceTimeout;
   let endTime: number = Date.now() + expiredTime * 60 * 60 * 1000;
-  if (endTime > Date.parse(classLab.endDate.toDateString())) {
-    endTime = Date.parse(classLab.endDate.toDateString());
+  if (endTime > Date.parse(classLab.endDate.toLocaleString())) {
+    endTime = Date.parse(classLab.endDate.toLocaleString());
   }
 
   const startTime = Date.now();
@@ -62,14 +62,17 @@ export const createInstance = async (user: User, classLabId: string): Promise<Cl
     deleteDocker(userCode, instanceId);
   });
 
-  const classLabDTO = (await classLab.populate({path: 'lab', select: '-location'}));
+  const classLabDTO = await classLab.populate({
+    path: 'lab',
+    select: '-location',
+  });
 
   return {
     ...classLabDTO.toObject<ClassLabDTO>(),
     class: classLab.class.id,
     url: instanceUrl,
     stepSuccess: initialScore.stepSuccess,
-  }
+  };
 };
 
 export const finishAttempt = async (user: User, classLabId: string): Promise<string> => {
@@ -93,3 +96,14 @@ export const finishAttempt = async (user: User, classLabId: string): Promise<str
 
  return classLabId;
 }
+
+export const rescheduleAllJobs = async () => {
+  const listInstance = await InstanceModel.find().populate<{user: User}>(
+    'user'
+  );
+  for (const instance of listInstance) {
+    schedule.scheduleJob(instance.id, instance.endTime, () => {
+      deleteDocker(instance.user.code, instance.id);
+    });
+  }
+};
