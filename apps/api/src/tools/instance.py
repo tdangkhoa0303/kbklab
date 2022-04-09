@@ -13,30 +13,20 @@ client = docker.from_env()
 # clear function
 
 
-def get_instance_url(student_id):
+def get_instance_url(student_id,image):
     ret = ''
+    app = ''
+    for i in image:
+        if i.startswith('app'):
+            app = i 
     containers = client.containers.list()
     for container in containers:
-        if str(container.name).startswith(student_id+'_app'):
+        if str(container.name).startswith(student_id + '_' + app):
             id = container.id[:12]
             socket_info = list(
                 container.attrs['NetworkSettings']['Ports'].values())[0][0]
             host = socket_info['HostIp']
             port = socket_info['HostPort']
-
-#             nginx_file = f"""server {{
-#   listen 80;
-#   server_name {id}.kbklab.tech;
-#   location / {{
-#     proxy_pass http://{host}:{port};
-#     proxy_http_version 1.1;
-#     proxy_set_header Upgrade $http_upgrade;
-#     proxy_set_header Connection 'upgrade';
-#     proxy_set_header Host $host;
-#     proxy_cache_bypass $http_upgrade;
-#    }}
-# }}"""
-
             new_nginx_file = f"""server{{
 server_name {id}.kbklab.tech;
 listen 443 ssl;
@@ -128,7 +118,7 @@ def main():
         start_lab(student_id=student_code, lab_location=lab_location)
 
     if command == "get-url":
-        ret = get_instance_url(student_code)
+        ret = get_instance_url(student_code,image)
         if ret is None:
             print("'")
         else:
