@@ -78,8 +78,8 @@ export const createInstance = async (
   const expiredTime: number = environment.instanceTimeout;
 
   let endTime: number = Date.now() + expiredTime * 60 * 60 * 1000;
-  if (endTime > Date.parse(classLab.endDate.toDateString())) {
-    endTime = Date.parse(classLab.endDate.toDateString());
+  if (endTime > Date.parse(classLab.endDate.toLocaleString())) {
+    endTime = Date.parse(classLab.endDate.toLocaleString());
   }
 
   const startTime = Date.now();
