@@ -1,6 +1,6 @@
-import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AppContext} from 'shared/constants';
 import {ClassLab} from 'shared/models';
+import {createAsyncThunkWithErrorHandler} from 'shared/redux/utils';
 import {APIClient} from 'shared/utilities';
 import {
   CreateLabInstanceFulfilledPayload,
@@ -17,7 +17,7 @@ import {
   UpdateClassLabPayload,
 } from './ClassesGrid.types';
 
-export const getAllClasses = createAsyncThunk<GetAllClassesResponse>(
+export const getAllClasses = createAsyncThunkWithErrorHandler<GetAllClassesResponse>(
   `${AppContext.Management}/getAllClasses`,
   async () => {
     const response = await APIClient.get<GetAllClassesResponse>('classes');
@@ -26,7 +26,7 @@ export const getAllClasses = createAsyncThunk<GetAllClassesResponse>(
   }
 );
 
-export const importClasses = createAsyncThunk<
+export const importClasses = createAsyncThunkWithErrorHandler<
   ImportClassesResponse,
   ImportClassesPayload
 >(`${AppContext.Management}/importClasses`, async (data) => {
@@ -35,7 +35,7 @@ export const importClasses = createAsyncThunk<
   return response.data;
 });
 
-export const openDemoLab = createAsyncThunk<
+export const openDemoLab = createAsyncThunkWithErrorHandler<
   CreateLabInstanceFulfilledPayload,
   CreateLabInstancePayload
 >(`${AppContext.Lab}/createLabInstance`, async (id) => {
@@ -48,7 +48,7 @@ export const openDemoLab = createAsyncThunk<
   };
 });
 
-export const updateClassLab = createAsyncThunk<
+export const updateClassLab = createAsyncThunkWithErrorHandler<
   UpdateClassLabFulfilledPayload,
   UpdateClassLabPayload
 >(`${AppContext.Lab}/updateClassLab`, async (classLab) => {
@@ -60,7 +60,7 @@ export const updateClassLab = createAsyncThunk<
   return data;
 });
 
-export const deleteClassLab = createAsyncThunk<
+export const deleteClassLab = createAsyncThunkWithErrorHandler<
   DeleteClassLabFulfilledPayload,
   DeleteClassLabPayload
 >(`${AppContext.Lab}/deleteClassLab`, async (payload) => {

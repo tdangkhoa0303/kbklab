@@ -1,5 +1,5 @@
-import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AppContext} from 'shared/constants';
+import {createAsyncThunkWithErrorHandler} from 'shared/redux/utils';
 import {APIClient} from 'shared/utilities';
 import {
   GetAllLecturersResponse,
@@ -8,7 +8,7 @@ import {
   ImportLecturersResponseData,
 } from './LecturersGrid.types';
 
-export const getAllLecturers = createAsyncThunk<GetAllLecturersResponse>(
+export const getAllLecturers = createAsyncThunkWithErrorHandler<GetAllLecturersResponse>(
   `${AppContext.Management}/getAllLecturers`,
   async () => {
     const response = await APIClient.get<GetAllLecturersResponse>(
@@ -19,7 +19,7 @@ export const getAllLecturers = createAsyncThunk<GetAllLecturersResponse>(
   }
 );
 
-export const importLecturers = createAsyncThunk<
+export const importLecturers = createAsyncThunkWithErrorHandler<
   ImportLecturersResponseData,
   ImportLecturersPayload
 >(`${AppContext.Management}/importLecturers`, async (data) => {

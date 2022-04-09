@@ -57,6 +57,7 @@ export const getClassScores = (classCode: string): Aggregate<UserScore[]> => (
         name: 1,
         code: 1,
         email: 1,
+        class: classCode,
         scores: {
           $arrayToObject: {
             $map: {

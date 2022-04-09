@@ -4,7 +4,9 @@
     "outDir": "../../dist/out-tsc",
     "types": ["node"],
     "baseUrl": "src",
-    "paths": {}
+    "paths": {
+      "@kbklab/api-interfaces": ["../../../libs/api-interfaces/src/index.ts"]
+    }
   },
   "files": [
     "../../node_modules/@nrwl/react/typings/cssmodule.d.ts",

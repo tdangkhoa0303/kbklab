@@ -31,6 +31,7 @@ export enum AppCommonRoute {
   ClassManagement = '/class-management',
   ScoreDashboard = '/score-dashboard',
   ClassScoreDashboard = '/score-dashboard/:classCode',
+  PracticePlayground = '/practice'
 }
 
 export enum ValidationError {
@@ -46,6 +47,7 @@ export enum AppContext {
   Management = 'management',
   StudentLab = 'studentLab',
   ClassLab = 'classLab',
+  Playground = 'playground'
 }
 
 export enum ResponseStatus {
@@ -92,3 +94,12 @@ export const userRoleTextMap = {
   [UserRole.HeadDepartment]: 'Head Department',
   [UserRole.Admin]: 'Admin',
 };
+
+export enum HttpStatusCode {
+  Ok = 200,
+  Created = 201,
+  BadRequest = 400,
+  Unauthorized = 401,
+  Forbidden = 403,
+  NotFound = 404,
+}

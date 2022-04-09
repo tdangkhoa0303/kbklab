@@ -7,5 +7,7 @@ export interface Lab extends BaseEntity {
   location?: string;
   steps: Step[];
   guide: string;
+  instanceNames: string;
   disabled: boolean;
+  isPlayground?: boolean;
 }

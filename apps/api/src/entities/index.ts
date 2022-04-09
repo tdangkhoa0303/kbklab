@@ -4,3 +4,4 @@ export * from './user';
 export * from './instance';
 export * from './lab';
 export * from './score';
+export * from './playground-instance';

@@ -1,9 +1,9 @@
-import {createAsyncThunk} from '@reduxjs/toolkit';
 import {AppContext} from 'shared/constants';
+import {createAsyncThunkWithErrorHandler} from 'shared/redux/utils';
 import {APIClient} from 'shared/utilities';
 import {CreateClassLabPayload, CreateClassLabResponse, GetAllLabsResponse,} from './CreateClassLabButton.types';
 
-export const getAllLabs = createAsyncThunk<GetAllLabsResponse>(
+export const getAllLabs = createAsyncThunkWithErrorHandler<GetAllLabsResponse>(
   `${AppContext.Lab}/getAllLabs`,
   async () => {
     const response = await APIClient.get<GetAllLabsResponse>('labs');
@@ -11,7 +11,7 @@ export const getAllLabs = createAsyncThunk<GetAllLabsResponse>(
   }
 );
 
-export const createClassLab = createAsyncThunk<
+export const createClassLab = createAsyncThunkWithErrorHandler<
   CreateClassLabResponse,
   CreateClassLabPayload
 >(`${AppContext.Lab}/createClassLab`, async (data) => {

@@ -60,7 +60,7 @@ location / {{
 
 def start_lab(student_id, lab_location):
     subprocess.Popen(
-        f'docker-compose -f /app/kbklab/apps/api/src/{lab_location}/docker-compose.yaml --project-name {student_id} up --detach >> /dev/null 2>&1', shell=True)
+        f'docker-compose -f {lab_location}/docker-compose.yaml --project-name {student_id} up --detach >> /dev/null 2>&1', shell=True)
     # time.sleep(10)
 
 

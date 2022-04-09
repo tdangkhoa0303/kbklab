@@ -1,7 +1,7 @@
 import {ClassLabDTO, UserRole} from '@kbklab/api-interfaces';
 import {Class, Lab, User} from 'entities';
+import {InstanceModel} from 'infra/database/models';
 import {AppError} from 'models';
-import {InstanceModel} from '../../../infra/database/models';
 
 export interface AttemptingClassLabDTO extends Omit<Omit<ClassLabDTO, 'class'>, 'lab'> {
   class: Class,
@@ -33,7 +33,7 @@ export const createStudentInstanceValidator = async (params: CreateStudentInstan
       throw new AppError('This lab does not belong to your class', 400)
     }
 
-    const existedInstance = await InstanceModel.findOne({user});
+    const existedInstance = await InstanceModel.findOne({user: _id});
     if (existedInstance) {
       throw new AppError('You can only do 1 lab at a time', 400)
     }

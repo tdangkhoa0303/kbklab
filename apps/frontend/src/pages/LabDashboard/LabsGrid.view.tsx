@@ -9,11 +9,11 @@ export interface LabsGridViewProps {
 }
 
 const LabsGridView: React.FC<LabsGridViewProps> = (props) => {
-  const { classLabs } = props;
+  const {classLabs} = props;
 
   return (
-    <Box position="relative">
-      <Grid container spacing={4}>
+    <Box position="relative" overflow="auto">
+      <Grid container spacing={4} p={2}>
         {classLabs.map((classLab) => (
           <Grid item xs={12} md={6} lg={4} key={classLab.id}>
             <LabCard isStudent classLab={classLab} />
