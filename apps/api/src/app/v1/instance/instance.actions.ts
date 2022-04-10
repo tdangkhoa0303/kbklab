@@ -90,7 +90,7 @@ export const finishAttempt = async (user: User, classLabId: string): Promise<str
   if (instanceToDelete) {
     const {classLab: {lab}} = instanceToDelete;
     await promisified_exec(
-      `python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${lab.instanceNames}`
+      `python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${lab.imageNames}`
     );
     await instanceToDelete.delete();
   }

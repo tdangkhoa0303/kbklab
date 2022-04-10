@@ -21,7 +21,7 @@ export const deleteDocker = async (studentCode: string, instanceId: string) => {
 
   const {classLab: {lab}} = instanceToDelete;
   await instanceToDelete.delete();
-  await promisified_exec(`python3 ${environment.toolPath}/instance.py --stop --student-code=${studentCode} --image=${lab.instanceNames}`);
+  await promisified_exec(`python3 ${environment.toolPath}/instance.py --stop --student-code=${studentCode} --image=${lab.imageNames}`);
 };
 
 export interface CreateLecturerInstanceValidatorParams {
@@ -55,7 +55,7 @@ export const removeLecturerInstancesIfNeeded = async (params: CreateLecturerInst
   if (existedInstance) {
     const {classLab: {lab}} = existedInstance;
     await existedInstance.delete();
-    await promisified_exec(`python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${lab.instanceNames}`);
+    await promisified_exec(`python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${lab.imageNames}`);
   }
 };
 
@@ -80,7 +80,6 @@ export const initDockerInstance = async (params: InitDockerInstanceParams): Prom
     .catch(err => {
       throw new Error(err)
     });
-  console.log(stdout)
 
   if (!stdout) {
     throw new AppError(stderr, 500);
@@ -88,9 +87,9 @@ export const initDockerInstance = async (params: InitDockerInstanceParams): Prom
 
   const stdoutSplit = stdout.split(' ');
   const containerId = stdoutSplit[0] || '';
-  const found = stdoutSplit[1] || '';
+  const url = stdoutSplit[1] || '';
   return {
     containerId,
-    url: `https://${found.replace('\n', '')}`
+    url: `https://${url.replace('\n', '')}`
   };
 }

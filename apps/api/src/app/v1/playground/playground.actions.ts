@@ -56,7 +56,7 @@ export const finishPlayground = async (payload: AttemptPlaygroundPayload): Promi
   if(playgroundInstance) {
     await playgroundInstance.delete();
     await promisified_exec(
-      `python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${playgroundInstance.playground.instanceNames}`
+      `python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${playgroundInstance.playground.imageNames}`
     );
   }
 

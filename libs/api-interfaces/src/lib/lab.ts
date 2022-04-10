@@ -11,7 +11,7 @@ export interface LabDTO {
 	steps: Step[];
 	guide: string;
 	disabled: boolean;
-  instanceNames: string;
+  imageNames: string;
 }
 
 export type GetAllLecturerLabsResponseData = {
