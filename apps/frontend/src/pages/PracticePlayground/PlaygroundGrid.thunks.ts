@@ -25,7 +25,11 @@ export const startPlaygroundThunk = createAsyncThunkWithErrorHandler<StartPlaygr
 export const finishPlaygroundThunk = createAsyncThunkWithErrorHandler<string, string>(
   `${AppContext.Playground}/finishPlayground`,
   async (playgroundId) => {
-    await APIClient.post<APIClientResponse<boolean>>(`playgrounds/${playgroundId}/finish`);
-    return playgroundId;
+    const {data: {data: isSuccess}} = await APIClient.post<APIClientResponse<boolean>>(`playgrounds/${playgroundId}/finish`);
+    if(isSuccess) {
+      return playgroundId;
+    }
+
+    throw new Error();
   }
 )

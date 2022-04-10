@@ -67,7 +67,8 @@ export const finishPlayground = async (payload: AttemptPlaygroundPayload): Promi
     await promisified_exec(
       `python3 ${environment.toolPath}/instance.py --stop --student-code=${user.code} --image=${playgroundInstance.playground.imageNames}`
     );
+    return true;
   }
 
-  return true;
+  return false;
 }
