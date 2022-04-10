@@ -5,6 +5,7 @@ services:
     image: mariadb
     restart: always 
     env_file: ./.env
+    network_mode: bridge
     environment:
       MYSQL_ROOT_PASSWORD: $DB_PASSWORD
       MYSQL_DATABASE: $DB_NAME
@@ -16,6 +17,7 @@ services:
       - db-data:/var/lib/mysql
       - ./db/backup/files/:/data_backup/data
   app_ssti:
+    network_mode: bridge
     build:
       context: .
       dockerfile: ./Dockerfile

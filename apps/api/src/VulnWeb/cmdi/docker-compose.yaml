@@ -9,6 +9,7 @@ services:
     ports:
       - 8000
     image: cmdi
+    network_mode: bridge
     stdin_open: true
     tty: true
 volumes: 

@@ -5,6 +5,7 @@ services:
     image: mariadb
     restart: always 
     env_file: ./.env
+    network_mode: bridge
     environment:
       MYSQL_ROOT_PASSWORD: $DB_PASSWORD
       MYSQL_DATABASE: $DB_NAME
@@ -27,6 +28,7 @@ services:
       - db_sqli
     stdin_open: true
     tty: true
+    network_mode: bridge
 volumes: 
   db-config:
   db-data:  

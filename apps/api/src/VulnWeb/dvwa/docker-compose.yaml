@@ -6,6 +6,7 @@ services:
       - 80
     image: vulnerables/web-dvwa
     stdin_open: true
+    network_mode: bridge
     tty: true
 volumes: 
   db-config:

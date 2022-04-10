@@ -8,6 +8,7 @@ const { v4 } = require("default-gateway");
 const hostname = require("hostname");
 const { stringify } = require("querystring");
 const { request } = require("http");
+const cookies = require("cookie-parser");
 let checkInterval = 0;
 
 dotenv.config();
@@ -16,6 +17,7 @@ const app = express();
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
+app.use(cookies())
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -62,7 +64,6 @@ app.get(["/homepage", "/"], (req, res) => {
 						sessionSig = element.slice(element.indexOf('=') + 1);
 					}
 				}
-
 				const driver = await new Builder()
 					.forBrowser("chrome")
 					.setChromeOptions(

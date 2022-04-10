@@ -11,6 +11,7 @@ services:
     image: app_rxss_1
     stdin_open: true
     tty: true
+    network_mode: bridge
 volumes: 
   db-config:
   db-data:

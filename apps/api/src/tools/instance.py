@@ -115,7 +115,7 @@ def main():
     # print(f'{command} {student_code} {lab_location}')
 
     if command == 'start':
-        start_lab(student_id=student_code, lab_location=lab_location)
+        start_lab(student_code,lab_location)
 
     if command == "get-url":
         ret = get_instance_url(student_code,image)

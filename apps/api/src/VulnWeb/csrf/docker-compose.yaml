@@ -8,6 +8,7 @@ services:
     ports:
       - 3000
     image: app_csrf_1
+    network_mode: bridge
     stdin_open: true
     tty: true
 volumes: 
