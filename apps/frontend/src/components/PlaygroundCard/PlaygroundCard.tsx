@@ -18,7 +18,7 @@ export interface PlaygroundCardProps extends Pick<PlaygroundCardActionsProps, Pi
 
 const PlaygroundCard: React.FC<PlaygroundCardProps> = (props) => {
   const {id, title, instanceUrl, onStart, onFinish, loading} = props;
-  const {color, status} = usePlaygroundStatus(title);
+  const {color, status} = usePlaygroundStatus(instanceUrl);
 
   const startPlayground = useCallback(() => {
     onStart(id);

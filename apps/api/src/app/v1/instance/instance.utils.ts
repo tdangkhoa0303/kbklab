@@ -80,7 +80,7 @@ export const initDockerInstance = async (params: InitDockerInstanceParams): Prom
     .catch(err => {
       throw new Error(err)
     });
-  console.log(stdout)
+
   if (!stdout) {
     throw new AppError(stderr, 500);
   }

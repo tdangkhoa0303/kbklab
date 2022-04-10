@@ -1,6 +1,7 @@
 import {PlaygroundDTO} from '@kbklab/api-interfaces';
 import {createEntityAdapter, createSlice, SliceCaseReducers,} from '@reduxjs/toolkit';
 import {AppContext, ResponseStatus} from 'shared/constants';
+import {openInNewTab} from '../../shared/utilities';
 import {fetchPlaygroundsThunk, finishPlaygroundThunk, startPlaygroundThunk} from './PlaygroundGrid.thunks';
 import {PlaygroundGridState, PlaygroundUIState} from './PlaygroundGrid.types';
 
@@ -20,6 +21,7 @@ export const playgroundsSlice = createSlice<PlaygroundGridState, SliceCaseReduce
       })
       .addCase(startPlaygroundThunk.fulfilled, (state, {payload}) => {
         const {playgroundId, url} = payload;
+        openInNewTab(url);
         playgroundAdapter.updateOne(state, {
           id: playgroundId,
           changes: {url}
