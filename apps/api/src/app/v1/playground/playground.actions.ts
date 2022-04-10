@@ -1,9 +1,9 @@
 import {LabDTO, PlaygroundDTO} from '@kbklab/api-interfaces';
 import {environment} from 'environments/environment';
 import {LabModel, PlaygroundInstanceModel} from 'infra/database/models';
+import {AppError} from 'models';
 import moment from 'moment';
 import {promisified_exec} from 'utils';
-import {AppError} from '../../../models';
 import {initDockerInstance} from '../instance/instance.utils';
 import * as PlaygroundQueries from './playground.queries';
 import {AttemptPlaygroundPayload} from './playground.types';

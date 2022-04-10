@@ -20,13 +20,13 @@ export const getAllPlaygrounds = (userId: string): Aggregate<PlaygroundDTO[]> =>
     {
       $lookup: {
         from: "playground_instances",
-        let: { "playground_id": "$_id" },
+        let: { "playground_id": "$id" },
         pipeline: [
           {$match: {
             $expr: {
               $and: [
-                {$eq: ['$playground', '$playground_id']},
-                {$eq: ['$user', userId]},
+                {$eq: ['$$playground_id', '$playground']},
+                {$eq: [{$toString: '$user'}, userId]},
               ]
             }
           }},
