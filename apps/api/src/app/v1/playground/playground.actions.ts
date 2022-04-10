@@ -3,6 +3,7 @@ import {environment} from 'environments/environment';
 import {LabModel, PlaygroundInstanceModel} from 'infra/database/models';
 import moment from 'moment';
 import {promisified_exec} from 'utils';
+import {AppError} from '../../../models';
 import {initDockerInstance} from '../instance/instance.utils';
 import * as PlaygroundQueries from './playground.queries';
 import {AttemptPlaygroundPayload} from './playground.types';
@@ -25,8 +26,16 @@ export const attemptPlayground = async (payload: AttemptPlaygroundPayload): Prom
   if(existingPlaygroundInstance) {
     return existingPlaygroundInstance.instanceUrl
   }
+  console.log(playgroundId)
+  const playground = await LabModel
+    .findById(playgroundId)
+    .select('+location');
 
-  const {imageNames, location} = await LabModel.findById(playgroundId);
+  if(!playground) {
+    throw new AppError('Cannot find requesting playground', 500);
+  }
+
+  const {imageNames, location} = playground;
   const {url, containerId} = await initDockerInstance({
     location,
     imageNames,
@@ -50,7 +59,7 @@ export const finishPlayground = async (payload: AttemptPlaygroundPayload): Promi
   await attemptPlaygroundPayloadValidator(payload);
 
   const playgroundInstance = await PlaygroundInstanceModel
-    .findById(playgroundId)
+    .findOne({playground: playgroundId})
     .populate<{playground: LabDTO}>('playground');
 
   if(playgroundInstance) {
