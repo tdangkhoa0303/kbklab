@@ -1,0 +1,14 @@
+[{
+    "id": 1,
+    "author": "User2",
+    "content": "Trời trắng xóa màu mưa",
+    "comments": [{
+            "author": "Mr.Siro",
+            "content": "sao nữa em"
+        },
+        {
+            "author": "User2",
+            "content": "Đố anh hack được em"
+        }
+    ]
+}]
