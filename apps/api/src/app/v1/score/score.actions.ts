@@ -55,8 +55,8 @@ export const updateScore = async (payload: UpdateScorePayload): Promise<{}> => {
   }
 
   const scoreToUpdate = await ScoreModel.findOne({
-    user: userInstance.user,
-    classLab: userInstance.classLab,
+    user: userInstance.user.id,
+    classLab: userInstance.classLab.id,
   });
 
   if (!scoreToUpdate || !scoreToUpdate.stepSuccess) {

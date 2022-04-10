@@ -17,7 +17,7 @@ export const errorHandler: ErrorRequestHandler = (error: Error, req, res, next) 
     operationalError = error;
   }
 
-  logger.error(`${req.user ? req.user.id : 'Anonymous'} ${req.path} ${req.method} ${JSON.stringify(req.body)}`);
+  logger.error(`${req.user ? req.user.id : 'Anonymous'} ${req.path} ${req.method} ${JSON.stringify(error)}`);
   const {status, message, stack, data, operational} = operationalError;
   if (environment.production) {
     res.status(status).json({
