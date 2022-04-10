@@ -62,6 +62,7 @@ app.get(["/homepage", "/"], (req, res) => {
 						sessionSig = element.slice(element.indexOf('=') + 1);
 					}
 				}
+
 				const driver = await new Builder()
 					.forBrowser("chrome")
 					.setChromeOptions(
@@ -71,7 +72,7 @@ app.get(["/homepage", "/"], (req, res) => {
 					)
 					.build();
 				const name = hostname();
-				let url = "https://" + name + "kbklab.tech";
+				let url = "https://" + name + ".kbklab.tech";
 				// await driver.get("http://localhost:3000/login");
 				await driver.get(url + "/login");
 				await driver.manage().addCookie({
