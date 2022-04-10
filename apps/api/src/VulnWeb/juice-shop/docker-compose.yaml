@@ -1,0 +1,12 @@
+version: '3.3'
+
+services: 
+  app_juice_shop:
+    ports:
+      - 3000
+    image: bkimminich/juice-shop
+    stdin_open: true
+    tty: true
+volumes: 
+  db-config:
+  db-data:
