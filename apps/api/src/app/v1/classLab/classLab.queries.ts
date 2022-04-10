@@ -8,7 +8,7 @@ export const getUserClassLabsWithScore = (user: User): Aggregate<ClassLabDTO[]> 
     {$match: {user: user._id}},
     {
       $lookup: {
-        from: 'classlabs',
+        from: 'class_labs',
         localField: 'classLab',
         foreignField: '_id',
         as: 'fromClassLab',

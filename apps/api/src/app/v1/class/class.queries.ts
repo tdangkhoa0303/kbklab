@@ -24,7 +24,7 @@ export const getAllClassesWithClassLabs = (lecturer?: string): Aggregate<ClassWi
     {$unwind: '$lecturer'},
     {
       $lookup: {
-        from: 'classlabs',
+        from: 'class_labs',
         let: {classId: '$_id'},
         pipeline: [
           {$match: {$expr: {$eq: ['$class', '$$classId']}}},

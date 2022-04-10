@@ -24,4 +24,4 @@ const classLabSchema: Schema = new Schema<ClassLab>(
   }
 );
 
-export const ClassLabModel: Model<ClassLab> = model<ClassLab>('ClassLab', classLabSchema);
+export const ClassLabModel: Model<ClassLab> = model<ClassLab>('ClassLab', classLabSchema, 'class_labs');
