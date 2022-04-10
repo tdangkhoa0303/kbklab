@@ -18,7 +18,7 @@ def get_instance_url(student_id,image):
     app = ''
     for i in image:
         if i.startswith('app'):
-            app = i 
+            app = i
     containers = client.containers.list()
     for container in containers:
         if str(container.name).startswith(student_id + '_' + app):
@@ -89,7 +89,7 @@ def main():
     try:
         lst = sys.argv[1:]
         opts, args = getopt.getopt(
-            lst, '', ['start', 'stop', 'student-code=', 'lab-location=', 'get-url','image'])
+            lst, '', ['start', 'stop', 'student-code=', 'lab-location=', 'get-url','image='])
     except getopt.GetoptError as e:
         print(e)
     student_code = ''

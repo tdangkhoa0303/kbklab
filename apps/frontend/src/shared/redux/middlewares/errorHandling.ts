@@ -8,7 +8,7 @@ export const errorHandling: Middleware = () => next => (action: AnyAction) => {
   const status = get(payload, ['response', 'status'], -1);
   if(isRejected(action)
     && status === HttpStatusCode.Unauthorized
-    && window.location.pathname !== AppCommonRoute.LogIn
+    && !window.location.pathname.startsWith(AppCommonRoute.LogIn)
   ) {
     window.location.replace(`${AppCommonRoute.LogIn}?expired=true`);
   }

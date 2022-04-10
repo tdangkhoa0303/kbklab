@@ -72,7 +72,7 @@ export const initDockerInstance = async (params: InitDockerInstanceParams): Prom
     `python3 ${environment.toolPath}/instance.py --start --student-code=${userCode} --lab-location=${buildLabLocationPath(location)}`,
   );
 
-  const {stdout, stderr} = await promisified_exec(`python3 ${environment.toolPath}/instance.py --get-url --image=${imageNames} --student-code=${userCode}`)
+  const {stdout, stderr} = await promisified_exec(`python3 ${environment.toolPath}/instance.py --get-url --student-code=${userCode} --image=${imageNames}`)
     .then(({stdout, stderr}) => ({
       stderr: stderr.trim(),
       stdout: stdout.trim()
@@ -80,6 +80,7 @@ export const initDockerInstance = async (params: InitDockerInstanceParams): Prom
     .catch(err => {
       throw new Error(err)
     });
+  console.log(stdout)
 
   if (!stdout) {
     throw new AppError(stderr, 500);
