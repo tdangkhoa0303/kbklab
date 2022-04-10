@@ -9,7 +9,7 @@ export interface UsePlaygroundStatusReturnedValues {
 
 export const usePlaygroundStatus = (instanceUrl: string | undefined): UsePlaygroundStatusReturnedValues => (
   useMemo(() => {
-    if(instanceUrl) {
+    if(!instanceUrl) {
       return {
         color: blueGrey[500],
         status: PlaygroundStatus.Disabled

@@ -88,8 +88,12 @@ export const initDockerInstance = async (params: InitDockerInstanceParams): Prom
   const stdoutSplit = stdout.split(' ');
   const containerId = stdoutSplit[0] || '';
   const url = stdoutSplit[1] || '';
-  return {
-    containerId,
-    url: `https://${url.replace('\n', '')}`
-  };
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({
+        containerId,
+        url: `https://${url.replace('\n', '')}`
+      })
+    }, 1000)
+  });
 }
