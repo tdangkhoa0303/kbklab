@@ -14,8 +14,6 @@ init();
 
 const {jwtCookieSecret} = environment;
 const app = express();
-
-app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
@@ -30,7 +28,8 @@ app.use(
   }),
 );
 
-app.use('/api/v1', v1Router)
+app.use('/api/v1', v1Router);
+app.use('/public', express.static(path.join(__dirname, './assets')));
 
 const port = environment.port || 3333;
 const server = app.listen(port, () => {
