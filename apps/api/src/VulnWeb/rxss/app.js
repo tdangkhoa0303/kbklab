@@ -9,6 +9,7 @@ const {v4} = require('default-gateway');
 const hostname = require('hostname');
 const { stringify } = require('querystring');
 const { request } = require('http');
+const cookies = require("cookie-parser");
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ let step = 1;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(cookies())
 
 app.use(express.urlencoded({extended: true}));
 
@@ -176,6 +178,8 @@ app.post('/report', async (req, res) => {
 			await driver.manage().addCookie({name: 'session.sig', value: sessionSig});
 			await driver.get(url);
 			return res.render('report');
+		} else {
+			return res.render('report',{alert: "That is not a valid url"});
 		}
 	} else {
 		return res.redirect('/login');
