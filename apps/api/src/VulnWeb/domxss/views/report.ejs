@@ -1,5 +1,8 @@
 <%- include("partials/header") -%>
 <div class="report-div">
+	<% if (typeof alert !== 'undefined') { %>
+	<p><%- alert %></p>
+	<% } %>    
 	<form method="post" action="/report">
 		<input
 			class="mr-sm-4"

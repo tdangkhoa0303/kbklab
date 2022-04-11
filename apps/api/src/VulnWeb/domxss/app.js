@@ -189,6 +189,8 @@ app.post("/report", async (req, res) => {
 				.addCookie({ name: "session.sig", value: sessionSig });
 			await driver.get(url);
 			return res.render("report");
+		} else {
+			return res.render('report',{alert: "That is not a valid url"});
 		}
 	} else {
 		return res.redirect("/login");
