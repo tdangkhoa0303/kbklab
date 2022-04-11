@@ -24,7 +24,7 @@ const SidebarNavItem: React.FC<SidebarNavItemProps> = (props) => {
   const {icon, label, path} = props;
   const {pathname} = useLocation();
   const isActiveRoute = useMemo(
-    () => pathname === path,
+    () => pathname.startsWith(path),
     [pathname, path]
   );
 

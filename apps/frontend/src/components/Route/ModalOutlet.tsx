@@ -58,10 +58,9 @@ const ModalOutlet: React.FC = () => {
             minHeight: '100%',
             height: 'fit-content',
             position: 'relative',
-            padding: `${theme.spacing(0, 2.5)} !important`,
+            padding: `${theme.spacing(0, 2.5, 2.5)} !important`,
             borderRadius: theme.spacing(2),
             background: theme.palette.common.white,
-            overflow: 'hidden'
           }}>
             <Outlet />
           </Box>

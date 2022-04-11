@@ -39,10 +39,11 @@ const ClassSelect: React.FC<ClassSelectProps> = ({ classCode }) => {
   );
 
   useEffect(() => {
+    console.log('a')
     if (!currentClassOption && classOptions[0]) {
       handleSelectClass({}, classOptions[0]);
     }
-  }, [navigate, currentClassOption, classOptions, handleSelectClass]);
+  }, [currentClassOption, classOptions, handleSelectClass]);
 
   return (
     <Autocomplete

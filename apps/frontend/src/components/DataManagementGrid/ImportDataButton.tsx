@@ -40,11 +40,11 @@ const ImportDataButton = <TImportFormValues extends FormikValues>(
 
   const modalRef = useRef<ModalRef>(null);
 
-  const { showToast } = useLoadingToast({
+  const {showToast} = useLoadingToast({
     loading: isImportingData,
-    loadingMessage: 'Importing lecturers...',
-    successMessage: 'Imported lecturers successfully',
-    errorMessage: 'Failed to Import lecturers',
+    loadingMessage: 'Importing data...',
+    successMessage: 'Imported data successfully',
+    errorMessage: 'Failed to Import data',
     status: importDataStatus,
   });
 

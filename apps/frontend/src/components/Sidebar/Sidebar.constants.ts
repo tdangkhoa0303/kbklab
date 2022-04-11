@@ -4,7 +4,7 @@ import {NavItemConfig} from './Sidebar.types';
 export const sidebarItems: NavItemConfig[] = [
   {
     label: 'Student Labs',
-    path: '/',
+    path: '/student',
     icon: 'eva:cube-fill',
     restrictedRole: [UserRole.Student],
   },

@@ -17,5 +17,6 @@ export * from './MasterLayout';
 export * from './FileUploader';
 export * from './CustomLink';
 export * from './PlaygroundCard';
+export * from './CustomReactMarkdown';
 
 export { default as ThemeConfig } from './theme/ThemeConfig';

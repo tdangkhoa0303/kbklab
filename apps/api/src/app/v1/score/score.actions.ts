@@ -14,7 +14,6 @@ export const initializeScore = async (userId: ObjectId, classLabId: ObjectId) =>
     user: userId,
     classLab: classLabId,
   });
-
   if (!isScoreExisted) {
     return await ScoreModel.create({
       user: userId,

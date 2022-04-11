@@ -4,8 +4,9 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import {styled} from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-import React, {useCallback} from 'react';
-import ReactMarkdown from 'react-markdown';
+import {CustomReactMarkdown} from 'components';
+import React, {Fragment, useCallback, useMemo} from 'react';
+import {useLocationBackground} from 'shared/hooks/useLocationBackground';
 import {ClassLab} from 'shared/models';
 import {useFetchClassLab} from '../LabDashboard/LabsGrid.hooks';
 import LabSteps from './classLabDetailContent/LabSteps';
@@ -19,6 +20,14 @@ const ScrollableGridItem = styled(Grid)({
   overflow: 'auto',
 });
 
+const StyledContainer = styled(Box)(({theme}) => ({
+  padding: theme.spacing(1, 2),
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  overflow: 'auto',
+}));
+
 const ClassLabDetailContentContainer: React.FC<ClassLabDetailContentProps> = (props) => {
   const {classLab} = props;
   const {
@@ -28,13 +37,16 @@ const ClassLabDetailContentContainer: React.FC<ClassLabDetailContentProps> = (pr
     endDate,
     id: classLabId
   } = classLab;
+  const locationBackground = useLocationBackground();
+  const isDisplayedAsModal = !!locationBackground;
 
   const fetchClassLabDetail = useFetchClassLab();
+  const Container = useMemo(() => isDisplayedAsModal ? Fragment : StyledContainer, [isDisplayedAsModal])
 
   const onRefresh = useCallback(() => fetchClassLabDetail(classLabId), [classLabId, fetchClassLabDetail])
 
   return (
-    <>
+    <Container>
       <Box
         py={1.5}
         display="flex"
@@ -42,7 +54,7 @@ const ClassLabDetailContentContainer: React.FC<ClassLabDetailContentProps> = (pr
         justifyContent="space-between"
         sx={{
           background: theme => theme.palette.common.white,
-          position: 'sticky',
+          position: isDisplayedAsModal ? 'sticky' : 'static',
           top: 0,
           zIndex: 2,
         }}
@@ -104,11 +116,11 @@ const ClassLabDetailContentContainer: React.FC<ClassLabDetailContentProps> = (pr
             />
           </ScrollableGridItem>
           <ScrollableGridItem item sm={9}>
-            <ReactMarkdown>{guide}</ReactMarkdown>
+            <CustomReactMarkdown>{guide}</CustomReactMarkdown>
           </ScrollableGridItem>
         </Grid>
       </Box>
-    </>
+    </Container>
   )
 }
 

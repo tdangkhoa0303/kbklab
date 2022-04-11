@@ -1,5 +1,5 @@
 export interface Step {
-  _id: string;
+  id: string;
   description: string;
   point: number;
 }

@@ -11,7 +11,7 @@ const ExportToCSVButton: React.FC<ExportToCSVButtonProps> = ({ classCode }) => {
 
   const exportToCSV = useCallback(() => {
     if (gridApi) {
-      gridApi.exportDataAsExcel();
+      gridApi.exportDataAsCsv();
     }
   }, [gridApi]);
 

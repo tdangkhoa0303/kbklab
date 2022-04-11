@@ -41,7 +41,7 @@ function App() {
               </Route>
               <Route element={<PrivateOutlet restrictedRole={[UserRole.Student]} />}>
                 <Route
-                  path={AppCommonRoute.Root}
+                  path={AppCommonRoute.Student}
                   element={<StudentDashboard />}
                 />
                 <Route path={AppCommonRoute.Score}>Score</Route>
@@ -80,6 +80,12 @@ function App() {
                   <Route path={AppCommonRoute.ClassLabDetail} element={<ClassLabDetail />} />
                 </Route>
               )}
+              <Route element={<PrivateOutlet restrictedRole={[]} />}>
+                <Route
+                  path={AppCommonRoute.Root}
+                />
+                <Route path={AppCommonRoute.Score}>Score</Route>
+              </Route>
             </Routes>
             <ModalRoutes>
               <Route

@@ -23,6 +23,7 @@ export const EMPTY_STRING = '';
 
 export enum AppCommonRoute {
   Root = '/',
+  Student = 'student',
   LogIn = '/login',
   Score = '/score',
   ClassLab = '/classLab',
@@ -82,7 +83,7 @@ export interface LocationStateWithBackground {
 }
 
 export const fallbackPageByUserRole: FallbackPageByUserRole = {
-  [UserRole.Student]: '/',
+  [UserRole.Student]: '/student',
   [UserRole.Lecturer]: '/class-management',
   [UserRole.HeadDepartment]: '/class-management',
   [UserRole.Admin]: '/class-management',

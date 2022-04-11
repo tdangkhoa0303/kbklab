@@ -7,7 +7,7 @@ import {ScoreDashboardOutletContextValues} from '../types';
 import ClassScoreGrid from './classScoreDashboard/ClassScoreGrid';
 
 const ClassScoreDashboard: React.FC = () => {
-  const { classCode, obtainGridValues } =
+  const {classCode, obtainGridValues } =
     useOutletContext<ScoreDashboardOutletContextValues>();
   const currentClass = useClassByCode(classCode);
   const autoSizeColumns = useSizeColumnsToFit();

@@ -23,14 +23,7 @@ export const userLabsSlice = createSlice<
     builder
       .addCase(fetchUserClassLabs.fulfilled, (state, { payload }) => {
         const {data} = payload;
-        const normalizedData = data.map((userClassLab: ClassLab) => ({
-          ...userClassLab,
-          lab: {
-            ...userClassLab.lab,
-            steps: (userClassLab.lab.steps || []).map(step => ({id: v4(), ...step}))
-          }
-        }))
-        userLabsAdapter.upsertMany(state, normalizedData);
+        userLabsAdapter.upsertMany(state, data);
       })
       .addCase(attemptLabThunk.fulfilled, (state, { payload }) => {
         const {data} = payload;

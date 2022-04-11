@@ -94,6 +94,6 @@ export const initDockerInstance = async (params: InitDockerInstanceParams): Prom
         containerId,
         url: `https://${url.replace('\n', '')}`
       })
-    }, 5000)
+    }, 10000)
   });
 }

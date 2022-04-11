@@ -45,14 +45,14 @@ const LabSteps: React.FC<LabStepsProps> = (props) => {
         }
       />
       {steps.map((step, index) => {
-        const { description, point, _id } = step;
+        const { description, point, id} = step;
         const pointString = point
           ? `${point} ${point > 1 ? 'POINTS' : 'POINT'}`
           : '';
 
         return (
           <LabStepsItem
-            key={_id}
+            key={id || index}
             subTitle={pointString}
             isTail={false}
             isDone={latestStepSuccess[index]}

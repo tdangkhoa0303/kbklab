@@ -1,5 +1,6 @@
 import {User} from 'entities';
 import {Request} from 'express';
+import * as fs from 'fs';
 import {apiWrapper} from 'utils';
 import * as ScoreActions from './score.actions';
 import {GetClassScoresDTO, GetClassScoresQuery, UpdateScoreQuery} from './score.types';
