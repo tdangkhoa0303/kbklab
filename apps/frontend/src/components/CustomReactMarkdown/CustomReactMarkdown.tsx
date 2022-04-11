@@ -18,7 +18,7 @@ export const CustomReactMarkdown: React.FC<PropsWithChildren<ReactMarkdownOption
       {...options}
       components={{
         ul: List,
-        li: (props) => <ListItem {...props} sx={{fontSize: GUIDE_FONT_SIZE}} />,
+        li: (props) => <ListItem {...props} sx={{fontSize: GUIDE_FONT_SIZE, display: 'block'}} />,
         a: Link,
         img: (props) => <Box component="img" {...props} mb={2} sx={{width: '100%'}}/>,
         h3: (props) => (
@@ -31,15 +31,16 @@ export const CustomReactMarkdown: React.FC<PropsWithChildren<ReactMarkdownOption
             marginBottom: theme.spacing(1),
           }} {...props} />
         ),
-        code: ({children}) => (
+        code: ({children, inline}) => (
           <Box
             component="code"
             sx={{
-              whiteSpace: 'nowrap',
+              display: inline ? 'inline-block' : 'flex',
+              whiteSpace: inline ? 'nowrap' : 'break-spaces',
               borderRadius: theme.spacing(0.5),
-              padding: theme.spacing(0, 1),
+              padding: theme.spacing(inline ? 0 : 1, 1),
               backgroundColor: '#efefef',
-              margin: theme.spacing(0, 0.5),
+              margin: theme.spacing(inline ? 0 : 2, 0.5),
               fontFamily: 'JetBrains Mono, monospace',
               fontWeight: 500,
             }}
