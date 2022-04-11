@@ -123,7 +123,7 @@ export const getStudentClassLabs = async (userId: string): Promise<ClassLabDTO[]
     const classLabInstance = studentInstances.find(
       (instance) => instance.classLab.toString() === classLabId,
     );
-    const classLabScore = studentScores.find(score => score.classLab.toString() === classLabId)
+    const classLabScore = studentScores.find(score => score.classLab.id.toString() === classLabId)
 
     return {
      ...classLab.toObject<ClassLabDTO>(),
