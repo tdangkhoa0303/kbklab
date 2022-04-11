@@ -265,11 +265,11 @@
     },
     {
         "title":"Lab 18: CSRF with browser",
-        "description":"This lab is vulnerable to CSRF in change password function, try to change password of User2 and login",
+        "description":"This lab is vulnerable to CSRF in change password function, try to change password of User2 and login. Admin of the site with username 'User2' is standing behind the web and checking every url you provide. Credential: User1:password",
         "location": "VulnWeb/csrf",
         "disabled":false,
         "steps":[{"description":"Deploy the machine","id":1,"point":1},{"description":"Login as User2","id":1,"point":9}],
-        "guide":null,
+        "guide":"Requirements:  \n - Burpsuite and a browser has configured [proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox)  \n - [Python3](https://www.python.org/downloads/) and [ngrok](https://ngrok.com/)  \n - Walk around the website you will found the function 'change password' is missing crsf token   \n - Create a file with .html extension (ex: index.html) with the following content  \n `<html>`  \n `<body>`  \n `<script>history.pushState('', '', '/')</script>`  \n `<form action=\"https://*.kbklab.tech/changePassword\" method=\"POST\">`  \n `<input type=\"hidden\" name=\"newPassword\" value=\"123456789\" />`  \n `<input type=\"submit\" value=\"Submit request\" />`  \n `</form>`  \n `<script>document.forms[0].submit(); </script></body></html>`  \n Or you can download it [here](/public/18/index.html)  \n - Change the url and the password in index.html to your.  \n - Open the terminal, go to the folder that contains the index.html and run `python -m http.server 8000`. This will run a simple HTTP server on your localhost:8000 at current folder, you can access it via your browser. But you will need a public IP to receive the data (our server doesn't know your localhost). The terminal will look like this  \n ![2](/public/15/2.jpg)  \n Open another terminal, go to the location of ngrok binary and run: `ngrok http 8000`. This will open a tunnel from ngrok to your python HTTP server. The output looks like this:  \n ![3](/public/15/3.jpg)   \n - You will receive a public url like the this  https://*.ngrok.io, when you visit it, it will forward the traffic to your local python HTTP server. Nice!! Now we have a public server on the internet. COPY THAT URL.  \n  - In function 'Report URL', submit your URL with the index.html and wait a bit(Ex:https://aaaa.ngrok.io/index.html), you will see there is a connection to your site like this   \n ![1](/public/18/1.jpg)  \n - If it won't work or take too long -> DO IT AGAIN AND AGAIN  \n - Now, password of User2 has changed to the one in index.html  \n - Logout and login with User2 to complete the lab",
         "isPlayground":false,
         "imageNames":"app_csrf"
     },
@@ -285,7 +285,7 @@
     },
     {
         "title":"Lab 20: SSRF",
-        "description":"Not implemented yet",
+        "description":"This website is a web proxy, input an URL and it will get the content of that website for you. But it is vulnerable to SSRF, try to access internal website to complete the lab",
         "location": "VulnWeb/ssrf",
         "disabled":false,
         "steps":[
@@ -298,7 +298,7 @@
                 "id":1,"point": 9
             }
         ],
-        "guide":"The proxy will take a url and return its content.  \nTry to enumerate local port by enter `localhost:<port>` to find which one is opened (Use python or burp intruder)  \n. Access to its robots.txt :D and find the secret content to finish the lab",
+        "guide":"Requirements:  \n - Burpsuite and a browser has configured [proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox)  \n - The proxy will take a url and return its content.  \n - You will see the POST request to /getContent in 'Proxy' tab, right-click on the request and choose 'Send to Intruder'  \n - Try to enumerate local port by enter `http://localhost:<port>` to find which one is opened (Use python or burp intruder):  \n        - In Intruder tab, you will see the previous request in 'Position' subtab.  \n        - Click 'Clear'  \n        - In url, input: `http://localhost:` and click 'Add' twice, your intruder will look like this  \n ![1](/public/20/1.jpg)   \n        - Go to 'Payload' subtab, in Payload Sets > Payload type, select 'Numbers'  \n        - Input as below to enum all 16 bit of ports  \n ![2](/public/20/2.jpg)   \n - Click 'Start Attack', after the run is completed, sort the result by length, you will see there are a secret port inside   \n ![3](/public/20/3.jpg)  \n - Now you have the port, try to access it file robots.txt `http://localhost:<port>/robots.txt`, you will see there is an disallow path, access it you can finish the lab",
         "isPlayground":false,
         "imageNames":"app_ssrf"
     },
@@ -383,30 +383,7 @@
         "imageNames":""
     },
     {
-        "title":"Lab 30: Server-side Template Injection - easy - classic",
-        "description":"This lab is inspired by SSTI, try it :D",
-        "location":"VulnWeb/rxss",
-        "steps":[
-            {
-                "description":"Deploy the machine",
-                "id":1,"point": 1
-            },
-            {
-                "description":"Find the place and trigger the error :D",
-                "id":1,"point": 4
-            },
-            {
-                "description":"Create file flag.txt at /tmp",
-                "id":1,"point": 5
-            }
-        ],
-        "disabled":false,
-        "guide":"this is guide `code in here`",
-        "isPlayground":false,
-        "imageNames":"app_ssti,db_ssti"
-    },
-    {
-        "title":"Lab 30: Server-side Template Injection - easy - classic",
+        "title":"Lab 30: Server-side Template Injection",
         "description":"This lab is inspired by SSTI, try it :D",
         "location":"VulnWeb/rxss",
         "steps":[
