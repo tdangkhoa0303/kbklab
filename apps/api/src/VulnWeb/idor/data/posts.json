@@ -1,0 +1,11 @@
+[
+	{
+		"id": 1,
+		"author": "User2",
+		"content": "Bạn có biết ngày xửa ngày xửa",
+		"comments": [
+			{ "author": "User2", "content": "Đây là random comment do tui không nghĩ ra content gì cả" },
+			{ "author": "User2", "content": "Đây cũng vậy" }
+		]
+	}
+]
