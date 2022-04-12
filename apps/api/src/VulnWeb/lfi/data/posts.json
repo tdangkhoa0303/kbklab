@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "author": "User1",
+        "content": "Trời xanh mây trắng, đời thì ngắn lắm bé ơi",
+        "comments": [
+            {
+                "author": "User1",
+                "content": "Okie"
+            }
+        ]
+    }
+]

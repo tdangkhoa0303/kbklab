@@ -656,19 +656,24 @@
             "$oid": "6253f5a979222e5692f6eda6"
         },
         "title": "Lab 28: File path traversal with Burp Suite",
-        "description": "Not implemented yet",
-        "location": null,
-        "disabled": true,
+        "description": "This lab is vulnerable to LFI, try to access the data in 'users.json' and login as 'User2'",
+        "location": "VulnWeb/lfi",
+        "disabled": false,
         "steps": [
             {
                 "description": "Deploy the machine",
                 "id": 1,
                 "point": 1
+            },
+            {
+                "description": "Login as 'User2'",
+                "id": 1,
+                "point": 9
             }
         ],
-        "guide": null,
+        "guide": "### Requirements:  \n\n -&nbsp; Burpsuite and a browser has configured&nbsp;[proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox).  \n\n -&nbsp; Credential: `User1:password`  \n\n  ### Walkthrough:  \n\n -&nbsp; You should see the url at /homepage after login `https://*.kbklab.tech/homepage?content=posts.json`  \n\n -&nbsp; Try to change the value of 'content' to other file, the most solution here is well-know /etc/passwd file on linux server, try: `../../../../../../../../../etc/passwd`  \n\n -&nbsp; `users.json`  \n\n  -&nbsp; Login with User2",
         "isPlayground": false,
-        "imageNames": ""
+        "imageNames": "app_lfi"
     },
     {
         "_id": {

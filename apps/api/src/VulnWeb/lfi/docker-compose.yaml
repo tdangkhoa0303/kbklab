@@ -1,0 +1,16 @@
+version: '3.3'
+
+services: 
+  app_lfi:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    network_mode: bridge
+    ports:
+      - 3000
+    image: app_lfi
+    stdin_open: true
+    tty: true
+volumes: 
+  db-config:
+  db-data:
