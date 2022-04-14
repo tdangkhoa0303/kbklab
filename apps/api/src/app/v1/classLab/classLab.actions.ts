@@ -3,6 +3,7 @@ import {Class, User} from 'entities';
 import {environment} from 'environments/environment';
 import {ClassLabModel, ClassModel, InstanceModel, ScoreModel} from 'infra/database/models';
 import {AppError} from 'models';
+import moment from 'moment';
 import {rescheduleInstance} from '../instance/instance.actions';
 import * as ScoreQueries from '../score/score.queries';
 import * as ClassLabQueries from './classLab.queries';
@@ -77,15 +78,15 @@ export const createClassLab = async (payload: CreateClassLabPayload): Promise<Cl
 
   await createClassLabPayloadValidator(payload);
 
-  if (startDate > endDate + 30 * 60 * 1000) {
+  if (moment(startDate).add(30, 'minute').isAfter(endDate)) {
     throw new AppError('End date must be after start date at least 30 minutes', 400);
   }
 
   const createdLabClass = await ClassLabModel.create({
-    startDate: startDate,
+    endDate,
+    startDate,
     lab: labId,
     class: classId,
-    endDate: endDate,
   });
 
   return await createdLabClass
