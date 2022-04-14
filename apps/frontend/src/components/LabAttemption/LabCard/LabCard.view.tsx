@@ -70,13 +70,18 @@ const LabCardView: React.FC<LabCardViewProps> = (props) => {
         }}
       >
         <CardContent sx={{ padding: (theme) => theme.spacing(1) }}>
-          <Box display="flex" alignItems="center" mb={2}>
+          <Box
+            mb={2}
+            display="flex"
+            alignItems="center"
+            justifyContent="space-between"
+          >
             <Tooltip title={title}>
-              <Typography noWrap variant="h5" fontWeight={500}>
+              <Typography noWrap variant="h5" fontWeight={500} flexGrow={1}>
                 {name || title}
               </Typography>
             </Tooltip>
-            <Stack spacing={1} direction="row" flexGrow={1}>
+            <Stack spacing={1} direction="row">
               {shouldDisplayEditButton && (
                 <Tooltip title="Edit Class Lab">
                   <IconButton onClick={onEditClassLab}>
