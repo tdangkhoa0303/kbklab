@@ -5,7 +5,7 @@ import {CreateUserPayload, ImportLecturerPayload, LoginPayload} from './user.typ
 
 export const createUserEmailValidator: FieldValidator<CreateUserPayload> = async (email, values) => {
   const {role} = values;
-  return role === UserRole.Student ? studentEmailValidator(email, values) : fuEmailValidator(email, values)
+  return role === UserRole.Student ? await studentEmailValidator(email, values) : await fuEmailValidator(email, values)
 }
 
 export const createUserPayloadValidator = createValidator<CreateUserPayload>({

@@ -5,7 +5,7 @@ import {isAppError, logger} from '../utils';
 
 export const errorHandler: ErrorRequestHandler = (error: Error, req, res, next) => {
   let operationalError: AppError;
-
+  console.log(error);
   if(!isAppError(error)) {
     operationalError = {
       ...error,

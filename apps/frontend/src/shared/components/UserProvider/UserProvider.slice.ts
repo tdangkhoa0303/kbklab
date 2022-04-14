@@ -4,7 +4,7 @@ import {fetchUser, login, loginWithGoogle} from './UserProvider.thunk';
 
 const initialUserState: UserState = {
   currentUser: null,
-  isLoginSuccess: false,
+  isLoginSuccess: null,
   fetchUserInfoStatus: null,
 };
 
@@ -30,18 +30,22 @@ export const userSlice = createSlice<UserState, SliceCaseReducers<UserState>>({
           fetchUserInfoStatus: ResponseStatus.Failed,
         };
       })
+      .addMatcher(isAnyOf(login.rejected, loginWithGoogle.rejected), (state) => ({
+        ...state,
+        isLoginSuccess: false,
+      }))
       .addMatcher(
         isAnyOf(login.pending, loginWithGoogle.pending),
-        (state, { payload }) => {
+        (state) => {
           return {
             ...state,
-            isLoginSuccess: false,
+            isLoginSuccess: null,
           };
         }
       )
       .addMatcher(
         isAnyOf(login.fulfilled, loginWithGoogle.fulfilled),
-        (state, { payload }) => {
+        (state, {payload}) => {
           return {
             ...state,
             currentUser: payload.data,

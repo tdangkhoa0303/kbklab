@@ -26,7 +26,7 @@ export const attemptPlayground = async (payload: AttemptPlaygroundPayload): Prom
   if(existingPlaygroundInstance) {
     return existingPlaygroundInstance.instanceUrl
   }
-  console.log(playgroundId)
+
   const playground = await LabModel
     .findById(playgroundId)
     .select('+location');

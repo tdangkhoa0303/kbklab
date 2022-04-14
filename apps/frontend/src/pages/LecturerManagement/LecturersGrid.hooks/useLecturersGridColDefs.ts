@@ -1,6 +1,5 @@
 import {ColDef} from 'ag-grid-community';
 import {UserRole} from 'shared/models';
-import {DETAIL_COLUMN_DEF} from '../LecturersGrid.constants';
 import {classesColumnValueGetter} from '../LecturersGrid.utils/classesColumnValueGetter';
 
 export const useLecturersGridColDefs = (userRole: UserRole): ColDef[] => [
@@ -21,6 +20,5 @@ export const useLecturersGridColDefs = (userRole: UserRole): ColDef[] => [
   {
     field: 'createdDate',
     headerName: 'Created Date',
-  },
-  DETAIL_COLUMN_DEF,
+  }
 ];

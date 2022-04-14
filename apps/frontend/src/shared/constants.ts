@@ -65,7 +65,7 @@ export enum LabStatus {
 
 export interface UserState {
   currentUser: User | null;
-  isLoginSuccess: boolean;
+  isLoginSuccess: boolean | null;
   fetchUserInfoStatus: ResponseStatus | null;
 }
 

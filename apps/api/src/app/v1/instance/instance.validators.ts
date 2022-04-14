@@ -2,6 +2,7 @@ import {ClassLabDTO, UserRole} from '@kbklab/api-interfaces';
 import {Class, Lab, User} from 'entities';
 import {InstanceModel} from 'infra/database/models';
 import {AppError} from 'models';
+import moment from 'moment';
 
 export interface AttemptingClassLabDTO extends Omit<Omit<ClassLabDTO, 'class'>, 'lab'> {
   class: Class,
@@ -27,6 +28,7 @@ export const createStudentInstanceValidator = async (params: CreateStudentInstan
     throw new AppError('Cannot find attempting class lab', 400);
   }
 
+  const now = moment();
   const {class: currentClass, endDate, startDate} = attemptingClassLabDTO;
   if(user.role < UserRole.Lecturer) {
     if (currentClass.students.indexOf(_id) < 0) {
@@ -39,8 +41,7 @@ export const createStudentInstanceValidator = async (params: CreateStudentInstan
     }
   }
 
-  const currentDate = new Date();
-  if (currentDate > endDate || currentDate < startDate) {
+  if (now.isBefore(startDate) || now.isAfter(endDate)) {
     throw new AppError('It is not time for doing the lab', 400);
   }
 }

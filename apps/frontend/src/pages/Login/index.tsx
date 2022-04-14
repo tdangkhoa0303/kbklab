@@ -1,3 +1,4 @@
+import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
@@ -99,6 +100,11 @@ const Login: React.FC = () => {
                 OR
               </Typography>
             </Divider>
+            {isLoginSuccess === false && (
+              <Alert variant="filled" severity="error" sx={{margin: theme => theme.spacing(2, 0, 4)}}>
+                Invalid login credentials, please try again.
+              </Alert>
+            )}
             <LoginForm />
           </Box>
         </Grid>

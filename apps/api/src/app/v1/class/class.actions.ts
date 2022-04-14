@@ -35,7 +35,7 @@ export const importClass = async (fields: ImportClassPayload, user): Promise<Imp
 
   const importedClass: Class = await ClassModel.create({
     lecturer: lecturer,
-    students: data,
+    students: data.map(student => student.id),
     code: classCode,
   });
   const classDTO: ClassWithClassLabDTO = await importedClass

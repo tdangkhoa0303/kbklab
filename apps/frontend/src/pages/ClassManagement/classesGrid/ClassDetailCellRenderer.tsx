@@ -1,5 +1,6 @@
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import Box from '@mui/material/Box';
+import IconButton from '@mui/material/IconButton';
 import {ICellRendererParams} from 'ag-grid-community';
 import {cssLayout} from 'components';
 import React, {useCallback} from 'react';
@@ -18,13 +19,15 @@ const ClassDetailCellRenderer: React.FC<ICellRendererParams> = (props) => {
   return (
     <Box
       display="flex"
-      onClick={onShowClassDetail}
       sx={{
         ...cssLayout.centerCenter,
         height: '100%',
       }}
     >
-      <ArrowForwardIosIcon sx={{ fontSize: (theme) => theme.spacing(2) }} />
+      <IconButton
+        onClick={onShowClassDetail}>
+        <ArrowForwardIosIcon sx={{ fontSize: (theme) => theme.spacing(2) }} />
+      </IconButton>
     </Box>
   );
 };

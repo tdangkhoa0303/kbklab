@@ -44,7 +44,7 @@ export const useHandleDeleteClassLab = (
       };
 
       showConfirmation({
-        title: 'Delete class Lab?',
+        title: 'Delete class lab?',
         content: 'Are you sure to delete this class lab?',
         onConfirm: onConfirmDeleteClassLab,
       });

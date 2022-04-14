@@ -4,7 +4,7 @@ import {DISPLAYED_STUDENT_NAMES} from '../ClassesGrid.constants';
 
 const buildStudentsString = (studentNames: string[]): string => {
   const displayedStudentNames = studentNames
-    .slice(0, DISPLAYED_STUDENT_NAMES - 1)
+    .slice(0, DISPLAYED_STUDENT_NAMES)
     .join(', ');
   const remainingStudentNames = studentNames.length - DISPLAYED_STUDENT_NAMES;
 

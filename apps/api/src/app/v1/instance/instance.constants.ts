@@ -1,0 +1,1 @@
+export const DEFAULT_INSTANCE_TIMEOUT = 1000;

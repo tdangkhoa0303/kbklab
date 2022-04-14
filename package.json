@@ -66,18 +66,18 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin": "11.7.2",
-    "@nrwl/cli": "13.10.1",
-    "@nrwl/cypress": "13.10.1",
-    "@nrwl/eslint-plugin-nx": "13.10.1",
-    "@nrwl/express": "13.10.1",
-    "@nrwl/jest": "13.10.1",
-    "@nrwl/linter": "13.10.1",
-    "@nrwl/node": "13.10.1",
+    "@nrwl/cli": "13.10.2",
+    "@nrwl/cypress": "13.10.2",
+    "@nrwl/eslint-plugin-nx": "13.10.2",
+    "@nrwl/express": "13.10.2",
+    "@nrwl/jest": "13.10.2",
+    "@nrwl/linter": "13.10.2",
+    "@nrwl/node": "13.10.2",
     "@nrwl/nx-cloud": "13.2.2",
-    "@nrwl/react": "13.10.1",
+    "@nrwl/react": "13.10.2",
     "@nrwl/tao": "13.8.8",
-    "@nrwl/web": "13.10.1",
-    "@nrwl/workspace": "13.10.1",
+    "@nrwl/web": "13.10.2",
+    "@nrwl/workspace": "13.10.2",
     "@testing-library/react": "12.1.4",
     "@testing-library/react-hooks": "7.0.2",
     "@types/cookie-parser": "^1.4.2",
@@ -118,3 +118,4 @@
     "typescript": "~4.5.2"
   }
 }
+

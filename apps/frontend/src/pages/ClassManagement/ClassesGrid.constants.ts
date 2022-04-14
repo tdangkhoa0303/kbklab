@@ -12,7 +12,9 @@ export enum FrameworkComponents {
 export const DETAIL_COLUMN_DEF: ColDef = {
   ...defaultActionColDef,
   cellRenderer: FrameworkComponents.ClassDetailCellRenderer,
-  width: 56,
+  minWidth: 56,
+  maxWidth: 56,
+  cellStyle: {padding: '2px'}
 };
 
 export const frameworkComponents = {

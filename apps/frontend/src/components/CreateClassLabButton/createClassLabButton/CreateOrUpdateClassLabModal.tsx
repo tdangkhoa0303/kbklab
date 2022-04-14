@@ -46,7 +46,7 @@ const CreateOrUpdateClassLabModal: React.FC<
   } = props;
 
   const initialValues = useCreateClassLabInitialValues(editingClassLab);
-  const { startDate, endDate } = initialValues;
+  const {startDate, endDate} = initialValues;
 
   const minStartDate = useMemo(() => moment(startDate), [startDate]);
   const minEndDate = useMemo(() => moment(endDate), [endDate]);

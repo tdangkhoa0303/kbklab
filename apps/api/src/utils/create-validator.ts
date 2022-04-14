@@ -12,23 +12,20 @@ export type Validator<TValues extends object> = (values: TValues) => Promise<voi
 
 export const createValidator = <TValues extends object>(validatorsByField: ValidatorsByField<TValues>): Validator<TValues> => (
   async (values) => {
-    const errors: ValidationError<TValues> = Object
-      .entries<FieldValidator<TValues>[]>(validatorsByField)
-      .reduce(async (result, [key, validators]) => {
-        let errorCode: ConstraintErrorCode;
-        for (let i = 0; i < validators.length; i++) {
-          if (errorCode) {
-            return {
-              ...result,
-              [key]: errorCode
-            }
+    let errors: ValidationError<TValues> = {};
+    for(const [field, validators] of Object.entries<FieldValidator<TValues>[]>(validatorsByField)) {
+      for (let i = 0; i < validators.length; i++) {
+        const errorCode = await validators[i](values[field], values);
+        if(errorCode) {
+          errors = {
+            ...errors,
+            [field]: errorCode,
           }
-
-          errorCode = await validators[i](values[key], values);
+          break;
         }
+      }
+    }
 
-        return result;
-      }, {});
     if(!isEmpty(errors)) {
       throw new AppError<ValidationError<TValues>>('Invalid payload', 400, errors);
     }

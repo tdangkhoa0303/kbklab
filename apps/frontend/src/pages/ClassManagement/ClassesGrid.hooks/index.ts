@@ -18,3 +18,4 @@ export * from './useIsUpdatingClassLab';
 export * from './useUpdateClassLabHandler';
 export * from './useUpdateClassLabState';
 export * from './useIsDeletingClassLab';
+export * from './useIsFetchingClasses';
