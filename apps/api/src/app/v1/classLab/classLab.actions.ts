@@ -73,14 +73,19 @@ export const deleteClassLab = async (classLabId: string): Promise<void> => {
 }
 
 export const createClassLab = async (payload: CreateClassLabPayload): Promise<ClassLabDTO> => {
-  const {labId, classId, ...restPayload} = payload;
+  const {labId, classId, startDate, endDate} = payload;
 
   await createClassLabPayloadValidator(payload);
 
+  if (startDate > endDate + 30 * 60 * 1000) {
+    throw new AppError('End date must be after start date at least 30 minutes', 400);
+  }
+
   const createdLabClass = await ClassLabModel.create({
-    ...restPayload,
+    startDate: startDate,
     lab: labId,
     class: classId,
+    endDate: endDate,
   });
 
   return await createdLabClass
