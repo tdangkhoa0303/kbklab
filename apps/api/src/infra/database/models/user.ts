@@ -28,19 +28,21 @@ const userSchema: Schema = new Schema<User>(
       default: UserRole.Student,
       required: true,
     },
+    code: {
+      type: String,
+      unique: true,
+      default: ''
+    }
   }
 );
 
 userSchema.pre<User>('save', async function (next: CallbackWithoutResultAndOptionalError) {
-  if (this.password) {
+  const {role, email, password} = this;
+  this.code = getUserCode(email, role);
+  if (password) {
     this.password = crypto.createHash('sha256').update(this.password).digest('hex');
   }
   next();
-});
-
-userSchema.virtual('code').get(function () {
-  const {email, role} = this;
-  return getUserCode(email, role);
 });
 
 userSchema.methods.comparePassword = function (candidatePassword: string, userPassword: string) {

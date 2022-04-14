@@ -25,3 +25,8 @@ export const studentsColumnValueFormatter = (
     ? buildStudentsString(studentNames)
     : studentNames.join(', ');
 };
+
+export const studentCodeValueFormatter = (params: ValueFormatterParams): string =>  {
+  const studentCode = params.data.code;
+  return `${studentCode || ''}`.toUpperCase();
+}

@@ -16,6 +16,7 @@ import {AppCommonRoute} from 'shared/constants';
 import {Class, ClassLab} from 'shared/models';
 import {useStudentLabEntities} from '../LabDashboard/LabsGrid.hooks';
 import {maxRowsToShow, studentGridHeaderHeight, studentGridRowHeight,} from './ClassDetailPanel.constants';
+import {studentCodeValueFormatter} from './ClassesGrid.utils';
 
 export interface ClassDetailPanelViewProps {
   onClose: VoidFunction;
@@ -93,6 +94,7 @@ const ClassDetailPanelView: React.FC<ClassDetailPanelViewProps> = (props) => {
                 field: 'code',
                 headerName: 'Code',
                 checkboxSelection: true,
+                valueFormatter: studentCodeValueFormatter,
               },
               {
                 field: 'name',

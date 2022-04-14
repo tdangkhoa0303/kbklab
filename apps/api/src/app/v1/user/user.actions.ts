@@ -28,7 +28,7 @@ export const createUser = async (createUserDTO: CreateUserPayload, isForceUpdate
      email: email,
      role: role,
    })
-   .then(data => data.toObject<UserDTO>());
+   .then(data => data.toObject<UserDTO>())
 };
 
 export const authenticateByGoogle = async (oAuth2Token: string): Promise<AuthenticateByGoogleResponseData> => {

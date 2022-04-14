@@ -1,6 +1,7 @@
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import DeleteIcon from '@mui/icons-material/Delete';
 import ModeEditIcon from '@mui/icons-material/ModeEdit';
+import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -69,36 +70,30 @@ const LabCardView: React.FC<LabCardViewProps> = (props) => {
         }}
       >
         <CardContent sx={{ padding: (theme) => theme.spacing(1) }}>
-          <Tooltip title={title}>
-            <Typography noWrap variant="h5" fontWeight={500} mb={2}>
-              {name || title}
-            </Typography>
-          </Tooltip>
+          <Box display="flex" alignItems="center" mb={2}>
+            <Tooltip title={title}>
+              <Typography noWrap variant="h5" fontWeight={500}>
+                {name || title}
+              </Typography>
+            </Tooltip>
+            <Stack spacing={1} direction="row" flexGrow={1}>
+              {shouldDisplayEditButton && (
+                <Tooltip title="Edit Class Lab">
+                  <IconButton onClick={onEditClassLab}>
+                    <ModeEditIcon />
+                  </IconButton>
+                </Tooltip>
+              )}
+              {shouldDisplayDeleteButton && (
+                <Tooltip title="Delete Class Lab">
+                  <IconButton onClick={onDeleteClassLab}>
+                    <DeleteIcon />
+                  </IconButton>
+                </Tooltip>
+              )}
+            </Stack>
+          </Box>
           <LabCardInfo steps={steps} status={status} stepSuccess={stepSuccess} />
-          <Stack
-            spacing={1}
-            direction="row"
-            sx={{
-              position: 'absolute',
-              top: (theme) => theme.spacing(1),
-              right: (theme) => theme.spacing(1),
-            }}
-          >
-            {shouldDisplayEditButton && (
-              <Tooltip title="Edit Class Lab">
-                <IconButton onClick={onEditClassLab}>
-                  <ModeEditIcon />
-                </IconButton>
-              </Tooltip>
-            )}
-            {shouldDisplayDeleteButton && (
-              <Tooltip title="Delete Class Lab">
-                <IconButton onClick={onDeleteClassLab}>
-                  <DeleteIcon />
-                </IconButton>
-              </Tooltip>
-            )}
-          </Stack>
         </CardContent>
         <CardActions>
           <Grid container spacing={2}>

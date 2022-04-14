@@ -4,6 +4,7 @@ import get from 'lodash/get';
 import isNil from 'lodash/isNil';
 import {useMemo} from 'react';
 import {Class, Lab, ScoreRecord} from 'shared/models';
+import {studentCodeValueFormatter} from '../../ClassManagement/ClassesGrid.utils';
 
 export const createScoreValueGetter =
   (lab: Lab): ValueGetterFunc =>
@@ -57,6 +58,7 @@ export const useClassScoreGridColDefs = (currentClass: Class): ColDef[] => {
         headerName: 'RollNumber',
         minWidth: 120,
         maxWidth: 120,
+        valueFormatter: studentCodeValueFormatter,
       },
       {
         field: 'name',
