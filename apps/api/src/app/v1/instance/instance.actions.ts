@@ -21,7 +21,7 @@ export const createInstance = async (user: User, classLabId: string): Promise<Cl
   const classLab = await ClassLabModel.findById(classLabId)
     .populate<{lab: Lab}>({
       path: 'lab',
-      select: '+location'
+      select: '+location +timeout'
     })
     .populate<{class: Class}>('class');
 
@@ -36,8 +36,13 @@ export const createInstance = async (user: User, classLabId: string): Promise<Cl
   })
 
   // Init Docker instance
-  const {lab: {location, imageNames}} = classLab;
-  const {url: instanceUrl, containerId} = await initDockerInstance({location, imageNames, userCode})
+  const {lab: {location, imageNames, timeout}} = classLab;
+  const {url: instanceUrl, containerId} = await initDockerInstance({
+    location,
+    imageNames,
+    userCode,
+    timeout,
+  })
 
   // Create instance
   const expiredTime: number = environment.instanceTimeout;

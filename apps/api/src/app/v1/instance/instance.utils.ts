@@ -6,7 +6,6 @@ import {ClassLabModel, InstanceModel} from 'infra/database/models';
 import {AppError} from 'models';
 import {promisify} from 'util';
 import {buildLabLocationPath} from 'utils';
-import {INIT_INSTANCE_DELAY} from 'app-constants';
 import {DEFAULT_INSTANCE_TIMEOUT} from './instance.constants';
 import {InitDockerInstanceParams} from './instance.types';
 
@@ -67,8 +66,7 @@ export interface InitDockerInstanceReturnedValue {
 }
 
 export const initDockerInstance = async (params: InitDockerInstanceParams): Promise<InitDockerInstanceReturnedValue> => {
-  const {userCode, location, imageNames} = params;
-  const timeout = INIT_INSTANCE_DELAY[imageNames] || DEFAULT_INSTANCE_TIMEOUT;
+  const {userCode, location, imageNames, timeout} = params;
 
   // init docker
   await promisified_exec(
@@ -97,6 +95,6 @@ export const initDockerInstance = async (params: InitDockerInstanceParams): Prom
         containerId,
         url: `https://${url.replace('\n', '')}`
       })
-    }, timeout)
+    }, timeout || DEFAULT_INSTANCE_TIMEOUT)
   });
 }

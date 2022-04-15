@@ -10,4 +10,5 @@ export interface Lab extends BaseEntity {
   imageNames: string;
   disabled: boolean;
   isPlayground?: boolean;
+  timeout: number;
 }

@@ -27,6 +27,11 @@ const labSchema: Schema = new Schema<Lab>(
       type: String,
       required: true,
     },
+    timeout: {
+      type: Number,
+      default: 1000,
+      select: false,
+    },
     steps: [
       {
         id: {

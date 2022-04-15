@@ -29,16 +29,17 @@ export const attemptPlayground = async (payload: AttemptPlaygroundPayload): Prom
 
   const playground = await LabModel
     .findById(playgroundId)
-    .select('+location');
+    .select('+location +timeout');
 
   if(!playground) {
     throw new AppError('Cannot find requesting playground', 500);
   }
 
-  const {imageNames, location} = playground;
+  const {imageNames, location, timeout} = playground;
   const {url, containerId} = await initDockerInstance({
     location,
     imageNames,
+    timeout,
     userCode: user.code,
   });
 
