@@ -67,13 +67,17 @@ export const updateScore = async (payload: UpdateScorePayload): Promise<{}> => {
   const classLab = userInstance.classLab;
   const totalStep = classLab.lab.steps.length - 1;
 
-  if (successStepNumber === scoreToUpdate.stepSuccess[currentAttempt].length && successStepNumber <= totalStep) {
+  if (successStepNumber !== scoreToUpdate.stepSuccess[currentAttempt].length) {
+    return {};
+  }
+
+  if (successStepNumber <= totalStep) {
     scoreToUpdate.stepSuccess[currentAttempt].push(true);
     scoreToUpdate.markModified('stepSuccess');
     scoreToUpdate.save();
   }
 
-  if (successStepNumber === totalStep && userInstance.user) {
+  if (successStepNumber === totalStep  && userInstance.user) {
     const {user, id: instanceId} = userInstance
     await deleteDocker(user.code, instanceId);
   }
