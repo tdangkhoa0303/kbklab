@@ -1,7 +1,7 @@
 import {AuthenticateByGoogleResponseData, LecturerDTO, UserDTO, UserRole} from '@kbklab/api-interfaces';
 import {environment} from 'environments/environment';
 import {OAuth2Client} from 'google-auth-library';
-import {ClassModel, UserModel} from 'infra/database/models';
+import {ClassModel, ScoreModel, UserModel} from 'infra/database/models';
 import {AppError} from 'models';
 import {read, utils} from 'xlsx';
 import * as UserQueries from './user.queries';
@@ -131,12 +131,26 @@ export const deleteLecturer = async (lecturerId: string, user: UserDTO): Promise
   }
 
   const lecturerClasses = await ClassModel.find({lecturer: lecturerId});
+
+  // Assign all lecturer classes to current user
   await Promise.all(
     lecturerClasses.map(async (currentClass) => {
       await currentClass.set('lecturer', user.id);
       await currentClass.save();
     })
   );
+
+  // Delete all score records
+  await ScoreModel.deleteMany({user: lecturerId});
+
+  // Remove user from classes (if any)
+  const classes = await ClassModel.find({students: lecturerId});
+  await Promise.all(
+    classes.map(async (classToUpdate) => {
+      await classToUpdate.set('students', classToUpdate.students.filter(studentId => studentId.toString() !== lecturerId));
+      await classToUpdate.save();
+    })
+  )
 
   return !!(await lecturer.delete());
 }
