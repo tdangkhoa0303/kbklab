@@ -20,3 +20,8 @@ export const getAllClasses = apiWrapper<ClassWithClassLabDTO[]>((req: Authentica
   const {user} = req;
   return ClassActions.getAllClassesWithClassLabs(user);
 });
+
+export const deleteClasses = apiWrapper<boolean>((req: AuthenticatedRequest) => {
+  const {body: {classes}, user} = req;
+  return ClassActions.deleteClasses(classes, user)
+})

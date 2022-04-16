@@ -1,7 +1,14 @@
 import {UserRole} from '@kbklab/api-interfaces';
 import {Router} from 'express';
 import {fileUploader, protect, restrictTo} from 'middlewares';
-import {authenticateByGoogle, getAllLecturers, getUserInfo, importLecturers, login} from './user.controllers';
+import {
+  authenticateByGoogle,
+  deleteLecturers,
+  getAllLecturers,
+  getUserInfo,
+  importLecturers,
+  login
+} from './user.controllers';
 
 const router: Router = Router();
 
@@ -17,6 +24,6 @@ router.get('/getAllLecturers', restrictTo(UserRole.HeadDepartment, UserRole.Admi
 
 router.post('/importLecturers', restrictTo(UserRole.HeadDepartment, UserRole.Admin), fileUploader.single('file'), importLecturers);
 
-// router.delete('/deleteLecturers', restrictTo(UserRole.Admin), deleteLecturers);
+router.post('/deleteLecturers', restrictTo(UserRole.HeadDepartment, UserRole.Admin), deleteLecturers);
 
 export default router;

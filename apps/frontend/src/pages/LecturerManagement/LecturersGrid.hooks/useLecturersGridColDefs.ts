@@ -16,9 +16,5 @@ export const useLecturersGridColDefs = (userRole: UserRole): ColDef[] => [
     field: 'classes',
     headerName: 'Classes',
     valueGetter: classesColumnValueGetter,
-  },
-  {
-    field: 'createdDate',
-    headerName: 'Created Date',
   }
 ];

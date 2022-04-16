@@ -1,6 +1,6 @@
 import {ClassDTO, ClassWithClassLabDTO, ImportClassResponseData, UserDTO, UserRole} from '@kbklab/api-interfaces';
 import {Class, User} from 'entities';
-import {ClassModel, UserModel} from 'infra/database/models';
+import {ClassLabModel, ClassModel, UserModel} from 'infra/database/models';
 import isEmpty from 'lodash/isEmpty';
 import {AppError} from 'models';
 import {read, utils} from 'xlsx';
@@ -8,7 +8,7 @@ import {createUser} from '../user/user.actions';
 import {normalizeSettledResult} from '../user/user.utils';
 import * as ClassesQueries from './class.queries';
 import {ImportClassPayload, ImportStudentRow} from './class.types';
-import {importClassValidator} from './class.validators';
+import {importClassValidator, validatorClassesOwnership} from './class.validators';
 
 export const importClass = async (fields: ImportClassPayload, user): Promise<ImportClassResponseData> => {
   const {lecturerId, classCode, file} = fields;
@@ -51,8 +51,34 @@ export const importClass = async (fields: ImportClassPayload, user): Promise<Imp
   }
 }
 
-export const getAllClassesWithClassLabs = async (user: User) => {
+export const getAllClassesWithClassLabs = async (user: User): Promise<ClassWithClassLabDTO[]> => {
   const lecturer = user.role < UserRole.HeadDepartment ? user.id : undefined;
-
   return ClassesQueries.getAllClassesWithClassLabs(lecturer)
+}
+
+export const deleteClass = async (classId: string): Promise<boolean> => {
+  const currentClass = await ClassModel.findById(classId);
+  if(!currentClass) {
+    throw new AppError('Cannot find class with this id', 400);
+  }
+
+  const classLabs = await ClassLabModel.find({class: classId});
+  if(classLabs.length) {
+    throw new AppError('Cannot delete class has created class lab', 400)
+  }
+
+  return currentClass.delete();
+}
+
+export const deleteClasses = async (classIds, user): Promise<boolean> => {
+  if(user.role < UserRole.HeadDepartment) {
+    await validatorClassesOwnership(classIds, user)
+      .catch(err => {
+        throw err;
+      })
+  }
+
+  return !!(await Promise.all(
+    classIds.map(classId => deleteClass(classId))
+  ))
 }

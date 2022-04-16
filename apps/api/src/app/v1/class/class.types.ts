@@ -13,4 +13,8 @@ export interface ImportStudentRow {
   fullName: string;
 }
 
+export interface DeleteClassesRequestDTO {
+  classes: string[]
+}
+
 export type CreateClassStudentResult = ImportDataResult<User>;

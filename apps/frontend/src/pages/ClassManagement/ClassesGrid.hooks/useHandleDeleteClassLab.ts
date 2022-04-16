@@ -17,11 +17,11 @@ export const useHandleDeleteClassLab = (
   currentClass: Class | undefined
 ): HandleDeleteClassLab => {
   const deleteClassLab = useDeleteClassLab();
-  const { showConfirmation } = useConfirmationModal();
+  const {showConfirmation} = useConfirmationModal();
 
   const deleteClassLabStatus = useDeleteClassLabStatus();
   const isDeletingClassLab = useIsDeletingClassLab();
-  const { showToast } = useLoadingToast({
+  const {showToast} = useLoadingToast({
     loading: isDeletingClassLab,
     status: deleteClassLabStatus,
     successMessage: 'Success deleted class lab',

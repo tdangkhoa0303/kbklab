@@ -1,7 +1,9 @@
-import {AppContext} from 'shared/constants';
+import {AppContext, RootState} from 'shared/constants';
 import {createAsyncThunkWithErrorHandler} from 'shared/redux/utils';
-import {APIClient} from 'shared/utilities';
+import {APIClient, APIClientResponse} from 'shared/utilities';
 import {
+  DeleteLecturersFulfilledPayload,
+  DeleteLecturersPayload,
   GetAllLecturersResponse,
   ImportLecturersPayload,
   ImportLecturersResponse,
@@ -30,3 +32,16 @@ export const importLecturers = createAsyncThunkWithErrorHandler<
 
   return response.data.data;
 });
+
+export const deleteLecturersThunk = createAsyncThunkWithErrorHandler<
+  DeleteLecturersFulfilledPayload,
+  DeleteLecturersPayload
+>(``, async ({lecturers}, thunkAPI) => {
+  await APIClient.post<APIClientResponse<boolean>>('/users/deleteLecturers', {lecturers});
+  const state = thunkAPI.getState() as RootState;
+
+  return {
+    lecturers,
+    user: state.user.currentUser,
+  };
+})

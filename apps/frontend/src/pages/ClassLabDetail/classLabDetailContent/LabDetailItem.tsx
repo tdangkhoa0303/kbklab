@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import React from 'react';
-import {useLabField} from '../../../components/LabAttemption/LabCard/LabCard.context';
-import {LabFieldDefinition} from '../../../components/LabAttemption/LabCard/LabCard.types';
+import {useLabField} from 'components/LabAttemption/LabCard/LabCard.context';
+import {LabFieldDefinition} from 'components/LabAttemption/LabCard/LabCard.types';
 
 const LabDetailItem: React.FC<LabFieldDefinition> = (props) => {
   const { name, path, component: Component, formatter } = props;

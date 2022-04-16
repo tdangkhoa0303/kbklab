@@ -13,5 +13,10 @@ export const importLecturersStatusSelector = createSelector(
   (uiState: UIState) => uiState.lecturers.importLecturersStatus
 );
 
+export const deleteLecturersStatusSelector = createSelector(
+  uiStateSelector,
+  (uiState: UIState) => uiState.lecturers.deleteLecturersStatus
+)
+
 export const { selectAll: allLecturersSelector } =
   lecturersAdapter.getSelectors(lecturerEntitiesSelector);

@@ -46,6 +46,12 @@ export const deleteClassLabStatusSelector = createSelector(
     uiState.deleteClassLabStatus
 );
 
+export const deleteClassesStatusSelector = createSelector(
+  classesUIStateSelector,
+  (uiState: ClassesUIState): ResponseStatus | null =>
+    uiState.deleteClassesStatus
+);
+
 export const { selectAll: allClassesSelector, selectById: classByIdSelector } =
   classesAdapter.getSelectors(classesEntitiesSelector);
 

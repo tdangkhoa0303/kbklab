@@ -6,3 +6,7 @@ export * from './useLecturerEntitiesState';
 export * from './useImportLecturersStatus';
 export * from './useImportLecturers';
 export * from './useAllLecturers';
+export * from './useDeleteLecturersStatus';
+export * from './useConfirmDeleteLecturers';
+export * from './useDeleteLecturers';
+export * from './useDeleteLecturersStatus';

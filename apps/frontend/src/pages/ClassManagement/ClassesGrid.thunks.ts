@@ -1,13 +1,15 @@
 import {AppContext} from 'shared/constants';
 import {ClassLab} from 'shared/models';
 import {createAsyncThunkWithErrorHandler} from 'shared/redux/utils';
-import {APIClient} from 'shared/utilities';
+import {APIClient, APIClientResponse} from 'shared/utilities';
 import {
   CreateLabInstanceFulfilledPayload,
   CreateLabInstancePayload,
   CreateLabInstanceResponse,
 } from '../LabDashboard/LabsGrid.types';
 import {
+  DeleteClassesFulfilledPayload,
+  DeleteClassesPayload,
   DeleteClassLabFulfilledPayload,
   DeleteClassLabPayload,
   GetAllClassesResponse,
@@ -69,3 +71,11 @@ export const deleteClassLab = createAsyncThunkWithErrorHandler<
 
   return payload;
 });
+
+export const deleteClassesThunk = createAsyncThunkWithErrorHandler<
+  DeleteClassesFulfilledPayload,
+  DeleteClassesPayload
+>(`${AppContext.Class}/deleteClasses`, async ({classes}) => {
+  await APIClient.post<APIClientResponse<boolean>>('classes/delete', {classes});
+  return classes;
+})

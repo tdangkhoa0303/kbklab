@@ -19,3 +19,5 @@ export * from './useUpdateClassLabHandler';
 export * from './useUpdateClassLabState';
 export * from './useIsDeletingClassLab';
 export * from './useIsFetchingClasses';
+export * from './useDeleteClassesStatus';
+export * from './useDeleteClasses';

@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import {AgGridReactProps} from 'ag-grid-react';
-import {Grid, GridContextProvider, sizeColumnsToFit, useObtainGridValues,} from 'components';
+import {Grid, GridContextProvider, GridContextValues, sizeColumnsToFit, useObtainGridValues,} from 'components';
 import {FormikConfig, FormikValues} from 'formik';
-import React, {PropsWithChildren, ReactNode} from 'react';
+import React, {MutableRefObject, PropsWithChildren, ReactNode} from 'react';
 import {PageTitle} from '../PageTitle';
 import ImportDataButton, {ImportDataButtonProps} from './ImportDataButton';
 
@@ -20,6 +20,7 @@ export interface DataManagementGridProps<
   gridActions?: ReactNode;
   onSubmitImportForm: (formData: FormData) => void;
   FormikProps?: Partial<FormikConfig<TFormValues>>;
+  gridRef?: MutableRefObject<GridContextValues | null>
 }
 
 export type DataManagementGridPropsWithChildren<
@@ -45,9 +46,10 @@ const DataManagementGrid = <TData, TFormValues extends FormikValues>(
     importDataStatus,
     toolPanelContent,
     onSubmitImportForm,
+    gridRef,
     ...gridProps
   } = props;
-  const [gridValues, obtainGridValues] = useObtainGridValues();
+  const [gridValues, obtainGridValues] = useObtainGridValues(gridRef);
 
   return (
     <Box

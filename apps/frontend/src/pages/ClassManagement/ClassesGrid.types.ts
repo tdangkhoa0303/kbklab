@@ -24,6 +24,7 @@ export interface ClassesUIState {
   importClassesStatus: ResponseStatus | null;
   updateClassLabStatus: ResponseStatus | null;
   deleteClassLabStatus: ResponseStatus | null;
+  deleteClassesStatus: ResponseStatus | null;
 }
 
 export interface ImportClassesFormValues {
@@ -41,3 +42,9 @@ export interface DeleteClassLabPayload {
 }
 
 export type DeleteClassLabFulfilledPayload = DeleteClassLabPayload;
+
+export interface DeleteClassesPayload {
+  classes: string[];
+}
+
+export type DeleteClassesFulfilledPayload = string[];

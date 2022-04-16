@@ -119,3 +119,34 @@ export const importLecturers = async (payload: ImportLecturerPayload): Promise<I
 
   return normalizeSettledResult<LecturerDTO>(createLecturerSettledResult);
 }
+
+export const deleteLecturer = async (lecturerId: string, user: UserDTO): Promise<boolean> => {
+  const lecturer = await UserModel.findOne({
+    _id: lecturerId,
+    role: UserRole.Lecturer
+  });
+
+  if(!lecturer) {
+    throw new AppError('Cannot find lecturer with this id', 400);
+  }
+
+  const lecturerClasses = await ClassModel.find({lecturer: lecturerId});
+  await Promise.all(
+    lecturerClasses.map(async (currentClass) => {
+      await currentClass.set('lecturer', user.id);
+      await currentClass.save();
+    })
+  );
+
+  return !!(await lecturer.delete());
+}
+
+export const deleteLecturers = async (lecturerIds: string[], user: UserDTO): Promise<boolean> => {
+  if(user.role < UserRole.HeadDepartment) {
+    throw new AppError('You do not have permission to perform this action', 403);
+  }
+
+  return !!(await Promise.all(
+    lecturerIds.map((id) => deleteLecturer(id, user))
+  ))
+}

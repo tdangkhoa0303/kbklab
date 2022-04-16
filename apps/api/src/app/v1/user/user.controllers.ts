@@ -38,4 +38,9 @@ export const getAllLecturers = apiWrapper<LecturerDTO[]>(() => {
 
 export const importLecturers = apiWrapper<ImportLecturersResult>((req: AuthenticatedRequest) => (
   UserActions.importLecturers({file: req.file})
-))
+));
+
+export const deleteLecturers = apiWrapper<boolean>((req: AuthenticatedRequest) => {
+  const {body: {lecturers}, user} = req;
+  return UserActions.deleteLecturers(lecturers, user)
+})

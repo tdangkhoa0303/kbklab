@@ -1,7 +1,7 @@
 import {createEntityAdapter, createSlice, SliceCaseReducers,} from '@reduxjs/toolkit';
 import {AppContext, ResponseStatus} from 'shared/constants';
 import {Lecturer} from 'shared/models';
-import {getAllLecturers, importLecturers} from './LecturersGrid.thunks';
+import {deleteLecturersThunk, getAllLecturers, importLecturers} from './LecturersGrid.thunks';
 import {LecturersGridState, LecturersUIState} from './LecturersGrid.types';
 
 export const lecturersAdapter = createEntityAdapter<Lecturer>({
@@ -25,12 +25,16 @@ export const lecturersSlice = createSlice<
       .addCase(importLecturers.fulfilled, (state, { payload }) => {
         const { data } = payload;
         lecturersAdapter.upsertMany(state, data);
+      })
+      .addCase(deleteLecturersThunk.fulfilled, (state, {payload}) => {
+        lecturersAdapter.removeMany(state, payload.lecturers);
       });
   },
 });
 
 const initialImportLecturersUIState: LecturersUIState = {
   importLecturersStatus: null,
+  deleteLecturersStatus: null,
 };
 
 export const lecturersUISlice = createSlice<
@@ -58,6 +62,24 @@ export const lecturersUISlice = createSlice<
         return {
           ...state,
           importLecturersStatus: ResponseStatus.Failed,
+        };
+      })
+      .addCase(deleteLecturersThunk.pending, (state, { payload }) => {
+        return {
+          ...state,
+          deleteLecturersStatus: null,
+        };
+      })
+      .addCase(deleteLecturersThunk.fulfilled, (state, { payload }) => {
+        return {
+          ...state,
+          deleteLecturersStatus: ResponseStatus.Success,
+        };
+      })
+      .addCase(deleteLecturersThunk.rejected, (state, { payload }) => {
+        return {
+          ...state,
+          deleteLecturersStatus: ResponseStatus.Failed,
         };
       });
   },

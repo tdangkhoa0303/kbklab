@@ -8,6 +8,7 @@ export const useClassesGridColDefs = (): ColDef[] => [
     headerName: 'Class Code',
     checkboxSelection: true,
     minWidth: 40,
+    headerCheckboxSelection: true,
   },
   {
     field: 'lecturer',

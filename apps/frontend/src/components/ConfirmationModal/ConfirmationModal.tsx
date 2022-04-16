@@ -47,6 +47,12 @@ const ConfirmationModal: React.FC<
       <Modal
         title={title}
         modalRef={modalRef}
+        contentProps={{
+          sx: {
+            top: '30%',
+            maxWidth: theme => theme.spacing(35)
+          }
+        }}
         primaryButtonText={confirmText}
         secondaryButtonText={cancelText}
         primaryButtonProps={{ onClick: handleConfirmation }}
