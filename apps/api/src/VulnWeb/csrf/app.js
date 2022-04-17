@@ -77,7 +77,7 @@ app.post("/login", (req, res, next) => {
 	fs.readFile("./data/users.json", "utf-8", (err, data) => {
 		if (!err) {
 			const users = JSON.parse(data);
-			users.forEach((user) => {
+			for (const user of users) {
 				if (
 					user.username === req.body.username &&
 					user.password === req.body.password
@@ -109,10 +109,9 @@ app.post("/login", (req, res, next) => {
 					});
 					return res.redirect("/homepage");
 				}
-			});
-		} else {
+			}
 			return res.redirect("/login");
-		}
+		} 
 	});
 });
 

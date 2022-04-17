@@ -7,7 +7,7 @@ services:
       dockerfile: ./Dockerfile
     ports:
       - 3000
-    image: app_csrf_1
+    image: app_csrf
     network_mode: bridge
     stdin_open: true
     tty: true

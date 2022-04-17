@@ -28,12 +28,12 @@ app.use((req, res, next) => {
 });
 
 app.get("/login", (req, res) => {
-	res.render("login", { isAdmin: false });
+	return res.render("login", { isAdmin: false });
 });
 
 app.get("/logout", (req, res) => {
 	req.session.user = "";
-	res.redirect("/");
+	return res.redirect("/");
 });
 
 app.get(["/homepage", "/"], (req, res) => {
@@ -50,14 +50,14 @@ app.get(["/homepage", "/"], (req, res) => {
 					}
 				}
 				if (req.headers.cookie.indexOf("isAdmin=1") > -1) {
-					res.render("homepage", { posts: posts, isAdmin: true, username: req.session.user });
+					return res.render("homepage", { posts: posts, isAdmin: true, username: req.session.user });
 				} else {
-					res.render("homepage", { posts: posts, isAdmin: false, username: req.session.user });
+					return res.render("homepage", { posts: posts, isAdmin: false, username: req.session.user });
 				}
 			}
 		});
 	} else {
-		res.redirect("/login");
+		return res.redirect("/login");
 	}
 });
 
@@ -74,13 +74,12 @@ app.post("/login", (req, res, next) => {
 					res.cookie("isAdmin", 0, {
 						maxAge: 24 * 60 * 60 * 1000,
 					});
-					res.redirect("/homepage");
+					return res.redirect("/homepage");
 				}
 			});
-		} else {
-			res.redirect("/login");
-		}
+		} 
 	});
+	return res.redirect("/login");
 });
 
 app.post("/posts/:postId/comments", (req, res) => {
@@ -105,7 +104,7 @@ app.post("/posts/:postId/comments", (req, res) => {
 				);
 			}
 		});
-		res.redirect("/");
+		return res.redirect("/");
 	}
 });
 
@@ -137,8 +136,11 @@ app.post("/posts", (req, res) => {
 					req.end();
 				}
 
+				const id =
+					posts.length === 0 ? 1 : posts[posts.length - 1].id + 1;
+
 				const newPost = {
-					id: posts[posts.length - 1].id + 1,
+					id: id,
 					author: req.body.author,
 					title: req.body.newTitle,
 					content: req.body.newContent,
@@ -152,7 +154,7 @@ app.post("/posts", (req, res) => {
 				);
 			}
 		});
-		res.redirect("/");
+		return res.redirect("/");
 	}
 });
 
@@ -174,14 +176,14 @@ app.post("/posts/search", (req, res) => {
 				});
 
 				if (req.headers.cookie.indexOf("isAdmin=1") > -1) {
-					res.render("homepage", {
+					return res.render("homepage", {
 						posts: searchPosts,
-						isAdmin: true,
+						isAdmin: true, username: req.session.user
 					});
 				} else {
-					res.render("homepage", {
+					return res.render("homepage", {
 						posts: searchPosts,
-						isAdmin: false,
+						isAdmin: false, username: req.session.user
 					});
 				}
 			}
@@ -226,11 +228,11 @@ app.get("/posts/deletePost/:postId", (req, res) => {
 					JSON.stringify(savePosts),
 					"utf-8"
 				);
-				res.redirect("/");
+				return res.redirect("/");
 			}
 		});
 	} else {
-		res.redirect("/login");
+		return res.redirect("/login");
 	}
 });
 
@@ -257,15 +259,15 @@ app.get("/users", (req, res) => {
 			return res.redirect("/");
 		}
 	} else {
-		res.redirect("/login");
+		return res.redirect("/login");
 	}
 });
 
 app.get("/changePassword", (req, res) => {
 	if (req.session.user && req.session.user !== "") {
-		res.render("changePassword", { isAdmin: false });
+		return res.render("changePassword", { isAdmin: false });
 	} else {
-		res.redirect("/login");
+		return res.redirect("/login");
 	}
 });
 
@@ -289,7 +291,7 @@ app.post("/changePassword", (req, res) => {
 			}
 		});
 	}
-	res.redirect("/");
+	return res.redirect("/");
 });
 
 

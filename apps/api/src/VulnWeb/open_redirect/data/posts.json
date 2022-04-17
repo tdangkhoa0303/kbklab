@@ -1,0 +1,19 @@
+[
+	{
+		"id": 1,
+		"author": "User1",
+		"content": "Content random nè",
+		"comments": [
+		]
+	},
+	{
+		"id": 2,
+		"author": "User2",
+		"content": "Đố bé delete được cái post này",
+		"comments": [
+			{ "author": "Buu", "content": "Hihi cố lên nha" },
+			{ "author": "Khanh", "content": "Không xóa được làm người" },
+			{ "author": "Khoa", "content": "Có máy tính lượng tử + mạng vệ tinh hẵn bruteforce nó nha mấy bé" }
+		]
+	}
+]

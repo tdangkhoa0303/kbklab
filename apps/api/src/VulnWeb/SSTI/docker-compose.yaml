@@ -5,7 +5,6 @@ services:
     image: mariadb
     restart: always 
     env_file: ./.env
-    network_mode: bridge
     environment:
       MYSQL_ROOT_PASSWORD: $DB_PASSWORD
       MYSQL_DATABASE: $DB_NAME
@@ -13,11 +12,7 @@ services:
       - $DB_DOCKER_PORT
     volumes: 
       - .:/docker-entrypoint-initdb.d
-      - db-config:/etc/mysql
-      - db-data:/var/lib/mysql
-      - ./db/backup/files/:/data_backup/data
   app_ssti:
-    network_mode: bridge
     build:
       context: .
       dockerfile: ./Dockerfile
@@ -26,7 +21,7 @@ services:
       DB_HOST: mariadb
     ports:
       - 8080
-    image: ssti-app
+    image: app_ssti
     depends_on:
       - mariadb
     stdin_open: true
@@ -34,3 +29,8 @@ services:
 volumes: 
   db-config:
   db-data:
+
+networks:
+  default:
+    external:
+      name: my-bridge-network

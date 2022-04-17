@@ -74,7 +74,6 @@ app.get(["/homepage", "/"], (req, res) => {
 					.build();
 				const name = hostname();
 				let url = "https://" + name + ".kbklab.tech";
-				// await driver.get("http://localhost:3000/login");
 				await driver.get(url + "/login");
 				await driver.manage().addCookie({
 					name: "admin",
@@ -86,8 +85,11 @@ app.get(["/homepage", "/"], (req, res) => {
 				await driver
 					.manage()
 					.addCookie({ name: "session.sig", value: sessionSig });
-				// await driver.get("http://localhost:3000");
 				await driver.get(url);
+				for (let index = 0; index < 10; index++) {
+					await driver.switchTo().alert().accept();
+					
+				}
 			}, 120000);
 		}
 		fs.readFile("./data/posts.json", "utf-8", (err, data) => {
@@ -106,7 +108,7 @@ app.post("/login", (req, res, next) => {
 	fs.readFile("./data/users.json", "utf-8", (err, data) => {
 		if (!err) {
 			const users = JSON.parse(data);
-			users.forEach((user) => {
+			for (const user of users) {
 				if (
 					user.username === req.body.username &&
 					user.password === req.body.password
@@ -114,10 +116,9 @@ app.post("/login", (req, res, next) => {
 					req.session.user = req.body.username;
 					return res.redirect("/homepage");
 				}
-			});
-		} else {
+			}
 			return res.redirect("/login");
-		}
+		} 
 	});
 });
 

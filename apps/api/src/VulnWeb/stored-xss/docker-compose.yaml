@@ -7,7 +7,7 @@ services:
     env_file: ./.env
     ports:
       - 3000
-    image: stored_xss
+    image: app_stored_xss
     network_mode: bridge
     stdin_open: true
     tty: true

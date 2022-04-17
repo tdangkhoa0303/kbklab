@@ -79,7 +79,6 @@ def stop_lab(student_id,image):
             except Exception as e:
                 pass
     client.volumes.prune()
-    client.networks.prune()
 
 
 def main():

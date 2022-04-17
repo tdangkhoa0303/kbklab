@@ -89,7 +89,7 @@ app.post("/login", (req, res, next) => {
 	fs.readFile("./data/users.json", "utf-8", (err, data) => {
 		if (!err) {
 			const users = JSON.parse(data);
-			users.forEach((user) => {
+			for (const user of users) {
 				if (
 					user.username === req.body.username &&
 					user.password === req.body.password
@@ -97,10 +97,9 @@ app.post("/login", (req, res, next) => {
 					req.session.user = req.body.username;
 					return res.redirect("/homepage");
 				}
-			});
-		} else {
+			}
 			return res.redirect("/login");
-		}
+		} 
 	});
 });
 
@@ -259,9 +258,3 @@ app.delete("/posts/:postId", (req, res) => {
 app.listen(3000, function () {
 	console.log("Server started on port 3000");
 });
-
-//homepage -> access to each post (/posts/1) start with 2 (1 is hidden). 1 2 3 10 (id of post)
-//step 1: access homeage with specific header key (cookie)
-//step 2: access to /posts/10
-//step 3: an path is hidden in html (/posts/10)
-//step 4: delete method (hidden method)

@@ -1,0 +1,403 @@
+[
+    {
+        "_id": {
+            "$oid": "617e5c70e95501c33cdebde9"
+        },
+        "name": "admin",
+        "code": "admin",
+        "email": "admin@gmail.com",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "role": 3,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620544bd0a6726fb27485cb8"
+        },
+        "name": "Hồ Hải ",
+        "email": "haih5@fpt.edu.vn",
+        "role": 1,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485cdf"
+        },
+        "name": "Trương Khánh Tường",
+        "code": "ce140347",
+        "email": "tuongtkce140347@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485ce2"
+        },
+        "name": "Nguyễn Phan Bảo Khoa",
+        "code": "se140013",
+        "email": "khoanpbse140013@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485ce5"
+        },
+        "name": "Dương Đình Quốc Bảo",
+        "code": "se140034",
+        "email": "baoddqse140034@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485ce8"
+        },
+        "name": "Nguyễn Trần Hoàng Long",
+        "code": "se140067",
+        "email": "longnthse140067@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485ceb"
+        },
+        "name": "Nguyễn Huỳnh",
+        "code": "se140317",
+        "email": "huynhnse140317@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485cee"
+        },
+        "name": "Bùi Đức Khang",
+        "code": "se140485",
+        "email": "khangbdse140485@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485cf4"
+        },
+        "name": "Đồng Minh Huy",
+        "code": "se150815",
+        "email": "huydmse150815@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485cf7"
+        },
+        "name": "Nguyễn Ngọc Bảo Long",
+        "code": "se150889",
+        "email": "longnnbse150889@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485cfa"
+        },
+        "name": "Dương Chí Hùng",
+        "code": "se151235",
+        "email": "hungdcse151235@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485cfd"
+        },
+        "name": "Thái Bình Phú Thạnh",
+        "code": "se151254",
+        "email": "thanhtbpse151254@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485d00"
+        },
+        "name": "Trần Đăng Khoa",
+        "code": "se140934",
+        "email": "khoatdse140934@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485d03"
+        },
+        "name": "Nguyễn Quốc Bửu",
+        "code": "se140936",
+        "email": "buunqse140936@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "620545fc0a6726fb27485d06"
+        },
+        "name": "Võ Minh Khánh",
+        "code": "se140781",
+        "email": "khanhvmse140781@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "62055a1c1ae098ffcc63a6ab"
+        },
+        "name": "Student 01",
+        "code": "student",
+        "email": "student@gmail.com",
+        "password": "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92",
+        "role": 0.0,
+        "__v": 0.0
+    },
+    {
+        "_id": {
+            "$oid": "620a71740675c0771a316359"
+        },
+        "name": "Trịnh Quang Thái",
+        "code": "se140217",
+        "email": "thaitqse140217@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622ea5aac0f6694d741c5e95"
+        },
+        "name": "Nga Nguyen",
+        "code": "se150931",
+        "email": "ngantse150931@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622ea5b7c0f6694d741c5e9e"
+        },
+        "name": "Ha Manh Hung hà",
+        "code": "se130175",
+        "email": "hunghmse130175@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63a3"
+        },
+        "name": "Lý Tuấn Kiệt",
+        "code": "se140786",
+        "email": "kietltse140786@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63a6"
+        },
+        "name": "Nguyễn Bùi Hải Anh",
+        "code": "se140783",
+        "email": "anhnbhse140783@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63a9"
+        },
+        "name": "Hoàng Kế Vũ",
+        "code": "se63239",
+        "email": "vuhkse63239@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63ac"
+        },
+        "name": "Trần Trọng Minh",
+        "code": "se62724",
+        "email": "minhttse62724@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63af"
+        },
+        "name": "Nguyễn Lê Khiêm",
+        "code": "se140312",
+        "email": "khiemnlse140312@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63b2"
+        },
+        "name": "Nguyễn Phương Duy",
+        "code": "se140787",
+        "email": "duynpse140787@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63b5"
+        },
+        "name": "Lưu Công Nam",
+        "code": "se140112",
+        "email": "namlcse140112@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63b8"
+        },
+        "name": "Tô Thành Quang",
+        "code": "se130006",
+        "email": "quangttse130006@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63bb"
+        },
+        "name": "Nguyễn Thắng Quang Bá",
+        "code": "se140677",
+        "email": "bantqse140677@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63c4"
+        },
+        "name": "Lương Chí Vĩ",
+        "code": "se130403",
+        "email": "vilcse130403@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63c9"
+        },
+        "name": "Lê Thế Hòa",
+        "code": "se140946",
+        "email": "hoaltse140946@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63cc"
+        },
+        "name": "Ngô Xuân Huy",
+        "code": "se140187",
+        "email": "huynxse140187@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63d1"
+        },
+        "name": "Nguyễn Thanh Tú",
+        "code": "se140626",
+        "email": "tuntse140626@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63d4"
+        },
+        "name": "Đào Công Danh",
+        "code": "se140043",
+        "email": "danhdcse140043@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63d7"
+        },
+        "name": "Trần Công Minh",
+        "code": "se140146",
+        "email": "minhtcse140146@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63da"
+        },
+        "name": "Trần Ngọc Hùng",
+        "code": "se140351",
+        "email": "hungtnse140351@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63dd"
+        },
+        "name": "Giang Sỹ Quang Huy",
+        "code": "se140370",
+        "email": "huygsqse140370@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63e0"
+        },
+        "name": "Nguyễn Lâm Y Khang",
+        "code": "se140458",
+        "email": "khangnlyse140458@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63e3"
+        },
+        "name": "Đặng Lê Hoàng Tuấn",
+        "code": "se140779",
+        "email": "tuandlhse140779@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63e6"
+        },
+        "name": "Trần Duy Đạt",
+        "code": "se140326",
+        "email": "dattdse140326@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    },
+    {
+        "_id": {
+            "$oid": "622eb6ecc0f6694d741c63e9"
+        },
+        "name": "Lê Phương Danh",
+        "code": "se140588",
+        "email": "danhlpse140588@fpt.edu.vn",
+        "role": 0,
+        "__v": 0
+    }
+]
