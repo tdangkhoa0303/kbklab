@@ -52,7 +52,7 @@ export const importClass = async (fields: ImportClassPayload, user): Promise<Imp
 }
 
 export const getAllClassesWithClassLabs = async (user: User): Promise<ClassWithClassLabDTO[]> => {
-  const lecturer = user.role < UserRole.HeadDepartment ? user.id : undefined;
+  const lecturer = user.role < UserRole.HeadDepartment ? user._id : undefined;
   return ClassesQueries.getAllClassesWithClassLabs(lecturer)
 }
 
