@@ -9,7 +9,7 @@ export const useConfirmDeleteLecturers = (gridRef: MutableRefObject<GridContextV
 
   return useCallback(() => {
     showConfirmation({
-      title: 'Delete classes?',
+      title: 'Delete lecturers?',
       content: 'Are you sure to delete these lecturers. After the deletion, all their classes will be assigned to you.',
       onConfirm: deleteLecturers,
     });
