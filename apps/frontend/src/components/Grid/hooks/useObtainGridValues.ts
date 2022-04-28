@@ -1,5 +1,5 @@
 import {GridReadyEvent} from 'ag-grid-community';
-import {MutableRefObject, useCallback, useRef} from 'react';
+import {MutableRefObject, useCallback, useRef, useState} from 'react';
 import {GridContextValues, initialGridContextValues} from '../GridContext';
 
 export type UseObtainGridValuesReturnValues = [
@@ -8,9 +8,7 @@ export type UseObtainGridValuesReturnValues = [
 ];
 
 export const useObtainGridValues = (externalGridRef?: MutableRefObject<GridContextValues | null>): UseObtainGridValuesReturnValues => {
-  const gridValuesRef = useRef<GridContextValues>(
-    initialGridContextValues
-  );
+  const [gridValues, setGridValues] = useState(initialGridContextValues);
 
   const obtainGridValues = useCallback(
     (params: GridReadyEvent) => {
@@ -18,13 +16,13 @@ export const useObtainGridValues = (externalGridRef?: MutableRefObject<GridConte
         gridApi: params.api,
         columnApi: params.columnApi,
       })
+      setGridValues(gridValues);
 
-      gridValuesRef.current = gridValues;
       if(externalGridRef) {
         externalGridRef.current = gridValues
       }
     }, [externalGridRef]
   );
 
-  return [gridValuesRef.current, obtainGridValues];
+  return [gridValues, obtainGridValues];
 };

@@ -7,7 +7,7 @@ export interface ExportToCSVButtonProps {
 }
 
 const ExportToCSVButton: React.FC<ExportToCSVButtonProps> = ({ classCode }) => {
-  const { gridApi } = useGridContext();
+  const {gridApi} = useGridContext();
 
   const exportToCSV = useCallback(() => {
     if (gridApi) {
